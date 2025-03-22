@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- [Head] start -->
+
+<head>
+    <title>Home | Mantis Bootstrap 5 Admin Template</title>
+    <!-- [Meta] -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description"
+        content="Mantis is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+    <meta name="keywords"
+        content="Mantis, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Bootstrap Admin Template">
+    <meta name="author" content="CodedThemes">
+
+    <!-- [Favicon] icon -->
+    <link rel="icon" href="~/images/favicon.svg" type="image/x-icon">
+    <!-- [Page specific CSS] start -->
+    <!-- data tables css -->
+    <link rel="stylesheet" href="~/css/plugins/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="~/css/plugins/buttons.bootstrap5.min.css">
+    <!-- [Page specific CSS] end -->
+    <!-- [Google Font] Family -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        id="main-font-link">
+    <!-- [Tabler Icons] https://tablericons.com -->
+    <link rel="stylesheet" href="~/fonts/tabler-icons.min.css">
+    <!-- [Feather Icons] https://feathericons.com -->
+    <link rel="stylesheet" href="~/fonts/feather.css">
+    <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
+    <link rel="stylesheet" href="~/fonts/fontawesome.css">
+    <!-- [Material Icons] https://fonts.google.com/icons -->
+    <link rel="stylesheet" href="~/fonts/material.css">
+    <!-- [Template CSS Files] -->
+    <link rel="stylesheet" href="~/css/style.css" id="main-style-link">
+    <link rel="stylesheet" href="~/css/style-preset.css">
+
+
+</head>
+<!-- [Head] end -->
+<!-- [Body] Start -->
+
+<body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+    <!-- [ Sidebar Menu ] start -->
+    <nav class="pc-sidebar">
+        <div class="navbar-wrapper">
+            <div class="">
+                <div class="w-100" style="height: 75px;">
+                    <!-- ========   Change your logo from here   ============ -->
+                    <img src="~/images/logo.png" class="w-100 h-100" style="object-fit: cover" alt="logo">
+                </div>
+            </div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item">
+                        <a href="/admin" class="pc-link">
+                            <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
+                            <span class="pc-mtext">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="pc-item pc-caption">
+                        <label>Plane management</label>
+                        <i class="ti ti-dashboard"></i>
+                    </li>
+                    <li class="pc-item">
+                        <a href="/admin/planes" class="pc-link">
+                            <span class="pc-micon"><i class="ti ti-typography"></i></span>
+                            <span class="pc-mtext">Planes</span>
+                        </a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="/admin/flights" class="pc-link">
+                            <span class="pc-micon"><i class="ti ti-color-swatch"></i></span>
+                            <span class="pc-mtext">Flights</span>
+                        </a>
+                    </li>
+
+                    @* <li class="pc-item pc-caption">
+          <label>Pages</label>
+          <i class="ti ti-news"></i>
+        </li>
+        <li class="pc-item">
+          <a href="../pages/login.html" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-lock"></i></span>
+            <span class="pc-mtext">Login</span>
+          </a>
+        </li> *@
+                    @* <li class="pc-item">
+          <a href="../pages/register.html" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
+            <span class="pc-mtext">Register</span>
+          </a>
+        </li> *@
+
+                    <li class="pc-item pc-caption">
+                        <label>Other</label>
+                        <i class="ti ti-brand-chrome"></i>
+                    </li>
+                    <li class="pc-item pc-hasmenu">
+                        <a href="#!" class="pc-link"><span class="pc-micon"><i class="ti ti-menu"></i></span><span
+                                class="pc-mtext">Menu
+                                levels</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                        <ul class="pc-submenu">
+                            <li class="pc-item"><a class="pc-link" href="#!">Level 2.1</a></li>
+                            <li class="pc-item pc-hasmenu">
+                                <a href="#!" class="pc-link">Level 2.2<span class="pc-arrow"><i
+                                            data-feather="chevron-right"></i></span></a>
+                                <ul class="pc-submenu">
+                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
+                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
+                                    <li class="pc-item pc-hasmenu">
+                                        <a href="#!" class="pc-link">Level 3.3<span class="pc-arrow"><i
+                                                    data-feather="chevron-right"></i></span></a>
+                                        <ul class="pc-submenu">
+                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
+                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="pc-item pc-hasmenu">
+                                <a href="#!" class="pc-link">Level 2.3<span class="pc-arrow"><i
+                                            data-feather="chevron-right"></i></span></a>
+                                <ul class="pc-submenu">
+                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
+                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
+                                    <li class="pc-item pc-hasmenu">
+                                        <a href="#!" class="pc-link">Level 3.3<span class="pc-arrow"><i
+                                                    data-feather="chevron-right"></i></span></a>
+                                        <ul class="pc-submenu">
+                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
+                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
+    <header class="pc-header">
+        <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
+            <div class="me-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <!-- ======= Menu collapse Icon ===== -->
+                    <li class="pc-h-item pc-sidebar-collapse">
+                        <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
+                            <i class="ti ti-menu-2"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <!-- [ Header ] end -->
+
+    @RenderBody()
+
+    <!-- [ Main Content ] start -->
+
+
+
+
+</body>
+<!-- [Body] end -->
+<!-- [Page Specific JS] start -->
+<!-- datatable Js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="~/js/plugins/jquery.dataTables.min.js"></script>
+<script src="~/js/plugins/dataTables.bootstrap5.min.js"></script>
+<script src="~/js/plugins/buttons.colVis.min.js"></script>
+<script src="~/js/plugins/buttons.print.min.js"></script>
+<script src="~/js/plugins/pdfmake.min.js"></script>
+<script src="~/js/plugins/jszip.min.js"></script>
+<script src="~/js/plugins/dataTables.buttons.min.js"></script>
+<script src="~/js/plugins/vfs_fonts.js"></script>
+<script src="~/js/plugins/buttons.html5.min.js"></script>
+<script src="~/js/plugins/buttons.bootstrap5.min.js"></script>
+<script>
+    // [ HTML5 Export Buttons ]
+    $('#basic-btn').DataTable({
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'print']
+    });
+
+    // [ Column Selectors ]
+    $('#cbtn-selectors').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'copyHtml5',
+                exportOptions: {
+                    columns: [0, ':visible']
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                exportOptions: {
+                    columns: [0, 1, 2, 5]
+                }
+            },
+            'colvis'
+        ]
+    });
+
+    // [ Excel - Cell Background ]
+    $('#excel-bg').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                customize: function (xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                    $('row c[r^="F"]', sheet).each(function () {
+                        if ($('is t', this).text().replace(/[^\d]/g, '') * 1 >= 500000) {
+                            $(this).attr('s', '20');
+                        }
+                    });
+                }
+            }
+        ]
+    });
+
+    // [ Custom File (JSON) ]
+    $('#pdf-json').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                text: 'JSON',
+                action: function (e, dt, button, config) {
+                    var data = dt.buttons.exportData();
+                    $.fn.dataTable.fileSave(new Blob([JSON.stringify(data)]), 'Export.json');
+                }
+            }
+        ]
+    });
+</script>
+<!-- [Page Specific JS] end -->
+
+</html>
