@@ -1,0 +1,1677 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\dotnet\\BookingSite\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\BookingSite.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BookingSite.pnh07ja4gg.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\landing.css",
+      "PackagePath": "staticwebassets\\css\\landing.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\animate.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\animate.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\autoFill.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\autoFill.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\bootstrap-slider.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\bootstrap-slider.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\bootstrap-switch-button.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\bootstrap-switch-button.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\buttons.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\buttons.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\colReorder.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\colReorder.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\croppr.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\croppr.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\dataTables.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\dataTables.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\datepicker-bs5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\datepicker-bs5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\dragula.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\dragula.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\dropzone.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\dropzone.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\fixedColumns.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\fixedColumns.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\fixedHeader.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\fixedHeader.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\flatpickr.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\flatpickr.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\introjs.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\introjs.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\jsvectormap.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\jsvectormap.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\keyTable.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\keyTable.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\notifier.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\notifier.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\nouislider.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\nouislider.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\prism-coy.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\prism-coy.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\quill.bubble.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\quill.bubble.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\quill.core.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\quill.core.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\quill.snow.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\quill.snow.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\responsive.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\responsive.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\rowReorder.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\rowReorder.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\scroller.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\scroller.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\select.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\select.bootstrap5.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\simplemde.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\simplemde.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\style.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\style.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\tiny-slider.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\tiny-slider.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\uppy.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\uppy.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\plugins\\vanillatree.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\vanillatree.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\style-preset.css",
+      "PackagePath": "staticwebassets\\css\\style-preset.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\uikit.css",
+      "PackagePath": "staticwebassets\\css\\uikit.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\component.js",
+      "PackagePath": "staticwebassets\\js\\component.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\fonts\\custom-font.js",
+      "PackagePath": "staticwebassets\\js\\fonts\\custom-font.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\layout-compact.js",
+      "PackagePath": "staticwebassets\\js\\layout-compact.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\layout-horizontal.js",
+      "PackagePath": "staticwebassets\\js\\layout-horizontal.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\layout-tab.js",
+      "PackagePath": "staticwebassets\\js\\layout-tab.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\ac-alert.js",
+      "PackagePath": "staticwebassets\\js\\pages\\ac-alert.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\ac-datepicker.js",
+      "PackagePath": "staticwebassets\\js\\pages\\ac-datepicker.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\ac-notification.js",
+      "PackagePath": "staticwebassets\\js\\pages\\ac-notification.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\ac-rangeslider.js",
+      "PackagePath": "staticwebassets\\js\\pages\\ac-rangeslider.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\ac-slider.js",
+      "PackagePath": "staticwebassets\\js\\pages\\ac-slider.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\ac-tour.js",
+      "PackagePath": "staticwebassets\\js\\pages\\ac-tour.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\ac-treeview.js",
+      "PackagePath": "staticwebassets\\js\\pages\\ac-treeview.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\calendar.js",
+      "PackagePath": "staticwebassets\\js\\pages\\calendar.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\canada.js",
+      "PackagePath": "staticwebassets\\js\\pages\\canada.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\chart-apex.js",
+      "PackagePath": "staticwebassets\\js\\pages\\chart-apex.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\dashboard-analytics.js",
+      "PackagePath": "staticwebassets\\js\\pages\\dashboard-analytics.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\dashboard-default.js",
+      "PackagePath": "staticwebassets\\js\\pages\\dashboard-default.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\form-masking-custom.js",
+      "PackagePath": "staticwebassets\\js\\pages\\form-masking-custom.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\form-validation.js",
+      "PackagePath": "staticwebassets\\js\\pages\\form-validation.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\iraq.js",
+      "PackagePath": "staticwebassets\\js\\pages\\iraq.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\italy.js",
+      "PackagePath": "staticwebassets\\js\\pages\\italy.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\map-vector.js",
+      "PackagePath": "staticwebassets\\js\\pages\\map-vector.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\page-croper.js",
+      "PackagePath": "staticwebassets\\js\\pages\\page-croper.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\russia.js",
+      "PackagePath": "staticwebassets\\js\\pages\\russia.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\spain.js",
+      "PackagePath": "staticwebassets\\js\\pages\\spain.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\us-aea-en.js",
+      "PackagePath": "staticwebassets\\js\\pages\\us-aea-en.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\us-lcc-en.js",
+      "PackagePath": "staticwebassets\\js\\pages\\us-lcc-en.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\us-merc-en.js",
+      "PackagePath": "staticwebassets\\js\\pages\\us-merc-en.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\us-mill-en.js",
+      "PackagePath": "staticwebassets\\js\\pages\\us-mill-en.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pages\\w-chart.js",
+      "PackagePath": "staticwebassets\\js\\pages\\w-chart.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\pcoded.js",
+      "PackagePath": "staticwebassets\\js\\pcoded.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\Jarallax.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\Jarallax.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\apexcharts.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\apexcharts.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\autoFill.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\autoFill.bootstrap5.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\bootstrap-slider.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\bootstrap-slider.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\bootstrap-switch-button.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\bootstrap-switch-button.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\bouncer.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\bouncer.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\buttons.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\buttons.bootstrap5.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\buttons.colVis.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\buttons.colVis.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\buttons.html5.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\buttons.html5.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\buttons.print.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\buttons.print.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\choices.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\choices.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\ckeditor\\balloon\\ckeditor.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\ckeditor\\balloon\\ckeditor.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\ckeditor\\classic\\ckeditor.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\ckeditor\\classic\\ckeditor.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\ckeditor\\document\\ckeditor.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\ckeditor\\document\\ckeditor.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\ckeditor\\inline\\ckeditor.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\ckeditor\\inline\\ckeditor.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\clipboard.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\clipboard.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\croppr.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\croppr.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dataTables.autoFill.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dataTables.autoFill.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dataTables.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dataTables.bootstrap5.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dataTables.buttons.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dataTables.buttons.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dataTables.colReorder.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dataTables.colReorder.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dataTables.fixedColumns.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dataTables.fixedColumns.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dataTables.fixedHeader.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dataTables.fixedHeader.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dataTables.keyTable.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dataTables.keyTable.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dataTables.responsive.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dataTables.responsive.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dataTables.rowReorder.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dataTables.rowReorder.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dataTables.select.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dataTables.select.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\datepicker-full.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\datepicker-full.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dragula.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dragula.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\dropzone-amd-module.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\dropzone-amd-module.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\feather.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\feather.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\flatpickr.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\flatpickr.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\gmaps.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\gmaps.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\imask.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\imask.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\index.global.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\index.global.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\intro.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\intro.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\isotope.pkgd.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\isotope.pkgd.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\jsvectormap.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\jsvectormap.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\jszip.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\jszip.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\keyTable.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\keyTable.bootstrap5.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\module.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\module.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\notifier.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\notifier.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\nouislider.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\nouislider.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\pdfmake.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\pdfmake.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\popper.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\popper.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\prism.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\prism.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\quill.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\quill.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\responsive.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\responsive.bootstrap5.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\scroller.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\scroller.bootstrap5.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\simple-datatables.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\simple-datatables.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\simplebar.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\simplebar.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\simplemde.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\simplemde.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\sweetalert2.all.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\sweetalert2.all.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tiny-slider.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tiny-slider.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\CHANGELOG.md",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\CHANGELOG.md"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\README.md",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\README.md"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\bower.json",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\bower.json"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\composer.json",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\composer.json"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\icons\\default\\icons.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\icons\\default\\icons.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\icons\\default\\icons.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\icons\\default\\icons.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\icons\\default\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\icons\\default\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\license.txt",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\license.txt"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\models\\dom\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\models\\dom\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\models\\dom\\model.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\models\\dom\\model.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\models\\dom\\model.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\models\\dom\\model.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\package-lock.json",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\package-lock.json"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\package.json",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\package.json"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\accordion\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\accordion\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\accordion\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\accordion\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\accordion\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\accordion\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\advlist\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\advlist\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\advlist\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\advlist\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\advlist\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\advlist\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\anchor\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\anchor\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\anchor\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\anchor\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\anchor\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\anchor\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\autolink\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\autolink\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\autolink\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\autolink\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\autolink\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\autolink\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\autoresize\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\autoresize\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\autoresize\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\autoresize\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\autoresize\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\autoresize\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\autosave\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\autosave\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\autosave\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\autosave\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\autosave\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\autosave\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\charmap\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\charmap\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\charmap\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\charmap\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\charmap\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\charmap\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\code\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\code\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\code\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\code\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\code\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\code\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\codesample\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\codesample\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\codesample\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\codesample\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\codesample\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\codesample\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\directionality\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\directionality\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\directionality\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\directionality\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\directionality\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\directionality\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\emoticons\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\emoticons\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\emoticons\\js\\emojiimages.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\emoticons\\js\\emojiimages.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\emoticons\\js\\emojiimages.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\emoticons\\js\\emojiimages.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\emoticons\\js\\emojis.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\emoticons\\js\\emojis.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\emoticons\\js\\emojis.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\emoticons\\js\\emojis.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\emoticons\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\emoticons\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\emoticons\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\emoticons\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\fullscreen\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\fullscreen\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\fullscreen\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\fullscreen\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\fullscreen\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\fullscreen\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ar.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ar.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\bg_BG.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\bg_BG.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ca.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ca.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\cs.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\cs.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\da.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\da.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\de.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\de.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\el.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\el.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\en.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\en.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\es.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\es.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\eu.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\eu.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fa.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fa.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fi.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fi.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fr_FR.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\fr_FR.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\he_IL.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\he_IL.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hi.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hi.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hr.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hr.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hu_HU.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\hu_HU.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\id.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\id.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\it.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\it.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ja.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ja.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\kk.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\kk.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ko_KR.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ko_KR.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ms.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ms.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\nb_NO.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\nb_NO.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\nl.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\nl.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pl.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pl.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pt_BR.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pt_BR.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pt_PT.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\pt_PT.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ro.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ro.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ru.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\ru.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sk.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sk.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sl_SI.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sl_SI.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sv_SE.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\sv_SE.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\th_TH.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\th_TH.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\tr.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\tr.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\uk.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\uk.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\vi.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\vi.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\zh_CN.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\zh_CN.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\zh_TW.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\js\\i18n\\keynav\\zh_TW.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\help\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\help\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\image\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\image\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\image\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\image\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\image\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\image\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\importcss\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\importcss\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\importcss\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\importcss\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\importcss\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\importcss\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\insertdatetime\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\insertdatetime\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\insertdatetime\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\insertdatetime\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\insertdatetime\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\insertdatetime\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\link\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\link\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\link\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\link\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\link\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\link\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\lists\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\lists\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\lists\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\lists\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\lists\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\lists\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\media\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\media\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\media\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\media\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\media\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\media\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\nonbreaking\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\nonbreaking\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\nonbreaking\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\nonbreaking\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\nonbreaking\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\nonbreaking\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\pagebreak\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\pagebreak\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\pagebreak\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\pagebreak\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\pagebreak\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\pagebreak\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\preview\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\preview\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\preview\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\preview\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\preview\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\preview\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\print\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\print\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\quickbars\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\quickbars\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\quickbars\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\quickbars\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\quickbars\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\quickbars\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\save\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\save\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\save\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\save\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\save\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\save\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\searchreplace\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\searchreplace\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\searchreplace\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\searchreplace\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\searchreplace\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\searchreplace\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\table\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\table\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\table\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\table\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\table\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\table\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\template\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\template\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\template\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\template\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\template\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\template\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\visualblocks\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\visualblocks\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\visualblocks\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\visualblocks\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\visualblocks\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\visualblocks\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\visualchars\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\visualchars\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\visualchars\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\visualchars\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\visualchars\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\visualchars\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\wordcount\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\wordcount\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\wordcount\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\wordcount\\plugin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\plugins\\wordcount\\plugin.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\plugins\\wordcount\\plugin.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\dark\\content.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\dark\\content.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\dark\\content.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\dark\\content.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\dark\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\dark\\content.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\default\\content.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\default\\content.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\default\\content.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\default\\content.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\default\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\default\\content.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\document\\content.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\document\\content.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\document\\content.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\document\\content.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\document\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\document\\content.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\tinymce-5-dark\\content.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\tinymce-5-dark\\content.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\tinymce-5-dark\\content.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\tinymce-5-dark\\content.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\tinymce-5-dark\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\tinymce-5-dark\\content.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\tinymce-5\\content.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\tinymce-5\\content.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\tinymce-5\\content.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\tinymce-5\\content.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\tinymce-5\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\tinymce-5\\content.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\writer\\content.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\writer\\content.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\writer\\content.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\writer\\content.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\content\\writer\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\content\\writer\\content.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.inline.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.inline.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.inline.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.inline.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.inline.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.inline.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\content.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.inline.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.inline.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.inline.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.inline.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.inline.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.inline.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\content.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.inline.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.inline.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.inline.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.inline.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.inline.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.inline.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\content.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.shadowdom.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.shadowdom.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.shadowdom.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.shadowdom.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.shadowdom.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5-dark\\skin.shadowdom.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.inline.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.inline.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.inline.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.inline.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.inline.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.inline.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\content.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.shadowdom.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.shadowdom.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.shadowdom.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.shadowdom.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.shadowdom.min.css",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\skins\\ui\\tinymce-5\\skin.shadowdom.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\themes\\silver\\index.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\themes\\silver\\index.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\themes\\silver\\theme.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\themes\\silver\\theme.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\themes\\silver\\theme.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\themes\\silver\\theme.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\tinymce.d.ts",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\tinymce.d.ts"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\tinymce.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\tinymce.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\tinymce\\tinymce.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\tinymce\\tinymce.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\type-ahead.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\type-ahead.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\uppy.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\uppy.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\vanillatree.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\vanillatree.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\vfs_fonts.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\vfs_fonts.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\wNumb.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\wNumb.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\world-merc.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\world-merc.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\world.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\world.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\plugins\\wow.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\wow.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.BookingSite.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.BookingSite.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.BookingSite.props",
+      "PackagePath": "build\\BookingSite.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.BookingSite.props",
+      "PackagePath": "buildMultiTargeting\\BookingSite.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.BookingSite.props",
+      "PackagePath": "buildTransitive\\BookingSite.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

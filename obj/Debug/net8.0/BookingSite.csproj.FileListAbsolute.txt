@@ -28,7 +28,44 @@ D:\dotnet\BookingSite\obj\Debug\net8.0\refint\BookingSite.dll
 D:\dotnet\BookingSite\obj\Debug\net8.0\BookingSite.pdb
 D:\dotnet\BookingSite\obj\Debug\net8.0\BookingSite.genruntimeconfig.cache
 D:\dotnet\BookingSite\obj\Debug\net8.0\ref\BookingSite.dll
+<<<<<<< HEAD
 D:\dotnet\BookingSite\bin\Debug\net8.0\BookingSite.staticwebassets.endpoints.json
 D:\dotnet\BookingSite\obj\Debug\net8.0\BookingSite.sourcelink.json
 D:\dotnet\BookingSite\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 D:\dotnet\BookingSite\obj\Debug\net8.0\staticwebassets\msbuild.BookingSite.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+=======
+D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net8.0\appsettings.Development.json
+D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net8.0\appsettings.json
+D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net8.0\BookingSite.staticwebassets.endpoints.json
+D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net8.0\BookingSite.staticwebassets.runtime.json
+D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net8.0\BookingSite.exe
+D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net8.0\BookingSite.deps.json
+D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net8.0\BookingSite.runtimeconfig.json
+D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net8.0\BookingSite.dll
+D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net8.0\BookingSite.pdb
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.AssemblyInfoInputs.cache
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.AssemblyInfo.cs
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.csproj.CoreCompileInputs.cache
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.MvcApplicationPartsAssemblyInfo.cache
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.RazorAssemblyInfo.cache
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.RazorAssemblyInfo.cs
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.sourcelink.json
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\scopedcss\bundle\BookingSite.styles.css
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\scopedcss\projectbundle\BookingSite.bundle.scp.css
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\staticwebassets.build.json
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\staticwebassets.development.json
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\staticwebassets\msbuild.BookingSite.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\staticwebassets\msbuild.BookingSite.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\staticwebassets\msbuild.build.BookingSite.props
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BookingSite.props
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BookingSite.props
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.dll
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\refint\BookingSite.dll
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.pdb
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\BookingSite.genruntimeconfig.cache
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net8.0\ref\BookingSite.dll
+>>>>>>> 039f99609e8a5947f6f66adaab80b1f16153aad5
