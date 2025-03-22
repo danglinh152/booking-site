@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Correct path
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- HTML5 Export Buttons table start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
+                        <h2>Baggages Management</h2>
+                        <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
+                            href="/admin/baggages/create-baggage">
+                            <i class="bi bi-plus-circle me-2"></i> Create New Baggage
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="dt-responsive table-responsive">
+                            <table id="basic-btn" class="table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Baggage Id</th>
+                                        <th>Booking Id</th>
+                                        <th>Weight (kg)</th>
+                                        <th>Fee ($)</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>BK001</td>
+                                        <td>23</td>
+                                        <td>50</td>
+                                        <td>
+                                            <a href="/admin/baggages/1" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/baggages/edit/1" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/baggages/delete/1" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>BK002</td>
+                                        <td>15</td>
+                                        <td>30</td>
+                                        <td>
+                                            <a href="/admin/baggages/2" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/baggages/edit/2" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/baggages/delete/2" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>BK003</td>
+                                        <td>28</td>
+                                        <td>70</td>
+                                        <td>
+                                            <a href="/admin/baggages/3" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/baggages/edit/3" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/baggages/delete/3" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>BK004</td>
+                                        <td>10</td>
+                                        <td>20</td>
+                                        <td>
+                                            <a href="/admin/baggages/4" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/baggages/edit/4" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/baggages/delete/4" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>BK005</td>
+                                        <td>18</td>
+                                        <td>40</td>
+                                        <td>
+                                            <a href="/admin/baggages/5" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/baggages/edit/5" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/baggages/delete/5" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- HTML5 Export Buttons end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>

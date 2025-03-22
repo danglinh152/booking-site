@@ -1,115 +1,84 @@
-﻿<div class="pc-container">
+﻿@{
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Correct path
+}
+
+<div class="pc-container">
     <div class="pc-content">
-        <!-- [ breadcrumb ] start -->
-        <div class="page-header">
-            <div class="page-block">
-                <div class="row align-items-center">
-                    <div class="col-md-12">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10">Quản Lý Chuyến Bay</h5>
-                        </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript: void(0)">Dashboard</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- [ breadcrumb ] end -->
-        
         <!-- [ Main Content ] start -->
         <div class="row">
-            <!-- Tổng số chuyến bay -->
-            <div class="col-md-6 col-xl-3">
+            <!-- HTML5 Export Buttons table start -->
+            <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-body">
-                        <h6 class="mb-2 f-w-400 text-muted">Tổng Số Chuyến Bay</h6>
-                        <h4 class="mb-3">4,42,236 <span class="badge bg-light-primary border border-primary"><i class="ti ti-trending-up"></i> 59.3%</span></h4>
-                        <p class="mb-0 text-muted text-sm">Bạn đã tăng thêm <span class="text-primary">35,000</span> chuyến bay năm nay</p>
+                    <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
+                        <h2>Flights Management</h2>
+                        <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
+                            href="/admin/flights/create-flight">
+                            <i class="bi bi-plus-circle me-2"></i> Create New Flight
+                        </a>
                     </div>
-                </div>
-            </div>
-            <!-- Tổng số kế hoạch -->
-            <div class="col-md-6 col-xl-3">
-                <div class="card">
                     <div class="card-body">
-                        <h6 class="mb-2 f-w-400 text-muted">Tổng Kế Hoạch</h6>
-                        <h4 class="mb-3">78,250 <span class="badge bg-light-success border border-success"><i class="ti ti-trending-up"></i> 70.5%</span></h4>
-                        <p class="mb-0 text-muted text-sm">Bạn đã tăng thêm <span class="text-success">8,900</span> kế hoạch năm nay</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Tổng số khách hàng -->
-            <div class="col-md-6 col-xl-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="mb-2 f-w-400 text-muted">Tổng Khách Hàng</h6>
-                        <h4 class="mb-3">18,800 <span class="badge bg-light-warning border border-warning"><i class="ti ti-trending-down"></i> 27.4%</span></h4>
-                        <p class="mb-0 text-muted text-sm">Bạn đã tăng thêm <span class="text-warning">1,943</span> khách hàng năm nay</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Tổng doanh thu -->
-            <div class="col-md-6 col-xl-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="mb-2 f-w-400 text-muted">Tổng Doanh Thu</h6>
-                        <h4 class="mb-3">$35,078 <span class="badge bg-light-danger border border-danger"><i class="ti ti-trending-down"></i> 27.4%</span></h4>
-                        <p class="mb-0 text-muted text-sm">Bạn đã tăng thêm <span class="text-danger">$20,395</span> doanh thu năm nay</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Biểu đồ khách truy cập -->
-            <div class="col-md-12 col-xl-8">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <h5 class="mb-0">Khách Truy Cập Độc Nhất</h5>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div id="visitor-chart"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Đơn hàng gần đây -->
-            <div class="col-md-12 col-xl-8">
-                <h5 class="mb-3">Đơn Hàng Gần Đây</h5>
-                <div class="card tbl-card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover table-borderless mb-0">
+                        <div class="dt-responsive table-responsive">
+                            <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
-                                        <th>TRACKING NO.</th>
-                                        <th>TÊN SẢN PHẨM</th>
-                                        <th>TỔNG ĐƠN HÀNG</th>
-                                        <th>TRẠNG THÁI</th>
-                                        <th class="text-end">TỔNG SỐ TIỀN</th>
+                                        <th>Flight ID</th>
+                                        <th>Model</th>
+                                        <th>Capacity</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><a href="#" class="text-muted">84564564</a></td>
-                                        <td>Camera Lens</td>
-                                        <td>40</td>
-                                        <td><span class="d-flex align-items-center gap-2"><i class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span></td>
-                                        <td class="text-end">$40,570</td>
+                                        <td>1</td>
+                                        <td>Boeing 747</td>
+                                        <td>660</td>
+                                        <td>
+                                            <a href="/admin/flights/1" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/flights/edit/1" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/flights/delete/1" class="btn btn-danger">Delete</a>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td><a href="#" class="text-muted">84564565</a></td>
-                                        <td>Laptop</td>
-                                        <td>300</td>
-                                        <td><span class="d-flex align-items-center gap-2"><i class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span></td>
-                                        <td class="text-end">$180,139</td>
+                                        <td>2</td>
+                                        <td>Airbus A380</td>
+                                        <td>555</td>
+                                        <td>
+                                            <a href="/admin/flights/1" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/flights/edit/2" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/flights/delete/2" class="btn btn-danger">Delete</a>
+                                        </td>
                                     </tr>
-                                    <!-- Thêm các dòng khác tương tự -->
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Concorde</td>
+                                        <td>100</td>
+                                        <td>
+                                            <a href="/admin/flights/1" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/flights/edit/3" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/flights/delete/3" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>McDonnell Douglas MD-11</td>
+                                        <td>285</td>
+                                        <td>
+                                            <a href="/admin/flights/1" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/flights/edit/4" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/flights/delete/4" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- HTML5 Export Buttons end -->
         </div>
         <!-- [ Main Content ] end -->
     </div>
