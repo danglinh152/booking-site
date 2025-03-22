@@ -28,3 +28,37 @@ D:\dotnet\BookingSite\obj\Debug\net8.0\refint\BookingSite.dll
 D:\dotnet\BookingSite\obj\Debug\net8.0\BookingSite.pdb
 D:\dotnet\BookingSite\obj\Debug\net8.0\BookingSite.genruntimeconfig.cache
 D:\dotnet\BookingSite\obj\Debug\net8.0\ref\BookingSite.dll
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\bin\Debug\net8.0\appsettings.Development.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\bin\Debug\net8.0\appsettings.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\bin\Debug\net8.0\BookingSite.staticwebassets.runtime.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\bin\Debug\net8.0\BookingSite.staticwebassets.endpoints.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\bin\Debug\net8.0\BookingSite.exe
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\bin\Debug\net8.0\BookingSite.deps.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\bin\Debug\net8.0\BookingSite.runtimeconfig.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\bin\Debug\net8.0\BookingSite.dll
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\bin\Debug\net8.0\BookingSite.pdb
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.GeneratedMSBuildEditorConfig.editorconfig
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.AssemblyInfoInputs.cache
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.AssemblyInfo.cs
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.csproj.CoreCompileInputs.cache
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.MvcApplicationPartsAssemblyInfo.cache
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.RazorAssemblyInfo.cache
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.RazorAssemblyInfo.cs
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.sourcelink.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\scopedcss\bundle\BookingSite.styles.css
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\scopedcss\projectbundle\BookingSite.bundle.scp.css
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\staticwebassets.build.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\staticwebassets.development.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\staticwebassets\msbuild.BookingSite.Microsoft.AspNetCore.StaticWebAssets.props
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\staticwebassets\msbuild.BookingSite.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\staticwebassets\msbuild.build.BookingSite.props
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BookingSite.props
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BookingSite.props
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\staticwebassets.pack.json
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.dll
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\refint\BookingSite.dll
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.pdb
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\BookingSite.genruntimeconfig.cache
+L:\Học Tập\Năm 3\HK2 2024-2025\FrameWork\DoAn\booking-site\obj\Debug\net8.0\ref\BookingSite.dll

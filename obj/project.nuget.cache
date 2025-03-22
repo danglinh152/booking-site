@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "idGLDcRM+bc=",
+  "dgSpecHash": "wVeqfdS1uEY=",
   "success": true,
-  "projectFilePath": "D:\\dotnet\\BookingSite\\BookingSite.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "L:\\Học Tập\\Năm 3\\HK2 2024-2025\\FrameWork\\DoAn\\booking-site\\BookingSite.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.14\\microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.14\\microsoft.windowsdesktop.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.14\\microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.14\\microsoft.netcore.app.host.win-x64.8.0.14.nupkg.sha512"
+  ],
   "logs": []
 }
