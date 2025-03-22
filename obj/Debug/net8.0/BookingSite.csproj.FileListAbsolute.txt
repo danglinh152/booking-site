@@ -28,3 +28,7 @@ D:\dotnet\BookingSite\obj\Debug\net8.0\refint\BookingSite.dll
 D:\dotnet\BookingSite\obj\Debug\net8.0\BookingSite.pdb
 D:\dotnet\BookingSite\obj\Debug\net8.0\BookingSite.genruntimeconfig.cache
 D:\dotnet\BookingSite\obj\Debug\net8.0\ref\BookingSite.dll
+D:\dotnet\BookingSite\bin\Debug\net8.0\BookingSite.staticwebassets.endpoints.json
+D:\dotnet\BookingSite\obj\Debug\net8.0\BookingSite.sourcelink.json
+D:\dotnet\BookingSite\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\dotnet\BookingSite\obj\Debug\net8.0\staticwebassets\msbuild.BookingSite.Microsoft.AspNetCore.StaticWebAssetEndpoints.props

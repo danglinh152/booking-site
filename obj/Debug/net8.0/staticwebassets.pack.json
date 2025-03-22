@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "D:\\dotnet\\BookingSite\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BookingSite.bundle.scp.css",
-      "PackagePath": "staticwebassets\\BookingSite.bundle.scp.css"
+      "PackagePath": "staticwebassets\\BookingSite.pnh07ja4gg.bundle.scp.css"
     },
     {
       "Id": "D:\\dotnet\\BookingSite\\wwwroot\\css\\site.css",
@@ -243,6 +243,10 @@
     {
       "Id": "D:\\dotnet\\BookingSite\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BookingSite.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BookingSite.Microsoft.AspNetCore.StaticWebAssets.props",
