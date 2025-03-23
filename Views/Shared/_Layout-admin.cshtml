@@ -30,7 +30,7 @@
     <!-- [Feather Icons] https://feathericons.com -->
     <link rel="stylesheet" href="~/fonts/feather.css">
     <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
-    <link rel="stylesheet" href="~/fonts/fontawesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- [Material Icons] https://fonts.google.com/icons -->
     <link rel="stylesheet" href="~/fonts/material.css">
     <!-- [Template CSS Files] -->
@@ -69,8 +69,32 @@
                     </li>
 
                     <li class="pc-item pc-caption">
-                        <label>Plane management</label>
+                        <label>Frequent management</label>
                         <i class="ti ti-dashboard"></i>
+                    </li>
+                    <li class="pc-item">
+                        <a href="/admin/users" class="pc-link">
+                            <span class="pc-micon"><i class="ti ti-typography"></i></span>
+                            <span class="pc-mtext">Users</span>
+                        </a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="/admin/bookings" class="pc-link">
+                            <span class="pc-micon"><i class="ti ti-typography"></i></span>
+                            <span class="pc-mtext">Bookings</span>
+                        </a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="/admin/passengers" class="pc-link">
+                            <span class="pc-micon"><i class="ti ti-typography"></i></span>
+                            <span class="pc-mtext">Passengers</span>
+                        </a>
+                    </li>
+                    <li class="pc-item">
+                        <a href="/admin/checkins" class="pc-link">
+                            <span class="pc-micon"><i class="ti ti-typography"></i></span>
+                            <span class="pc-mtext">Check-Ins</span>
+                        </a>
                     </li>
                     <li class="pc-item">
                         <a href="/admin/planes" class="pc-link">
@@ -103,47 +127,17 @@
         </li> *@
 
                     <li class="pc-item pc-caption">
-                        <label>Other</label>
                         <i class="ti ti-brand-chrome"></i>
                     </li>
                     <li class="pc-item pc-hasmenu">
                         <a href="#!" class="pc-link"><span class="pc-micon"><i class="ti ti-menu"></i></span><span
-                                class="pc-mtext">Menu
-                                levels</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                                class="pc-mtext">Other</span><span class="pc-arrow"><i
+                                    data-feather="chevron-right"></i></span></a>
                         <ul class="pc-submenu">
-                            <li class="pc-item"><a class="pc-link" href="#!">Level 2.1</a></li>
-                            <li class="pc-item pc-hasmenu">
-                                <a href="#!" class="pc-link">Level 2.2<span class="pc-arrow"><i
-                                            data-feather="chevron-right"></i></span></a>
-                                <ul class="pc-submenu">
-                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                                    <li class="pc-item pc-hasmenu">
-                                        <a href="#!" class="pc-link">Level 3.3<span class="pc-arrow"><i
-                                                    data-feather="chevron-right"></i></span></a>
-                                        <ul class="pc-submenu">
-                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
-                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="pc-item pc-hasmenu">
-                                <a href="#!" class="pc-link">Level 2.3<span class="pc-arrow"><i
-                                            data-feather="chevron-right"></i></span></a>
-                                <ul class="pc-submenu">
-                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                                    <li class="pc-item pc-hasmenu">
-                                        <a href="#!" class="pc-link">Level 3.3<span class="pc-arrow"><i
-                                                    data-feather="chevron-right"></i></span></a>
-                                        <ul class="pc-submenu">
-                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
-                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+                            <li class="pc-item"><a class="pc-link" href="/admin/airports">Airports</a></li>
+                            <li class="pc-item"><a class="pc-link" href="/admin/seats">Seats</a></li>
+                            <li class="pc-item"><a class="pc-link" href="/admin/baggages">Baggages</a></li>
+                            <li class="pc-item"><a class="pc-link" href="/admin/meals">Meals</a></li>
                         </ul>
                     </li>
 
@@ -179,6 +173,7 @@
 </body>
 <!-- [Body] end -->
 <!-- [Page Specific JS] start -->
+
 <!-- datatable Js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="~/js/plugins/jquery.dataTables.min.js"></script>
@@ -191,6 +186,33 @@
 <script src="~/js/plugins/vfs_fonts.js"></script>
 <script src="~/js/plugins/buttons.html5.min.js"></script>
 <script src="~/js/plugins/buttons.bootstrap5.min.js"></script>
+<!-- [Page Specific JS] start -->
+<script src="~/js/plugins/apexcharts.min.js"></script>
+<script src="~/js/pages/dashboard-default.js"></script>
+<!-- [Page Specific JS] end -->
+<!-- Required Js -->
+<script src="~/js/plugins/popper.min.js"></script>
+<script src="~/js/plugins/simplebar.min.js"></script>
+<script src="~/js/plugins/bootstrap.min.js"></script>
+<script src="~/js/fonts/custom-font.js"></script>
+<script src="~/js/pcoded.js"></script>
+<script src="~/js/plugins/feather.min.js"></script>
+<script>layout_change('light');</script>
+
+
+
+
+<script>change_box_container('false');</script>
+
+
+
+<script>layout_rtl_change('false');</script>
+
+
+<script>preset_change("preset-1");</script>
+
+
+<script>font_change("Public-Sans");</script>
 <script>
     // [ HTML5 Export Buttons ]
     $('#basic-btn').DataTable({
@@ -257,5 +279,6 @@
     });
 </script>
 <!-- [Page Specific JS] end -->
+
 
 </html>

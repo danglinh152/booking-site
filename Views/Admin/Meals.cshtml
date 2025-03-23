@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Correct path
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- HTML5 Export Buttons table start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
+                        <h2>Meals Management</h2>
+                        <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
+                            href="/admin/meals/create-meal">
+                            <i class="bi bi-plus-circle me-2"></i> Create New Meal
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="dt-responsive table-responsive">
+                            <table id="basic-btn" class="table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Meal Id</th>
+                                        <th>Booking Id</th>
+                                        <th>Meal Type</th>
+                                        <th>Price ($)</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>BK001</td>
+                                        <td>Vegetarian</td>
+                                        <td>15</td>
+                                        <td>
+                                            <a href="/admin/meals/1" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/meals/edit/1" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/meals/delete/1" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>BK002</td>
+                                        <td>Non-Vegetarian</td>
+                                        <td>20</td>
+                                        <td>
+                                            <a href="/admin/meals/2" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/meals/edit/2" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/meals/delete/2" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>BK003</td>
+                                        <td>Vegan</td>
+                                        <td>18</td>
+                                        <td>
+                                            <a href="/admin/meals/3" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/meals/edit/3" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/meals/delete/3" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>BK004</td>
+                                        <td>Gluten-Free</td>
+                                        <td>22</td>
+                                        <td>
+                                            <a href="/admin/meals/4" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/meals/edit/4" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/meals/delete/4" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>BK005</td>
+                                        <td>Seafood</td>
+                                        <td>25</td>
+                                        <td>
+                                            <a href="/admin/meals/5" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/meals/edit/5" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/meals/delete/5" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- HTML5 Export Buttons end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>

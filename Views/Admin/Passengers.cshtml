@@ -1,0 +1,108 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Correct path
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- HTML5 Export Buttons table start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
+                        <h2>Passengers Management</h2>
+                        <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
+                            href="/admin/passengers/create-passenger">
+                            <i class="bi bi-plus-circle me-2"></i> Create New Passenger
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="dt-responsive table-responsive">
+                            <table id="basic-btn" class="table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Passenger Id</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone No.</th>
+                                        <th>Passport No.</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>John Doe</td>
+                                        <td>john.doe@example.com</td>
+                                        <td>+1234567890</td>
+                                        <td>A12345678</td>
+                                        <td>
+                                            <a href="/admin/passengers/1" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/passengers/edit/1" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/passengers/delete/1" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jane Smith</td>
+                                        <td>jane.smith@example.com</td>
+                                        <td>+0987654321</td>
+                                        <td>B98765432</td>
+                                        <td>
+                                            <a href="/admin/passengers/2" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/passengers/edit/2" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/passengers/delete/2" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Michael Johnson</td>
+                                        <td>michael.j@example.com</td>
+                                        <td>+1122334455</td>
+                                        <td>C12345678</td>
+                                        <td>
+                                            <a href="/admin/passengers/3" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/passengers/edit/3" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/passengers/delete/3" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Emily Davis</td>
+                                        <td>emily.davis@example.com</td>
+                                        <td>+2233445566</td>
+                                        <td>D98765432</td>
+                                        <td>
+                                            <a href="/admin/passengers/4" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/passengers/edit/4" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/passengers/delete/4" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Chris Brown</td>
+                                        <td>chris.brown@example.com</td>
+                                        <td>+3344556677</td>
+                                        <td>E12345678</td>
+                                        <td>
+                                            <a href="/admin/passengers/5" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/passengers/edit/5" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/passengers/delete/5" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- HTML5 Export Buttons end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
