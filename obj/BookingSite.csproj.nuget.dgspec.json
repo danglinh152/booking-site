@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dotnet\\BookingSite\\BookingSite.csproj": {}
+    "D:\\Bài giảng UIT\\Framework\\booking-site\\BookingSite.csproj": {}
   },
   "projects": {
-    "D:\\dotnet\\BookingSite\\BookingSite.csproj": {
+    "D:\\Bài giảng UIT\\Framework\\booking-site\\BookingSite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dotnet\\BookingSite\\BookingSite.csproj",
+        "projectUniqueName": "D:\\Bài giảng UIT\\Framework\\booking-site\\BookingSite.csproj",
         "projectName": "BookingSite",
-        "projectPath": "D:\\dotnet\\BookingSite\\BookingSite.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\dotnet\\BookingSite\\obj\\",
+        "projectPath": "D:\\Bài giảng UIT\\Framework\\booking-site\\BookingSite.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -43,6 +43,18 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
