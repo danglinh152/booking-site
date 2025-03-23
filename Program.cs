@@ -16,6 +16,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Custom route for Admin
+app.MapControllerRoute(
+    name: "admin",
+    pattern: "admin/{controller=Admin}/{action=Index}/{id?}");
+
+// Default route
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

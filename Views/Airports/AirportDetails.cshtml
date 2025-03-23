@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Airport Details";
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Adjust layout path if necessary
+
+    // Lấy ID từ đường dẫn
+    var airportId = ViewContext.RouteData.Values["id"]; // Accessing RouteData
+
+
+    // Hardcoded thông tin sân bay dựa trên ID
+    string airportName;
+    string airportLocation;
+
+    switch (airportId)
+    {
+        case 1:
+            airportName = "Hanoi International Airport";
+            airportLocation = "Hanoi, Vietnam";
+            break;
+        case 2:
+            airportName = "Tan Son Nhat International Airport";
+            airportLocation = "Ho Chi Minh City, Vietnam";
+            break;
+        default:
+            airportName = "Unknown Airport";
+            airportLocation = "Unknown Location";
+            break;
+    }
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
+                        <h2>Airport Details</h2>
+                        <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
+                            href="/admin/airports/create-airport">
+                            <i class="bi bi-plus-circle me-2"></i> Create New Airport
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4>Airport ID: @airportId</h4>
+                        <h4>Name: @airportName</h4>
+                        <h4>Location: @airportLocation</h4>
+                        <div class="mt-3">
+                            <a href="/admin/airports/edit/@airportId" class="btn btn-warning">Edit</a>
+                            <a href="/admin/airports/delete/@airportId" class="btn btn-danger">Delete</a>
+                            <a href="/admin/airports" class="btn btn-secondary">Back to List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
