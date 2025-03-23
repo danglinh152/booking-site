@@ -76,6 +76,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcQWlycG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/dotnet/BookingSite/Views/Airports/CreateAirport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcQ3JlYXRlQWlycG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Airports/EditAirport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcRWRpdEFpcnBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/dotnet/BookingSite/Views/Auth/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -6,14 +6,28 @@ namespace BookingSite.Controllers
     [Route("admin/[controller]")]
     public class AirportsController : Controller
     {
+        // GET: admin/airports
+        [HttpGet]
         public IActionResult Airports()
         {
             return View();
         }
 
-        // GET: admin/airports/1
-        [HttpGet("{id}")]
-        public IActionResult AirportDetails(int id)
+        /* ==============================================================================================*/
+        // GET: admin/airports/create
+        [HttpGet("create")]
+        public IActionResult CreateAirport()
+        {
+            return View();
+        }
+
+        /* ==============================================================================================*/
+
+
+        /* ==============================================================================================*/
+        // GET: admin/airports/edit/1
+        [HttpGet("edit/{id}")]
+        public IActionResult EditAirport(int id)
         {
             // Logic to get airport details by id
             var airport = GetAirportById(id); // Replace with your actual data retrieval logic
@@ -22,11 +36,9 @@ namespace BookingSite.Controllers
             {
                 return NotFound(); // Return a 404 if not found
             }
-
-            return View(airport); // Pass the airport model to the view
+            return View(airport);
         }
 
-        // Example method to simulate data retrieval
         private Airport GetAirportById(int id)
         {
             // Replace with your actual data source
@@ -38,5 +50,6 @@ namespace BookingSite.Controllers
                 Country = "United States"
             };
         }
+        /* ==============================================================================================*/
     }
 }
