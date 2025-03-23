@@ -6,6 +6,11 @@ namespace BookingSite.Controllers
     [Route("admin/[controller]")]
     public class AirportsController : Controller
     {
+        public IActionResult Airports()
+        {
+            return View();
+        }
+
         // GET: admin/airports/1
         [HttpGet("{id}")]
         public IActionResult AirportDetails(int id)

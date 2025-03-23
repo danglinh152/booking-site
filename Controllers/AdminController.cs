@@ -63,32 +63,6 @@ namespace BookingSite.Controllers
             return View();
         }
 
-        // Giữ lại action Airports
-        public IActionResult Airports()
-        {
-            return View();
-        }
-
-        // Đổi tên action thứ hai thành AirportDetails
-        public IActionResult AirportDetails(int id)
-        {
-            // Hardcoded airport details for demonstration
-            var airport = new Airport
-            {
-                AirportId = id,
-                Name = "Sample Airport",
-                City = "Sample Location",
-                Country = "SMP"
-            };
-
-            if (airport == null)
-            {
-                return NotFound(); // Handle not found scenario
-            }
-
-            return View(airport); // Pass the airport model to the view
-        }
-
 
 
 
