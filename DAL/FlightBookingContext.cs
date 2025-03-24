@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using BookingSite.Models;
 
-public class FlightBookingContext : DbContext
+public class FlightBookingContext : DbContext 
 {
   public DbSet<User> Users { get; set; }
 

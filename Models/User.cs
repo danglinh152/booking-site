@@ -4,6 +4,7 @@ namespace BookingSite.Models
 {
   public class User
   {
+
     public int UserId { get; set; }
 
     public string FullName { get; set; }
@@ -15,11 +16,6 @@ namespace BookingSite.Models
     [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
     [DataType(DataType.Password)]
     public string Password { get; set; }
-
-    [Required(ErrorMessage = "Vui lòng xác nhận mật khẩu")]
-    [DataType(DataType.Password)]
-    [Compare("Password", ErrorMessage = "Mật khẩu xác nhận không khớp")]
-    public string ConfirmPassword { get; set; }
 
     public string Role { get; set; } = "Client";
 
