@@ -4710,19 +4710,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {}
+    "C:\\Users\\DELL\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Bài giảng UIT\\Framework\\booking-site\\BookingSite.csproj",
+      "projectUniqueName": "D:\\dotnet\\BookingSite\\BookingSite.csproj",
       "projectName": "BookingSite",
-      "projectPath": "D:\\Bài giảng UIT\\Framework\\booking-site\\BookingSite.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\",
+      "projectPath": "D:\\dotnet\\BookingSite\\BookingSite.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "D:\\dotnet\\BookingSite\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"

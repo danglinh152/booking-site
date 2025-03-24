@@ -1,0 +1,175 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Correct path
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- HTML5 Export Buttons table start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
+                        <h2>Airports Management</h2>
+                        <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
+                            href="/admin/airports/create">
+                            <i class="bi bi-plus-circle me-2"></i> Create New Airport
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="dt-responsive table-responsive">
+                            <table id="basic-btn" class="table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Airport Id</th>
+                                        <th>Name</th>
+                                        <th>City</th>
+                                        <th>Country</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Hartsfield-Jackson Atlanta International Airport</td>
+                                        <td>Atlanta</td>
+                                        <td>USA</td>
+                                        <td>
+                                            <button class="btn btn-secondary"
+                                                onclick="showDetails(1, 'Hartsfield-Jackson Atlanta International Airport', 'Atlanta', 'USA')">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                            <a href="/admin/airports/edit/1" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/airports/delete/1" class="btn btn-danger"
+                                                onclick="return confirmDelete();">Delete</a>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Beijing Capital International Airport</td>
+                                        <td>Beijing</td>
+                                        <td>China</td>
+                                        <td>
+                                            <button class="btn btn-secondary"
+                                                onclick="showDetails(2, 'Beijing Capital International Airport', 'Beijing', 'China')">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                            <a href="/admin/airports/edit/2" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/airports/delete/1" class="btn btn-danger"
+                                                onclick="return confirmDelete();">Delete</a>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Los Angeles International Airport</td>
+                                        <td>Los Angeles</td>
+                                        <td>USA</td>
+                                        <td>
+                                            <button class="btn btn-secondary"
+                                                onclick="showDetails(3, 'Los Angeles International Airport', 'Los Angeles', 'USA')">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                            <a href="/admin/airports/edit/3" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/airports/delete/1" class="btn btn-danger"
+                                                onclick="return confirmDelete();">Delete</a>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Dubai International Airport</td>
+                                        <td>Dubai</td>
+                                        <td>UAE</td>
+                                        <td>
+                                            <button class="btn btn-secondary"
+                                                onclick="showDetails(4, 'Dubai International Airport', 'Dubai', 'UAE')">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                            <a href="/admin/airports/edit/4" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/airports/delete/1" class="btn btn-danger"
+                                                onclick="return confirmDelete();">Delete</a>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Tokyo Haneda Airport</td>
+                                        <td>Tokyo</td>
+                                        <td>Japan</td>
+                                        <td>
+                                            <button class="btn btn-secondary"
+                                                onclick="showDetails(5, 'Tokyo Haneda Airport', 'Tokyo', 'Japan')">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                            <a href="/admin/airports/edit/5" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/airports/delete/1" class="btn btn-danger"
+                                                onclick="return confirmDelete();">Delete</a>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- HTML5 Export Buttons end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+
+<!-- Modal for Airport Details -->
+<div class="modal fade" id="airportDetailsModal" tabindex="-1" aria-labelledby="airportDetailsModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="airportDetailsModalLabel">Airport Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Airport ID:</strong> <span id="airportId"></span></p>
+                <p><strong>Name:</strong> <span id="airportName"></span></p>
+                <p><strong>City:</strong> <span id="airportCity"></span></p>
+                <p><strong>Country:</strong> <span id="airportCountry"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showDetails(id, name, city, country) {
+        // Set the modal content
+        document.getElementById('airportId').textContent = id;
+        document.getElementById('airportName').textContent = name;
+        document.getElementById('airportCity').textContent = city;
+        document.getElementById('airportCountry').textContent = country;
+
+        // Show the modal
+        const modal = new bootstrap.Modal(document.getElementById('airportDetailsModal'));
+        modal.show();
+    }
+
+    function showDetails(id, name, city, country) {
+        // Set the modal content
+        document.getElementById('airportId').textContent = id;
+        document.getElementById('airportName').textContent = name;
+        document.getElementById('airportCity').textContent = city;
+        document.getElementById('airportCountry').textContent = country;
+
+        // Show the modal
+        const modal = new bootstrap.Modal(document.getElementById('airportDetailsModal'));
+        modal.show();
+    }
+
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this airport?");
+    }
+
+</script>

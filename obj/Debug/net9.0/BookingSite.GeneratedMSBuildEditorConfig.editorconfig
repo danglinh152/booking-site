@@ -17,101 +17,109 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookingSite
 build_property.RootNamespace = BookingSite
-build_property.ProjectDir = D:\Bài giảng UIT\Framework\booking-site\
+build_property.ProjectDir = D:\dotnet\BookingSite\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Bài giảng UIT\Framework\booking-site
+build_property.MSBuildProjectDirectory = D:\dotnet\BookingSite
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/Airports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWlycG9ydHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/Baggages.cshtml]
+[D:/dotnet/BookingSite/Views/Admin/Baggages.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQmFnZ2FnZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/Bookings.cshtml]
+[D:/dotnet/BookingSite/Views/Admin/Bookings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9va2luZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/CheckIns.cshtml]
+[D:/dotnet/BookingSite/Views/Admin/CheckIns.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2hlY2tJbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/Flights.cshtml]
+[D:/dotnet/BookingSite/Views/Admin/Flights.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRmxpZ2h0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/Index.cshtml]
+[D:/dotnet/BookingSite/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/Meals.cshtml]
+[D:/dotnet/BookingSite/Views/Admin/Meals.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWVhbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/Passengers.cshtml]
+[D:/dotnet/BookingSite/Views/Admin/Passengers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFzc2VuZ2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/Planes.cshtml]
+[D:/dotnet/BookingSite/Views/Admin/Planes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGxhbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/Seats.cshtml]
+[D:/dotnet/BookingSite/Views/Admin/Seats.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2VhdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Admin/Users.cshtml]
+[D:/dotnet/BookingSite/Views/Admin/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Airports/AirportDetails.cshtml]
+[D:/dotnet/BookingSite/Views/Airports/AirportDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcQWlycG9ydERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Auth/Register.cshtml]
+[D:/dotnet/BookingSite/Views/Airports/Airports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcQWlycG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Airports/CreateAirport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcQ3JlYXRlQWlycG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Airports/EditAirport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWlycG9ydHNcRWRpdEFpcnBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Auth/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Home/admin/create-user.cshtml]
+[D:/dotnet/BookingSite/Views/Home/admin/create-user.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhZG1pblxjcmVhdGUtdXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Home/Index.cshtml]
+[D:/dotnet/BookingSite/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Home/Privacy.cshtml]
+[D:/dotnet/BookingSite/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Shared/Error.cshtml]
+[D:/dotnet/BookingSite/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Shared/_Layout-admin.cshtml]
+[D:/dotnet/BookingSite/Views/Shared/_Layout-admin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQtYWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/dotnet/BookingSite/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/_ViewImports.cshtml]
+[D:/dotnet/BookingSite/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/_ViewStart.cshtml]
+[D:/dotnet/BookingSite/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Bài giảng UIT/Framework/booking-site/Views/Shared/_Layout.cshtml]
+[D:/dotnet/BookingSite/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-dixgqk6zla
