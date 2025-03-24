@@ -20,10 +20,17 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-// Custom route for Admin
+// Custom route for Admin users and airports
 app.MapControllerRoute(
     name: "admin",
     pattern: "admin/{controller=Admin}/{action=Index}/{id?}");
+
+// Route for Users
+app.MapControllerRoute(
+    name: "adminUsers",
+    pattern: "admin/users/{action=Index}/{id?}",
+    defaults: new { controller = "User" });
+
 
 // Default route
 app.MapControllerRoute(

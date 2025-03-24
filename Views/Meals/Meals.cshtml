@@ -38,7 +38,10 @@
                                             <a href="/admin/meals/1" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/meals/edit/1" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/meals/delete/1" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteMealModal" data-id="1" data-name="Vegetarian">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -50,7 +53,11 @@
                                             <a href="/admin/meals/2" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/meals/edit/2" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/meals/delete/2" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteMealModal" data-id="2"
+                                                data-name="Non-Vegetarian">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -62,7 +69,10 @@
                                             <a href="/admin/meals/3" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/meals/edit/3" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/meals/delete/3" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteMealModal" data-id="3" data-name="Vegan">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -74,7 +84,10 @@
                                             <a href="/admin/meals/4" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/meals/edit/4" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/meals/delete/4" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteMealModal" data-id="4" data-name="Gluten-Free">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -86,7 +99,10 @@
                                             <a href="/admin/meals/5" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/meals/edit/5" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/meals/delete/5" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteMealModal" data-id="5" data-name="Seafood">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -100,3 +116,40 @@
         <!-- [ Main Content ] end -->
     </div>
 </div>
+
+<!-- Modal for Confirming Deletion -->
+<div class="modal fade" id="deleteMealModal" tabindex="-1" aria-labelledby="deleteMealModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteMealModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete meal with ID <strong id="deleteMealId"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Populate the delete meal modal with data
+    var deleteMealModal = document.getElementById('deleteMealModal');
+    deleteMealModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var mealId = button.getAttribute('data-id');
+        var mealName = button.getAttribute('data-name');
+
+        // Update modal content
+        document.getElementById('deleteMealId').textContent = mealName;
+
+        // Set delete action
+        document.getElementById('confirmDeleteButton').onclick = function () {
+            window.location.href = `/admin/meals/delete/${mealId}`;
+        };
+    });
+</script>

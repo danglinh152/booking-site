@@ -1,0 +1,158 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Correct path
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- HTML5 Export Buttons table start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
+                        <h2>Passengers Management</h2>
+                        <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
+                            href="/admin/passengers/create">
+                            <i class="bi bi-plus-circle me-2"></i> Create New Passenger
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="dt-responsive table-responsive">
+                            <table id="basic-btn" class="table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Passenger Id</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone No.</th>
+                                        <th>Passport No.</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @* Hardcoded sample data for demonstration *@
+                                    @{
+                                        var passengers = new List<dynamic>
+                                        {
+                                            new { Id = 1, Name = "John Doe", Email = "john.doe@example.com", Phone = "123-456-7890", PassportNo = "P123456789" },
+                                            new { Id = 2, Name = "Jane Smith", Email = "jane.smith@example.com", Phone = "987-654-3210", PassportNo = "P987654321" },
+                                            new { Id = 3, Name = "Alice Johnson", Email = "alice.johnson@example.com", Phone = "555-555-5555", PassportNo = "P555555555" },
+                                            new { Id = 4, Name = "Bob Brown", Email = "bob.brown@example.com", Phone = "444-444-4444", PassportNo = "P444444444" }
+                                        };
+
+                                        foreach (var passenger in passengers)
+                                        {
+                                            <tr>
+                                                <td>@passenger.Id</td>
+                                                <td>@passenger.Name</td>
+                                                <td>@passenger.Email</td>
+                                                <td>@passenger.Phone</td>
+                                                <td>@passenger.PassportNo</td>
+                                                <td>
+                                                    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewPassengerModal" 
+                                                            data-id="@passenger.Id" data-name="@passenger.Name" 
+                                                            data-email="@passenger.Email" data-phone="@passenger.Phone" 
+                                                            data-passport="@passenger.PassportNo">
+                                                        <i class="fa-solid fa-eye"></i>
+                                                    </button>
+                                                    <a href="/admin/passengers/edit/@passenger.Id" class="btn btn-warning">
+                                                        Edit
+                                                    </a>
+                                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePassengerModal" 
+                                                            data-id="@passenger.Id" data-name="@passenger.Name">
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- HTML5 Export Buttons end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+
+<!-- View Passenger Modal -->
+<div class="modal fade" id="viewPassengerModal" tabindex="-1" aria-labelledby="viewPassengerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewPassengerModalLabel">Passenger Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Name:</strong> <span id="passengerName"></span></p>
+                <p><strong>Email:</strong> <span id="passengerEmail"></span></p>
+                <p><strong>Phone No.:</strong> <span id="passengerPhone"></span></p>
+                <p><strong>Passport No.:</strong> <span id="passengerPassport"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Passenger Modal -->
+<div class="modal fade" id="deletePassengerModal" tabindex="-1" aria-labelledby="deletePassengerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deletePassengerModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <strong id="deletePassengerName"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Populate the view passenger modal with data
+    var viewPassengerModal = document.getElementById('viewPassengerModal');
+    viewPassengerModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var name = button.getAttribute('data-name');
+        var email = button.getAttribute('data-email');
+        var phone = button.getAttribute('data-phone');
+        var passport = button.getAttribute('data-passport');
+
+        // Update the modal's content
+        var passengerName = viewPassengerModal.querySelector('#passengerName');
+        var passengerEmail = viewPassengerModal.querySelector('#passengerEmail');
+        var passengerPhone = viewPassengerModal.querySelector('#passengerPhone');
+        var passengerPassport = viewPassengerModal.querySelector('#passengerPassport');
+
+        passengerName.textContent = name;
+        passengerEmail.textContent = email;
+        passengerPhone.textContent = phone;
+        passengerPassport.textContent = passport;
+    });
+
+    // Populate the delete passenger modal with data
+    var deletePassengerModal = document.getElementById('deletePassengerModal');
+    deletePassengerModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var passengerId = button.getAttribute('data-id');
+        var passengerName = button.getAttribute('data-name');
+
+        // Update modal content
+        document.getElementById('deletePassengerName').textContent = passengerName;
+
+        // Set delete action
+        document.getElementById('confirmDeleteButton').onclick = function () {
+            window.location.href = `/admin/passengers/delete/${passengerId}`;
+        };
+    });
+</script>

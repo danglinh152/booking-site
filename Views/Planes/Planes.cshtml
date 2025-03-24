@@ -36,7 +36,10 @@
                                             <a href="/admin/planes/1" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/planes/edit/1" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/planes/delete/1" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deletePlaneModal" data-id="1" data-name="Boeing 747">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -44,10 +47,13 @@
                                         <td>Airbus A380</td>
                                         <td>555</td>
                                         <td>
-                                            <a href="/admin/planes/1" class="btn btn-secondary"><i
+                                            <a href="/admin/planes/2" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/planes/edit/2" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/planes/delete/2" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deletePlaneModal" data-id="2" data-name="Airbus A380">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -55,10 +61,13 @@
                                         <td>Concorde</td>
                                         <td>100</td>
                                         <td>
-                                            <a href="/admin/planes/1" class="btn btn-secondary"><i
+                                            <a href="/admin/planes/3" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/planes/edit/3" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/planes/delete/3" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deletePlaneModal" data-id="3" data-name="Concorde">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -66,10 +75,14 @@
                                         <td>McDonnell Douglas MD-11</td>
                                         <td>285</td>
                                         <td>
-                                            <a href="/admin/planes/1" class="btn btn-secondary"><i
+                                            <a href="/admin/planes/4" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/planes/edit/4" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/planes/delete/4" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deletePlaneModal" data-id="4"
+                                                data-name="McDonnell Douglas MD-11">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -83,3 +96,40 @@
         <!-- [ Main Content ] end -->
     </div>
 </div>
+
+<!-- Modal for Confirming Deletion -->
+<div class="modal fade" id="deletePlaneModal" tabindex="-1" aria-labelledby="deletePlaneModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deletePlaneModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete plane with ID <strong id="deletePlaneId"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Populate the delete plane modal with data
+    var deletePlaneModal = document.getElementById('deletePlaneModal');
+    deletePlaneModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var planeId = button.getAttribute('data-id');
+        var planeName = button.getAttribute('data-name');
+
+        // Update modal content
+        document.getElementById('deletePlaneId').textContent = planeName;
+
+        // Set delete action
+        document.getElementById('confirmDeleteButton').onclick = function () {
+            window.location.href = `/admin/planes/delete/${planeId}`;
+        };
+    });
+</script>

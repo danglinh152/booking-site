@@ -38,7 +38,10 @@
                                             <a href="/admin/baggages/1" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/baggages/edit/1" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/baggages/delete/1" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteBaggageModal" data-id="1" data-name="BK001">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -50,7 +53,10 @@
                                             <a href="/admin/baggages/2" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/baggages/edit/2" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/baggages/delete/2" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteBaggageModal" data-id="2" data-name="BK002">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -62,7 +68,10 @@
                                             <a href="/admin/baggages/3" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/baggages/edit/3" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/baggages/delete/3" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteBaggageModal" data-id="3" data-name="BK003">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -74,7 +83,10 @@
                                             <a href="/admin/baggages/4" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/baggages/edit/4" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/baggages/delete/4" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteBaggageModal" data-id="4" data-name="BK004">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -86,7 +98,10 @@
                                             <a href="/admin/baggages/5" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/baggages/edit/5" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/baggages/delete/5" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteBaggageModal" data-id="5" data-name="BK005">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -100,3 +115,41 @@
         <!-- [ Main Content ] end -->
     </div>
 </div>
+
+<!-- Modal for Confirming Deletion -->
+<div class="modal fade" id="deleteBaggageModal" tabindex="-1" aria-labelledby="deleteBaggageModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteBaggageModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete baggage with ID <strong id="deleteBaggageId"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Populate the delete baggage modal with data
+    var deleteBaggageModal = document.getElementById('deleteBaggageModal');
+    deleteBaggageModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var baggageId = button.getAttribute('data-id');
+        var baggageName = button.getAttribute('data-name');
+
+        // Update modal content
+        document.getElementById('deleteBaggageId').textContent = baggageName;
+
+        // Set delete action
+        document.getElementById('confirmDeleteButton').onclick = function () {
+            window.location.href = `/admin/baggages/delete/${baggageId}`;
+        };
+    });
+</script>
