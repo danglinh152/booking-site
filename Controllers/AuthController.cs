@@ -17,10 +17,20 @@ namespace BookingSite.Controllers
     }
 
     //POST: /register
-    // public IActionResult Register(RegiserModelView regiserModelView)
-    // {
+    [HttpPost("/register")]
+    public IActionResult Register(RegiserModelView regiserModelView)
+    {
+      if (regiserModelView != null) {
+        User user = new User();
+        user.FullName = regiserModelView.FirstName + regiserModelView.LastName;
+        user.Email = regiserModelView.Email;
+      
 
-    // }
+
+      }
+      return null
+
+    }
 
 
   }
