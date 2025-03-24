@@ -1,22 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
-using BookingSite.Models; // Ensure this points to the correct location of your Airport model
+using BookingSite.Models; // Ensure this points to the correct location of your Passenger model
 
 namespace BookingSite.Controllers
 {
     [Route("admin/[controller]")]
-    public class AirportsController : Controller
+    public class PassengersController : Controller
     {
-        // GET: admin/airports
+        // GET: admin/passengers
         [HttpGet]
-        public IActionResult Airports()
+        public IActionResult Passengers()
         {
             return View();
         }
 
         /* ==============================================================================================*/
-        // GET: admin/airports/create
+        // GET: admin/passengers/create
         [HttpGet("create")]
-        public IActionResult CreateAirport()
+        public IActionResult CreatePassenger()
         {
             return View();
         }
@@ -25,29 +25,26 @@ namespace BookingSite.Controllers
 
 
         /* ==============================================================================================*/
-        // GET: admin/airports/edit/1
+        // GET: admin/passengers/edit/1
         [HttpGet("edit/{id}")]
-        public IActionResult EditAirport(int id)
+        public IActionResult EditPassenger(int id)
         {
-            // Logic to get airport details by id
-            var airport = GetAirportById(id); // Replace with your actual data retrieval logic
+            // Logic to get passenger details by id
+            var passenger = GetPassengerById(id); // Replace with your actual data retrieval logic
 
-            if (airport == null)
+            if (passenger == null)
             {
                 return NotFound(); // Return a 404 if not found
             }
-            return View(airport);
+            return View(passenger);
         }
 
-        private Airport GetAirportById(int id)
+        private Passenger GetPassengerById(int id)
         {
             // Replace with your actual data source
-            return new Airport
+            return new Passenger
             {
-                AirportID = id,
-                Name = "John F. Kennedy International Airport",
-                City = "New York",
-                Country = "United States"
+
             };
         }
         /* ==============================================================================================*/

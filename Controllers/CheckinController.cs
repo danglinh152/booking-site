@@ -1,22 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
-using BookingSite.Models; // Ensure this points to the correct location of your Airport model
+using BookingSite.Models; // Ensure this points to the correct location of your Checkin model
 
 namespace BookingSite.Controllers
 {
     [Route("admin/[controller]")]
-    public class AirportsController : Controller
+    public class CheckinsController : Controller
     {
-        // GET: admin/airports
+        // GET: admin/checkins
         [HttpGet]
-        public IActionResult Airports()
+        public IActionResult Checkins()
         {
             return View();
         }
 
         /* ==============================================================================================*/
-        // GET: admin/airports/create
+        // GET: admin/checkins/create
         [HttpGet("create")]
-        public IActionResult CreateAirport()
+        public IActionResult CreateCheckin()
         {
             return View();
         }
@@ -25,29 +25,26 @@ namespace BookingSite.Controllers
 
 
         /* ==============================================================================================*/
-        // GET: admin/airports/edit/1
+        // GET: admin/checkins/edit/1
         [HttpGet("edit/{id}")]
-        public IActionResult EditAirport(int id)
+        public IActionResult EditCheckin(int id)
         {
-            // Logic to get airport details by id
-            var airport = GetAirportById(id); // Replace with your actual data retrieval logic
+            // Logic to get checkin details by id
+            var checkin = GetCheckinById(id); // Replace with your actual data retrieval logic
 
-            if (airport == null)
+            if (checkin == null)
             {
                 return NotFound(); // Return a 404 if not found
             }
-            return View(airport);
+            return View(checkin);
         }
 
-        private Airport GetAirportById(int id)
+        private Checkin GetCheckinById(int id)
         {
             // Replace with your actual data source
-            return new Airport
+            return new Checkin
             {
-                AirportID = id,
-                Name = "John F. Kennedy International Airport",
-                City = "New York",
-                Country = "United States"
+
             };
         }
         /* ==============================================================================================*/

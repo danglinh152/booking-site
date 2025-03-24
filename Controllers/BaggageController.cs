@@ -1,22 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
-using BookingSite.Models; // Ensure this points to the correct location of your Airport model
+using BookingSite.Models; // Ensure this points to the correct location of your Baggage model
 
 namespace BookingSite.Controllers
 {
     [Route("admin/[controller]")]
-    public class AirportsController : Controller
+    public class BaggagesController : Controller
     {
-        // GET: admin/airports
+        // GET: admin/baggages
         [HttpGet]
-        public IActionResult Airports()
+        public IActionResult Baggages()
         {
             return View();
         }
 
         /* ==============================================================================================*/
-        // GET: admin/airports/create
+        // GET: admin/baggages/create
         [HttpGet("create")]
-        public IActionResult CreateAirport()
+        public IActionResult CreateBaggage()
         {
             return View();
         }
@@ -27,27 +27,27 @@ namespace BookingSite.Controllers
         /* ==============================================================================================*/
         // GET: admin/airports/edit/1
         [HttpGet("edit/{id}")]
-        public IActionResult EditAirport(int id)
+        public IActionResult EditBaggage(int id)
         {
-            // Logic to get airport details by id
-            var airport = GetAirportById(id); // Replace with your actual data retrieval logic
+            // Logic to get baggage details by id
+            var baggage = GetBaggageById(id); // Replace with your actual data retrieval logic
 
-            if (airport == null)
+            if (baggage == null)
             {
                 return NotFound(); // Return a 404 if not found
             }
-            return View(airport);
+            return View(baggage);
         }
 
-        private Airport GetAirportById(int id)
+        private Baggage GetBaggageById(int id)
         {
             // Replace with your actual data source
-            return new Airport
+            return new Baggage
             {
-                AirportID = id,
-                Name = "John F. Kennedy International Airport",
-                City = "New York",
-                Country = "United States"
+                BaggageID = id,
+                BookingID = 152,
+                Weight = 36.36,
+                Fee = 36.36
             };
         }
         /* ==============================================================================================*/

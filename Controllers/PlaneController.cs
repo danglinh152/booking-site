@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
-using BookingSite.Models; // Ensure this points to the correct location of your Airport model
+using BookingSite.Models; // Ensure this points to the correct location of your Plane model
 
 namespace BookingSite.Controllers
 {
     [Route("admin/[controller]")]
-    public class AirportsController : Controller
+    public class PlanesController : Controller
     {
         // GET: admin/airports
         [HttpGet]
-        public IActionResult Airports()
+        public IActionResult Planes()
         {
             return View();
         }
@@ -16,7 +16,7 @@ namespace BookingSite.Controllers
         /* ==============================================================================================*/
         // GET: admin/airports/create
         [HttpGet("create")]
-        public IActionResult CreateAirport()
+        public IActionResult CreatePlane()
         {
             return View();
         }
@@ -27,10 +27,10 @@ namespace BookingSite.Controllers
         /* ==============================================================================================*/
         // GET: admin/airports/edit/1
         [HttpGet("edit/{id}")]
-        public IActionResult EditAirport(int id)
+        public IActionResult EditPlane(int id)
         {
             // Logic to get airport details by id
-            var airport = GetAirportById(id); // Replace with your actual data retrieval logic
+            var airport = GetPlaneById(id); // Replace with your actual data retrieval logic
 
             if (airport == null)
             {
@@ -39,15 +39,12 @@ namespace BookingSite.Controllers
             return View(airport);
         }
 
-        private Airport GetAirportById(int id)
+        private Plane GetPlaneById(int id)
         {
             // Replace with your actual data source
-            return new Airport
+            return new Plane
             {
-                AirportID = id,
-                Name = "John F. Kennedy International Airport",
-                City = "New York",
-                Country = "United States"
+
             };
         }
         /* ==============================================================================================*/

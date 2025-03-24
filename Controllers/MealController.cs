@@ -1,22 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
-using BookingSite.Models; // Ensure this points to the correct location of your Airport model
+using BookingSite.Models; // Ensure this points to the correct location of your Meal model
 
 namespace BookingSite.Controllers
 {
     [Route("admin/[controller]")]
-    public class AirportsController : Controller
+    public class MealsController : Controller
     {
-        // GET: admin/airports
+        // GET: admin/meals
         [HttpGet]
-        public IActionResult Airports()
+        public IActionResult Meals()
         {
             return View();
         }
 
         /* ==============================================================================================*/
-        // GET: admin/airports/create
+        // GET: admin/meals/create
         [HttpGet("create")]
-        public IActionResult CreateAirport()
+        public IActionResult CreateMeal()
         {
             return View();
         }
@@ -25,29 +25,26 @@ namespace BookingSite.Controllers
 
 
         /* ==============================================================================================*/
-        // GET: admin/airports/edit/1
+        // GET: admin/meals/edit/1
         [HttpGet("edit/{id}")]
-        public IActionResult EditAirport(int id)
+        public IActionResult EditMeal(int id)
         {
-            // Logic to get airport details by id
-            var airport = GetAirportById(id); // Replace with your actual data retrieval logic
+            // Logic to get meal details by id
+            var meal = GetMealById(id); // Replace with your actual data retrieval logic
 
-            if (airport == null)
+            if (meal == null)
             {
                 return NotFound(); // Return a 404 if not found
             }
-            return View(airport);
+            return View(meal);
         }
 
-        private Airport GetAirportById(int id)
+        private Meal GetMealById(int id)
         {
             // Replace with your actual data source
-            return new Airport
+            return new Meal
             {
-                AirportID = id,
-                Name = "John F. Kennedy International Airport",
-                City = "New York",
-                Country = "United States"
+
             };
         }
         /* ==============================================================================================*/

@@ -1,22 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
-using BookingSite.Models; // Ensure this points to the correct location of your Airport model
+using BookingSite.Models; // Ensure this points to the correct location of your Seat model
 
 namespace BookingSite.Controllers
 {
     [Route("admin/[controller]")]
-    public class AirportsController : Controller
+    public class SeatsController : Controller
     {
-        // GET: admin/airports
+        // GET: admin/seats
         [HttpGet]
-        public IActionResult Airports()
+        public IActionResult Seats()
         {
             return View();
         }
 
         /* ==============================================================================================*/
-        // GET: admin/airports/create
+        // GET: admin/seats/create
         [HttpGet("create")]
-        public IActionResult CreateAirport()
+        public IActionResult CreateSeat()
         {
             return View();
         }
@@ -25,29 +25,26 @@ namespace BookingSite.Controllers
 
 
         /* ==============================================================================================*/
-        // GET: admin/airports/edit/1
+        // GET: admin/seats/edit/1
         [HttpGet("edit/{id}")]
-        public IActionResult EditAirport(int id)
+        public IActionResult EditSeat(int id)
         {
-            // Logic to get airport details by id
-            var airport = GetAirportById(id); // Replace with your actual data retrieval logic
+            // Logic to get seat details by id
+            var seat = GetSeatById(id); // Replace with your actual data retrieval logic
 
-            if (airport == null)
+            if (seat == null)
             {
                 return NotFound(); // Return a 404 if not found
             }
-            return View(airport);
+            return View(seat);
         }
 
-        private Airport GetAirportById(int id)
+        private Seat GetSeatById(int id)
         {
             // Replace with your actual data source
-            return new Airport
+            return new Seat
             {
-                AirportID = id,
-                Name = "John F. Kennedy International Airport",
-                City = "New York",
-                Country = "United States"
+
             };
         }
         /* ==============================================================================================*/

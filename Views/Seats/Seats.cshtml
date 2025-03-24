@@ -40,7 +40,10 @@
                                             <a href="/admin/seats/1" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/seats/edit/1" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/seats/delete/1" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteSeatModal" data-id="1" data-name="1A">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -53,7 +56,10 @@
                                             <a href="/admin/seats/2" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/seats/edit/2" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/seats/delete/2" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteSeatModal" data-id="2" data-name="1B">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -66,7 +72,10 @@
                                             <a href="/admin/seats/3" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/seats/edit/3" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/seats/delete/3" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteSeatModal" data-id="3" data-name="2A">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -79,7 +88,10 @@
                                             <a href="/admin/seats/4" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/seats/edit/4" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/seats/delete/4" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteSeatModal" data-id="4" data-name="3C">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -92,7 +104,10 @@
                                             <a href="/admin/seats/5" class="btn btn-secondary"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/seats/edit/5" class="btn btn-warning">Edit</a>
-                                            <a href="/admin/seats/delete/5" class="btn btn-danger">Delete</a>
+                                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteSeatModal" data-id="5" data-name="4D">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -106,3 +121,40 @@
         <!-- [ Main Content ] end -->
     </div>
 </div>
+
+<!-- Modal for Confirming Deletion -->
+<div class="modal fade" id="deleteSeatModal" tabindex="-1" aria-labelledby="deleteSeatModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteSeatModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete seat <strong id="deleteSeatId"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Populate the delete seat modal with data
+    var deleteSeatModal = document.getElementById('deleteSeatModal');
+    deleteSeatModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var seatId = button.getAttribute('data-id');
+        var seatName = button.getAttribute('data-name');
+
+        // Update modal content
+        document.getElementById('deleteSeatId').textContent = seatName;
+
+        // Set delete action
+        document.getElementById('confirmDeleteButton').onclick = function () {
+            window.location.href = `/admin/seats/delete/${seatId}`;
+        };
+    });
+</script>
