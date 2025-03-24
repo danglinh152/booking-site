@@ -18,53 +18,6 @@ namespace BookingSite.Controllers
             return View();
         }
 
-        public IActionResult Planes()
-        {
-            return View();
-        }
-
-        public IActionResult Flights()
-        {
-            return View();
-        }
-
-        public IActionResult Users()
-        {
-            return View();
-        }
-
-        public IActionResult Seats()
-        {
-            return View();
-        }
-
-        public IActionResult Passengers()
-        {
-            return View();
-        }
-
-        public IActionResult Meals()
-        {
-            return View();
-        }
-
-        public IActionResult Checkins()
-        {
-            return View();
-        }
-
-        public IActionResult Baggages()
-        {
-            return View();
-        }
-
-        public IActionResult Bookings()
-        {
-            return View();
-        }
-
-
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

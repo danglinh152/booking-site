@@ -12,7 +12,7 @@
                     <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
                         <h2>Baggages Management</h2>
                         <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
-                            href="/admin/baggages/create-baggage">
+                            href="/admin/baggages/create">
                             <i class="bi bi-plus-circle me-2"></i> Create New Baggage
                         </a>
                     </div>
@@ -35,8 +35,11 @@
                                         <td>23</td>
                                         <td>50</td>
                                         <td>
-                                            <a href="/admin/baggages/1" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <button class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewBaggageModal" data-id="1" data-booking-id="BK001"
+                                                data-weight="23" data-fee="50">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
                                             <a href="/admin/baggages/edit/1" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteBaggageModal" data-id="1" data-name="BK001">
@@ -44,66 +47,7 @@
                                             </button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>BK002</td>
-                                        <td>15</td>
-                                        <td>30</td>
-                                        <td>
-                                            <a href="/admin/baggages/2" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/baggages/edit/2" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteBaggageModal" data-id="2" data-name="BK002">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>BK003</td>
-                                        <td>28</td>
-                                        <td>70</td>
-                                        <td>
-                                            <a href="/admin/baggages/3" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/baggages/edit/3" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteBaggageModal" data-id="3" data-name="BK003">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>BK004</td>
-                                        <td>10</td>
-                                        <td>20</td>
-                                        <td>
-                                            <a href="/admin/baggages/4" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/baggages/edit/4" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteBaggageModal" data-id="4" data-name="BK004">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>BK005</td>
-                                        <td>18</td>
-                                        <td>40</td>
-                                        <td>
-                                            <a href="/admin/baggages/5" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/baggages/edit/5" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteBaggageModal" data-id="5" data-name="BK005">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    <!-- Repeat for other baggage entries -->
                                 </tbody>
                             </table>
                         </div>
@@ -113,6 +57,27 @@
             <!-- HTML5 Export Buttons end -->
         </div>
         <!-- [ Main Content ] end -->
+    </div>
+</div>
+
+<!-- Modal for Viewing Baggage Details -->
+<div class="modal fade" id="viewBaggageModal" tabindex="-1" aria-labelledby="viewBaggageModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewBaggageModalLabel">Baggage Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Baggage ID:</strong> <span id="baggageId"></span></p>
+                <p><strong>Booking ID:</strong> <span id="bookingId"></span></p>
+                <p><strong>Weight:</strong> <span id="weight"></span> kg</p>
+                <p><strong>Fee:</strong> $<span id="fee"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -137,6 +102,22 @@
 </div>
 
 <script>
+    // Populate the view baggage modal with data
+    var viewBaggageModal = document.getElementById('viewBaggageModal');
+    viewBaggageModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var baggageId = button.getAttribute('data-id');
+        var bookingId = button.getAttribute('data-booking-id');
+        var weight = button.getAttribute('data-weight');
+        var fee = button.getAttribute('data-fee');
+
+        // Update modal content
+        document.getElementById('baggageId').textContent = baggageId;
+        document.getElementById('bookingId').textContent = bookingId;
+        document.getElementById('weight').textContent = weight;
+        document.getElementById('fee').textContent = fee;
+    });
+
     // Populate the delete baggage modal with data
     var deleteBaggageModal = document.getElementById('deleteBaggageModal');
     deleteBaggageModal.addEventListener('show.bs.modal', function (event) {

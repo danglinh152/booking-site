@@ -12,7 +12,7 @@
                     <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
                         <h2>Meals Management</h2>
                         <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
-                            href="/admin/meals/create-meal">
+                            href="/admin/meals/create">
                             <i class="bi bi-plus-circle me-2"></i> Create New Meal
                         </a>
                     </div>
@@ -35,76 +35,17 @@
                                         <td>Vegetarian</td>
                                         <td>15</td>
                                         <td>
-                                            <a href="/admin/meals/1" class="btn btn-secondary"><i
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewMealModal" data-id="1" data-booking-id="BK001"
+                                                data-meal-type="Vegetarian" data-price="15"><i
                                                     class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/meals/edit/1" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteMealModal" data-id="1" data-name="Vegetarian">
-                                                Delete
-                                            </button>
+                                                data-bs-target="#deleteMealModal" data-id="1"
+                                                data-name="Vegetarian">Delete</button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>BK002</td>
-                                        <td>Non-Vegetarian</td>
-                                        <td>20</td>
-                                        <td>
-                                            <a href="/admin/meals/2" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/meals/edit/2" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteMealModal" data-id="2"
-                                                data-name="Non-Vegetarian">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>BK003</td>
-                                        <td>Vegan</td>
-                                        <td>18</td>
-                                        <td>
-                                            <a href="/admin/meals/3" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/meals/edit/3" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteMealModal" data-id="3" data-name="Vegan">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>BK004</td>
-                                        <td>Gluten-Free</td>
-                                        <td>22</td>
-                                        <td>
-                                            <a href="/admin/meals/4" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/meals/edit/4" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteMealModal" data-id="4" data-name="Gluten-Free">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>BK005</td>
-                                        <td>Seafood</td>
-                                        <td>25</td>
-                                        <td>
-                                            <a href="/admin/meals/5" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/meals/edit/5" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteMealModal" data-id="5" data-name="Seafood">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    <!-- Additional meal rows here -->
                                 </tbody>
                             </table>
                         </div>
@@ -136,6 +77,27 @@
     </div>
 </div>
 
+<!-- Modal for Viewing Meal Details -->
+<div class="modal fade" id="viewMealModal" tabindex="-1" aria-labelledby="viewMealModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewMealModalLabel">Meal Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Meal Id:</strong> <span id="viewMealId"></span></p>
+                <p><strong>Booking Id:</strong> <span id="viewBookingId"></span></p>
+                <p><strong>Meal Type:</strong> <span id="viewMealType"></span></p>
+                <p><strong>Price:</strong> $<span id="viewPrice"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     // Populate the delete meal modal with data
     var deleteMealModal = document.getElementById('deleteMealModal');
@@ -151,5 +113,21 @@
         document.getElementById('confirmDeleteButton').onclick = function () {
             window.location.href = `/admin/meals/delete/${mealId}`;
         };
+    });
+
+    // Populate the view meal modal with data
+    var viewMealModal = document.getElementById('viewMealModal');
+    viewMealModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var mealId = button.getAttribute('data-id');
+        var bookingId = button.getAttribute('data-booking-id');
+        var mealType = button.getAttribute('data-meal-type');
+        var price = button.getAttribute('data-price');
+
+        // Update modal content
+        document.getElementById('viewMealId').textContent = mealId;
+        document.getElementById('viewBookingId').textContent = bookingId;
+        document.getElementById('viewMealType').textContent = mealType;
+        document.getElementById('viewPrice').textContent = price;
     });
 </script>

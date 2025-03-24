@@ -12,7 +12,7 @@
                     <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
                         <h2>Flights Management</h2>
                         <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
-                            href="/admin/flights/create-flight">
+                            href="/admin/flights/create">
                             <i class="bi bi-plus-circle me-2"></i> Create New Flight
                         </a>
                     </div>
@@ -22,69 +22,40 @@
                                 <thead>
                                     <tr>
                                         <th>Flight ID</th>
-                                        <th>Model</th>
-                                        <th>Capacity</th>
+                                        <th>Plane ID</th>
+                                        <th>Departure Airport</th>
+                                        <th>Arrival Airport</th>
+                                        <th>Departure Time</th>
+                                        <th>Total Seats</th>
+                                        <th>Available Seats</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Boeing 747</td>
-                                        <td>660</td>
+                                        <td>P1</td>
+                                        <td>JFK</td>
+                                        <td>LAX</td>
+                                        <td>2025-03-30T15:00</td>
+                                        <td>300</td>
+                                        <td>150</td>
+                                        <td>Scheduled</td>
                                         <td>
-                                            <a href="/admin/flights/1" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <button class="btn btn-secondary view-details" data-id="1"
+                                                data-plane-id="P1" data-departure-airport="JFK"
+                                                data-arrival-airport="LAX" data-departure-time="2025-03-30T15:00"
+                                                data-total-seats="300" data-available-seats="150"
+                                                data-status="Scheduled"><i class="fa-solid fa-eye"></i></button>
                                             <a href="/admin/flights/edit/1" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteFlightModal" data-id="1" data-name="Boeing 747">
+                                                data-bs-target="#deleteFlightModal" data-id="1" data-name="Flight 1">
                                                 Delete
                                             </button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Airbus A380</td>
-                                        <td>555</td>
-                                        <td>
-                                            <a href="/admin/flights/2" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/flights/edit/2" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteFlightModal" data-id="2" data-name="Airbus A380">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Concorde</td>
-                                        <td>100</td>
-                                        <td>
-                                            <a href="/admin/flights/3" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/flights/edit/3" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteFlightModal" data-id="3" data-name="Concorde">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>McDonnell Douglas MD-11</td>
-                                        <td>285</td>
-                                        <td>
-                                            <a href="/admin/flights/4" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/flights/edit/4" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteFlightModal" data-id="4"
-                                                data-name="McDonnell Douglas MD-11">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    <!-- Add more flight entries as needed -->
                                 </tbody>
                             </table>
                         </div>
@@ -117,6 +88,32 @@
     </div>
 </div>
 
+<!-- Modal for Viewing Flight Details -->
+<div class="modal fade" id="viewFlightDetailsModal" tabindex="-1" aria-labelledby="viewFlightDetailsModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewFlightDetailsModalLabel">Flight Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Flight ID:</strong> <span id="viewFlightId"></span></p>
+                <p><strong>Plane ID:</strong> <span id="viewPlaneId"></span></p>
+                <p><strong>Departure Airport:</strong> <span id="viewDepartureAirport"></span></p>
+                <p><strong>Arrival Airport:</strong> <span id="viewArrivalAirport"></span></p>
+                <p><strong>Departure Time:</strong> <span id="viewDepartureTime"></span></p>
+                <p><strong>Total Seats:</strong> <span id="viewTotalSeats"></span></p>
+                <p><strong>Available Seats:</strong> <span id="viewAvailableSeats"></span></p>
+                <p><strong>Status:</strong> <span id="viewStatus"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     // Populate the delete flight modal with data
     var deleteFlightModal = document.getElementById('deleteFlightModal');
@@ -132,5 +129,36 @@
         document.getElementById('confirmDeleteButton').onclick = function () {
             window.location.href = `/admin/flights/delete/${flightId}`;
         };
+    });
+
+    // Populate the view flight details modal with data
+    var viewFlightDetailsModal = document.getElementById('viewFlightDetailsModal');
+    var viewDetailButtons = document.querySelectorAll('.view-details');
+    viewDetailButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            // Get flight details from data attributes
+            var flightId = button.getAttribute('data-id');
+            var planeId = button.getAttribute('data-plane-id');
+            var departureAirport = button.getAttribute('data-departure-airport');
+            var arrivalAirport = button.getAttribute('data-arrival-airport');
+            var departureTime = button.getAttribute('data-departure-time');
+            var totalSeats = button.getAttribute('data-total-seats');
+            var availableSeats = button.getAttribute('data-available-seats');
+            var status = button.getAttribute('data-status');
+
+            // Update modal content
+            document.getElementById('viewFlightId').textContent = flightId;
+            document.getElementById('viewPlaneId').textContent = planeId;
+            document.getElementById('viewDepartureAirport').textContent = departureAirport;
+            document.getElementById('viewArrivalAirport').textContent = arrivalAirport;
+            document.getElementById('viewDepartureTime').textContent = departureTime;
+            document.getElementById('viewTotalSeats').textContent = totalSeats;
+            document.getElementById('viewAvailableSeats').textContent = availableSeats;
+            document.getElementById('viewStatus').textContent = status;
+
+            // Show the modal
+            var modal = new bootstrap.Modal(viewFlightDetailsModal);
+            modal.show();
+        });
     });
 </script>

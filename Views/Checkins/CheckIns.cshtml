@@ -12,7 +12,7 @@
                     <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
                         <h2>Checkins Management</h2>
                         <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
-                            href="/admin/checkins/create-checkin">
+                            href="/admin/checkins/create">
                             <i class="bi bi-plus-circle me-2"></i> Create New Checkin
                         </a>
                     </div>
@@ -35,8 +35,12 @@
                                         <td>2025-03-22 10:00 AM</td>
                                         <td>Confirmed</td>
                                         <td>
-                                            <a href="/admin/checkins/1" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewCheckinModal" data-id="1"
+                                                data-booking-id="Booking-001" data-checkin-time="2025-03-22 10:00 AM"
+                                                data-status="Confirmed">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
                                             <a href="/admin/checkins/edit/1" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteCheckinModal" data-id="1"
@@ -51,8 +55,12 @@
                                         <td>2025-03-22 11:00 AM</td>
                                         <td>Confirmed</td>
                                         <td>
-                                            <a href="/admin/checkins/2" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewCheckinModal" data-id="2"
+                                                data-booking-id="Booking-002" data-checkin-time="2025-03-22 11:00 AM"
+                                                data-status="Confirmed">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
                                             <a href="/admin/checkins/edit/2" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteCheckinModal" data-id="2"
@@ -67,8 +75,12 @@
                                         <td>2025-03-22 12:00 PM</td>
                                         <td>Confirmed</td>
                                         <td>
-                                            <a href="/admin/checkins/3" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewCheckinModal" data-id="3"
+                                                data-booking-id="Booking-003" data-checkin-time="2025-03-22 12:00 PM"
+                                                data-status="Confirmed">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
                                             <a href="/admin/checkins/edit/3" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteCheckinModal" data-id="3"
@@ -83,8 +95,12 @@
                                         <td>2025-03-22 01:00 PM</td>
                                         <td>Confirmed</td>
                                         <td>
-                                            <a href="/admin/checkins/4" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewCheckinModal" data-id="4"
+                                                data-booking-id="Booking-004" data-checkin-time="2025-03-22 01:00 PM"
+                                                data-status="Confirmed">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
                                             <a href="/admin/checkins/edit/4" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteCheckinModal" data-id="4"
@@ -99,8 +115,12 @@
                                         <td>2025-03-22 02:00 PM</td>
                                         <td>Confirmed</td>
                                         <td>
-                                            <a href="/admin/checkins/5" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewCheckinModal" data-id="5"
+                                                data-booking-id="Booking-005" data-checkin-time="2025-03-22 02:00 PM"
+                                                data-status="Confirmed">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
                                             <a href="/admin/checkins/edit/5" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteCheckinModal" data-id="5"
@@ -141,6 +161,27 @@
     </div>
 </div>
 
+<!-- Modal for Viewing Checkin Details -->
+<div class="modal fade" id="viewCheckinModal" tabindex="-1" aria-labelledby="viewCheckinModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewCheckinModalLabel">Checkin Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Checkin ID:</strong> <span id="viewCheckinId"></span></p>
+                <p><strong>Booking ID:</strong> <span id="viewBookingId"></span></p>
+                <p><strong>Checkin Time:</strong> <span id="viewCheckinTime"></span></p>
+                <p><strong>Status:</strong> <span id="viewStatus"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     // Populate the delete check-in modal with data
     var deleteCheckinModal = document.getElementById('deleteCheckinModal');
@@ -156,5 +197,21 @@
         document.getElementById('confirmDeleteButton').onclick = function () {
             window.location.href = `/admin/checkins/delete/${checkinId}`;
         };
+    });
+
+    // Populate the view check-in modal with data
+    var viewCheckinModal = document.getElementById('viewCheckinModal');
+    viewCheckinModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var checkinId = button.getAttribute('data-id');
+        var bookingId = button.getAttribute('data-booking-id');
+        var checkinTime = button.getAttribute('data-checkin-time');
+        var status = button.getAttribute('data-status');
+
+        // Update modal content
+        document.getElementById('viewCheckinId').textContent = checkinId;
+        document.getElementById('viewBookingId').textContent = bookingId;
+        document.getElementById('viewCheckinTime').textContent = checkinTime;
+        document.getElementById('viewStatus').textContent = status;
     });
 </script>

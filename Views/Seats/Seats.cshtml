@@ -12,7 +12,7 @@
                     <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
                         <h2>Seats Management</h2>
                         <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
-                            href="/admin/seats/create-seat">
+                            href="/admin/seats/create">
                             <i class="bi bi-plus-circle me-2"></i> Create New Seat
                         </a>
                     </div>
@@ -37,8 +37,8 @@
                                         <td>First Class</td>
                                         <td>Available</td>
                                         <td>
-                                            <a href="/admin/seats/1" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewSeatModal"><i class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/seats/edit/1" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteSeatModal" data-id="1" data-name="1A">
@@ -53,8 +53,8 @@
                                         <td>First Class</td>
                                         <td>Booked</td>
                                         <td>
-                                            <a href="/admin/seats/2" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewSeatModal"><i class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/seats/edit/2" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteSeatModal" data-id="2" data-name="1B">
@@ -69,8 +69,8 @@
                                         <td>Business Class</td>
                                         <td>Available</td>
                                         <td>
-                                            <a href="/admin/seats/3" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewSeatModal"><i class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/seats/edit/3" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteSeatModal" data-id="3" data-name="2A">
@@ -85,8 +85,8 @@
                                         <td>Economy Class</td>
                                         <td>Available</td>
                                         <td>
-                                            <a href="/admin/seats/4" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewSeatModal"><i class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/seats/edit/4" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteSeatModal" data-id="4" data-name="3C">
@@ -101,8 +101,8 @@
                                         <td>Economy Class</td>
                                         <td>Booked</td>
                                         <td>
-                                            <a href="/admin/seats/5" class="btn btn-secondary"><i
-                                                    class="fa-solid fa-eye"></i></a>
+                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#viewSeatModal"><i class="fa-solid fa-eye"></i></a>
                                             <a href="/admin/seats/edit/5" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteSeatModal" data-id="5" data-name="4D">
@@ -141,6 +141,28 @@
     </div>
 </div>
 
+<!-- Modal for Viewing Seat Details -->
+<div class="modal fade" id="viewSeatModal" tabindex="-1" aria-labelledby="viewSeatModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewSeatModalLabel">Seat Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Seat Id:</strong> <span id="viewSeatId"></span></p>
+                <p><strong>Flight Id:</strong> <span id="viewFlightId"></span></p>
+                <p><strong>Seat No:</strong> <span id="viewSeatNo"></span></p>
+                <p><strong>Class:</strong> <span id="viewClass"></span></p>
+                <p><strong>Availability:</strong> <span id="viewAvailability"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     // Populate the delete seat modal with data
     var deleteSeatModal = document.getElementById('deleteSeatModal');
@@ -156,5 +178,24 @@
         document.getElementById('confirmDeleteButton').onclick = function () {
             window.location.href = `/admin/seats/delete/${seatId}`;
         };
+    });
+
+    // Populate the view seat modal with data
+    var viewSeatModal = document.getElementById('viewSeatModal');
+    viewSeatModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var row = button.closest('tr'); // Get the row of the button
+        var seatId = row.children[0].textContent; // Get Seat Id from the row
+        var flightId = row.children[1].textContent; // Get Flight Id
+        var seatNo = row.children[2].textContent; // Get Seat No
+        var seatClass = row.children[3].textContent; // Get Class
+        var availability = row.children[4].textContent; // Get Availability
+
+        // Update modal content
+        document.getElementById('viewSeatId').textContent = seatId;
+        document.getElementById('viewFlightId').textContent = flightId;
+        document.getElementById('viewSeatNo').textContent = seatNo;
+        document.getElementById('viewClass').textContent = seatClass;
+        document.getElementById('viewAvailability').textContent = availability;
     });
 </script>
