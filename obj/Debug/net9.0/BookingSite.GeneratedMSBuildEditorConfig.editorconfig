@@ -52,6 +52,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFnZ2FnZXNcQmFnZ2FnZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/dotnet/BookingSite/Views/Baggages/CreateBaggage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFnZ2FnZXNcQ3JlYXRlQmFnZ2FnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Baggages/EditBaggage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFnZ2FnZXNcRWRpdEJhZ2dhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/dotnet/BookingSite/Views/Bookings/Bookings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcQm9va2luZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,6 +74,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/dotnet/BookingSite/Views/Checkins/CheckIns.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tpbnNcQ2hlY2tJbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Checkins/CreateCheckIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tpbnNcQ3JlYXRlQ2hlY2tJbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Checkins/EditCheckIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tpbnNcRWRpdENoZWNrSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Flights/CreateFlight.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0c1xDcmVhdGVGbGlnaHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Flights/EditFlight.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0c1xFZGl0RmxpZ2h0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/dotnet/BookingSite/Views/Flights/Flights.cshtml]
@@ -84,6 +108,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/dotnet/BookingSite/Views/Meals/CreateMeal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbHNcQ3JlYXRlTWVhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Meals/EditMeal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbHNcRWRpdE1lYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/dotnet/BookingSite/Views/Meals/Meals.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbHNcTWVhbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -100,8 +132,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFzc2VuZ2Vyc1xQYXNzZW5nZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/dotnet/BookingSite/Views/Planes/CreatePlane.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbmVzXENyZWF0ZVBsYW5lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Planes/EditPlane.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbmVzXEVkaXRQbGFuZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/dotnet/BookingSite/Views/Planes/Planes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbmVzXFBsYW5lcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Seats/CreateSeat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhdHNcQ3JlYXRlU2VhdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotnet/BookingSite/Views/Seats/EditSeat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhdHNcRWRpdFNlYXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/dotnet/BookingSite/Views/Seats/Seats.cshtml]
