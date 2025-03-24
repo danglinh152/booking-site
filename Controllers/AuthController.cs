@@ -55,7 +55,7 @@ namespace BookingSite.Controllers
         int rows = await context.SaveChangesAsync();
         if (rows == 0) Console.WriteLine("Lỗi ! không thêm được");
         else Console.WriteLine($"Đã thêm {rows} user");
-        return RedirectToAction("");
+        return RedirectToAction("Index", "Admin");
       }
       return View(regiserModelView);
     }

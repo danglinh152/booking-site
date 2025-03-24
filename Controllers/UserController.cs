@@ -47,8 +47,7 @@ namespace BookingSite.Controllers
                 UserID = id,
                 FullName = "Dang Linh",
                 Email = "danglinh.k4@gmail.com",
-                Password = "cc30cm",
-                ConfirmPassword = "cc30cm"
+                Password = "cc30cm"
             };
         }
         /* ==============================================================================================*/
