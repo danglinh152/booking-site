@@ -1,0 +1,67 @@
+@{
+    ViewData["Title"] = "Create Plane";
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Adjust layout path if necessary
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Create Plane Form -->
+                <div class="card mt-4 shadow-sm border-light">
+                    <div class="card-header text-white">
+                        <h2 class="mb-0">Create Plane</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="createPlaneForm">
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="model">Model</label>
+                                <input type="text" class="form-control" id="model" placeholder="Enter Plane Model"
+                                    required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="capacity">Capacity</label>
+                                <input type="number" class="form-control" id="capacity" placeholder="Enter Capacity"
+                                    required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="manufacturer">Manufacturer</label>
+                                <input type="text" class="form-control" id="manufacturer"
+                                    placeholder="Enter Manufacturer" required>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <a href="/admin/planes" class="btn btn-secondary">Back to List</a>
+                                <button type="submit" class="btn btn-primary">Create Plane</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- [ form-element ] end -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('createPlaneForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Gather form data
+        const model = document.getElementById('model').value;
+        const capacity = document.getElementById('capacity').value;
+        const manufacturer = document.getElementById('manufacturer').value;
+
+        // Add your AJAX or form submission logic here
+        // Example: Submit the form data using fetch API or XMLHttpRequest
+
+        console.log({
+            model,
+            capacity,
+            manufacturer
+        });
+
+        // Redirect or show success message after submission
+        // window.location.href = '/admin/planes'; // Redirect to the planes list after creation
+    });
+</script>
