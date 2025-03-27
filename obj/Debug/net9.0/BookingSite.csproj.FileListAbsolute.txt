@@ -1163,6 +1163,7 @@ D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net9.0\runtimes\win-x64\nat
 D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net9.0\runtimes\win-x86\native\sni.dll
 D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net9.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
 D:\Bài giảng UIT\Framework\booking-site\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+<<<<<<< HEAD
 D:\Nam3\Framework\booking-site\bin\Debug\net9.0\appsettings.Development.json
 D:\Nam3\Framework\booking-site\bin\Debug\net9.0\appsettings.json
 D:\Nam3\Framework\booking-site\bin\Debug\net9.0\BookingSite.staticwebassets.runtime.json
@@ -1751,3 +1752,16 @@ D:\Nam3\Framework\booking-site\obj\Debug\net9.0\refint\BookingSite.dll
 D:\Nam3\Framework\booking-site\obj\Debug\net9.0\BookingSite.pdb
 D:\Nam3\Framework\booking-site\obj\Debug\net9.0\BookingSite.genruntimeconfig.cache
 D:\Nam3\Framework\booking-site\obj\Debug\net9.0\ref\BookingSite.dll
+=======
+D:\dotnet\BookingSite\bin\Debug\net9.0\Microsoft.Extensions.Configuration.dll
+D:\dotnet\BookingSite\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\dotnet\BookingSite\bin\Debug\net9.0\Microsoft.Extensions.Logging.Configuration.dll
+D:\dotnet\BookingSite\bin\Debug\net9.0\Microsoft.Extensions.Logging.Console.dll
+D:\dotnet\BookingSite\bin\Debug\net9.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+D:\dotnet\BookingSite\bin\Debug\net9.0\System.Data.SqlClient.dll
+D:\dotnet\BookingSite\bin\Debug\net9.0\runtimes\win-arm64\native\sni.dll
+D:\dotnet\BookingSite\bin\Debug\net9.0\runtimes\win-x64\native\sni.dll
+D:\dotnet\BookingSite\bin\Debug\net9.0\runtimes\win-x86\native\sni.dll
+D:\dotnet\BookingSite\bin\Debug\net9.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+D:\dotnet\BookingSite\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+>>>>>>> d3003e54d997fa6e78d08a83089337762106fec1
