@@ -5137,19 +5137,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {}
+    "C:\\Users\\ngvan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dotnet\\BookingSite\\BookingSite.csproj",
+      "projectUniqueName": "D:\\Nam3\\Framework\\booking-site\\BookingSite.csproj",
       "projectName": "BookingSite",
-      "projectPath": "D:\\dotnet\\BookingSite\\BookingSite.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\dotnet\\BookingSite\\obj\\",
+      "projectPath": "D:\\Nam3\\Framework\\booking-site\\BookingSite.csproj",
+      "packagesPath": "C:\\Users\\ngvan\\.nuget\\packages\\",
+      "outputPath": "D:\\Nam3\\Framework\\booking-site\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ngvan\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
