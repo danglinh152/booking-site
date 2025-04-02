@@ -1,0 +1,962 @@
+
+    body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #d8f0f7, #ffffff);
+    color: #f8f8f8; 
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    background: url('https://source.unsplash.com/1600x500/?airplane') no-repeat center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bannername {
+    color: #02f2ff;
+}
+/* Style cho container chính */
+.booking-container {
+    max-width: 900px;
+    margin: auto;
+    background: #d0ecec; /* Nền xanh nhẹ */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.booking-box {
+    background: white;
+    padding: 20px !important;
+    border-radius: 0 0 10px 10px;
+}
+
+.booking-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Khoảng cách giữa các ô */
+    align-items: center;
+}
+
+.booking-inputs .dropdown-container,
+.booking-inputs .date-container {
+    flex: 1; /* Chia đều độ rộng */
+    min-width: 180px; /* Đảm bảo không bị quá nhỏ trên màn hình nhỏ */
+}
+
+.booking-inputs input[type="date"] {
+    width: 100%; /* Đảm bảo ô ngày đi/ngày về đầy đủ kích thước */
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.booking-inputs .btn-success {
+    height: 100%; /* Giữ chiều cao bằng với các input */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.booking-box label,
+.booking-box .btn {
+    font-size: 14px;
+}
+
+/* Tiêu đề tabs */
+.navbar {
+    background-color: #ffffff; /* Màu nền trắng */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    padding: 10px 20px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Đẩy các mục sang bên phải */
+    gap: 15px; /* Khoảng cách giữa các mục */
+}
+
+.nav-item {
+    list-style: none;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: space-between; /* Chia đều khoảng cách */
+    width: 100%;
+    border-bottom: 2px solid #ddd;
+}
+
+.nav-tabs .nav-item {
+    flex: 1; /* Chia đều chiều rộng */
+    text-align: center;
+}
+
+.nav-link {
+    color: #333; /* Màu chữ */
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: all 0.3s ease-in-out;
+}
+.nav-link:hover {
+    color: #007bff; /* Màu chữ khi hover */
+    background-color: #f0f8ff; /* Màu nền khi hover */
+    border-radius: 5px; /* Bo góc */
+}
+
+
+.nav-tabs .nav-link {
+    padding: 8px 12px; /* Giảm padding để không chiếm quá nhiều không gian */
+    font-weight: bold;
+    color: #007bff;
+    border-radius: 0; /* Loại bỏ bo góc */
+    white-space: nowrap; /* Giữ chữ trên một dòng */
+}
+
+
+/* Định dạng cho navbar khi trên màn hình nhỏ */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column; /* Chuyển thành cột */
+        gap: 10px; /* Khoảng cách giữa các mục */
+    }
+
+    .nav-link, .btn-primary {
+        text-align: center; /* Canh giữa chữ */
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+    }
+}
+.nav-tabs .nav-link:hover {
+    background-color: #f0f8ff; /* Màu nền khi hover */
+    border-color: #67affd;
+}
+/* Khi tab được chọn */
+.nav-tabs .nav-link.active {
+    color: white !important;
+    background-color: #83baf6 !important; /* Màu nền khi được chọn */
+    border-color: #83baf6 !important;
+    border-radius: 5px 5px 0 0;
+}
+
+.nav-tabs button {
+    background: none;
+    border: none;
+    color: #da0909;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.nav-tabs button.active {
+    border-bottom: 2px solid #00ffcc; /* Nhấn mạnh tab đang chọn */
+}
+/* Nút Đăng đăng nhập */
+.btn-primary {
+    background-color: #007bff; /* Màu nền xanh */
+    color: #fff; /* Màu chữ trắng */
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Màu nền khi hover */
+    color: #fff; /* Màu chữ khi hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+}
+
+/* Nút Đăng ký */
+.btn-register {
+    background-color: #28a745; /* Màu xanh lá */
+    color: white; /* Màu chữ trắng */
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-register:hover {
+    background-color: #218838; /* Màu xanh lá đậm hơn khi hover */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+}
+.radio-group {
+    display: flex;
+    justify-content: flex-start; /* Căn giữa */
+    gap: 10px; /* Khoảng cách giữa các nút */
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333; /* Màu chữ đậm hơn */
+    cursor: pointer;
+     margin-right: 10px;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 6px;
+    transform: scale(1.2); /* Tăng kích thước radio button */
+}
+
+
+
+/* ====== Loại vé ====== */
+.btn-group label {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: #f8f9fa;
+            color: #004466;
+            font-weight: 600;
+        }
+.btn-group label:hover,
+.btn-group input:checked + label {
+            background-color: #004466;
+            color: white;
+}
+
+.btn-group {
+            display: flex;
+            width: 100%;
+}
+
+ .btn-group input {
+            display: none;
+}
+
+/* Input và select */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    width: 150px;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Radio button chọn loại vé */
+.btn-check + .btn {
+    background: #f8f9fa;
+    color: #1f4e5f;
+    border: 1px solid #1f4e5f;
+}
+
+.btn-check:checked + .btn {
+    background: #1f4e5f;
+    color: white;
+}
+
+
+
+
+/* Điều chỉnh vị trí nút đổi chiều */
+.col-md-1 button {
+    font-size: 18px;
+    padding: 6px 8px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
+.col-md-1 button:hover {
+    background: #e3e3e3;
+}
+
+/* Nút dropdown */
+#tab-datve .dropdown button {
+    width: 100%; /* Đảm bảo nút chiếm toàn bộ chiều rộng */
+    padding: 10px 12px; /* Căn chỉnh nội dung */
+    text-align: left; /* Canh trái nội dung */
+    background: #ffffff; /* Nền trắng */
+    border: 1px solid #ccc; /* Viền nhạt */
+    border-radius: 8px; /* Bo góc */
+    font-size: 14px; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+    transition: all 0.3s ease-in-out;
+}
+#tab-datve .dropdown button:hover {
+    background: #eef6fc; /* Màu nền khi hover */
+    border-color: #007bff; /* Viền xanh khi hover */
+}
+
+/* Dropdown menu */
+#tab-datve .dropdown-menu {
+    width: 100%; /* Đảm bảo menu dropdown chiếm toàn bộ chiều rộng của nút */
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Đổ bóng */
+    border-radius: 8px; /* Bo góc */
+    background: #ffffff; /* Nền trắng */
+}
+
+/* Tabs bên trong dropdown */
+#tab-datve .dropdown-menu .nav-tabs {
+    border-bottom: 1px solid #ddd; /* Viền dưới */
+    margin-bottom: 10px; /* Khoảng cách dưới */
+}
+
+#tab-datve .dropdown-menu .nav-tabs .nav-link {
+    color: #555; /* Màu chữ xám */
+    font-size: 14px; /* Kích thước chữ */
+    padding: 8px 12px; /* Căn chỉnh nội dung */
+    border-radius: 5px; /* Bo góc */
+    transition: all 0.3s ease-in-out;
+}
+
+#tab-datve .dropdown-menu .nav-tabs .nav-link.active {
+    background-color: #007bff; /* Nền xanh khi active */
+    color: white; /* Chữ trắng khi active */
+    border-color: #007bff; /* Viền xanh khi active */
+}
+
+#tab-datve .dropdown-menu .nav-tabs .nav-link:hover {
+    background-color: #f0f8ff; /* Nền xanh nhạt khi hover */
+    color: #007bff; /* Màu chữ xanh khi hover */
+}
+
+
+.btn-light {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ====== Nút hoán đổi ====== */
+#tab-datve #swapButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Làm tròn */
+    border: 2px solid #007bff; /* Viền màu xanh */
+    background-color: #ffffff; /* Nền trắng */
+    color: #007bff; /* Màu biểu tượng */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; /* Tăng kích thước icon */
+    transition: all 0.3s ease-in-out;
+}
+
+#tab-datve #swapButton:hover {
+    background-color: #007bff; /* Khi hover, nền xanh */
+    color: white; /* Biểu tượng trắng */
+    cursor: pointer;
+}
+
+/* Hộp chứa hành khách */
+.passenger-container {
+    position: relative;
+    display: inline-block;
+    width: 25%;
+    cursor: pointer;
+}
+
+.passenger-input {
+    background-color: white !important; /* Nền trắng */
+    color: black !important; /* Chữ màu đen */
+    border: 1px solid #ced4da; /* Viền giống các ô input khác */
+    padding: 10px; /* Căn chỉnh nội dung */
+    border-radius: 5px; /* Bo góc cho đẹp */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+    text-align: center; /* Canh giữa chữ */
+}
+
+
+
+.passenger-item:last-child {
+    border-bottom: none;
+}
+
+.passenger-label {
+    font-size: 14px;
+    font-weight: bold;
+    color:  #003366;
+}
+
+/* Ẩn phần hành khách mặc định */
+#passengerBox {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    width: 100%;
+}
+
+/* Hiển thị phần hành khách khi có class "show" */
+#passengerBox.show {
+    display: block;
+}
+small {
+    display: block;
+    font-size: 12px;
+    color: #000000;
+}
+
+
+
+
+/* Ẩn box chọn hành khách ban đầu */
+
+
+
+
+
+
+
+/* Số lượng hành khách */
+
+.counter {
+    display: flex;
+    align-items: center;
+}
+
+.counter button {
+    width: 32px; /* Kích thước nút */
+    height: 32px;
+    border: 1px solid #198754; /* Viền màu xanh */
+    background-color: #fff; /* Nền trắng */
+    color: #198754; /* Màu chữ xanh */
+    font-size: 18px; /* Chữ lớn hơn */
+    border-radius: 50%; /* Bo tròn nút */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.counter button:hover {
+    background-color: #198754; /* Đổi màu nền */
+    color: white; /* Chữ trắng khi hover */
+    border-color: #157347;
+}
+
+.counter span {
+    min-width: 24px; /* Để số không bị thu nhỏ */
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+
+/* Ô nhập ngày đi, ngày về */
+.col-md-2 {
+    padding-right: 10px; /* Tạo khoảng cách giữa 2 cột */
+}
+/* Căn chỉnh label */
+.form-label {
+    font-weight: 600; /* In đậm */
+    font-size: 14px;
+    color: #333; /* Màu chữ tối hơn một chút */
+}
+
+/* Tùy chỉnh ô nhập ngày */
+.form-control[type="date"] {
+    height: 41px;
+    width: 13;
+    font-size: 14px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    border: 1px solid #ced4da; /* Viền nhẹ */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hiệu ứng khi focus vào input */
+.form-control[type="date"]:focus {
+    border-color: #28a745; /* Viền màu xanh lá */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+    outline: none;
+}
+
+/* Căn chỉnh kích thước trên màn hình nhỏ */
+@media (max-width: 768px) {
+    .col-md-2 {
+        width: 100%; /* Cho full chiều rộng trên mobile */
+        margin-bottom: 10px;
+    }
+}
+
+/*phần TenPM Club */
+.form-check-label {
+    color: #000000; /* Đảm bảo chữ sáng trên nền tối */
+}
+
+/* ====== Nút tìm chuyến bay ====== */
+.booking-inputs .btn-success {
+    height: 100%; /* Giữ chiều cao bằng với các input */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+}
+.btn-success:hover {
+    background: #025514;
+}
+
+/*Nút drop down cùng kích thước với ô nhập mã giảm giá */
+.same-size {
+    height: 40px; 
+    font-size: 16px; 
+    padding: 8px 12px; 
+}
+
+.dropdown .btn {
+    width: 100%; 
+}
+
+
+/*LÀM THỦ TỤC*/
+/* Định dạng chung cho form Làm Thủ Tục */
+#tab-lamthutuc {
+    background-color: #f9f9f9; /* Màu nền nhạt */
+    padding: 20px;
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+/* Tiêu đề chính */
+#tab-lamthutuc h5 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff; /* Màu xanh dương */
+    margin-bottom: 10px;
+}
+
+/* Đoạn văn bản mô tả */
+#tab-lamthutuc p {
+    font-size: 14px;
+    color: #555; /* Màu chữ xám */
+    margin-bottom: 15px;
+}
+
+/* Link chi tiết */
+#tab-lamthutuc a.text-success {
+    font-size: 14px;
+    font-weight: bold;
+    color: #28a745; /* Màu xanh lá */
+    text-decoration: none;
+}
+
+#tab-lamthutuc a.text-success:hover {
+    text-decoration: underline;
+    color: #1e7e34; /* Màu xanh lá đậm hơn khi hover */
+}
+
+/* Form */
+#tab-lamthutuc form {
+    margin-top: 20px;
+}
+
+/* Nhãn của các ô input */
+#tab-lamthutuc .form-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333; /* Màu chữ đậm */
+}
+
+/* Các ô input */
+#tab-lamthutuc .form-control {
+    border: 1px solid #ced4da; /* Viền nhạt */
+    border-radius: 5px; /* Bo góc */
+    padding: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+#tab-lamthutuc .form-control:focus {
+    border-color: #007bff; /* Viền xanh khi focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Hiệu ứng ánh sáng */
+    outline: none;
+}
+
+/* Nút "Làm Thủ Tục" */
+#tab-lamthutuc .btn-checkin {
+    background-color: #007bff; /* Màu xanh dương */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+#tab-lamthutuc .btn-checkin:hover {
+    background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+    cursor: pointer;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+    #tab-lamthutuc {
+        padding: 15px;
+    }
+
+    #tab-lamthutuc .form-control {
+        font-size: 13px;
+    }
+
+    #tab-lamthutuc .btn-checkin {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/*ĐẶT CHỖ CỦA TÔI*/
+.booking-box {
+        background-color: #f8f9fa; /* Màu nền nhẹ cho hộp đặt chỗ */
+        border-radius: 8px; /* Bo góc cho hộp */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho hộp */
+    }
+
+    .list-group-item {
+        display: flex;
+        justify-content: space-between; /* Căn chỉnh nội dung */
+        align-items: center; /* Căn giữa theo chiều dọc */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Màu nền cho nút */
+        border-color: #007bff; /* Màu viền cho nút */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Màu nền khi hover */
+        border-color: #0056b3; /* Màu viền khi hover */
+    }
+
+    .text-primary {
+        font-weight: bold; /* In đậm tiêu đề */
+    }
+
+/* ======= Cấu hình chung cho tab ======= */
+#bookingTabs {
+    border-bottom: 2px solid #ddd;
+}
+
+#bookingTabs .nav-link {
+    color: #555;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 0;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+#bookingTabs .nav-link.active {
+    background-color: #0056b3;
+    color: white;
+    border-bottom: 3px solid #004494;
+}
+
+#bookingTabs .nav-link:hover {
+    background-color: rgba(0, 86, 179, 0.1);
+}
+
+
+
+/* Nút làm thủ tục */
+#checkin-form .btn-checkin {
+    background-color: #198754;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+    border: none;
+}
+
+#checkin-form .btn-checkin:hover {
+    background-color: #145c38;
+}
+
+#hoivien {
+    background: #f0f8ff; /* Màu nền xanh nhạt */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+/* Định dạng văn bản */
+#hoivien p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Nút đăng nhập */
+#hoivien .btn-success {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+#hoivien .btn-success:hover {
+    background-color: #145c38;
+}   
+
+
+/* ======= ĐẶT CHỖ CỦA TÔI ======= */
+/* Định dạng chung cho tab Đặt Chỗ Của Tôi */
+#tab-datcho {
+    background-color: #f9f9f9; /* Màu nền nhạt */
+    padding: 20px;
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+/* Tiêu đề tab */
+#tab-datcho h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff; /* Màu xanh dương */
+    margin-bottom: 15px;
+}
+
+/* Định dạng chung cho các nút trong tab Đặt Chỗ Của Tôi */
+#tab-datcho .d-flex button.btn {
+    font-size: 9px; /* Giảm kích thước chữ */
+    padding: 5px 10px; /* Giảm padding */
+    white-space: normal; /* Cho phép chữ xuống dòng */
+    flex-grow: 1; /* Để các nút có kích thước đồng đều */
+    text-align: center; /* Canh giữa nội dung */
+    max-width: 150px; /* Giới hạn chiều rộng tối đa của nút */
+}
+
+/* Khoảng cách giữa các nút */
+#tab-datcho .d-flex button.btn.m-1 {
+    margin: 5px; /* Khoảng cách giữa các nút */
+}
+
+
+/* Đảm bảo các nút nằm ngang */
+#tab-datcho .d-flex {
+    flex-wrap: wrap; /* Cho phép các nút xuống dòng */
+    gap: 10px; /* Khoảng cách giữa các nút */
+    justify-content: space-between; /* Căn đều các nút */
+}
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+    #tab-datcho .d-flex {
+        flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+    }
+
+    #tab-datcho .d-flex button.btn {
+        flex-grow: unset; /* Tắt kích thước đồng đều trên màn hình nhỏ */
+        width: 100%; /* Nút chiếm toàn bộ chiều rộng */
+    }
+}
+
+/* Tabs bên trong */
+#bookingTabs .nav-link {
+    color: #555; /* Màu chữ xám */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: 1px solid #ddd; /* Viền nhạt */
+    border-radius: 5px 5px 0 0; /* Bo góc trên */
+    transition: all 0.3s ease-in-out;
+}
+
+#bookingTabs .nav-link.active {
+    background-color: #007bff; /* Màu nền xanh dương khi active */
+    color: white; /* Màu chữ trắng */
+    border-color: #007bff; /* Viền xanh dương */
+}
+
+#bookingTabs .nav-link:hover {
+    background-color: #f0f8ff; /* Màu nền nhạt khi hover */
+    color: #007bff; /* Màu chữ xanh dương */
+}
+
+/* Nội dung tab */
+#tab-datcho .tab-content {
+    background-color: white;
+    border: 1px solid #ddd; /* Viền nhạt */
+    border-radius: 0 0 8px 8px; /* Bo góc dưới */
+    padding: 20px;
+    margin-top: -1px; /* Để khớp với viền tab */
+}
+
+/* Form */
+#tab-datcho .form-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333; /* Màu chữ đậm */
+}
+
+#tab-datcho .form-control {
+    border: 1px solid #ced4da; /* Viền nhạt */
+    border-radius: 5px; /* Bo góc */
+    padding: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+#tab-datcho .form-control:focus {
+    border-color: #007bff; /* Viền xanh khi focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Hiệu ứng ánh sáng */
+    outline: none;
+}
+
+/* Nút Tìm Kiếm */
+#tab-datcho .btn-success {
+    background-color: #28a745; /* Màu xanh lá */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+#tab-datcho .btn-success:hover {
+    background-color: #218838; /* Màu xanh lá đậm hơn khi hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+    cursor: pointer;
+}
+
+/* Các nút chức năng */
+#tab-datcho .btn-light {
+    background-color: #f8f9fa; /* Màu nền nhạt */
+    color: #333; /* Màu chữ đậm */
+    border: 1px solid #ddd; /* Viền nhạt */
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+#tab-datcho .btn-light:hover {
+    background-color: #e2e6ea; /* Màu nền đậm hơn khi hover */
+    color: #007bff; /* Màu chữ xanh dương */
+    border-color: #007bff; /* Viền xanh dương */
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+    #tab-datcho {
+        padding: 15px;
+    }
+
+    #tab-datcho .form-control {
+        font-size: 13px;
+    }
+
+    #tab-datcho .btn-success {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #tab-datcho .btn-light {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
+
+
+/*footer*/
+footer {
+    background-color: #1F2937; /* Màu nền tối hơn để nổi bật */
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+footer .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    footer .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+footer h3, footer h4 {
+    color: white !important;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+footer p, footer a {
+    color: #9CA3AF; /* Màu xám nhẹ để dịu mắt */
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+footer .flex {
+    display: flex;
+    gap: 1rem;
+}
+
+footer .border-t {
+    border-top: 1px solid #374151;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+
+
