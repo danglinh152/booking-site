@@ -1,0 +1,86 @@
+@{
+    ViewData["Title"] = "Edit User Details";
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Adjust layout path if necessary
+
+    // Lấy ID từ đường dẫn
+    var userId = ViewContext.RouteData.Values["id"]; // Accessing RouteData
+
+    // Initialize variables
+    string userName;
+    string userEmail;
+    string userPhone;
+
+    // Check if userId is valid
+    if (userId != null && int.TryParse(userId.ToString(), out int id))
+    {
+        // Simulated user data retrieval based on user ID
+        switch (id)
+        {
+            case 1:
+                userName = "John Doe";
+                userEmail = "john.doe@example.com";
+                userPhone = "+1 234 567 8901";
+                break;
+            case 2:
+                userName = "Jane Smith";
+                userEmail = "jane.smith@example.com";
+                userPhone = "+1 234 567 8902";
+                break;
+            default:
+                userName = "Unknown User";
+                userEmail = "unknown@example.com";
+                userPhone = "N/A";
+                break;
+        }
+    }
+    else
+    {
+        userName = "Unknown User";
+        userEmail = "unknown@example.com";
+        userPhone = "N/A";
+    }
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Update Form -->
+                <div class="card mt-4 shadow-sm border-light">
+                    <div class="card-header text-white">
+                        <h2 class="mb-0">Edit User Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="userName">User Name</label>
+                                <input type="text" class="form-control" id="userName" placeholder="Enter User Name"
+                                    value="@userName">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="userEmail">Email</label>
+                                <input type="email" class="form-control" id="userEmail" placeholder="Enter Email"
+                                    value="@userEmail">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="userPhone">Phone Number</label>
+                                <input type="tel" class="form-control" id="userPhone" placeholder="Enter Phone Number"
+                                    value="@userPhone">
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <a href="/admin/users" class="btn btn-secondary">Back to List</a>
+                                <button type="submit" class="btn btn-primary">Update User</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- [ form-element ] end -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // You can add any additional JavaScript needed for this form here
+</script>

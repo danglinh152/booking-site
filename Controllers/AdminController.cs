@@ -18,15 +18,6 @@ namespace BookingSite.Controllers
             return View();
         }
 
-        public IActionResult Planes()
-        {
-            return View();
-        }
-
-        public IActionResult Flights()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

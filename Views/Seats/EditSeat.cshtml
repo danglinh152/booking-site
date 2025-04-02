@@ -1,0 +1,139 @@
+@{
+    ViewData["Title"] = "Edit Seat Details";
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Adjust layout path if necessary
+
+    // Lấy ID từ đường dẫn
+    var seatId = ViewContext.RouteData.Values["id"]; // Accessing RouteData
+
+    // Initialize variables
+    string flightId;
+    string planeId;
+    string departureAirportId;
+    string arrivalAirportId;
+    string departureTime;
+    int totalSeats;
+    int availableSeats;
+    string status;
+
+    // Check if seatId is valid
+    if (seatId != null && int.TryParse(seatId.ToString(), out int id))
+    {
+        // Dummy data for demonstration
+        switch (id)
+        {
+            case 1:
+                flightId = "Flight-001";
+                planeId = "Plane-001";
+                departureAirportId = "DIA";
+                arrivalAirportId = "LAX";
+                departureTime = "2025-03-22 10:00 AM";
+                totalSeats = 150;
+                availableSeats = 50;
+                status = "Scheduled";
+                break;
+            case 2:
+                flightId = "Flight-002";
+                planeId = "Plane-002";
+                departureAirportId = "JFK";
+                arrivalAirportId = "ORD";
+                departureTime = "2025-03-22 11:00 AM";
+                totalSeats = 200;
+                availableSeats = 75;
+                status = "Scheduled";
+                break;
+            default:
+                flightId = "Unknown Flight";
+                planeId = "Unknown Plane";
+                departureAirportId = "Unknown Airport";
+                arrivalAirportId = "Unknown Airport";
+                departureTime = "Unknown Time";
+                totalSeats = 0;
+                availableSeats = 0;
+                status = "Unknown Status";
+                break;
+        }
+    }
+    else
+    {
+        flightId = "Unknown Flight";
+        planeId = "Unknown Plane";
+        departureAirportId = "Unknown Airport";
+        arrivalAirportId = "Unknown Airport";
+        departureTime = "Unknown Time";
+        totalSeats = 0;
+        availableSeats = 0;
+        status = "Unknown Status";
+    }
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Update Form -->
+                <div class="card mt-4 shadow-sm border-light">
+                    <div class="card-header text-white">
+                        <h2 class="mb-0">Edit Seat Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="/admin/seats/edit" method="post">
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="flightId">Flight ID</label>
+                                <input type="text" class="form-control" id="flightId" placeholder="Enter Flight ID"
+                                    value="@flightId" readonly>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="planeId">Plane ID</label>
+                                <input type="text" class="form-control" id="planeId" placeholder="Enter Plane ID"
+                                    value="@planeId" readonly>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="departureAirportId">Departure Airport ID</label>
+                                <input type="text" class="form-control" id="departureAirportId"
+                                    placeholder="Enter Departure Airport ID" value="@departureAirportId" readonly>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="arrivalAirportId">Arrival Airport ID</label>
+                                <input type="text" class="form-control" id="arrivalAirportId"
+                                    placeholder="Enter Arrival Airport ID" value="@arrivalAirportId" readonly>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="departureTime">Departure Time</label>
+                                <input type="text" class="form-control" id="departureTime"
+                                    placeholder="Enter Departure Time" value="@departureTime">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="totalSeats">Total Seats</label>
+                                <input type="number" class="form-control" id="totalSeats"
+                                    placeholder="Enter Total Seats" value="@totalSeats" readonly>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="availableSeats">Available Seats</label>
+                                <input type="number" class="form-control" id="availableSeats"
+                                    placeholder="Enter Available Seats" value="@availableSeats">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="statusSelect">Status</label>
+                                <select class="form-select" id="statusSelect">
+                                    <option value="Scheduled" selected>Scheduled</option>
+                                    <option value="Delayed">Delayed</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <a href="/admin/seats" class="btn btn-secondary">Back to List</a>
+                                <button type="submit" class="btn btn-primary">Update Seat</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- [ form-element ] end -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // You can add any additional JavaScript functionality here if needed
+</script>

@@ -1,0 +1,99 @@
+@{
+    ViewData["Title"] = "Edit Baggage";
+    Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Adjust layout path if necessary
+
+    // Lấy ID từ đường dẫn
+    var baggageId = ViewContext.RouteData.Values["id"]; // Accessing RouteData
+
+    // Initialize variables
+    string bookingId;
+    string weight;
+    string fee;
+    string status;
+
+    // Check if baggageId is valid
+    if (baggageId != null && int.TryParse(baggageId.ToString(), out int id))
+    {
+        switch (id)
+        {
+            case 1:
+                bookingId = "BK001";
+                weight = "23";
+                fee = "50";
+                status = "Confirmed";
+                break;
+            case 2:
+                bookingId = "BK002";
+                weight = "15";
+                fee = "30";
+                status = "Confirmed";
+                break;
+            default:
+                bookingId = "Unknown Booking";
+                weight = "0";
+                fee = "0";
+                status = "Unknown Status";
+                break;
+        }
+    }
+    else
+    {
+        bookingId = "Unknown Booking";
+        weight = "0";
+        fee = "0";
+        status = "Unknown Status";
+    }
+}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Update Form -->
+                <div class="card mt-4 shadow-sm border-light">
+                    <div class="card-header text-white">
+                        <h2 class="mb-0">Update Baggage Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="bookingId">Booking ID</label>
+                                <input type="text" class="form-control" id="bookingId" placeholder="Enter Booking ID"
+                                    value="@bookingId" readonly>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="weight">Weight (kg)</label>
+                                <input type="text" class="form-control" id="weight" placeholder="Enter Weight"
+                                    value="@weight">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="fee">Fee ($)</label>
+                                <input type="text" class="form-control" id="fee" placeholder="Enter Fee" value="@fee">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="statusSelect">Status</label>
+                                <select class="form-select" id="statusSelect">
+                                    <option value="Confirmed">Confirmed
+                                    </option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Cancelled">Cancelled
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <a href="/admin/baggages" class="btn btn-secondary">Back to List</a>
+                                <button type="submit" class="btn btn-primary">Update Baggage</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- [ form-element ] end -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // You can add any additional JavaScript functionality here if needed
+</script>
