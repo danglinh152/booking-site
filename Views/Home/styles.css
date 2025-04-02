@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.banner {
+    background: url('https://source.unsplash.com/1600x500/?airplane') no-repeat center;
+    background-size: cover;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner h1 {
+    font-size: 2.5rem;
+}
+
+.card img {
+    height: 180px;
+    object-fit: cover;
+}
