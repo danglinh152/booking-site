@@ -2,7 +2,7 @@
     ViewData["Title"] = "Create User";
     Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Adjust layout path if necessary
 }
-
+@model BookingSite.Models.User
 <div class="pc-container">
     <div class="pc-content">
         <!-- [ Main Content ] start -->
@@ -14,35 +14,31 @@
                         <h2 class="mb-0">Create User</h2>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form asp-action="CreateUser" asp-controller="Users" method="post">
                             <div class="form-group mb-3">
                                 <label class="form-label" for="username">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="Enter Username"
+                                <input asp-for="FullName" type="text" class="form-control" id="username" placeholder="Enter Username"
                                     required>
+                                <span asp-validation-for="FullName" class="text-danger"></span>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label" for="userEmail">Email</label>
-                                <input type="email" class="form-control" id="userEmail" placeholder="Enter Email"
+                                <input asp-for="Email" type="email" class="form-control" id="userEmail" placeholder="Enter Email"
                                     required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="userPhone">Phone Number</label>
-                                <input type="tel" class="form-control" id="userPhone" placeholder="Enter Phone Number"
-                                    required>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label" for="userPassword">Password</label>
-                                <input type="password" class="form-control" id="userPassword"
+                                <input asp-for="Password" type="password" class="form-control" id="userPassword"
                                     placeholder="Enter Password" required>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label" for="userRole">Role</label>
-                                <select class="form-select" id="userRole">
+                                <select asp-for="Role" class="form-select" id="userRole">
                                     <option value="">Select a Role</option>
                                     <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
-                                    <option value="Manager">Manager</option>
-                                    <option value="Editor">Editor</option>
+                                    <option value="Customer">Customer</option>
                                 </select>
                             </div>
                             <div class="d-flex justify-content-between">
