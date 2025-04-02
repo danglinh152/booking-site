@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+bin/
+obj/
+=======
 ###################
 # compiled source #
 ###################
@@ -73,3 +77,4 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+>>>>>>> d3003e54d997fa6e78d08a83089337762106fec1

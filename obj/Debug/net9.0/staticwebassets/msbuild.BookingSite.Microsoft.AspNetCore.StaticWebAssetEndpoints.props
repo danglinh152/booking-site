@@ -12,6 +12,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"pnh07ja4gg"},{"Name":"integrity","Value":"sha256-ZYztIqQIFpxLcKptikepkq1H9MzbsXVYk5WDSy4JL9I="},{"Name":"label","Value":"_content/BookingSite/BookingSite.bundle.scp.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1129"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZYztIqQIFpxLcKptikepkq1H9MzbsXVYk5WDSy4JL9I=\u0022"},{"Name":"Last-Modified","Value":"Tue, 18 Mar 2025 15:35:18 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BookingSite/css/homepage/styles.0mpa9fntpi.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\homepage\styles.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"0mpa9fntpi"},{"Name":"integrity","Value":"sha256-KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY="},{"Name":"label","Value":"_content/BookingSite/css/homepage/styles.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"23594"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY=\u0022"},{"Name":"Last-Modified","Value":"Wed, 02 Apr 2025 15:27:20 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BookingSite/css/homepage/styles.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\homepage\styles.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"23594"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY=\u0022"},{"Name":"Last-Modified","Value":"Wed, 02 Apr 2025 15:27:20 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BookingSite/css/landing.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\landing.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -503,6 +515,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-FaQ6C4jWOLU0Tdc7MnPbXjlwmnJA6UmyPP0buv/9B4o="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"83979"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022FaQ6C4jWOLU0Tdc7MnPbXjlwmnJA6UmyPP0buv/9B4o=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Feb 2025 07:22:18 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BookingSite/js/homepage/homepage.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\homepage\homepage.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9fVM\u002BEggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7340"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00229fVM\u002BEggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40=\u0022"},{"Name":"Last-Modified","Value":"Wed, 02 Apr 2025 15:27:20 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BookingSite/js/homepage/homepage.rs0cfbggcp.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\homepage\homepage.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rs0cfbggcp"},{"Name":"integrity","Value":"sha256-9fVM\u002BEggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40="},{"Name":"label","Value":"_content/BookingSite/js/homepage/homepage.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7340"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00229fVM\u002BEggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40=\u0022"},{"Name":"Last-Modified","Value":"Wed, 02 Apr 2025 15:27:20 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BookingSite/js/layout-compact.4jfodb0rwu.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\layout-compact.js'))</AssetFile>
@@ -1660,13 +1684,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\plugins\tinymce\package-lock.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-B8eEpGw45rBYVV6yJSb/njh3d9HRrr\u002B6ExH9E4vpChw="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"300"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022B8eEpGw45rBYVV6yJSb/njh3d9HRrr\u002B6ExH9E4vpChw=\u0022"},{"Name":"Last-Modified","Value":"Tue, 01 Apr 2025 15:48:50 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"300"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022B8eEpGw45rBYVV6yJSb/njh3d9HRrr\u002B6ExH9E4vpChw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 02 Apr 2025 15:28:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BookingSite/js/plugins/tinymce/package-lock.zp6kc3rxyp.json">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\plugins\tinymce\package-lock.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"zp6kc3rxyp"},{"Name":"integrity","Value":"sha256-B8eEpGw45rBYVV6yJSb/njh3d9HRrr\u002B6ExH9E4vpChw="},{"Name":"label","Value":"_content/BookingSite/js/plugins/tinymce/package-lock.json"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"300"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022B8eEpGw45rBYVV6yJSb/njh3d9HRrr\u002B6ExH9E4vpChw=\u0022"},{"Name":"Last-Modified","Value":"Tue, 01 Apr 2025 15:48:50 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"300"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022B8eEpGw45rBYVV6yJSb/njh3d9HRrr\u002B6ExH9E4vpChw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 02 Apr 2025 15:28:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BookingSite/js/plugins/tinymce/package.json">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\plugins\tinymce\package.json'))</AssetFile>

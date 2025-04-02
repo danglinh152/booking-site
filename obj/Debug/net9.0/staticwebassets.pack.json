@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\BookingSite.pnh07ja4gg.bundle.scp.css"
     },
     {
+      "Id": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\css\\homepage\\styles.css",
+      "PackagePath": "staticwebassets\\css\\homepage\\styles.css"
+    },
+    {
       "Id": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\css\\landing.css",
       "PackagePath": "staticwebassets\\css\\landing.css"
     },
@@ -167,6 +171,10 @@
     {
       "Id": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\js\\fonts\\custom-font.js",
       "PackagePath": "staticwebassets\\js\\fonts\\custom-font.js"
+    },
+    {
+      "Id": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\js\\homepage\\homepage.js",
+      "PackagePath": "staticwebassets\\js\\homepage\\homepage.js"
     },
     {
       "Id": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\js\\layout-compact.js",

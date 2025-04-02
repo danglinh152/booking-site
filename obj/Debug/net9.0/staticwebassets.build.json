@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3hHvzi0E0lkG9ojnEqGlgnd/wjVK+lj1oNT00LeduW8=",
+  "Hash": "/zCH6aCoMlYIjRhgnw6puDoMxSEfzDU4vk7c3KuLdhk=",
   "Source": "BookingSite",
   "BasePath": "_content/BookingSite",
   "Mode": "Default",
@@ -1191,6 +1191,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\js\\plugins\\wow.min.js"
+    },
+    {
+      "Identity": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\52we5et5cb-0mpa9fntpi.gz",
+      "SourceId": "BookingSite",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/BookingSite",
+      "RelativePath": "css/homepage/styles#[.{fingerprint=0mpa9fntpi}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\css\\homepage\\styles.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "2crwn68lx8",
+      "Integrity": "np6GZNPUsLeYk63p1raZOi1iOtNx4dW7YR2g/RZqcU4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\css\\homepage\\styles.css"
     },
     {
       "Identity": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\585ekcjen4-rxka136q26.gz",
@@ -8228,6 +8249,27 @@
       "OriginalItemSpec": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
+      "Identity": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\z0q9ch7o7o-rs0cfbggcp.gz",
+      "SourceId": "BookingSite",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/BookingSite",
+      "RelativePath": "js/homepage/homepage#[.{fingerprint=rs0cfbggcp}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\js\\homepage\\homepage.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "uruequos3n",
+      "Integrity": "SqUrcyin5YQ3O0QYYvZ4b3LCzVDJQkxJTssH6XJmABo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\js\\homepage\\homepage.js"
+    },
+    {
       "Identity": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\z24ker2kef-iakicuhf45.gz",
       "SourceId": "BookingSite",
       "SourceType": "Discovered",
@@ -8688,6 +8730,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\BookingSite.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\css\\homepage\\styles.css",
+      "SourceId": "BookingSite",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\",
+      "BasePath": "_content/BookingSite",
+      "RelativePath": "css/homepage/styles#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0mpa9fntpi",
+      "Integrity": "KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\homepage\\styles.css"
     },
     {
       "Identity": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\css\\landing.css",
@@ -9549,6 +9612,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\fonts\\custom-font.js"
+    },
+    {
+      "Identity": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\js\\homepage\\homepage.js",
+      "SourceId": "BookingSite",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\",
+      "BasePath": "_content/BookingSite",
+      "RelativePath": "js/homepage/homepage#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rs0cfbggcp",
+      "Integrity": "9fVM+EggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\homepage\\homepage.js"
     },
     {
       "Identity": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\js\\layout-compact.js",
@@ -17936,6 +18020,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-BfuF16drjFA/rgtOezGYRkFRLdhxVeFK8J4W5KwOagU="
+        }
+      ]
+    },
+    {
+      "Route": "css/homepage/styles.0mpa9fntpi.css",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\52we5et5cb-0mpa9fntpi.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000205380982"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4868"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"np6GZNPUsLeYk63p1raZOi1iOtNx4dW7YR2g/RZqcU4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0mpa9fntpi"
+        },
+        {
+          "Name": "label",
+          "Value": "css/homepage/styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY="
+        }
+      ]
+    },
+    {
+      "Route": "css/homepage/styles.0mpa9fntpi.css",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\css\\homepage\\styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23594"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0mpa9fntpi"
+        },
+        {
+          "Name": "label",
+          "Value": "css/homepage/styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY="
+        }
+      ]
+    },
+    {
+      "Route": "css/homepage/styles.0mpa9fntpi.css.gz",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\52we5et5cb-0mpa9fntpi.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4868"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"np6GZNPUsLeYk63p1raZOi1iOtNx4dW7YR2g/RZqcU4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0mpa9fntpi"
+        },
+        {
+          "Name": "label",
+          "Value": "css/homepage/styles.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-np6GZNPUsLeYk63p1raZOi1iOtNx4dW7YR2g/RZqcU4="
+        }
+      ]
+    },
+    {
+      "Route": "css/homepage/styles.css",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\52we5et5cb-0mpa9fntpi.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000205380982"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4868"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"np6GZNPUsLeYk63p1raZOi1iOtNx4dW7YR2g/RZqcU4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY="
+        }
+      ]
+    },
+    {
+      "Route": "css/homepage/styles.css",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\css\\homepage\\styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23594"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KJUGpmSxw10EKKfHIgvODjpPDGQXIAqsdyXU0BXSoRY="
+        }
+      ]
+    },
+    {
+      "Route": "css/homepage/styles.css.gz",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\52we5et5cb-0mpa9fntpi.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4868"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"np6GZNPUsLeYk63p1raZOi1iOtNx4dW7YR2g/RZqcU4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-np6GZNPUsLeYk63p1raZOi1iOtNx4dW7YR2g/RZqcU4="
         }
       ]
     },
@@ -29938,6 +30320,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-po7Fwtnq/oqurjrU0rJXri0fIwPe4N5ucb/ROUXvA/U="
+        }
+      ]
+    },
+    {
+      "Route": "js/homepage/homepage.js",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\z0q9ch7o7o-rs0cfbggcp.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000498753117"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2004"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SqUrcyin5YQ3O0QYYvZ4b3LCzVDJQkxJTssH6XJmABo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"9fVM+EggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9fVM+EggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40="
+        }
+      ]
+    },
+    {
+      "Route": "js/homepage/homepage.js",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\js\\homepage\\homepage.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7340"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9fVM+EggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9fVM+EggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40="
+        }
+      ]
+    },
+    {
+      "Route": "js/homepage/homepage.js.gz",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\z0q9ch7o7o-rs0cfbggcp.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2004"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SqUrcyin5YQ3O0QYYvZ4b3LCzVDJQkxJTssH6XJmABo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SqUrcyin5YQ3O0QYYvZ4b3LCzVDJQkxJTssH6XJmABo="
+        }
+      ]
+    },
+    {
+      "Route": "js/homepage/homepage.rs0cfbggcp.js",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\z0q9ch7o7o-rs0cfbggcp.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000498753117"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2004"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SqUrcyin5YQ3O0QYYvZ4b3LCzVDJQkxJTssH6XJmABo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"9fVM+EggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rs0cfbggcp"
+        },
+        {
+          "Name": "label",
+          "Value": "js/homepage/homepage.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9fVM+EggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40="
+        }
+      ]
+    },
+    {
+      "Route": "js/homepage/homepage.rs0cfbggcp.js",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\wwwroot\\js\\homepage\\homepage.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7340"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9fVM+EggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rs0cfbggcp"
+        },
+        {
+          "Name": "label",
+          "Value": "js/homepage/homepage.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9fVM+EggPwubUV7S7Ig1U0WJQHihJFneXmvFtImOj40="
+        }
+      ]
+    },
+    {
+      "Route": "js/homepage/homepage.rs0cfbggcp.js.gz",
+      "AssetFile": "D:\\Bài giảng UIT\\Framework\\booking-site\\obj\\Debug\\net9.0\\compressed\\z0q9ch7o7o-rs0cfbggcp.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2004"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SqUrcyin5YQ3O0QYYvZ4b3LCzVDJQkxJTssH6XJmABo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 15:27:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rs0cfbggcp"
+        },
+        {
+          "Name": "label",
+          "Value": "js/homepage/homepage.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SqUrcyin5YQ3O0QYYvZ4b3LCzVDJQkxJTssH6XJmABo="
         }
       ]
     },
@@ -58574,7 +59254,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 01 Apr 2025 15:48:50 GMT"
+          "Value": "Wed, 02 Apr 2025 15:28:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58627,7 +59307,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 01 Apr 2025 15:48:50 GMT"
+          "Value": "Wed, 02 Apr 2025 15:28:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58664,7 +59344,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 01 Apr 2025 15:48:50 GMT"
+          "Value": "Wed, 02 Apr 2025 15:28:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58711,7 +59391,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 01 Apr 2025 15:48:50 GMT"
+          "Value": "Wed, 02 Apr 2025 15:28:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58772,7 +59452,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 01 Apr 2025 15:48:50 GMT"
+          "Value": "Wed, 02 Apr 2025 15:28:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -58817,7 +59497,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 01 Apr 2025 15:48:50 GMT"
+          "Value": "Wed, 02 Apr 2025 15:28:49 GMT"
         },
         {
           "Name": "Cache-Control",

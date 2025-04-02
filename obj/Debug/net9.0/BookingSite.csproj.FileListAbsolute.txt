@@ -1174,3 +1174,5 @@ D:\dotnet\BookingSite\bin\Debug\net9.0\runtimes\win-x64\native\sni.dll
 D:\dotnet\BookingSite\bin\Debug\net9.0\runtimes\win-x86\native\sni.dll
 D:\dotnet\BookingSite\bin\Debug\net9.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
 D:\dotnet\BookingSite\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net9.0\compressed\52we5et5cb-0mpa9fntpi.gz
+D:\Bài giảng UIT\Framework\booking-site\obj\Debug\net9.0\compressed\z0q9ch7o7o-rs0cfbggcp.gz
