@@ -1,1 +1,335 @@
-﻿<div> cc </div>
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+
+
+
+<body>
+    <!-- Banner -->
+    <div class="banner">
+        <div class="bannername text-center color ="#218838">
+            <h1 >TenPM</h1>
+            <p>Fly Better</p>
+        </div>
+    </div>
+
+        
+    <div class="booking-container">
+        <!-- Tab menu -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#tab-datve" data-bs-toggle="tab">✈ Đặt Vé</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-lamthutuc" data-bs-toggle="tab">🛄 Làm Thủ Tục</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-datcho" data-bs-toggle="tab">📅 Đặt Chỗ Của Tôi</a>
+                </li>
+            </ul>
+
+        <!-- Nội dung form -->
+        <div class="tab-content booking-box">
+            
+                <!-- Nội dung form Đặt Vé -->
+           <div class="tab-pane fade show active" id="tab-datve">
+            <a href="#tab-datve" class="btn btn-primary m-2">Bằng Tiền</a>
+            <a href="#" class="btn btn-secondary m-2">Bằng Tiền & Điểm</a>
+                <div class="booking-box p-4 mt-3">
+                    <div class="radio-group mb-3">
+                        <div class="d-flex justify-content-center gap-4">
+                            <label class="radio-label">
+                                <input type="radio" name="tripType" id="oneWay" checked> Một chiều
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="tripType" id="roundTrip" > Khứ hồi
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="tripType" id="multicity"> Đa chặng
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <!-- Cột "Từ" -->
+                            <div class="col-md-3">
+                            <label class="form-label">Từ</label>
+                            <div class="dropdown">
+                                <button class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                    Chọn điểm đi
+                                </button>
+                                <div class="dropdown-menu p-2">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#vn">Việt Nam</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#qt">Quốc Tế</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content mt-2">
+                                        <div class="tab-pane fade show active" id="vn">
+                                            <button class="dropdown-item">Hà Nội (HAN)</button>
+                                            <button class="dropdown-item">TP. Hồ Chí Minh (SGN)</button>
+                                            <button class="dropdown-item">Đà Nẵng (DAD)</button>
+                                        </div>
+                                        <div class="tab-pane fade" id="qt">
+                                            <button class="dropdown-item">Bangkok (DMK)</button>
+                                            <button class="dropdown-item">Đài Trung (RMQ)</button>
+                                            <button class="dropdown-item">Đài Bắc (TPE)</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Nút Swap -->
+                        <div class="col-md-1 d-flex align-items-end">
+                            <button id="swapButton" class="btn btn-outline-secondary w-100">🔄</button>
+                        </div>
+                        <!-- Cột "Tới" -->
+                            <div class="col-md-3">
+                            <label class="form-label">Tới</label>
+                            <div class="dropdown">
+                                <button class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                    Chọn điểm đến
+                                </button>
+                                <div class="dropdown-menu p-2">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#vn2">Việt Nam</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#qt2">Quốc Tế</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content mt-2">
+                                        <div class="tab-pane fade show active" id="vn2">
+                                            <button class="dropdown-item">Hà Nội (HAN)</button>
+                                            <button class="dropdown-item">TP. Hồ Chí Minh (SGN)</button>
+                                            <button class="dropdown-item">Đà Nẵng (DAD)</button>
+                                        </div>
+                                        <div class="tab-pane fade" id="qt2">
+                                            <button class="dropdown-item">Bangkok (DMK)</button>
+                                            <button class="dropdown-item">Đài Trung (RMQ)</button>
+                                            <button class="dropdown-item">Đài Bắc (TPE)</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cột "Ngày đi" -->
+                        
+                        
+                            <div id="depart-date-container" class="col-md-2">
+                                <label for="depart-date" class="form-label">Ngày đi</label>
+                                <input type="date" id="depart-date" class="form-control">
+                            </div>
+
+                            <div id="return-date-container" class="col-md-2" style="display: none;">
+                                <label for="return-date" class="form-label">Ngày về</label>
+                                <input type="date" id="return-date" class="form-control">
+                            </div>
+                        
+                    <div class="row g-3 mt-3">
+                        <!-- Số lượng hành khách -->
+                        <div class="col-md-4">
+                            <label class="form-label">Hành khách</label>
+                            <div class="dropdown">
+                                <button id="passengerSelect" class="btn btn-light same-size dropdown-toggle" 
+                                        type="button" data-bs-toggle="dropdown" 
+                                        data-bs-auto-close="outside" aria-expanded="false">
+                                    <span id="amountPassenger">1</span>
+                                </button>
+                                <div class="dropdown-menu p-3" id="passengerBox">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="passenger-label">Người lớn</span>
+                                        <div class="counter">
+                                            <button class="btn btn-outline-secondary btn-sm" onclick="updateCount('adult', -1)">-</button>
+                                            <span id="adultCount">1</span>
+                                            <button class="btn btn-outline-secondary btn-sm" onclick="updateCount('adult', 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="passenger-label">Trẻ em (2-11 tuổi)</span>
+                                        <div class="counter">
+                                            <button class="btn btn-outline-secondary btn-sm" onclick="updateCount('child', -1)">-</button>
+                                            <span id="childCount">0</span>
+                                            <button class="btn btn-outline-secondary btn-sm" onclick="updateCount('child', 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="passenger-label">Trẻ sơ sinh (0-2 tuổi)</span>
+                                        <div class="counter">
+                                            <button class="btn btn-outline-secondary btn-sm" onclick="updateCount('infant', -1)">-</button>
+                                            <span id="infantCount">0</span>
+                                            <button class="btn btn-outline-secondary btn-sm" onclick="updateCount('infant', 1)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Mã giảm giá</label>
+                            <input type="text" class="form-control same-size" placeholder="Nhập mã giảm giá của bạn">
+                        </div>
+                        <!-- Nút tìm chuyến bay -->
+                        <div class="col-md-4 d-flex align-items-end">
+                            <button class="btn btn-success">Tìm Chuyến Bay</button>
+                        </div>
+                    </div>
+
+                    <div class="form-check form-switch mt-3">
+                        <input class="form-check-input" type="checkbox" id="bambooClub">
+                        <label class="form-check-label" for="bambooClub">
+                            Dùng tài khoản TenPM Club để đặt vé
+                        </label>
+                    </div>
+
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab-lamthutuc">
+                <!-- Nội dung form Làm Thủ Tục -->
+                <h5 class="text-primary">Làm thủ tục trực tuyến trong khoảng 24 giờ đến 1 giờ trước khi chuyến bay khởi hành</h5>
+                <p class="text-info">Vui lòng nhập đúng họ như trên vé của bạn</p>
+
+                <p class="text-secondary">
+                    Làm thủ tục trực tuyến chỉ áp dụng cho (i) Các chuyến bay nội địa khởi hành từ Hà Nội (HAN), Đà Nẵng (DAD), TP Hồ Chí Minh (SGN), 
+                    Nha Trang (CXR), Quy Nhơn (UIH); (ii) Các chuyến bay quốc tế TP. Hồ Chí Minh (SGN) - Bangkok (DMK).
+                </p>
+
+                <a href="#" class="text-success">Xem chi tiết các trường hợp không áp dụng</a>
+
+                <ul class="nav nav-tabs" id="checkin-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tab-booking" href="#" data-type="booking">Mã Đặt Chỗ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab-ticket" href="#" data-type="ticket">Số Vé</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab-member" href="#" data-type="member">Số Hội Viên</a>
+                    </li>
+                </ul>
+
+                <div id="checkin-form">
+                    <form class="mt-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label id="label-input" for="checkin-input" class="form-label">MÃ ĐẶT CHỖ</label>
+                                <input type="text" class="form-control" id="checkin-input" placeholder="Nhập thông tin" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="last-name" class="form-label">HỌ</label>
+                                <input type="text" class="form-control" id="last-name" placeholder="NGUYEN" required>
+                            </div>
+                            <div class="col-md-4 align-self-end">
+                                <button type="submit" class="btn btn-checkin w-100">Làm Thủ Tục</button>
+                            </div>
+                        </div>
+                    </form>  
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab-datcho">
+                <!-- Nội dung form Đặt Chỗ Của Tôi -->
+                <div class="container mt-4">
+                    <ul class="nav nav-tabs" id="bookingTabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="tab-booking" data-bs-toggle="tab" href="#booking">Mã Đặt Chỗ/Số Vé</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab-hoivien" data-bs-toggle="tab" href="#hoivien">Hội Viên TenPM Club</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content p-4 border rounded bg-white">
+                        <div class="tab-pane fade show active" id="booking">
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="booking-code" class="form-label">MÃ ĐẶT CHỖ/SỐ VÉ</label>
+                                        <input type="text" class="form-control" id="booking-code" placeholder="123xxxxxxxxxxx" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="last-name" class="form-label">HỌ</label>
+                                        <input type="text" class="form-control" id="last-name" placeholder="NGUYEN" required>
+                                    </div>
+                                    <div class="col-md-2 align-self-end">
+                                        <button type="submit" class="btn btn-success w-100">Tìm Kiếm</button>
+                                    </div>
+                                </div>
+                            </form>
+                            
+                            <p class="text-danger mt-3">Đối với vé mua từ trước ngày 26.9.2023, Quý khách vui lòng nhập mã đặt chỗ (PNR) để tra cứu. <a href="#" class="text-danger fw-bold">Bấm vào đây.</a></p>
+                            
+                            <div class="d-flex justify-content-between flex-wrap mt-3">
+                                <button class="btn btn-light border m-1"> <i class="fas fa-credit-card"></i> Thanh toán trả sau</button>
+                                <button class="btn btn-light border m-1"> <i class="fas fa-suitcase"></i> Thông tin hành lý</button>
+                                <button class="btn btn-light border m-1"> <i class="fas fa-chair"></i> Lựa chọn chỗ ngồi</button>
+                                <button class="btn btn-light border m-1"> <i class="fas fa-couch    "></i> Phòng chờ Thương gia</button>
+                                <button class="btn btn-light border m-1"> <i class="fas fa-shield-alt"></i> Bảo hiểm du lịch</button>
+                                <button class="btn btn-light border m-1"> <i class="fas fa-exchange-alt"></i> Thay đổi chuyến bay</button>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="hoivien">
+                            <p>Đăng nhập vào Bamboo Club để xem chuyến bay sắp tới của bạn.</p>
+                            <button class="btn btn-success">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Danh sách chuyến bay -->
+    <div class="container mt-5">
+        <h4 class="mb-3">Chuyến Bay Phổ Biến</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://source.unsplash.com/400x250/?plane" class="card-img-top" alt="Flight">
+                    <div class="card-body">
+                        <h5 class="card-title">Hà Nội - TP.HCM</h5>
+                        <p class="card-text">Giá: 1.500.000 VND</p>
+                        <a href="#" class="btn btn-primary">Đặt ngay</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://source.unsplash.com/400x250/?airport" class="card-img-top" alt="Flight">
+                    <div class="card-body">
+                        <h5 class="card-title">Hà Nội - Đà Nẵng</h5>
+                        <p class="card-text">Giá: 1.200.000 VND</p>
+                        <a href="#" class="btn btn-primary">Đặt ngay</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://source.unsplash.com/400x250/?clouds" class="card-img-top" alt="Flight">
+                    <div class="card-body">
+                        <h5 class="card-title">TP.HCM - Phú Quốc</h5>
+                        <p class="card-text">Giá: 1.800.000 VND</p>
+                        <a href="#" class="btn btn-primary">Đặt ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+
+</body>
+
+
+</html>
