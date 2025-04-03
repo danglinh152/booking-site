@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Correct path
 }
-
+@model List<BookingSite.Models.Plane>
 <div class="pc-container">
     <div class="pc-content">
         <!-- [ Main Content ] start -->
@@ -24,24 +24,32 @@
                                         <th>Plane ID</th>
                                         <th>Model</th>
                                         <th>Capacity</th>
+                                        <th>Manufacturer</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Boeing 747</td>
-                                        <td>660</td>
-                                        <td>
-                                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
-                                                data-bs-target="#planeDetailModal" data-id="1" data-model="Boeing 747"
-                                                data-capacity="660"><i class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/planes/edit/1" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deletePlaneModal" data-id="1"
-                                                data-name="Boeing 747">Delete</button>
-                                        </td>
-                                    </tr>
+                                    @foreach (var plane in Model)
+
+                                    {
+                                        <tr>
+                                            <td>@plane.AircraftID</td>
+                                            <td>@plane.Model</td>
+                                            <td>@plane.Capacity</td>
+                                            <td>@plane.Manufacturer</td>
+                                            <td>
+                                                <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
+                                                    data-bs-target="#planeDetailModal" data-id="@plane.AircraftID" data-model="@plane.Model"
+                                                    data-capacity="@plane.Capacity" data-manufacturer="@plane.Manufacturer"><i class="fa-solid fa-eye"></i></a>
+                                                <a href="/admin/planes/edit/@plane.AircraftID"
+                                                    class="btn btn-warning">Edit</a>
+                                                <form asp-controller="Planes" asp-action="DeletePlane" asp-route-id="@plane.AircraftID" style="display:inline;" method="post">
+                                                    <button type="submit" onclick="return confirm(`Are you sure you want to delete plane with id=@plane.AircraftID, model=@plane.Model?`)"
+                                                    class="btn btn-danger">Delete</button> 
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
                                     <!-- Other rows remain unchanged -->
                                 </tbody>
                             </table>
@@ -64,7 +72,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete plane with ID <strong id="deletePlaneId"></strong>?
+                Are you sure you want to delete plane with  <strong id="deletePlaneId"></strong>?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -83,8 +91,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <p><strong>Id:</strong> <span id="planeID"></span></p>
                 <p><strong>Model:</strong> <span id="planeModel"></span></p>
                 <p><strong>Capacity:</strong> <span id="planeCapacity"></span></p>
+                <p><strong>Manufacturer:</strong> <span id="planeManufacturer"></span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -95,20 +105,20 @@
 
 <script>
     // Populate the delete plane modal with data
-    var deletePlaneModal = document.getElementById('deletePlaneModal');
+    @* var deletePlaneModal = document.getElementById('deletePlaneModal');
     deletePlaneModal.addEventListener('show.bs.modal', function (event) {
         var button = event.relatedTarget; // Button that triggered the modal
         var planeId = button.getAttribute('data-id');
         var planeName = button.getAttribute('data-name');
 
         // Update modal content
-        document.getElementById('deletePlaneId').textContent = planeName;
+        document.getElementById('deletePlaneId').textContent = `ID: ${planeId}, Model: ${planeName}`;
 
         // Set delete action
         document.getElementById('confirmDeleteButton').onclick = function () {
             window.location.href = `/admin/planes/delete/${planeId}`;
         };
-    });
+    }); *@
 
     // Populate the plane detail modal with data
     var planeDetailModal = document.getElementById('planeDetailModal');
@@ -116,9 +126,13 @@
         var button = event.relatedTarget; // Button that triggered the modal
         var planeModel = button.getAttribute('data-model');
         var planeCapacity = button.getAttribute('data-capacity');
+        var planeID = button.getAttribute('data-id');
+        var planeManufacturer = button.getAttribute('data-manufacturer');
 
         // Update modal content
         document.getElementById('planeModel').textContent = planeModel;
         document.getElementById('planeCapacity').textContent = planeCapacity;
+        document.getElementById('planeID').textContent = planeID;
+        document.getElementById('planeManufacturer').textContent = planeManufacturer;
     });
 </script>

@@ -13,7 +13,7 @@ namespace BookingSite.Controllers
             this.context = context;
         }
 
-        // GET: admin/users
+        // GET: admin/users 
         [HttpGet]
         public IActionResult Users()
         {
@@ -46,7 +46,6 @@ namespace BookingSite.Controllers
         {
             // Logic to get user details by id
             var user = context.Users.Find(id); // Replace with your actual data retrieval logic
-
             if (user == null)
             {
                 return NotFound(); // Return a 404 if not found
