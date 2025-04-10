@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BookingSite.ViewModel
 {
-  public class RegiserModelView
+  public class RegisterModelView
   {
     [Required(ErrorMessage = "Vui lòng nhập họ")]
     public string FirstName { get; set; } = "";
