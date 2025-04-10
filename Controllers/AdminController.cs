@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookingSite.Controllers
 {
+    [AuthorizeRole("Admin")]
     public class AdminController : Controller
     {
         private readonly ILogger<AdminController> _logger;
