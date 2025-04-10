@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Correct path
 }
-
+@model List<BookingSite.Models.User>
 <div class="pc-container">
     <div class="pc-content">
         <!-- [ Main Content ] start -->
@@ -24,33 +24,33 @@
                                         <th>User Id</th>
                                         <th>Full Name</th>
                                         <th>Email</th>
-                                        <th>Phone No.</th>
-                                        <th>Date Of Birth</th>
                                         <th>Loyalty Points</th>
                                         <th>Role</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>John Doe</td>
-                                        <td>john.doe@example.com</td>
-                                        <td>+1 234 567 8901</td>
-                                        <td>1990-01-01</td>
-                                        <td>150</td>
-                                        <td>User</td>
-                                        <td>
-                                            <a href="javascript:void(0);"
-                                                onclick="showDetails(1, 'John Doe', 'john.doe@example.com', '+1 234 567 8901', '1990-01-01', 150, 'User')"
-                                                class="btn btn-secondary"><i class="fa-solid fa-eye"></i></a>
-                                            <a href="/admin/users/edit/1" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteUserModal" data-id="1" data-name="John Doe">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    @foreach (var user in Model)
+                                    {
+                                        <tr>
+                                            <td>@user.UserID</td>
+                                            <td>@user.FullName</td>
+                                            <td>@user.Email</td>
+                                            <td>150</td>
+                                            <td>@user.Role</td>
+                                            <td>
+                                                <a href="javascript:void(0);"
+                                                    onClick="showDetails(@user.UserID, '@user.FullName','@user.Email', 150, '@user.Role')"
+                                                    class="btn btn-secondary"><i class="fa-solid fa-eye"></i></a>
+                                                <a href="/admin/users/edit/@user.UserID" class="btn btn-warning">Edit</a>
+                                                <form asp-action="DeleteUser" asp-route-id="@user.UserID" method="post"
+                                                    style="display:inline;">
+                                                    <button type="submit" class="btn btn-danger"
+                                                        onclick="return confirm('Are you sure?')">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
                                     <!-- Repeat similar structure for other users -->
                                 </tbody>
                             </table>
@@ -76,8 +76,6 @@
                 <p><strong>User Id:</strong> <span id="userId"></span></p>
                 <p><strong>Full Name:</strong> <span id="fullName"></span></p>
                 <p><strong>Email:</strong> <span id="email"></span></p>
-                <p><strong>Phone No.:</strong> <span id="phone"></span></p>
-                <p><strong>Date Of Birth:</strong> <span id="dob"></span></p>
                 <p><strong>Loyalty Points:</strong> <span id="loyaltyPoints"></span></p>
                 <p><strong>Role:</strong> <span id="role"></span></p>
             </div>
@@ -108,13 +106,11 @@
 </div>
 
 <script>
-    function showDetails(userId, fullName, email, phone, dob, loyaltyPoints, role) {
+    function showDetails(userId, fullName, email, loyaltyPoints, role) {
         // Set the modal content
         document.getElementById('userId').textContent = userId;
         document.getElementById('fullName').textContent = fullName;
         document.getElementById('email').textContent = email;
-        document.getElementById('phone').textContent = phone;
-        document.getElementById('dob').textContent = dob;
         document.getElementById('loyaltyPoints').textContent = loyaltyPoints;
         document.getElementById('role').textContent = role;
 
