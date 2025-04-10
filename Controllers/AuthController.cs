@@ -18,33 +18,33 @@ namespace BookingSite.Controllers
 
     //GET: /register
     [HttpGet("/register")]
-    public IActionResult Index()
+    public IActionResult RegisterPage()
     {
       return View("Register");
     }
 
     //POST: /register
     [HttpPost("/register")]
-    public async Task<IActionResult> Register(RegiserModelView regiserModelView)
+    public async Task<IActionResult> Register(RegisterModelView registerModelView)
     {
       if (ModelState.IsValid)
       {
         //check email exist
-        if (context.Users.Any(u => u.Email == regiserModelView.Email))
+        if (context.Users.Any(u => u.Email == registerModelView.Email))
         {
           ModelState.AddModelError("Email", "Email này đã được đăng ký!");
-          return View(regiserModelView);
+          return View(registerModelView);
         }
 
         // hashing password
-        string hashedPassword = HashPassword(regiserModelView.Password);
+        string hashedPassword = HashPassword(registerModelView.Password);
 
-        string fullName = $"{regiserModelView.FirstName} {regiserModelView.LastName}";
+        string fullName = $"{registerModelView.FirstName} {registerModelView.LastName}";
 
         User newUser = new User
         {
           FullName = fullName,
-          Email = regiserModelView.Email,
+          Email = registerModelView.Email,
           Password = hashedPassword,
           Role = "Client"
         };
@@ -55,8 +55,46 @@ namespace BookingSite.Controllers
         else Console.WriteLine($"Đã thêm {rows} user");
         return RedirectToAction("Index", "Admin");
       }
-      return View(regiserModelView);
+      return View(registerModelView);
     }
+
+    //GET: /login
+    [HttpGet("/login")]
+    public IActionResult LoginPage()
+    {
+      return View("Login");
+    }
+
+    //POST: /login
+    [HttpPost("/login")]
+    public IActionResult Login(LoginViewModel loginViewModel)
+    {
+      string hashPassword = HashPassword(loginViewModel.Password);
+      if (ModelState.IsValid)
+      {
+        User user = context.Users.FirstOrDefault(u => u.Email == loginViewModel.Email && u.Password == hashPassword);
+        if (user == null)
+        {
+          ModelState.AddModelError(string.Empty, "Email hoặc mật khẩu không đúng");
+          return View("Login", loginViewModel);
+        }
+        HttpContext.Session.SetString("UserID", user.UserID.ToString());
+        HttpContext.Session.SetString("UserRole", user.Role.ToString());
+
+        if (user.Role == "Admin")
+          return Redirect("/admin");
+        else
+          return Redirect("/");
+      }
+      return View("Login", loginViewModel);
+    }
+
+    public IActionResult Logout()
+    {
+      HttpContext.Session.Clear();
+      return RedirectToAction("Login", "Auth");
+    }
+
     private string HashPassword(string password)
     {
       using (SHA256 sha256 = SHA256.Create())

@@ -6,6 +6,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<FlightBookingContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -16,10 +24,23 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseStaticFiles();
 
+app.UseSession();
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.ToString().ToLower();
+    if (path.StartsWith("/admin"))
+    {
+        var role = context.Session.GetString("UserRole");
+        if (role != "Admin")
+        {
+            context.Response.Redirect("/login");
+            return;
+        }
+    }
+
+    await next();
+});
 app.UseRouting();
-
-app.UseAuthorization();
-
 // Custom route for Admin users and airports
 app.MapControllerRoute(
     name: "admin",
@@ -30,7 +51,6 @@ app.MapControllerRoute(
     name: "adminUsers",
     pattern: "admin/users/{action=Index}/{id?}",
     defaults: new { controller = "User" });
-
 
 // Default route
 app.MapControllerRoute(
