@@ -23,6 +23,18 @@ namespace BookingSite.Controllers
             return View();
         }
 
+        [Route("Booking")]
+        public IActionResult Booking()
+        {
+            return View();
+        }
+
+        [Route("JourneyInfor")]
+        public IActionResult JourneyInfor()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
