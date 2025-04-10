@@ -18,6 +18,7 @@
     <!-- [Template CSS Files] -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <script src="~/js/homepage/homepage.js"></script>
     <link rel="stylesheet" href="~/css/homepage/styles.css">
     <link rel="stylesheet" href="~/css/style.css" id="main-style-link">
@@ -45,6 +46,9 @@
     <link rel="stylesheet" href="~/css/style-preset.css">
 
     <link rel="stylesheet" href="~/css/uikit.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 
 </head>
 <!-- [Head] end -->
@@ -83,42 +87,56 @@
 <!-- [Body] end -->
 
 <!-- Footer -->
-<footer class="bg-gray-800 text-white py-8 m-0">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<footer style="background-color: #2d3748; color: white; padding: 100px 0 50px 0; margin: 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 16px;">
+        <div
+            style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 32px; grid-template-columns: repeat(4, 1fr);">
             <div>
-                <h3 class="text-xl font-bold mb-4">TenPM Airways</h3>
-                <p class="text-gray-400">Dịch vụ đặt vé máy bay trực tuyến hàng đầu Việt Nam.</p>
+                <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 16px;">TenPM Airways</h3>
+                <p style="color: #a0aec0;">Dịch vụ đặt vé máy bay trực tuyến hàng đầu Việt Nam.</p>
             </div>
             <div>
-                <h4 class="font-bold mb-4">Thông tin</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white">Về chúng tôi</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Điều khoản</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Chính sách bảo mật</a></li>
+                <h4 style="font-weight: bold; margin-bottom: 16px;">Thông tin</h4>
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li><a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s;">Về chúng
+                            tôi</a></li>
+                    <li><a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s;">Điều
+                            khoản</a></li>
+                    <li><a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s;">Chính sách
+                            bảo mật</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-4">Hỗ trợ</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white">Câu hỏi thường gặp</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Hướng dẫn đặt vé</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Liên hệ</a></li>
+                <h4 style="font-weight: bold; margin-bottom: 16px;">Hỗ trợ</h4>
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li><a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s;">Câu hỏi
+                            thường gặp</a></li>
+                    <li><a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s;">Hướng dẫn đặt
+                            vé</a></li>
+                    <li><a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s;">Liên hệ</a>
+                    </li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-4">Kết nối</h4>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                <h4 style="font-weight: bold; margin-bottom: 16px;">Kết nối</h4>
+                <div style="display: flex; gap: 16px;">
+                    <a href="#" style="color: #a0aec0; transition: color 0.3s;"><i class="fab fa-facebook-f"
+                            style="font-size: 1.25rem;"></i></a>
+                    <a href="#" style="color: #a0aec0; transition: color 0.3s;"><i class="fab fa-twitter"
+                            style="font-size: 1.25rem;"></i></a>
+                    <a href="#" style="color: #a0aec0; transition: color 0.3s;"><i class="fab fa-instagram"
+                            style="font-size: 1.25rem;"></i></a>
                 </div>
             </div>
         </div>
-        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+        <div
+            style="border-top: 1px solid #4a5568; margin-top: 32px; padding-top: 24px; text-align: center; color: #a0aec0;">
             <p>© 2025 TenPM Airways Copyright. All Rights Reserved.</p>
         </div>
     </div>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="~/js/homepage/swiper-scripts.js"></script>
 </footer>
+
 
 </html>
