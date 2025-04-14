@@ -79,6 +79,7 @@ namespace BookingSite.Controllers
           return View("Login", loginViewModel);
         }
         HttpContext.Session.SetString("UserID", user.UserID.ToString());
+        HttpContext.Session.SetString("UserName", user.FullName.ToString());
         HttpContext.Session.SetString("UserRole", user.Role.ToString());
 
         if (user.Role == "Admin")
