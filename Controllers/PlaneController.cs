@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore; // Ensure this points to the correct locati
 
 namespace BookingSite.Controllers
 {
+    [AuthorizeRole("Admin")]
     [Route("admin/planes")]
     public class PlanesController : Controller
     {
@@ -34,6 +35,14 @@ namespace BookingSite.Controllers
         [HttpPost("create")]
         public IActionResult CreatePlane(Plane plane)
         {
+            if (!ModelState.IsValid)
+            {
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine("Model error: " + error.ErrorMessage);
+                }
+                return View(plane);
+            }
             if (ModelState.IsValid)
             {
                 context.Planes.Add(plane);
@@ -62,7 +71,7 @@ namespace BookingSite.Controllers
         [HttpPost("edit/{id}")]
         public async Task<IActionResult> EditPlane(int id, Plane updatePlane)
         {
-            if (id != updatePlane.AircraftID)
+            if (id != updatePlane.PlaneID)
             {
                 return BadRequest();
             }

@@ -4,11 +4,11 @@ using BookingSite.Models; // Ensure this points to the correct location of your 
 namespace BookingSite.Controllers
 {
     [Route("admin/[controller]")]
-    public class SeatsController : Controller
+    public class FareClassesController : Controller
     {
         // GET: admin/seats
         [HttpGet]
-        public IActionResult Seats()
+        public IActionResult FareClasses()
         {
             return View();
         }
@@ -16,7 +16,7 @@ namespace BookingSite.Controllers
         /* ==============================================================================================*/
         // GET: admin/seats/create
         [HttpGet("create")]
-        public IActionResult CreateSeat()
+        public IActionResult CreateFareClass()
         {
             return View();
         }
@@ -27,22 +27,22 @@ namespace BookingSite.Controllers
         /* ==============================================================================================*/
         // GET: admin/seats/edit/1
         [HttpGet("edit/{id}")]
-        public IActionResult EditSeat(int id)
+        public IActionResult EditFareClass(int id)
         {
             // Logic to get seat details by id
-            var seat = GetSeatById(id); // Replace with your actual data retrieval logic
+            var FareClass = GetFareClassById(id); // Replace with your actual data retrieval logic
 
-            if (seat == null)
+            if (FareClass == null)
             {
                 return NotFound(); // Return a 404 if not found
             }
-            return View(seat);
+            return View(FareClass);
         }
 
-        private Seat GetSeatById(int id)
+        private FareClass GetFareClassById(int id)
         {
             // Replace with your actual data source
-            return new Seat
+            return new FareClass
             {
 
             };
