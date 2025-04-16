@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookingSite.Models
 {
@@ -7,11 +8,17 @@ namespace BookingSite.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int BookingId { get; set; }
-        public int? UserId { get; set; } // Nullable nếu khách không đăng nhập
+        public int BookingID { get; set; }
+        public int? UserID { get; set; } // Nullable nếu khách không đăng nhập
+        [Required]
         public string BookingCode { get; set; }
-        public int FlightId { get; set; }
-        public int FareClassId { get; set; }
+        [Required]
+        public int FlightID { get; set; }
+        [Required]
+        public int FareClassID { get; set; }
+
+        [Required]
+        [Precision(10, 2)]
         public decimal TotalPrice { get; set; }
         public DateTime BookingDate { get; set; }
         public string Status { get; set; }

@@ -1,3 +1,5 @@
+using BookingSite.Controllers;
+using BookingSite.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -57,5 +59,32 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<FlightBookingContext>();
+    context.Database.Migrate();
+    string adminPassword = AuthController.HashPassword("admin");
+    string clientPassword = AuthController.HashPassword("client");
+
+    if (!context.Users.Any(u => u.Email == "admin@gmail.com"))
+    {
+        context.Users.Add(new User
+        {
+            Email = "admin@gmail.com",
+            FullName = "admin",
+            Password = adminPassword,
+            Role = "Admin"
+        });
+        context.Users.Add(new User
+        {
+            Email = "client@gmail.com",
+            FullName = "client",
+            Password = clientPassword,
+            Role = "Client"
+        });
+        context.SaveChanges();
+    }
+}
 
 app.Run();

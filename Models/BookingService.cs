@@ -7,9 +7,12 @@ namespace BookingSite.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int BookingServiceId { get; set; }
-        public int BookingId { get; set; }
-        public int ServiceId { get; set; }
+        public int BookingServiceID { get; set; }
+        [Required]
+        public int BookingID { get; set; }
+        [Required]
+        public int ServiceID { get; set; }
+        [Required]
         public int Quantity { get; set; }
 
         public Booking Booking { get; set; }

@@ -9,11 +9,17 @@ namespace BookingSite.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FlightID { get; set; }
+        [Required]
         public int PlaneID { get; set; }
+        [Required]
         public TimeSpan DepartureTime { get; set; }
+        [Required]
         public TimeSpan ArrivalTime { get; set; }
+        [Required]
         public DateOnly FlightDate { get; set; }
+        [Required]
         public int DepartureAirportID { get; set; }
+        [Required]
         public int ArrivalAirportID { get; set; }
         public string Status { get; set; }
         [ForeignKey("DepartureAirportID")]

@@ -1,15 +1,22 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
-namespace BookingSite.Models{
+namespace BookingSite.Models
+{
     public class FareClass
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int FareClassId { get; set; }
-        public int FlightId { get; set; }
+        public int FareClassID { get; set; }
+        [Required]
+        public int FlightID { get; set; }
+        [Required]
         public string ClassName { get; set; }
+        [Required]
+        [Precision(10, 2)]
         public decimal Price { get; set; }
+        [Required]
         public int SeatsAvailable { get; set; }
 
 
