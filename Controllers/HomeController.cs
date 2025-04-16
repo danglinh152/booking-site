@@ -35,6 +35,18 @@ namespace BookingSite.Controllers
             return View();
         }
 
+        [Route("Explore")]
+        public IActionResult Explore()
+        {
+            return View();
+        }
+
+        [Route("TenPMClub")]
+        public IActionResult TenPMClub()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

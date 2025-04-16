@@ -1,4 +1,5 @@
-.custom-card {
+
+    .custom-card {
     width: 100%;
     height: 100%;
     border-radius: 12px;
@@ -15,7 +16,6 @@
         margin-left: 0;
         padding-left: 0;
     }
-
     .breadcrumb {
         display: flex;
         background-color: transparent;
@@ -44,20 +44,21 @@
         font-size: 1rem; /*Chỉnh kích thước của icon ngôi nhà*/
     }
     
-    /*Phần đặt vé*/
+    /*Phần thông tin hành trình*/
    
     .card-img-square {
+      
         object-fit: cover;
     }
     
     .card-custom {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
-    height: 250px;
-    width: 100%; 
-}
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s;
+        height: 250px;
+        width: 100%;
+    }
     
     .card-overlay {
         position: absolute;
