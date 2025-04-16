@@ -2,6 +2,7 @@
     ViewData["Title"] = "Create Flight";
     Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Adjust layout path if necessary
 }
+@model BookingSite.Models.Flight
 
 <div class="pc-container">
     <div class="pc-content">
@@ -14,44 +15,61 @@
                         <h2 class="mb-0">Create Flight</h2>
                     </div>
                     <div class="card-body">
-                        <form action="/admin/flights/create" method="post">
+                        <form asp-action="CreateFlight" asp-controller="Flights" method="post">
                             <div class="form-group mb-3">
-                                <label class="form-label" for="flightId">Flight ID</label>
-                                <input type="text" class="form-control" id="flightId" placeholder="Enter Flight ID"
+                                <label class="form-label" for="PlaneId">Plane</label>
+
+                                <select asp-for="PlaneID" id="PlaneID" name="PlaneID" class="form-control" required>
+                                    <option value="" disabled selected>--Select Plane--</option>
+                                    @foreach (var item in ViewBag.PlaneID as SelectList)
+                                    {
+                                        <option value="@item.Value">@item.Text</option>
+                                    }
+                                </select>
+
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="FlightDate">Flight Date</label>
+                                <input asp-for="FlightDate" type="date" class="form-control" id="FlightDate" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="DepartureAirportID">Departure Airport</label>
+
+                                <select asp-for="DepartureAirportID" id="DepartureAirportID" class="form-control"
+                                    required>
+                                    <option value="" disabled selected>--Select Departure Airport--</option>
+                                    @foreach (var item in ViewBag.DepartureAirportID as SelectList)
+                                    {
+                                        <option value="@item.Value">@item.Text</option>
+                                    }
+                                </select>
+
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="ArrivalAirportID">Arrival Airport</label>
+
+                                <select asp-for="ArrivalAirportID" id="ArrivalAirportID" name="ArrivalAirportID"
+                                    required class="form-control">
+                                    <option value="" disabled selected>--Select Arrival Airport--</option>
+                                    @foreach (var item in ViewBag.ArrivalAirportID as SelectList)
+                                    {
+                                        <option value="@item.Value">@item.Text</option>
+                                    }
+                                </select>
+
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="DepartureTime">Departure Time</label>
+                                <input asp-for="DepartureTime" type="time" class="form-control" id="DepartureTime"
                                     required>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label" for="planeId">Plane ID</label>
-                                <input type="text" class="form-control" id="planeId" placeholder="Enter Plane ID"
-                                    required>
+                                <label class="form-label" for="ArrivalTime">Arrival Time</label>
+                                <input asp-for="ArrivalTime" type="time" class="form-control" id="ArrivalTime" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label" for="departureAirport">Departure Airport</label>
-                                <input type="text" class="form-control" id="departureAirport"
-                                    placeholder="Enter Departure Airport" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="arrivalAirport">Arrival Airport</label>
-                                <input type="text" class="form-control" id="arrivalAirport"
-                                    placeholder="Enter Arrival Airport" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="departureTime">Departure Time</label>
-                                <input type="datetime-local" class="form-control" id="departureTime" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="totalSeats">Total Seats</label>
-                                <input type="number" class="form-control" id="totalSeats"
-                                    placeholder="Enter Total Seats" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="availableSeats">Available Seats</label>
-                                <input type="number" class="form-control" id="availableSeats"
-                                    placeholder="Enter Available Seats" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="statusSelect">Status</label>
-                                <select class="form-select" id="statusSelect" required>
+                                <label class="form-label" for="Status">Status</label>
+                                <select asp-for="Status" class="form-select" id="Status" required>
                                     <option value="" disabled selected>Select Status</option>
                                     <option value="Scheduled">Scheduled</option>
                                     <option value="Delayed">Delayed</option>
@@ -65,8 +83,8 @@
                         </form>
                     </div>
                 </div>
-                <!-- [ form-element ] end -->
             </div>
+            <!-- [ form-element ] end -->
         </div>
     </div>
 </div>

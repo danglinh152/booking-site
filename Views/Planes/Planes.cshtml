@@ -33,18 +33,18 @@
 
                                     {
                                         <tr>
-                                            <td>@plane.AircraftID</td>
+                                            <td>@plane.PlaneID</td>
                                             <td>@plane.Model</td>
                                             <td>@plane.Capacity</td>
                                             <td>@plane.Manufacturer</td>
                                             <td>
                                                 <a href="#" class="btn btn-secondary" data-bs-toggle="modal"
-                                                    data-bs-target="#planeDetailModal" data-id="@plane.AircraftID" data-model="@plane.Model"
+                                                    data-bs-target="#planeDetailModal" data-id="@plane.PlaneID" data-model="@plane.Model"
                                                     data-capacity="@plane.Capacity" data-manufacturer="@plane.Manufacturer"><i class="fa-solid fa-eye"></i></a>
-                                                <a href="/admin/planes/edit/@plane.AircraftID"
+                                                <a href="/admin/planes/edit/@plane.PlaneID"
                                                     class="btn btn-warning">Edit</a>
-                                                <form asp-controller="Planes" asp-action="DeletePlane" asp-route-id="@plane.AircraftID" style="display:inline;" method="post">
-                                                    <button type="submit" onclick="return confirm(`Are you sure you want to delete plane with id=@plane.AircraftID, model=@plane.Model?`)"
+                                                <form asp-controller="Planes" asp-action="DeletePlane" asp-route-id="@plane.PlaneID " style="display:inline;" method="post">
+                                                    <button type="submit" onclick="return confirm(`Are you sure you want to delete plane with id=@plane.PlaneID , model=@plane.Model?`)"
                                                     class="btn btn-danger">Delete</button> 
                                                 </form>
                                             </td>

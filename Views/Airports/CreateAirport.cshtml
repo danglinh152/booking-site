@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Adjust layout path if necessary
 
 }
-
+@model BookingSite.Models.Airport
 <div class="pc-container">
     <div class="pc-content">
         <!-- [ Main Content ] start -->
@@ -15,15 +15,16 @@
                         <h2 class="mb-0">Create Airport</h2>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form asp-action="CreateAirport" asp-controller="Airports" method="post">
                             <div class="form-group mb-3">
                                 <label class="form-label" for="airportName">Airport Name</label>
-                                <input type="text" class="form-control" id="airportName"
-                                    placeholder="Enter Airport Name">
+                                <input type="text" class="form-control" id="Name" asp-for="Name"
+                                    placeholder="Enter Airport Name" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label" for="countrySelect">Country</label>
-                                <select class="form-select" id="countrySelect" onchange="updateCityOptions()">
+                                <select class="form-select" asp-for="Country" id="countrySelect"
+                                    onchange="updateCityOptions()" required>
                                     <option value="">Select a Country</option> <!-- Added placeholder option -->
                                     <option value="Vietnam">Vietnam</option>
                                     <option value="USA">USA</option>
@@ -46,7 +47,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label" for="citySelect">City</label>
-                                <select class="form-select" id="citySelect">
+                                <select asp-for="City" class="form-select" id="citySelect" required>
                                     <!-- Cities will be populated based on selected country -->
                                 </select>
                             </div>

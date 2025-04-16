@@ -3,6 +3,7 @@ using BookingSite.Models; // Ensure this points to the correct location of your 
 
 namespace BookingSite.Controllers
 {
+    [AuthorizeRole("Admin")]
     [Route("admin/users")]
     public class UsersController : Controller
     {
@@ -31,6 +32,7 @@ namespace BookingSite.Controllers
         [HttpPost("create")]
         public IActionResult CreateUser(User user)
         {
+
             if (ModelState.IsValid)
             {
                 context.Users.Add(user);

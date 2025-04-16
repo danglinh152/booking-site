@@ -1,11 +1,20 @@
-namespace BookingSite.Models
-{
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BookingSite.Models{
     public class Passenger
     {
-        public int PassengerID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public string PassportNumber { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int PassengerId { get; set; }
+        public int BookingId { get; set; }
+        public string FullName { get; set; }
+        public TimeSpan DateOfBirth { get; set; }
+        public string Gender { get; set; }
+        public string? PassportNumber { get; set; } // Nullable
+        public string? SeatNumber { get; set; } // Nullable
+
+
+        public Booking Booking { get; set; }
     }
 }
