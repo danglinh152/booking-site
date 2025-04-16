@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <script src="~/js/homepage/homepage.js"></script>
-    
+
 
     <link rel="stylesheet" href="~/css/style.css" id="main-style-link">
     <link rel="stylesheet" href="~/css/style-preset.css">
@@ -70,12 +70,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/Explore">Khám phá</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/Booking">Đặt vé</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/JourneyInfor">Thông tin hành trình</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/TenPMClub">TenPM Club</a></li>
-                    <li class="nav-item"><a class="btn btn-primary" href="#">Đăng nhập</a></li>
-                    <li class="nav-item"><a class="btn btn-register" href="#">Đăng ký</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" id="homeBtn">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Explore" id="exploreBtn">Khám phá</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Booking" id="bookingBtn">Đặt vé</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/JourneyInfor" id="journeyInfoBtn">Thông tin hành
+                            trình</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/TenPMClub" id="tenpmClubBtn">TenPM Club</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="/login">Đăng nhập</a></li>
+                    <li class="nav-item"><a class="btn btn-register" href="/register">Đăng ký</a></li>
                 </ul>
             </div>
         </div>
@@ -141,33 +143,45 @@
         navFunction = () => {
             // Use '===' for comparison instead of '=' for assignment
             const homeBtn = document.getElementById("homeBtn");
+            const exploreBtn = document.getElementById("exploreBtn");
             const bookingBtn = document.getElementById("bookingBtn");
-            const promoteBtn = document.getElementById("promoteBtn");
-            const contactBtn = document.getElementById("contactBtn");
+            const journeyInfoBtn = document.getElementById("journeyInfoBtn");
+            const tenpmClubBtn = document.getElementById("tenpmClubBtn");
 
             if (location.href === "http://localhost:5002/") {
                 homeBtn.style.color = "blue";
+                exploreBtn.style.color = "var(--bs-nav-link-color);";
                 bookingBtn.style.color = "var(--bs-nav-link-color);";
-                promoteBtn.style.color = "var(--bs-nav-link-color);";
-                contactBtn.style.color = "var(--bs-nav-link-color);";
+                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
+                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
             }
-            else if (location.href === "http://localhost:5002/booking") {
+            else if (location.href === "http://localhost:5002/Explore") {
+                exploreBtn.style.color = "blue";
+                homeBtn.style.color = "var(--bs-nav-link-color);";
+                bookingBtn.style.color = "var(--bs-nav-link-color);";
+                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
+                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
+            }
+            else if (location.href === "http://localhost:5002/Booking") {
                 bookingBtn.style.color = "blue";
+                exploreBtn.style.color = "var(--bs-nav-link-color);";
                 homeBtn.style.color = "var(--bs-nav-link-color);";
-                promoteBtn.style.color = "var(--bs-nav-link-color);";
-                contactBtn.style.color = "var(--bs-nav-link-color);";
+                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
+                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
             }
-            else if (location.href === "http://localhost:5002/promote") {
-                promoteBtn.style.color = "blue";
+            else if (location.href === "http://localhost:5002/JourneyInfor") {
+                journeyInfoBtn.style.color = "blue";
+                exploreBtn.style.color = "var(--bs-nav-link-color);";
                 bookingBtn.style.color = "var(--bs-nav-link-color);";
                 homeBtn.style.color = "var(--bs-nav-link-color);";
-                contactBtn.style.color = "var(--bs-nav-link-color);";
+                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
             }
-            else if (location.href === "http://localhost:5002/contact") {
-                contactBtn.style.color = "blue";
+            else if (location.href === "http://localhost:5002/TenPMClub") {
+                tenpmClubBtn.style.color = "blue";
+                exploreBtn.style.color = "var(--bs-nav-link-color);";
                 bookingBtn.style.color = "var(--bs-nav-link-color);";
+                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
                 homeBtn.style.color = "var(--bs-nav-link-color);";
-                promoteBtn.style.color = "var(--bs-nav-link-color);";
             }
         }
 
