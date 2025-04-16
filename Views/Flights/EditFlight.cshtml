@@ -1,64 +1,9 @@
 @{
     ViewData["Title"] = "Flight Details";
     Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Adjust layout path if necessary
-
-    // Get ID from the route
-    var flightId = ViewContext.RouteData.Values["id"]; // Accessing RouteData
-
-    // Initialize variables
-    string planeId;
-    string departureAirport;
-    string arrivalAirport;
-    string departureTime;
-    string totalSeats;
-    string availableSeats;
-    string status;
-
-    // Check if flightId is valid
-    if (flightId != null && int.TryParse(flightId.ToString(), out int id))
-    {
-        switch (id)
-        {
-            case 1:
-                planeId = "P1";
-                departureAirport = "JFK";
-                arrivalAirport = "LAX";
-                departureTime = "2025-03-30T15:00";
-                totalSeats = "300";
-                availableSeats = "150";
-                status = "Scheduled";
-                break;
-            case 2:
-                planeId = "P2";
-                departureAirport = "ATL";
-                arrivalAirport = "ORD";
-                departureTime = "2025-04-05T10:00";
-                totalSeats = "180";
-                availableSeats = "80";
-                status = "Scheduled";
-                break;
-            default:
-                planeId = "Unknown Plane ID";
-                departureAirport = "Unknown Airport";
-                arrivalAirport = "Unknown Airport";
-                departureTime = "Unknown Time";
-                totalSeats = "Unknown";
-                availableSeats = "Unknown";
-                status = "Unknown Status";
-                break;
-        }
-    }
-    else
-    {
-        planeId = "Unknown Plane ID";
-        departureAirport = "Unknown Airport";
-        arrivalAirport = "Unknown Airport";
-        departureTime = "Unknown Time";
-        totalSeats = "Unknown";
-        availableSeats = "Unknown";
-        status = "Unknown Status";
-    }
 }
+
+@model BookingSite.Models.Flight
 
 <div class="pc-container">
     <div class="pc-content">
@@ -71,45 +16,47 @@
                         <h2 class="mb-0">Flight Information</h2>
                     </div>
                     <div class="card-body">
-                        <form action="/admin/flights/update/@flightId" method="post">
+                        <form asp-action="EditFlight" asp-controller="Flights" asp-route-id="@Model.FlightID"
+                            method="post">
+                            <input type="hidden" asp-for="FlightID" />
                             <div class="form-group mb-3">
-                                <label class="form-label" for="flightId">Flight ID</label>
-                                <input type="text" class="form-control" id="flightId" placeholder="Enter Flight ID"
-                                    value="@flightId" readonly>
+                                <label class="form-label" for="PlaneId">Plane</label>
+                                <select asp-for="PlaneID" class="form-control" asp-items="ViewBag.PlaneID">
+                                    <option value="">-- Chọn máy bay --</option>
+                                </select>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label" for="planeId">Plane ID</label>
-                                <input type="text" class="form-control" id="planeId" placeholder="Enter Plane ID"
-                                    value="@planeId" required>
+                                <label class="form-label" for="FlightDate">Flight Date</label>
+                                <input asp-for="FlightDate" class="form-control" type="date"
+                                    placeholder="Enter Flight Date" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label" for="departureAirport">Departure Airport</label>
-                                <input type="text" class="form-control" id="departureAirport"
-                                    placeholder="Enter Departure Airport" value="@departureAirport" required>
+                                <label class="form-label" for="DepartureAirportID">Departure Airport</label>
+                                <select asp-for="DepartureAirportID" class="form-control"
+                                    asp-items="ViewBag.DepartureAirportID">
+                                    <option value="">-- Chọn sân bay đi --</option>
+                                </select>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label" for="arrivalAirport">Arrival Airport</label>
-                                <input type="text" class="form-control" id="arrivalAirport"
-                                    placeholder="Enter Arrival Airport" value="@arrivalAirport" required>
+                                <label class="form-label" for="ArrivalAirportID">Arrival Airport</label>
+                                <select asp-for="ArrivalAirportID" class="form-control"
+                                    asp-items="ViewBag.ArrivalAirportID">
+                                    <option value="">-- Chọn sân bay đến --</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="ArrivalTime">Departure Time</label>
+                                <input asp-for="DepartureTime" class="form-control" type="time"
+                                    placeholder="Enter Departure Time" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label" for="departureTime">Departure Time</label>
-                                <input type="datetime-local" class="form-control" id="departureTime"
-                                    placeholder="Enter Departure Time" value="@departureTime" required>
+                                <input asp-for="ArrivalTime" class="form-control" type="time"
+                                    placeholder="Enter Departure Time" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label" for="totalSeats">Total Seats</label>
-                                <input type="number" class="form-control" id="totalSeats"
-                                    placeholder="Enter Total Seats" value="@totalSeats" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="availableSeats">Available Seats</label>
-                                <input type="number" class="form-control" id="availableSeats"
-                                    placeholder="Enter Available Seats" value="@availableSeats" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="status">Status</label>
-                                <select class="form-control" id="status" required>
+                                <label class="form-label" for="Status">Status</label>
+                                <select asp-for="Status" class="form-control" id="Status" required>
                                     <option value="Scheduled">Scheduled
                                     </option>
                                     <option value="Cancelled">Cancelled

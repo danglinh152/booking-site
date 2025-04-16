@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Correct path
 }
+@model List<BookingSite.Models.Flight>
 
 <div class="pc-container">
     <div class="pc-content">
@@ -22,39 +23,47 @@
                                 <thead>
                                     <tr>
                                         <th>Flight ID</th>
-                                        <th>Plane ID</th>
+                                        <th>Plane</th>
+                                        <th>Date</th>
                                         <th>Departure Airport</th>
                                         <th>Arrival Airport</th>
                                         <th>Departure Time</th>
-                                        <th>Total Seats</th>
-                                        <th>Available Seats</th>
+                                        <th>Arrival Time</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>P1</td>
-                                        <td>JFK</td>
-                                        <td>LAX</td>
-                                        <td>2025-03-30T15:00</td>
-                                        <td>300</td>
-                                        <td>150</td>
-                                        <td>Scheduled</td>
-                                        <td>
-                                            <button class="btn btn-secondary view-details" data-id="1"
-                                                data-plane-id="P1" data-departure-airport="JFK"
-                                                data-arrival-airport="LAX" data-departure-time="2025-03-30T15:00"
-                                                data-total-seats="300" data-available-seats="150"
-                                                data-status="Scheduled"><i class="fa-solid fa-eye"></i></button>
-                                            <a href="/admin/flights/edit/1" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteFlightModal" data-id="1" data-name="Flight 1">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    @foreach (var flight in Model)
+                                    {
+                                        <tr>
+                                            <td>@flight.FlightID</td>
+                                            <td>@flight.Plane.Model</td>
+                                            <td>@flight.FlightDate</td>
+                                            <td>@flight.DepartureAirport.Name (@flight.DepartureAirport.City)</td>
+                                            <td>@flight.ArrivalAirport.Name (@flight.ArrivalAirport.City)</td>
+                                            <td>@flight.DepartureTime</td>
+                                            <td>@flight.ArrivalTime</td>
+                                            <td>@flight.Status</td>
+                                            <td>
+                                                <button class="btn btn-secondary view-details" data-id="@flight.FlightID"
+                                                    data-plane-id="@flight.Plane.Model"
+                                                    data-departure-airport="@flight.DepartureAirport.Name"
+                                                    data-arrival-airport="@flight.ArrivalAirport.Name"
+                                                    data-departure-time="@flight.DepartureTime" 
+                                                    data-arrival-time="@flight.ArrivalTime"
+                                                    data-status="@flight.Status"><i class="fa-solid fa-eye"></i></button>
+                                                <a href="/admin/flights/edit/@flight.FlightID" class="btn btn-warning">Edit</a>
+                                                <form asp-action="DeleteFlight" asp-route-id="@flight.FlightID" method="post"
+                                                    style="display:inline;">
+                                                    <button type="submit" class="btn btn-danger"
+                                                        onclick="return confirm(`Are you sure you want to delete flight with id=@flight.FlightID?`)">Delete</button>
+                                                </form>
+                                             
+                                            </td>
+                                        </tr>
+                                    }
+
                                     <!-- Add more flight entries as needed -->
                                 </tbody>
                             </table>
@@ -103,8 +112,7 @@
                 <p><strong>Departure Airport:</strong> <span id="viewDepartureAirport"></span></p>
                 <p><strong>Arrival Airport:</strong> <span id="viewArrivalAirport"></span></p>
                 <p><strong>Departure Time:</strong> <span id="viewDepartureTime"></span></p>
-                <p><strong>Total Seats:</strong> <span id="viewTotalSeats"></span></p>
-                <p><strong>Available Seats:</strong> <span id="viewAvailableSeats"></span></p>
+                <p><strong>Arrival Time:</strong> <span id="viewArrivalTime"></span></p>
                 <p><strong>Status:</strong> <span id="viewStatus"></span></p>
             </div>
             <div class="modal-footer">
@@ -142,8 +150,7 @@
             var departureAirport = button.getAttribute('data-departure-airport');
             var arrivalAirport = button.getAttribute('data-arrival-airport');
             var departureTime = button.getAttribute('data-departure-time');
-            var totalSeats = button.getAttribute('data-total-seats');
-            var availableSeats = button.getAttribute('data-available-seats');
+            var arrivalTime = button.getAttribute('data-arrival-time')
             var status = button.getAttribute('data-status');
 
             // Update modal content
@@ -152,8 +159,7 @@
             document.getElementById('viewDepartureAirport').textContent = departureAirport;
             document.getElementById('viewArrivalAirport').textContent = arrivalAirport;
             document.getElementById('viewDepartureTime').textContent = departureTime;
-            document.getElementById('viewTotalSeats').textContent = totalSeats;
-            document.getElementById('viewAvailableSeats').textContent = availableSeats;
+            document.getElementById('viewArrivalTime').textContent = arrivalTime;
             document.getElementById('viewStatus').textContent = status;
 
             // Show the modal
