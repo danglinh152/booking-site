@@ -46,127 +46,144 @@
 
 <body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
     <!-- [ Pre-loader ] start -->
-    <div class="loader-bg">
-        <div class="loader-track">
-            <div class="loader-fill"></div>
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+    <div class="loader-track">
+        <div class="loader-fill"></div>
+    </div>
+</div>
+<!-- [ Pre-loader ] End -->
+
+<!-- [ Sidebar Menu ] start -->
+<nav class="pc-sidebar">
+    <div class="navbar-wrapper">
+        <div class="">
+            <div class="w-100" style="height: 75px;">
+                <!-- ========   Change your logo from here   ============ -->
+                <img src="~/images/logo.png" class="w-100 h-100" style="object-fit: cover" alt="logo">
+            </div>
+        </div>
+        <div class="navbar-content">
+            <ul class="pc-navbar">
+                <li class="pc-item">
+                    <a href="/admin" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
+                        <span class="pc-mtext">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="pc-item pc-caption">
+                    <label>Frequent management</label>
+                    <i class="ti ti-dashboard"></i>
+                </li>
+                <li class="pc-item">
+                    <a href="/admin/users" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-typography"></i></span>
+                        <span class="pc-mtext">Users</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="/admin/bookings" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-typography"></i></span>
+                        <span class="pc-mtext">Bookings</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="/admin/passengers" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-typography"></i></span>
+                        <span class="pc-mtext">Passengers</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="/admin/checkins" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-typography"></i></span>
+                        <span class="pc-mtext">Check-Ins</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="/admin/planes" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-typography"></i></span>
+                        <span class="pc-mtext">Planes</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="/admin/flights" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-color-swatch"></i></span>
+                        <span class="pc-mtext">Flights</span>
+                    </a>
+                </li>
+
+                <li class="pc-item pc-caption">
+                    <i class="ti ti-brand-chrome"></i>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-menu"></i></span>
+                        <span class="pc-mtext">Other</span>
+                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                    </a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="/admin/airports">Airports</a></li>
+                        <li class="pc-item"><a class="pc-link" href="/admin/seats">Seats</a></li>
+                        <li class="pc-item"><a class="pc-link" href="/admin/baggages">Baggages</a></li>
+                        <li class="pc-item"><a class="pc-link" href="/admin/meals">Meals</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
-    <!-- [ Sidebar Menu ] start -->
-    <nav class="pc-sidebar">
-        <div class="navbar-wrapper">
-            <div class="">
-                <div class="w-100" style="height: 75px;">
-                    <!-- ========   Change your logo from here   ============ -->
-                    <img src="~/images/logo.png" class="w-100 h-100" style="object-fit: cover" alt="logo">
-                </div>
-            </div>
-            <div class="navbar-content">
-                <ul class="pc-navbar">
-                    <li class="pc-item">
-                        <a href="/admin" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
-                            <span class="pc-mtext">Dashboard</span>
-                        </a>
-                    </li>
+</nav>
+<!-- [ Sidebar Menu ] end -->
 
-                    <li class="pc-item pc-caption">
-                        <label>Frequent management</label>
-                        <i class="ti ti-dashboard"></i>
-                    </li>
-                    <li class="pc-item">
-                        <a href="/admin/users" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-typography"></i></span>
-                            <span class="pc-mtext">Users</span>
-                        </a>
-                    </li>
-                    <li class="pc-item">
-                        <a href="/admin/bookings" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-typography"></i></span>
-                            <span class="pc-mtext">Bookings</span>
-                        </a>
-                    </li>
-                    <li class="pc-item">
-                        <a href="/admin/passengers" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-typography"></i></span>
-                            <span class="pc-mtext">Passengers</span>
-                        </a>
-                    </li>
-                    <li class="pc-item">
-                        <a href="/admin/checkins" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-typography"></i></span>
-                            <span class="pc-mtext">Check-Ins</span>
-                        </a>
-                    </li>
-                    <li class="pc-item">
-                        <a href="/admin/planes" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-typography"></i></span>
-                            <span class="pc-mtext">Planes</span>
-                        </a>
-                    </li>
-                    <li class="pc-item">
-                        <a href="/admin/flights" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-color-swatch"></i></span>
-                            <span class="pc-mtext">Flights</span>
-                        </a>
-                    </li>
-
-                    @* <li class="pc-item pc-caption">
-          <label>Pages</label>
-          <i class="ti ti-news"></i>
-        </li>
-        <li class="pc-item">
-          <a href="../pages/login.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-lock"></i></span>
-            <span class="pc-mtext">Login</span>
-          </a>
-        </li> *@
-                    @* <li class="pc-item">
-          <a href="../pages/register.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
-            <span class="pc-mtext">Register</span>
-          </a>
-        </li> *@
-
-                    <li class="pc-item pc-caption">
-                        <i class="ti ti-brand-chrome"></i>
-                    </li>
-                    <li class="pc-item pc-hasmenu">
-                        <a href="#!" class="pc-link"><span class="pc-micon"><i class="ti ti-menu"></i></span><span
-                                class="pc-mtext">Other</span><span class="pc-arrow"><i
-                                    data-feather="chevron-right"></i></span></a>
-                        <ul class="pc-submenu">
-                            <li class="pc-item"><a class="pc-link" href="/admin/airports">Airports</a></li>
-                            <li class="pc-item"><a class="pc-link" href="/admin/seats">Seats</a></li>
-                            <li class="pc-item"><a class="pc-link" href="/admin/baggages">Baggages</a></li>
-                            <li class="pc-item"><a class="pc-link" href="/admin/meals">Meals</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
+<!-- [ Header Topbar ] start -->
+<header class="pc-header">
+    <div class="header-wrapper" style="display: flex; align-items: center;"> 
+        <!-- [Mobile Media Block] start -->
+        <div class="me-auto pc-mob-drp">
+            <ul class="list-unstyled">
+                <!-- ======= Menu collapse Icon ===== -->
+                <li class="pc-h-item pc-sidebar-collapse">
+                    <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
+                        <i class="ti ti-menu-2"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
-    <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
-    <header class="pc-header">
-        <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
-            <div class="me-auto pc-mob-drp">
-                <ul class="list-unstyled">
-                    <!-- ======= Menu collapse Icon ===== -->
-                    <li class="pc-h-item pc-sidebar-collapse">
-                        <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
-                            <i class="ti ti-menu-2"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            @{
-                var userName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
-                var userRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole");
-            }
-            <p>Hello, @userName </p>
+        
+        @{
+            var userName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
+            var userRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole");
+        }
+        
+        <div class="nav-item dropdown me-2">
+            <a class="nav-link" href="#" id="userDropdown" role="button" 
+               style="cursor: pointer; color: #007bff;"
+               onmouseover="this.style.color='#0056b3';" 
+               onmouseout="this.style.color='#007bff';">
+                Hello, @userName
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="userDropdown" 
+                style="display: none; position: absolute; right: 1px; z-index: 1000; background-color: white; border: 1px solid #ccc;">
+                <li><a class="dropdown-item" href="/Profile">Thông tin cá nhân</a></li>
+                <li><a class="dropdown-item" href="/Account/Logout">Đăng xuất</a></li>
+            </ul>
         </div>
-    </header>
+    </div>
+</header>
+<!-- [ Header Topbar ] end -->
+
+<script>
+    const dropdown = document.querySelector('#userDropdown').parentElement;
+    
+    dropdown.addEventListener('mouseover', function() {
+        dropdown.querySelector('.dropdown-menu').style.display = 'block';
+    });
+
+    dropdown.addEventListener('mouseout', function() {
+        dropdown.querySelector('.dropdown-menu').style.display = 'none';
+    });
+</script>
+
     <!-- [ Header ] end -->
 
     @RenderBody()
