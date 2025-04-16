@@ -76,10 +76,31 @@
                     <li class="nav-item"><a class="nav-link" href="/JourneyInfor" id="journeyInfoBtn">Thông tin hành
                             trình</a></li>
                     <li class="nav-item"><a class="nav-link" href="/TenPMClub" id="tenpmClubBtn">TenPM Club</a></li>
-                    <li class="nav-item"><a class="btn btn-primary" href="/login">Đăng nhập</a></li>
-                    <li class="nav-item"><a class="btn btn-register" href="/register">Đăng ký</a></li>
+
+                    @* @if (User.Identity.IsAuthenticated) *@
+                    @if (true)
+                    {
+                        <li class="nav-item dropdown" style="position: relative;">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                style="cursor: pointer; color: #007bff;" onmouseover="this.style.color='#0056b3';"
+                                onmouseout="this.style.color='#007bff';">
+                                Xin chào, Linhdq
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="userDropdown"
+                                style="display: none; position: absolute; z-index: 1000; background-color: white; border: 1px solid #ccc;">
+                                <li><a class="dropdown-item" href="/Profile">Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item" href="/Account/Logout">Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item"><a class="btn btn-primary" href="/Account/Login">Đăng nhập</a></li>
+                        <li class="nav-item"><a class="btn btn-register" href="/Account/Register">Đăng ký</a></li>
+                    }
                 </ul>
             </div>
+
         </div>
     </nav>
 
@@ -187,6 +208,16 @@
 
         // Call the function to apply the changes on page load
         window.onload = navFunction;
+
+        const dropdown = document.querySelector('#userDropdown').parentElement;
+
+        dropdown.addEventListener('mouseover', function () {
+            dropdown.querySelector('.dropdown-menu').style.display = 'block';
+        });
+
+        dropdown.addEventListener('mouseout', function () {
+            dropdown.querySelector('.dropdown-menu').style.display = 'none';
+        });
     </script>
 
 </footer>
