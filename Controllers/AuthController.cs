@@ -62,6 +62,14 @@ namespace BookingSite.Controllers
     [HttpGet("/login")]
     public IActionResult LoginPage()
     {
+      var session = HttpContext.Session;
+      var userId = session.GetString("UserID");
+
+      if (!string.IsNullOrEmpty(userId))
+      {
+        return Redirect("/");
+      }
+
       return View("Login");
     }
 
@@ -96,7 +104,7 @@ namespace BookingSite.Controllers
       return RedirectToAction("Login", "Auth");
     }
 
-    private string HashPassword(string password)
+    public static string HashPassword(string password)
     {
       using (SHA256 sha256 = SHA256.Create())
       {

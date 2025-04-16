@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookingSite.Models
 {
@@ -9,8 +10,10 @@ namespace BookingSite.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int PaymentId { get; set; }
-        public int BookingId { get; set; }
+        public int PaymentID { get; set; }
+        [Required]
+        public int BookingID { get; set; }
+        [Precision(10, 2)]
         public decimal Amount { get; set; }
         public string PaymentMethod { get; set; }
         public string PaymentStatus { get; set; }

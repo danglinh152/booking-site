@@ -21,7 +21,7 @@ namespace BookingSite.Models
     [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
     [DataType(DataType.Password)]
     public string Password { get; set; }
-    public int point { get; set; } = 0;
+    public int Point { get; set; } = 0;
 
     public string Role { get; set; } = "Client";
     [ValidateNever]
