@@ -69,12 +69,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Đặt vé</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Ưu đãi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
-                    <li class="nav-item"><a class="btn btn-primary" href="#">Đăng nhập</a></li>
-                    <li class="nav-item"><a class="btn btn-register" href="#">Đăng ký</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" id="homeBtn">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="bookBtn">Đặt vé</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="promoteBtn">Ưu đãi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="contactBtn">Liên hệ</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="/login">Đăng nhập</a></li>
+                    <li class="nav-item"><a class="btn btn-register" href="/register">Đăng ký</a></li>
                 </ul>
             </div>
         </div>
@@ -136,6 +136,44 @@
     </div>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="~/js/homepage/swiper-scripts.js"></script>
+    <script>
+        navFunction = () => {
+            // Use '===' for comparison instead of '=' for assignment
+            const homeBtn = document.getElementById("homeBtn");
+            const bookingBtn = document.getElementById("bookingBtn");
+            const promoteBtn = document.getElementById("promoteBtn");
+            const contactBtn = document.getElementById("contactBtn");
+
+            if (location.href === "http://localhost:5002/") {
+                homeBtn.style.color = "blue";
+                bookingBtn.style.color = "var(--bs-nav-link-color);";
+                promoteBtn.style.color = "var(--bs-nav-link-color);";
+                contactBtn.style.color = "var(--bs-nav-link-color);";
+            }
+            else if (location.href === "http://localhost:5002/booking") {
+                bookingBtn.style.color = "blue";
+                homeBtn.style.color = "var(--bs-nav-link-color);";
+                promoteBtn.style.color = "var(--bs-nav-link-color);";
+                contactBtn.style.color = "var(--bs-nav-link-color);";
+            }
+            else if (location.href === "http://localhost:5002/promote") {
+                promoteBtn.style.color = "blue";
+                bookingBtn.style.color = "var(--bs-nav-link-color);";
+                homeBtn.style.color = "var(--bs-nav-link-color);";
+                contactBtn.style.color = "var(--bs-nav-link-color);";
+            }
+            else if (location.href === "http://localhost:5002/contact") {
+                contactBtn.style.color = "blue";
+                bookingBtn.style.color = "var(--bs-nav-link-color);";
+                homeBtn.style.color = "var(--bs-nav-link-color);";
+                promoteBtn.style.color = "var(--bs-nav-link-color);";
+            }
+        }
+
+        // Call the function to apply the changes on page load
+        window.onload = navFunction;
+    </script>
+
 </footer>
 
 
