@@ -63,9 +63,10 @@
                                 <div class="flex gap-2">
                                     <input type="text" class="w-1/2 border rounded px-4 py-2" placeholder="Tháng" maxlength="2" />
                                     <input type="text" class="w-1/2 border rounded px-4 py-2" placeholder="Năm" maxlength="2" />
-                                    <input type="text" class="w-1/2 border rounded px-4 py-2" placeholder="Mã bảo mật *" maxlength="4" />
+                                    <input type="text" class="w-1/2 border rounded px-4 py-2" placeholder="Nhập CVV *" maxlength="4" />
                                 </div>
                                 <input type="text" class="w-full border rounded px-4 py-2" placeholder="Tên đầy đủ của chủ thẻ *" />
+                                <div id="cardError" class="text-red-600 text-sm mb-2"></div>
                                 <div class="flex items-center gap-2">
                                     <input type="checkbox" id="cardAgree" class="accent-green-600" />
                                     <label for="cardAgree" class="text-xs">Tôi hiểu và đồng ý với <a href="#" class="text-green-700 underline">Điều lệ vận chuyển</a>, <a href="#" class="text-green-700 underline">Điều kiện sử dụng chức năng đặt chỗ trực tuyến</a>, <a href="#" class="text-green-700 underline">Chính sách bảo mật</a> và <a href="#" class="text-green-700 underline">Điều kiện giá vé</a> của Bamboo Airways.</label>
@@ -207,6 +208,75 @@
         });
         // Mặc định mở Card
         if (headers.length) headers[0].click();
+
+        // Kiểm tra thông tin thẻ khi bấm nút Thanh toán
+        document.getElementById('btnCardPay').addEventListener('click', function(e) {
+            let valid = true;
+            let errors = [];
+            const cardSection = document.getElementById('content-card');
+            const cardError = document.getElementById('cardError');
+            // Lấy các trường
+            const cardNumber = cardSection.querySelector('input[placeholder="Số thẻ tín dụng *"]');
+            const month = cardSection.querySelector('input[placeholder="Tháng"]');
+            const year = cardSection.querySelector('input[placeholder="Năm"]');
+            const cvc = cardSection.querySelector('input[placeholder="Nhập CVV *"]');
+            const cardName = cardSection.querySelector('input[placeholder="Tên đầy đủ của chủ thẻ *"]');
+            const agree = document.getElementById('cardAgree');
+
+            // Kiểm tra từng trường
+            if (!cardNumber.value.trim()) {
+                valid = false;
+                errors.push("Vui lòng nhập số thẻ tín dụng.");
+                cardNumber.classList.add('border-red-500');
+            } else {
+                cardNumber.classList.remove('border-red-500');
+            }
+            if (!month.value.trim()) {
+                valid = false;
+                errors.push("Vui lòng nhập tháng hết hạn.");
+                month.classList.add('border-red-500');
+            } else {
+                month.classList.remove('border-red-500');
+            }
+            if (!year.value.trim()) {
+                valid = false;
+                errors.push("Vui lòng nhập năm hết hạn.");
+                year.classList.add('border-red-500');
+            } else {
+                year.classList.remove('border-red-500');
+            }
+            if (!cvc.value.trim()) {
+                valid = false;
+                errors.push("Vui lòng nhập mã bảo mật.");
+                cvc.classList.add('border-red-500');
+            } else {
+                cvc.classList.remove('border-red-500');
+            }
+            if (!cardName.value.trim()) {
+                valid = false;
+                errors.push("Vui lòng nhập tên chủ thẻ.");
+                cardName.classList.add('border-red-500');
+            } else {
+                cardName.classList.remove('border-red-500');
+            }
+            if (!agree.checked) {
+                valid = false;
+                errors.push("Bạn phải đồng ý với các điều khoản.");
+                agree.classList.add('ring-2', 'ring-red-500');
+            } else {
+                agree.classList.remove('ring-2', 'ring-red-500');
+            }
+
+            if (!valid) {
+                e.preventDefault();
+                cardError.innerHTML = errors.map(err => `<div>• ${err}</div>`).join('');
+                return false;
+            } else {
+                cardError.innerHTML = '';
+                // Thực hiện thanh toán thật sự ở đây
+                // window.location.href = '/thanh-toan-thanh-cong';
+            }
+        });
     });
     </script>
 </body>
