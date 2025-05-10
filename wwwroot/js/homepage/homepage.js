@@ -1,6 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
+        // Xử lý hiển thị/ẩn ngày về khi chọn loại vé
+        const roundTripRadio = document.getElementById('roundTrip');
+        const oneWayRadio = document.getElementById('oneWay');
+        const returnDateContainer = document.getElementById('return-date-container');
 
+        if (roundTripRadio && oneWayRadio && returnDateContainer) {
+            roundTripRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    returnDateContainer.style.display = 'block';
+                }
+            });
+
+            oneWayRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    returnDateContainer.style.display = 'none';
+                }
+            });
+        }
     
+  
         const btnBangTien = document.querySelector(".btn.btn-primary.m-2"); // Nút "Bằng Tiền"
         const tabDatVe = document.getElementById("tab-datve"); // Thẻ div có id="tab-datve"
         const allTabs = document.querySelectorAll(".tab-pane"); // Tất cả các tab
@@ -25,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    
+
     // === Cập nhật hash khi click vào tab ===
     document.querySelectorAll('.nav-link').forEach(tab => {
         tab.addEventListener('click', function () {
@@ -32,77 +52,103 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // === Chuyển tab trong phần Làm Thủ Tục ===
-    const checkinTabs = document.querySelectorAll("#checkin-tabs .nav-link");
-    const inputField = document.getElementById("checkin-input");
-    const labelField = document.getElementById("label-input");
+    
 
-    if (checkinTabs.length > 0 && inputField && labelField) {
-        const tabData = {
-            booking: { label: "MÃ ĐẶT CHỖ", placeholder: "123XXX" },
-            ticket: { label: "SỐ VÉ", placeholder: "987654321" },
-            member: { label: "SỐ HỘI VIÊN", placeholder: "80000xxxx" }
-        };
-
-        checkinTabs.forEach(tab => {
-            tab.addEventListener("click", function (event) {
-                event.preventDefault();
-
-                checkinTabs.forEach(t => t.classList.remove("active"));
-                this.classList.add("active");
-
-                let tabType = this.getAttribute("data-type");
-                labelField.textContent = tabData[tabType].label;
-                inputField.placeholder = tabData[tabType].placeholder;
-            });
+    // Xử lý logic Đa chặng chỉ khi có đủ phần tử
+    const themChang = document.getElementById("themChang");
+    const dsChang = document.getElementById("dsChang");
+    let countChang = 1;
+    // Chỉ xử lý Đa chặng nếu có đủ phần tử
+    if (themChang && dsChang) {
+      themChang.addEventListener("click", function () {
+        countChang++;
+        const newSegment = document.createElement("div");
+        newSegment.classList.add("flight-segment", "mt-6", "p-4", "border", "rounded", "bg-gray-50");
+        newSegment.innerHTML = `
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Chặng bay ${countChang}</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Từ *</label>
+              <input type="text" required class="mt-1 block w-full p-2 border rounded" placeholder="Nhập điểm đi" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Đến *</label>
+              <input type="text" required class="mt-1 block w-full p-2 border rounded" placeholder="Nhập điểm đến" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Ngày khởi hành *</label>
+              <input type="date" required class="mt-1 block w-full p-2 border rounded" />
+            </div>
+            <div class="flex items-end">
+              <button class="remove-segment bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mt-1">
+                Xóa chặng
+              </button>
+            </div>
+          </div>
+        `;
+        dsChang.appendChild(newSegment);
+        newSegment.querySelector(".remove-segment").addEventListener("click", function () {
+          dsChang.removeChild(newSegment);
+          countChang--;
+          Array.from(dsChang.children).forEach((seg, idx) => {
+            seg.querySelector("h3").textContent = `Chặng bay ${idx + 2}`;
+          });
         });
+      });
     }
 
-    // === Ẩn/hiện Ngày Về khi chọn khứ hồi ===
-    const oneWay = document.getElementById("oneWay");
-    const roundTrip = document.getElementById("roundTrip");
-    const multiCity = document.getElementById("multicity");
-    const returnDateContainer = document.getElementById("return-date-container");
-
-    function toggleReturnDate() {
-        if (oneWay && returnDateContainer) {
-            returnDateContainer.style.display = oneWay.checked ? "none" : "block";
+    // === Xử lý dropdown điểm đi/điểm đến bằng event delegation ===
+    // Dropdown "Từ"
+    const fromDropdownMenu = document.querySelector('#tabCountryFromContent').closest('.dropdown-menu') || document.querySelector('#tabCountryFromContent').parentElement;
+    const fromDropdown = document.getElementById("dropdownFromBtn");
+    // Dropdown "Tới"
+    const toDropdownMenu = document.querySelector('#tabCountryToContent').closest('.dropdown-menu') || document.querySelector('#tabCountryToContent').parentElement;
+    const toDropdown = document.getElementById("dropdownToBtn");
+    
+    // Hàm cập nhật text và value cho dropdown
+    function setDropdownValue(button, text, value) {
+        const textSpan = button.querySelector('.dropdown-text');
+        if (textSpan) textSpan.textContent = text;
+        button.setAttribute('data-value', value);
+        // Force re-render: replace node
+        const parent = button.parentNode;
+        const next = button.nextSibling;
+        parent.removeChild(button);
+        if (next) {
+            parent.insertBefore(button, next);
+        } else {
+            parent.appendChild(button);
         }
     }
 
-    if (oneWay && roundTrip && multiCity) {
-        oneWay.addEventListener("change", toggleReturnDate);
-        roundTrip.addEventListener("change", toggleReturnDate);
-        multiCity.addEventListener("change", toggleReturnDate);
-        toggleReturnDate();
+    // Event delegation cho dropdown "Từ"
+    if (fromDropdownMenu && fromDropdown) {
+        fromDropdownMenu.addEventListener('click', function(e) {
+            const item = e.target.closest('.dropdown-item');
+            if (item) {
+                setDropdownValue(fromDropdown, item.textContent, item.getAttribute('data-value'));
+                console.log('Chọn điểm đi:', item.textContent, item.getAttribute('data-value'));
+            }
+        });
     }
-
-    // === Nút đổi chiều điểm đi và điểm đến ===
-    const swapButton = document.getElementById("swapButton");
-    const fromDropdown = document.querySelector("#tab-datve .col-md-3:first-child .dropdown-toggle");
-    const toDropdown = document.querySelector("#tab-datve .col-md-3:nth-child(3) .dropdown-toggle");
-
-    if (swapButton && fromDropdown && toDropdown) {
-        swapButton.addEventListener("click", function () {
-            let tempText = fromDropdown.textContent;
-            let tempValue = fromDropdown.getAttribute("data-value");
-
-            fromDropdown.textContent = toDropdown.textContent;
-            fromDropdown.setAttribute("data-value", toDropdown.getAttribute("data-value"));
-
-            toDropdown.textContent = tempText;
-            toDropdown.setAttribute("data-value", tempValue);
+    // Event delegation cho dropdown "Tới"
+    if (toDropdownMenu && toDropdown) {
+        toDropdownMenu.addEventListener('click', function(e) {
+            const item = e.target.closest('.dropdown-item');
+            if (item) {
+                setDropdownValue(toDropdown, item.textContent, item.getAttribute('data-value'));
+                console.log('Chọn điểm đến:', item.textContent, item.getAttribute('data-value'));
+            }
         });
     }
 
-    document.querySelectorAll('.dropdown-item').forEach(item => {
-        item.addEventListener('click', function () {
-            let button = this.closest('.dropdown').querySelector('.dropdown-toggle');
-            button.textContent = this.textContent;
-            button.setAttribute('data-value', this.getAttribute('data-value'));
+    // === Giữ dropdown mở khi chọn điểm đi, điểm đến ===
+    document.querySelectorAll('.keep-open').forEach(function (dropdown) {
+        dropdown.addEventListener('click', function (event) {
+            event.stopPropagation();
         });
     });
-
+    
     // === Điều chỉnh số lượng hành khách ===
     const amountPassenger = document.getElementById("amountPassenger");
     const adultCountEl = document.getElementById("adultCount");
@@ -117,7 +163,27 @@ document.addEventListener("DOMContentLoaded", function () {
             amountPassenger.textContent = `${adult + child + infant}`;
         }
     }
+    //cập nhật số lượng hành khách
+    function updateCount(type, change) {
+      const adultCount = document.getElementById('adultCount');
+      const childCount = document.getElementById('childCount');
+      const infantCount = document.getElementById('infantCount');
 
+      if (type === 'adult') {
+          let count = parseInt(adultCount.innerText) + change;
+          adultCount.innerText = count < 1 ? 1 : count; // Minimum 1 adult
+      } else if (type === 'child') {
+          let count = parseInt(childCount.innerText) + change;
+          childCount.innerText = count < 0 ? 0 : count; // Minimum 0 children
+      } else if (type === 'infant') {
+          let count = parseInt(infantCount.innerText) + change;
+          infantCount.innerText = count < 0 ? 0 : count; // Minimum 0 infants
+      }
+
+      // Update total passengers
+      const totalPassengers = parseInt(adultCount.innerText) + parseInt(childCount.innerText) + parseInt(infantCount.innerText);
+      document.getElementById('amountPassenger').innerText = totalPassengers;
+  }
     window.updateCount = function (type, change) {
         let countElement = type === "adult" ? adultCountEl : type === "child" ? childCountEl : infantCountEl;
 
@@ -154,21 +220,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // === Giữ dropdown mở khi chọn điểm đi, điểm đến ===
-    document.querySelectorAll('.keep-open').forEach(function (dropdown) {
-        dropdown.addEventListener('click', function (event) {
-            event.stopPropagation();
-        });
-    });
 
-    document.querySelectorAll('.dropdown-item').forEach(item => {
-        item.addEventListener('click', function () {
-            let button = this.closest('.dropdown').querySelector('.dropdown-toggle');
-            button.textContent = this.textContent;
-            let dropdownMenu = this.closest('.dropdown-menu');
-            dropdownMenu.classList.remove('show');
-            let dropdown = this.closest('.dropdown');
-            dropdown.classList.remove('show');
-        });
-    });
 });
+

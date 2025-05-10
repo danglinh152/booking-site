@@ -605,6 +605,14 @@ small {
     outline: none;
 }
 
+#return-date-container {
+    display: none; /* Mặc định ẩn */
+}
+
+#return-date-container.show {
+    display: block; /* Hiển thị khi có class "show" */
+}
+
 /* Căn chỉnh kích thước trên màn hình nhỏ */
 @media (max-width: 768px) {
     .col-md-2 {
@@ -1248,4 +1256,88 @@ footer .border-t {
     bottom: -15px;
     left: 0;
     width: 100%;
+}
+
+/* =====================
+   Thanh dịch vụ tiện ích (service-bar) dưới form đặt vé
+   ===================== */
+.service-bar {
+    background: rgba(255,255,255,0.7);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.12);
+    padding: 18px 0 10px 0;
+    margin-bottom: 24px;
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.service-item {
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 
+        background 0.25s, 
+        box-shadow 0.25s, 
+        transform 0.18s cubic-bezier(.4,2,.6,1);
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+    cursor: pointer;
+    position: relative;
+}
+
+.service-item .service-icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #1976d2 40%, #43e97b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.22s, filter 0.22s;
+    filter: drop-shadow(0 2px 6px rgba(67,233,123,0.12));
+}
+
+.service-item div {
+    color: #1976d2;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    text-align: center;
+    transition: color 0.22s;
+}
+
+.service-item:hover, .service-item:focus {
+    background: rgba(67,233,123,0.12);
+    box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
+    transform: translateY(-6px) scale(1.08);
+}
+
+.service-item:hover .service-icon, .service-item:focus .service-icon {
+    filter: drop-shadow(0 4px 16px rgba(67,233,123,0.25));
+    transform: scale(1.18) rotate(-8deg);
+}
+
+.service-item:hover div, .service-item:focus div {
+    color: #0d47a1;
+}
+
+.service-item:active {
+    transform: scale(0.96);
+}
+
+/* =====================
+   Kết thúc style cho thanh dịch vụ tiện ích
+   ===================== */
+
+.service-bar, .service-bar * {
+    opacity: 1 !important;
+    filter: none !important;
+    visibility: visible !important;
+    z-index: 9999 !important;
 }

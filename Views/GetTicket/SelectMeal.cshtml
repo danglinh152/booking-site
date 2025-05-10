@@ -1,0 +1,154 @@
+@{
+    Layout = "_GetTicketLayout";
+    ViewData["Title"] = "Lựa chọn món";
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lựa chọn món</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex flex-col items-center mt-8">
+        <div class="text-2xl font-bold text-green-700 bg-white rounded-xl shadow px-8 py-3 mb-8 border">Lựa chọn món</div>
+        <div class="max-w-3xl w-full bg-white rounded-2xl shadow p-8">
+            <div class="text-lg font-bold text-blue-900 text-center mb-6">Suất ăn: Hà Nội - TP. Hồ Chí Minh</div>
+            <!-- Danh sách món ăn -->
+            <div class="space-y-6">
+                <!-- Món 1 -->
+                <div class="border rounded-xl p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4" data-price="80000">
+                    <div>
+                        <div class="font-semibold text-base mb-2">Xôi Thịt Kho Trứng</div>
+                        <div class="text-green-700 font-semibold mb-2">Ông Van Hoa Nguyen</div>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="flex items-center gap-2">
+                            <button class="btn-minus border border-gray-400 text-gray-700 w-10 h-10 rounded text-2xl flex items-center justify-center hover:bg-gray-100">-</button>
+                            <span class="text-xl font-bold w-8 text-center quantity">0</span>
+                            <button class="btn-plus border border-green-600 text-green-700 w-10 h-10 rounded text-2xl flex items-center justify-center hover:bg-green-50">+</button>
+                        </div>
+                        <div class="text-xs text-green-700 mt-2">Thêm một dịch vụ nữa cho 80.000 VND</div>
+                        <div class="text-sm font-semibold mt-1">Tổng: <span class="total-price">0</span> VND</div>
+                    </div>
+                </div>
+                <!-- Món 2 -->
+                <div class="border rounded-xl p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4" data-price="50000">
+                    <div>
+                        <div class="font-semibold text-base mb-2">Cafe Muối</div>
+                        <div class="text-green-700 font-semibold mb-2">Ông Van Hoa Nguyen</div>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="flex items-center gap-2">
+                            <button class="btn-minus border border-gray-400 text-gray-700 w-10 h-10 rounded text-2xl flex items-center justify-center hover:bg-gray-100">-</button>
+                            <span class="text-xl font-bold w-8 text-center quantity">0</span>
+                            <button class="btn-plus border border-green-600 text-green-700 w-10 h-10 rounded text-2xl flex items-center justify-center hover:bg-green-50">+</button>
+                        </div>
+                        <div class="text-xs text-green-700 mt-2">Thêm một dịch vụ nữa cho 50.000 VND</div>
+                        <div class="text-sm font-semibold mt-1">Tổng: <span class="total-price">0</span> VND</div>
+                    </div>
+                </div>
+                <!-- Món 3 -->
+                <div class="border rounded-xl p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4" data-price="80000">
+                    <div>
+                        <div class="font-semibold text-base mb-2">Mỳ Ý Sốt Bò Bằm</div>
+                        <div class="text-green-700 font-semibold mb-2">Ông Van Hoa Nguyen</div>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="flex items-center gap-2">
+                            <button class="btn-minus border border-gray-400 text-gray-700 w-10 h-10 rounded text-2xl flex items-center justify-center hover:bg-gray-100">-</button>
+                            <span class="text-xl font-bold w-8 text-center quantity">0</span>
+                            <button class="btn-plus border border-green-600 text-green-700 w-10 h-10 rounded text-2xl flex items-center justify-center hover:bg-green-50">+</button>
+                        </div>
+                        <div class="text-xs text-green-700 mt-2">Thêm một dịch vụ nữa cho 80.000 VND</div>
+                        <div class="text-sm font-semibold mt-1">Tổng: <span class="total-price">0</span> VND</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tổng hợp lựa chọn và tổng giá -->
+    <div class="max-w-3xl mx-auto mt-8 bg-green-50 rounded-xl shadow p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+            <div class="font-bold text-gray-800 mb-1">Suất ăn: Hà Nội - TP. Hồ Chí Minh</div>
+            <div id="summary-meal" class="text-gray-800 text-sm"></div>
+        </div>
+        <div class="text-right">
+            <div class="font-bold text-lg text-gray-800">Tổng cộng: <span id="summary-total" class="text-2xl text-blue-900">0</span> VND</div>
+        </div>
+    </div>
+    <div class="max-w-3xl mx-auto flex flex-col md:flex-row md:justify-end items-center gap-4 mt-4 mb-8">
+        <div class="text-gray-700 mb-2 md:mb-0 md:mr-4">Tổng giá: <span id="summary-total-2" class="font-bold">0 VND</span></div>
+        <a href="/get-ticket/itinerary" class="border border-green-700 text-green-700 px-6 py-2 rounded hover:bg-green-50 font-semibold">Quay lại</a>
+        <button class="bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-2 rounded transition">Xác nhận</button>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('.border.rounded-xl.p-4').forEach(function(card) {
+        const btnMinus = card.querySelector('.btn-minus');
+        const btnPlus = card.querySelector('.btn-plus');
+        const quantitySpan = card.querySelector('.quantity');
+        const totalPriceSpan = card.querySelector('.total-price');
+        const price = parseInt(card.getAttribute('data-price'));
+        let quantity = 0;
+        function updateTotal() {
+          totalPriceSpan.textContent = (quantity * price).toLocaleString('vi-VN');
+        }
+        btnMinus.addEventListener('click', function() {
+          if (quantity > 0) quantity--;
+          quantitySpan.textContent = quantity;
+          updateTotal();
+        });
+        btnPlus.addEventListener('click', function() {
+          quantity++;
+          quantitySpan.textContent = quantity;
+          updateTotal();
+        });
+      });
+      // Tổng hợp lựa chọn và tổng giá
+      function updateSummary() {
+        let total = 0;
+        let summary = [];
+        document.querySelectorAll('.border.rounded-xl.p-4').forEach(function(card) {
+          const name = card.querySelector('.font-semibold.text-base')?.textContent?.trim();
+          const quantity = parseInt(card.querySelector('.quantity').textContent);
+          const price = parseInt(card.getAttribute('data-price'));
+          if (quantity > 0) {
+            summary.push(quantity + ' ' + name);
+            total += quantity * price;
+          }
+        });
+        document.getElementById('summary-meal').textContent = summary.length ? summary.join(', ') : 'Chưa chọn món nào';
+        document.getElementById('summary-total').textContent = total.toLocaleString('vi-VN');
+        document.getElementById('summary-total-2').textContent = total.toLocaleString('vi-VN') + ' VND';
+      }
+      // Gọi lại updateSummary mỗi lần tăng/giảm
+      document.querySelectorAll('.btn-minus, .btn-plus').forEach(btn => {
+        btn.addEventListener('click', updateSummary);
+      });
+      updateSummary();
+    });
+    document.querySelector('button.bg-green-700').addEventListener('click', function() {
+        // Lấy dữ liệu các món đã chọn
+        let selectedMeals = [];
+        document.querySelectorAll('.border.rounded-xl.p-4').forEach(function(card) {
+            const name = card.querySelector('.font-semibold.text-base')?.textContent?.trim();
+            const quantity = parseInt(card.querySelector('.quantity').textContent);
+            const price = parseInt(card.getAttribute('data-price'));
+            if (quantity > 0) {
+                selectedMeals.push({
+                    name: name,
+                    quantity: quantity,
+                    price: price
+                });
+            }
+        });
+        // Lưu vào localStorage
+        localStorage.setItem('selectedMeals', JSON.stringify(selectedMeals));
+        // Chuyển hướng về trang Itinerary (hoặc trang bạn muốn)
+        window.location.href = '/get-ticket/itinerary';
+    });
+    </script>
+</body>
+</html> 
