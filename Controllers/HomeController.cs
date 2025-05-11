@@ -68,6 +68,26 @@ namespace BookingSite.Controllers
         {
             return View();
         }
+        [Route("ChooseSeat")]
+        public IActionResult ChooseSeat()
+        {
+            return View();
+        }
+        [Route("Insurance")]
+        public IActionResult Insurance()
+        {
+            return View();
+        }
+        [Route("Lounge")]
+        public IActionResult Lounge()
+        {
+            return View();
+        }
+        [Route("Hotel")]
+        public IActionResult Hotel()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
