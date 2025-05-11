@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace BookingSite.Models
 {
@@ -15,6 +16,7 @@ namespace BookingSite.Models
         [Required]
         [Precision(10, 2)]
         public decimal Price { get; set; }
+        [ValidateNever]
 
         public ICollection<BookingService> BookingServices { get; set; }
     }
