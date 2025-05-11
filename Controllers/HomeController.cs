@@ -30,7 +30,7 @@ namespace BookingSite.Controllers
             return View();
         }
 
-        
+        [Route("Booking")]
         public IActionResult Booking()
         {
             return View();
@@ -53,7 +53,16 @@ namespace BookingSite.Controllers
         {
             return View();
         }
-
+        [Route("Meal")]
+        public IActionResult Meal()
+        {
+            return View();
+        }
+        [Route("SupportServices")]
+        public IActionResult SupportServices()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

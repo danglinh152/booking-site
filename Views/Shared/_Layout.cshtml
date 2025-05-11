@@ -45,7 +45,7 @@
     <!-- [Template CSS Files] -->
     <link rel="stylesheet" href="~/css/style.css" id="main-style-link">
     <link rel="stylesheet" href="~/css/style-preset.css">
-
+    <link rel="stylesheet" href="~/css/_Layout.css">
     <link rel="stylesheet" href="~/css/uikit.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -72,7 +72,55 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/" id="homeBtn">Trang Chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="/Explore" id="exploreBtn">Khám phá</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/Booking" id="bookingBtn">Đặt vé</a></li>
+                    <li class="nav-item dropdown-mega" style="position: relative;">
+                        <a class="nav-link" href="/Booking" id="bookingBtn">Đặt vé</a>
+                        <div class="mega-menu">
+                            <div class="row">
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="/Booking" class="mega-menu-title">Đặt Vé Trực Tuyến</a>
+                                    <a href="/Booking" class="btn btn-primary mb-2" style="width: 100%;">ĐẶT VÉ NGAY</a>
+                                    <img src="https://bambooairways.com/documents/d/global/menu-booking" style="width: 100%; border-radius: 8px;">
+                                </div>
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="/" class="mega-menu-title">Thông Tin Đặt Vé</a>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li><a href="#">Điều Kiện Giá Vé</a></li>
+                                        <li><a href="#">Giá Vé Đặc Biệt</a></li>
+                                        <li><a href="#">Trẻ Chuyển, Go-Show, Vé Giờ Chót</a></li>
+                                        <li><a href="#">Thuế, Phí Và Phụ Thu</a></li>
+                                        <li><a href="#">Phương Thức Thanh Toán</a></li>
+                                        <li><a href="#">Thông Tin Hướng Dẫn</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="/SupportServices" class="mega-menu-title">Dịch Vụ Bổ Trợ</a>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li><a href="/SupportServices">Chọn Chỗ Ngồi Yêu Thích</a></li>
+                                        <li><a href="/SupportServices">Mua Thêm Hành Lý</a></li>
+                                        <li><a href="/SupportServices">Phòng Chờ Thương Gia</a></li>
+                                        <li><a href="/SupportServices">Nâng Hạng Vé Tại Sân Bay</a></li>
+                                        <li><a href="/Meal">Đặt Trước Suất Ăn</a></li>
+                                        <li><a href="/SupportServices">Mua Thêm Ghế Ngồi</a></li>
+                                        <li><a href="/SupportServices">Bảo Hiểm Du Lịch BambooCARE</a></li>
+                                        <li><a href="/SupportServices">Quà Tặng Bamboo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="/" class="mega-menu-title">Trải Nghiệm Cùng Bamboo</a>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li><a href="#">Hành Trình Tận Tâm</a></li>
+                                        <li><a href="#">Hạng Business</a></li>
+                                        <li><a href="#">Hạng Economy</a></li>
+                                    </ul>
+                                    <h6 style="font-weight: bold; margin-top: 16px;">Sản Phẩm Bổ Trợ</h6>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li><a href="#">Thẻ Quà Tặng</a></li>
+                                        <li><a href="#">Liên Kết Đối Tác</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="/JourneyInfor" id="journeyInfoBtn">Thông tin hành
                             trình</a></li>
                     <li class="nav-item"><a class="nav-link" href="/TenPMClub" id="tenpmClubBtn">TenPM Club</a></li>
