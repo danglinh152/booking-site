@@ -15,15 +15,22 @@ namespace BookingSite.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
-
+        
+        [Route("Multicity")]
+        public IActionResult MultiCity()
+        {
+            return View();
+        }
+        
         public IActionResult Privacy()
         {
             return View();
         }
 
-        [Route("Booking")]
+        
         public IActionResult Booking()
         {
             return View();
@@ -46,6 +53,7 @@ namespace BookingSite.Controllers
         {
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

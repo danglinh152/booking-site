@@ -57,31 +57,17 @@
                                 <div class="col-md-3">
                                     <label class="form-label">Từ</label>
                                     <div class="dropdown">
-                                        <button class="btn btn-light dropdown-toggle w-100" type="button"
-                                            data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                                            Chọn điểm đi
+                                        <button id="dropdownFromBtn" class="btn btn-light dropdown-toggle w-100" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                            <span class="dropdown-text">Chọn điểm đi</span>
                                         </button>
-                                        <div class="dropdown-menu p-2">
-                                            <ul class="nav nav-tabs">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" data-bs-toggle="tab"
-                                                        onclick="switchTab('vn', this)">Việt Nam</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" data-bs-toggle="tab"
-                                                        onclick="switchTab('qt', this)">Quốc Tế</a>
-                                                </li>
-                                            </ul>
-                                            <div class="tab-content mt-2">
-                                                <div class="tab-pane fade show active" id="vn">
-                                                    <button class="dropdown-item">Hà Nội (HAN)</button>
-                                                    <button class="dropdown-item">TP. Hồ Chí Minh (SGN)</button>
-                                                    <button class="dropdown-item">Đà Nẵng (DAD)</button>
-                                                </div>
-                                                <div class="tab-pane fade" id="qt">
-                                                    <button class="dropdown-item">Bangkok (DMK)</button>
-                                                    <button class="dropdown-item">Đài Trung (RMQ)</button>
-                                                    <button class="dropdown-item">Đài Bắc (TPE)</button>
+                                        <div class="dropdown-menu p-2" style="min-width: 220px;">
+                                            
+                                            <div class="tab-content mt-2" id="tabCountryFromContent">
+                                                <div class="tab-pane fade show active" id="vn-from" role="tabpanel" aria-labelledby="vn-tab-from">
+                                                    <button class="dropdown-item" data-value="HAN">Hà Nội (HAN)</button>
+                                                    <button class="dropdown-item" data-value="SGN">TP. Hồ Chí Minh (SGN)</button>
+                                                    <button class="dropdown-item" data-value="DAD">Đà Nẵng (DAD)</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,31 +81,16 @@
                                 <div class="col-md-3">
                                     <label class="form-label">Tới</label>
                                     <div class="dropdown">
-                                        <button class="btn btn-light dropdown-toggle w-100" type="button"
-                                            data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                                            Chọn điểm đến
+                                        <button id="dropdownToBtn" class="btn btn-light dropdown-toggle w-100" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                            <span class="dropdown-text">Chọn điểm đến</span>
                                         </button>
-                                        <div class="dropdown-menu p-2">
-                                            <ul class="nav nav-tabs">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" data-bs-toggle="tab"
-                                                        onclick="switchTab('vn2', this)">Việt Nam</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" data-bs-toggle="tab"
-                                                        onclick="switchTab('qt2', this)">Quốc Tế</a>
-                                                </li>
-                                            </ul>
-                                            <div class="tab-content mt-2">
-                                                <div class="tab-pane fade show active" id="vn2">
-                                                    <button class="dropdown-item">Hà Nội (HAN)</button>
-                                                    <button class="dropdown-item">TP. Hồ Chí Minh (SGN)</button>
-                                                    <button class="dropdown-item">Đà Nẵng (DAD)</button>
-                                                </div>
-                                                <div class="tab-pane fade" id="qt2">
-                                                    <button class="dropdown-item">Bangkok (DMK)</button>
-                                                    <button class="dropdown-item">Đài Trung (RMQ)</button>
-                                                    <button class="dropdown-item">Đài Bắc (TPE)</button>
+                                        <div class="dropdown-menu p-2" style="min-width: 220px;">
+                                            <div class="tab-content mt-2" id="tabCountryToContent">
+                                                <div class="tab-pane fade show active" id="vn-to" role="tabpanel" aria-labelledby="vn-tab-to">
+                                                    <button class="dropdown-item" data-value="HAN">Hà Nội (HAN)</button>
+                                                    <button class="dropdown-item" data-value="SGN">TP. Hồ Chí Minh (SGN)</button>
+                                                    <button class="dropdown-item" data-value="DAD">Đà Nẵng (DAD)</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -131,7 +102,7 @@
                                     <label for="depart-date" class="form-label">Ngày đi</label>
                                     <input type="date" id="depart-date" class="form-control">
                                 </div>
-
+                                <!-- Cột "Ngày về" -->
                                 <div id="return-date-container" class="col-md-2" style="display: none;">
                                     <label for="return-date" class="form-label">Ngày về</label>
                                     <input type="date" id="return-date" class="form-control">
@@ -189,9 +160,14 @@
                                         placeholder="Nhập mã giảm giá của bạn">
                                 </div>
                                 <!-- Nút tìm chuyến bay -->
-                                <div class="col-md-4 align-self-end">
-                                    <button type="submit" class="btn-cuatao w-100">Tìm Chuyến Bay</button>
-                                </div>
+                                <form class="col-md-4 align-self-end" asp-action="GetTicket" asp-controller="GetTicket" method="get">
+                                    <!-- Các input -->
+                                    <div >
+                                        <button type="submit" class="btn-cuatao w-100">Tìm Chuyến Bay</button>
+                                    </div>
+                                </form>
+
+                                
                             </div>
 
                             <div class="form-check form-switch mt-3">
@@ -272,6 +248,42 @@
 
                     </div>
                 </div>
+                <!-- Thanh dịch vụ: Hiển thị các tiện ích, có hiệu ứng động khi hover. Đặt dưới form, ngoài tab-content. -->
+                <div class="service-bar d-flex justify-content-center align-items-center gap-3 mt-4">
+                    <button type="button" class="service-item text-center" aria-label="Suất Ăn">
+                        <i class="fas fa-utensils service-icon"></i>
+                        <div>Suất Ăn</div>
+                    </button>
+                    <button type="button" class="service-item text-center" aria-label="Hành Lý">
+                        <i class="fas fa-suitcase-rolling service-icon"></i>
+                        <div>Hành Lý</div>
+                    </button>
+                    <button type="button" class="service-item text-center" aria-label="Chọn Chỗ Ngồi">
+                        <i class="fas fa-chair service-icon"></i>
+                        <div>Chọn Chỗ Ngồi</div>
+                    </button>
+                    <button type="button" class="service-item text-center" aria-label="Bảo Hiểm">
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <div>Bảo Hiểm</div>
+                    </button>
+                    <button type="button" class="service-item text-center" aria-label="Phòng Chờ">
+                        <i class="fas fa-couch service-icon"></i>
+                        <div>Phòng Chờ</div>
+                    </button>
+                    <button type="button" class="service-item text-center" aria-label="Bamboo Shop">
+                        <i class="fas fa-shopping-bag service-icon"></i>
+                        <div>Bamboo Shop</div>
+                    </button>
+                    <button type="button" class="service-item text-center" aria-label="Thẻ Quà Tặng">
+                        <i class="fas fa-gift service-icon"></i>
+                        <div>Thẻ Quà Tặng</div>
+                    </button>
+                    <button type="button" class="service-item text-center" aria-label="Khách Sạn">
+                        <i class="fas fa-hotel service-icon"></i>
+                        <div>Khách Sạn</div>
+                    </button>
+                </div>
+                <!-- Kết thúc thanh dịch vụ -->
             </div>
         </div>
 
@@ -585,21 +597,18 @@
         </div>
 
 
-
         <script src="~/js/plugins/popper.min.js"></script>
         <script src="~/js/plugins/simplebar.min.js"></script>
-        <script src="~/js/plugins/bootstrap.min.js"></script>
         <script src="~/js/fonts/custom-font.js"></script>
         <script src="~/js/pcoded.js"></script>
         <script src="~/js/plugins/feather.min.js"></script>
-
         <script>layout_change('light');</script>
         <script>change_box_container('false');</script>
         <script>layout_rtl_change('false');</script>
         <script>preset_change("preset-1");</script>
         <script>font_change("Public-Sans");</script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+        <script src="~/js/homepage/homepage.js"></script>
         <script>
             handleNotLogin = () => {
                 location.href = "http://localhost:5002/";
@@ -615,48 +624,79 @@
                     </div> 
                 `;
             }
+            
+            //hàm chuyển đổi giữa các thẻ Đặt Vé, Làm Thủ Tục, Đặt Chỗ Của Tôi  
             function switchTab(tabId, element) {
-                // Hide all tabs
-                const tabs = document.querySelectorAll('.tab-pane');
-                tabs.forEach(tab => {
-                    tab.classList.remove('show', 'active');
-                });
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-pane');
+            tabs.forEach(tab => {
+                tab.classList.remove('show', 'active');
+            });
 
-                // Show the selected tab
-                const selectedTab = document.getElementById(tabId);
-                selectedTab.classList.add('show', 'active');
+            // Show the selected tab
+            const selectedTab = document.getElementById(tabId);
+            selectedTab.classList.add('show', 'active');
 
-                // Remove active class from all tab links
-                const tabLinks = document.querySelectorAll('.nav-link');
-                tabLinks.forEach(link => {
-                    link.classList.remove('active');
-                });
+            // Remove active class from all tab links
+            const tabLinks = document.querySelectorAll('.nav-link');
+            tabLinks.forEach(link => {
+                link.classList.remove('active');
+            });
 
-                // Add active class to the clicked tab link
-                element.classList.add('active');
+            // Add active class to the clicked tab link
+            element.classList.add('active');
             }
 
-            function updateCount(type, change) {
-                const adultCount = document.getElementById('adultCount');
-                const childCount = document.getElementById('childCount');
-                const infantCount = document.getElementById('infantCount');
+            // Bấm vào đa chặng thì sẽ hiện ra web để chọn đa chặng
+            const multicityRadio = document.getElementById('multicity');
+            if (multicityRadio) {
+                multicityRadio.addEventListener('change', function () {
+                    if (this.checked) {
+                        // Lưu trạng thái trước khi chuyển trang
+                        localStorage.setItem('fromMulticity', 'true');
+                        window.location.href = '/Multicity';
+                    }
+                });
+            }
 
-                if (type === 'adult') {
-                    let count = parseInt(adultCount.innerText) + change;
-                    adultCount.innerText = count < 1 ? 1 : count; // Minimum 1 adult
-                } else if (type === 'child') {
-                    let count = parseInt(childCount.innerText) + change;
-                    childCount.innerText = count < 0 ? 0 : count; // Minimum 0 children
-                } else if (type === 'infant') {
-                    let count = parseInt(infantCount.innerText) + change;
-                    infantCount.innerText = count < 0 ? 0 : count; // Minimum 0 infants
+            // Xử lý sự kiện swap điểm đi và điểm đến
+            const swapButton = document.getElementById("swapButton");
+            const fromDropdown = document.getElementById("dropdownFromBtn");
+            const toDropdown = document.getElementById("dropdownToBtn");
+
+            if (swapButton && fromDropdown && toDropdown) {
+                swapButton.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const fromTextSpan = fromDropdown.querySelector('.dropdown-text');
+                    const toTextSpan = toDropdown.querySelector('.dropdown-text');
+                    const fromValue = fromDropdown.getAttribute("data-value");
+                    const toValue = toDropdown.getAttribute("data-value");
+                    const fromText = fromTextSpan ? fromTextSpan.textContent : '';
+                    const toText = toTextSpan ? toTextSpan.textContent : '';
+
+                    // Hoán đổi text và value
+                    if (fromTextSpan) fromTextSpan.textContent = toText;
+                    if (toTextSpan) toTextSpan.textContent = fromText;
+                    fromDropdown.setAttribute("data-value", toValue);
+                    toDropdown.setAttribute("data-value", fromValue);
+                });
+            }
+
+            // Kiểm tra khi trang được tải
+            document.addEventListener('DOMContentLoaded', function() {
+                // Kiểm tra nếu quay về từ Multicity
+                if (localStorage.getItem('fromMulticity') === 'true') {
+                    const oneWayRadio = document.getElementById('oneWay');
+                    if (oneWayRadio) {
+                        oneWayRadio.checked = true;
+                        // Kích hoạt sự kiện change để cập nhật UI
+                        const event = new Event('change');
+                        oneWayRadio.dispatchEvent(event);
+                    }
+                    // Xóa trạng thái sau khi đã xử lý
+                    localStorage.removeItem('fromMulticity');
                 }
-
-                // Update total passengers
-                const totalPassengers = parseInt(adultCount.innerText) + parseInt(childCount.innerText) + parseInt(infantCount.innerText);
-                document.getElementById('amountPassenger').innerText = totalPassengers;
-            }
+            });
         </script>
 </body>
-
 </html>
