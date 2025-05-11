@@ -63,7 +63,11 @@ namespace BookingSite.Controllers
         {
             return View();
         }
-
+        [Route("Luggage")]
+        public IActionResult Luggage()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,6 +1,7 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="~/css/homepage/styles.css">
 <!-- Banner hình ảnh -->
 <div style="width: 100%; min-height: 260px; position: relative;">
     <img src="https://bambooairways.com/documents/20122/768330/Banner_2.png/14baa1c6-3b02-aecf-b044-ce312f7a1182?t=1689611909463" 
@@ -17,8 +18,8 @@
         <li class="breadcrumb-item">
             <a href="/Booking" style="color: #6c757d; text-decoration: none;">Đặt Vé</a>
         </li>
-        <li class="breadcrumb-item active" aria-current="page" style="color: #156082; font-weight: 500;">
-            Dịch Vụ Bổ Trợ
+        <li class="breadcrumb-item">
+            <a href="/SupportServices" style="color: #6c757d; text-decoration: none;">Dịch vụ bổ trợ</a>
         </li>
     </ol>
 </nav>
@@ -42,7 +43,7 @@
                 <img src="https://bambooairways.com/documents/20122/756668/Hanh_ly.png/e43b4b56-865e-3a64-2265-25c45cdeda22?t=1688567573728" class="card-img-top" alt="Mua thêm hành lý">
                 <div class="card-img-overlay support-overlay d-flex flex-column justify-content-end">
                     <h5 class="text-white mb-1">Mua thêm hành lý</h5>
-                    <a href="#" class="text-white support-link">Xem Chi Tiết</a>
+                    <a href="/Luggage" class="text-white support-link">Xem Chi Tiết</a>
                 </div>
             </div>
             <div class="card h-100 shadow-sm support-card support-card-sm">
