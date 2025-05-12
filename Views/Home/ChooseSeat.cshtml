@@ -1,0 +1,119 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/css/homepage/styles.css">
+<!-- Banner -->
+<div style="width: 100%; background: linear-gradient(135deg, #e6f4fa, #e9ecef); min-height: 220px; position: relative;">
+    <img src="https://bambooairways.com/documents/20122/1983535/1920x360+gh%E1%BA%BF+ng%E1%BB%93i+ch%E1%BB%89+t%E1%BB%AB+99K+vi.jpg/d335b5b0-08a3-5f6e-b1ad-820091f3ffcc?t=1737456963637" alt="Banner chọn chỗ ngồi" style="width: 100%; max-height: 220px; object-fit: cover; border-radius: 0 0 18px 18px;">
+</div>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" style="background: #fff; border-radius: 0; margin-top: 0; padding: 20px 0 0 32px;">
+    <ol class="breadcrumb mb-0" style="background: transparent;">
+        <li class="breadcrumb-item"><a href="/" style="color: #6c757d;"><i class="fas fa-home"></i></a></li>
+        <li class="breadcrumb-item"><a href="/Booking" style="color: #6c757d; text-decoration: none;">Đặt Vé</a></li>
+        <li class="breadcrumb-item"><a href="/SupportServices" style="color: #6c757d; text-decoration: none;">Dịch Vụ Bổ Trợ</a></li>
+        <li class="breadcrumb-item active"> <a href= "/ChooseSeat" aria-current="page" style="color: #156082; font-weight: 500;">Chọn Chỗ Ngồi</a></li>
+    </ol>
+</nav>
+<div class="container py-5" style="margin-top: 0;">
+    <h2 class="mb-3" style="font-weight:bold; color:#156082; font-size:2.2rem;">Chọn chỗ ngồi yêu thích</h2>
+    <p style="font-size:1.1rem; color:#444; margin-bottom:2rem;">
+        Với chức năng chọn trước chỗ ngồi, hành khách có thể dễ dàng lựa chọn hàng ghế rộng chân, ghế ngồi cạnh cửa sổ, gần lối đi... tùy theo sở thích của mình ngay trong quá trình đặt vé máy bay trực tuyến hoặc trong phần Quản lý đặt chỗ trên website.<br>
+        <span style="color:#1987c6; font-weight:500;">Đặc biệt, TenPM Airways dành tặng ưu đãi hấp dẫn dành cho hành khách khi đặt dịch vụ chọn chỗ ngồi trước <b>24h</b> trước giờ khởi hành trên Website/Mobile App.</span>
+    </p>
+    <!-- Bảng giá hành trình nội địa -->
+    <h4 class="mt-4 mb-2" style="color:#156082; font-weight:bold;">Hành trình Nội địa Việt Nam</h4>
+    <div class="table-responsive mb-3">
+        <table class="table table-bordered align-middle text-center" style="background: #f8f9fa;">
+            <thead style="background: #e9ecef;">
+                <tr>
+                    <th style="min-width:160px">&nbsp;</th>
+                    <th>Ghế ngồi phía trước</th>
+                    <th>Ghế thoát hiểm rộng chân</th>
+                    <th>Ghế tiêu chuẩn</th>
+                    <th>Ghế sau (Cửa sổ & lối đi)</th>
+                    <th>Ghế không thu phí</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="font-weight:bold;">Economy Flex</td>
+                    <td>110.000 VND</td>
+                    <td>Miễn phí</td>
+                    <td>Miễn phí</td>
+                    <td>Miễn phí</td>
+                    <td>Miễn phí</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold;">Các hạng còn lại</td>
+                    <td>110.000 VND</td>
+                    <td>110.000 VND</td>
+                    <td>90.000 VND</td>
+                    <td>55.000 VND</td>
+                    <td>Miễn phí</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center mb-4">
+        <a href="#" class="btn btn-primary px-5 py-3" style="font-weight: bold; font-size: 1.1rem; border-radius: 12px; letter-spacing:1px; box-shadow:0 2px 8px #1987c633;">MUA NGAY</a>
+    </div>
+    <!-- Bảng giá hành trình quốc tế -->
+    <h4 class="mt-4 mb-2" style="color:#156082; font-weight:bold;">Hành trình quốc tế</h4>
+    <div style="font-size:1.1rem; font-weight:500;">Việt Nam - Thái Lan</div>
+    <div class="table-responsive mb-3">
+        <table class="table table-bordered align-middle text-center" style="background: #f8f9fa;">
+            <thead style="background: #e9ecef;">
+                <tr>
+                    <th>Giá khởi hành từ</th>
+                    <th>Đơn vị</th>
+                    <th>Ghế ngồi phía trước</th>
+                    <th>Ghế rộng chân (Cửa thoát hiểm)</th>
+                    <th>Ghế tiêu chuẩn</th>
+                    <th>Ghế sau (Cửa sổ & lối đi)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Việt Nam</td>
+                    <td>USD</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>6</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Thái Lan</td>
+                    <td>THB</td>
+                    <td>345</td>
+                    <td>345</td>
+                    <td>135</td>
+                    <td>135</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center mb-4">
+        <a href="#" class="btn btn-primary px-5 py-3" style="font-weight: bold; font-size: 1.1rem; border-radius: 12px; letter-spacing:1px; box-shadow:0 2px 8px #1987c633;">MUA NGAY</a>
+    </div>
+    <!-- Lưu ý -->
+    <div class="mb-3" style="font-size:1rem; color:#444;">
+        <b>Lưu ý:</b>
+        <ul>
+            <li>Giá đã bao gồm thuế VAT và chưa áp dụng ưu đãi</li>
+            <li>Economy Flex (B,W,Y) được chọn ghế miễn phí đối với Ghế thoát hiểm, ghế tiêu chuẩn và ghế sau</li>
+            <li>Ghế sau (cửa sổ & lối đi) mở miễn phí cho khách trong khung làm thủ tục tại quầy</li>
+        </ul>
+    </div>
+    <!-- Chi tiết các loại ghế -->
+    <h5 class="mt-4 mb-2" style="color:#156082; font-weight:bold;">Chi tiết các loại ghế</h5>
+    <div style="font-size:1rem; color:#444;">
+        <ul>
+            <li><b>Ghế ngồi phía trước:</b> là 5-6 hàng ghế đầu tiên của khoang Phổ thông. Vị trí ghế ở gần phía cửa ra vào của tàu bay, rút ngắn thời gian di chuyển khi lên và xuống tàu.</li>
+            <li><b>Ghế thoát hiểm rộng chân:</b> là hàng ghế ngang với cửa thoát hiểm trên tàu bay. Vị trí của ghế này phụ thuộc vào cấu hình của từng tàu bay. Ghế thoát hiểm rộng chân có không gian phía trước rộng rãi, không bị cản chỗ duỗi chân thoải mái, không bị vướng hàng ghế phía trước.</li>
+            <li><b>Ghế tiêu chuẩn:</b> là các ghế tiêu chuẩn trong khoang Phổ thông bắt đầu từ sau hàng Ghế ngồi phía trước đến hết khoang giữa của tàu (không bao gồm các ghế còn lại phía sau).</li>
+            <li><b>Ghế sau (cửa sổ & lối đi):</b> là các ghế tại vị trí cửa sổ hoặc lối đi trong khoang Phổ thông trong khu vực cuối tàu bay (không bao gồm ghế Gần cửa thoát hiểm).</li>
+            <li><b>Ghế không thu phí:</b> là các ghế hàng giữa trong khoang Phổ thông trong khu vực cuối tàu bay.</li>
+        </ul>
+    </div>
+</div> 

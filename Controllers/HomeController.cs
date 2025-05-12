@@ -30,31 +30,76 @@ namespace BookingSite.Controllers
             return View();
         }
 
-        
+        [Route("booking/food")]
+        public IActionResult Food()
+        {
+            return View();
+        }
+
+        [Route("booking/baggage")]
+        public IActionResult Baggage()
+        {
+            return View();
+        }
+
+        [Route("booking")]
         public IActionResult Booking()
         {
             return View();
         }
 
-        [Route("JourneyInfor")]
+        [Route("journey-info")]
         public IActionResult JourneyInfor()
         {
             return View();
         }
 
-        [Route("Explore")]
+        [Route("explore")]
         public IActionResult Explore()
         {
             return View();
         }
 
-        [Route("TenPMClub")]
+        [Route("tenpm-club")]
         public IActionResult TenPMClub()
         {
             return View();
         }
-
-
+        [Route("Meal")]
+        public IActionResult Meal()
+        {
+            return View();
+        }
+        [Route("SupportServices")]
+        public IActionResult SupportServices()
+        {
+            return View();
+        }
+        [Route("Luggage")]
+        public IActionResult Luggage()
+        {
+            return View();
+        }
+        [Route("ChooseSeat")]
+        public IActionResult ChooseSeat()
+        {
+            return View();
+        }
+        [Route("Insurance")]
+        public IActionResult Insurance()
+        {
+            return View();
+        }
+        [Route("Lounge")]
+        public IActionResult Lounge()
+        {
+            return View();
+        }
+        [Route("Hotel")]
+        public IActionResult Hotel()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

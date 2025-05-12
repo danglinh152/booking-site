@@ -45,7 +45,7 @@
     <!-- [Template CSS Files] -->
     <link rel="stylesheet" href="~/css/style.css" id="main-style-link">
     <link rel="stylesheet" href="~/css/style-preset.css">
-
+    <link rel="stylesheet" href="~/css/_Layout.css">
     <link rel="stylesheet" href="~/css/uikit.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -71,11 +71,171 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/" id="homeBtn">Trang Chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/Explore" id="exploreBtn">Khám phá</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/Booking" id="bookingBtn">Đặt vé</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/JourneyInfor" id="journeyInfoBtn">Thông tin hành
+<<<<<<< HEAD
+                    <li class="nav-item"><a class="nav-link" href="/explore" id="exploreBtn">Khám phá</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/booking" id="bookingBtn">Đặt vé</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/journey-info" id="journeyInfoBtn">Thông tin hành
                             trình</a></li>
                     <li class="nav-item"><a class="nav-link" href="/TenPMClub" id="tenpmClubBtn">TenPM Club</a></li>
+=======
+                    <li class="nav-item dropdown-mega" style="position: relative;">
+                        <a class="nav-link" href="/Explore" id="exploreBtn">Khám phá</a>
+                        <div class="mega-menu">
+                            <div class="row" >
+                                <div class="col" style="min-width: 200px;">
+                                    <a href="#" class="mega-menu-title">Điểm Đến</a>
+                                    <a href="#">Bangkok</a>
+                                    <a href="#">Hồ Chí Minh</a>
+                                    <a href="#">Hà Nội</a>
+                                    <a href="#">Đà Nẵng</a>
+                                    <a href="#">Nha Trang</a>
+                                    <a href="#" style="font-weight:bold;">Tất Cả Điểm Đến</a>
+                                </div>
+                                <div class="col" style="min-width: 200px;">
+                                    <a href="#" class="mega-menu-title">Ưu Đãi</a>
+                                    <a href="#">Thứ Hai Xa Hoa, Giao Thoa Đẳng Cấp</a>
+                                    <a href="#">Thứ Ba Hội Ngộ, Hè Vui Cực Độ</a>
+                                    <a href="#">Đêm Chưa Ngủ, Tranh Thủ Săn Deal</a>
+                                    <a href="#" style="font-weight:bold;">Tất Cả Ưu Đãi</a>
+                                </div>
+                                <div class="col" style="min-width: 220px;">
+                                    <a href="#" class="mega-menu-title">Vé Máy Bay & Lịch Bay</a>
+                                    <a href="#">Lịch Bay</a>
+                                    <a href="#">Vé Máy Bay Đi Đà Nẵng</a>
+                                    <a href="#">Vé Máy Bay Đi TP. Hồ Chí Minh</a>
+                                    <a href="#">Vé Máy Bay Đi Thái Lan</a>
+                                    <a href="#">Vé Máy Bay Từ Hà Nội</a>
+                                </div>
+                                <div class="col" style="min-width: 20px;">
+                                    <img src="https://bambooairways.com/documents/d/global/bkk2-2" style="width: 100%; border-radius: 8px;">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown-mega" style="position: relative;">
+                        <a class="nav-link" href="/Booking" id="bookingBtn">Đặt vé</a>
+                        <div class="mega-menu">
+                            <div class="row">
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="/Booking" class="mega-menu-title">Đặt Vé Trực Tuyến</a>
+                                    <a href="/Booking" class="btn btn-primary mb-2" style="width: 100%;">ĐẶT VÉ NGAY</a>
+                                    <img src="https://bambooairways.com/documents/d/global/menu-booking" style="width: 100%; border-radius: 8px;">
+                                </div>
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="/" class="mega-menu-title">Thông Tin Đặt Vé</a>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li><a href="#">Điều Kiện Giá Vé</a></li>
+                                        <li><a href="#">Giá Vé Đặc Biệt</a></li>
+                                        <li><a href="#">Trẻ Chuyển, Go-Show, Vé Giờ Chót</a></li>
+                                        <li><a href="#">Thuế, Phí Và Phụ Thu</a></li>
+                                        <li><a href="#">Phương Thức Thanh Toán</a></li>
+                                        <li><a href="#">Thông Tin Hướng Dẫn</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="/SupportServices" class="mega-menu-title">Dịch Vụ Bổ Trợ</a>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li><a href="/ChooseSeat">Chọn Chỗ Ngồi Yêu Thích</a></li>
+                                        <li><a href="/Luggage">Mua Thêm Hành Lý</a></li>
+                                        <li><a href="/SupportServices">Phòng Chờ Thương Gia</a></li>
+                                        <li><a href="/SupportServices">Nâng Hạng Vé Tại Sân Bay</a></li>
+                                        <li><a href="/Meal">Đặt Trước Suất Ăn</a></li>
+                                        <li><a href="/SupportServices">Mua Thêm Ghế Ngồi</a></li>
+                                        <li><a href="/SupportServices">Bảo Hiểm Du Lịch TenPMCARE</a></li>
+                                        <li><a href="/SupportServices">Quà Tặng TenPM</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="/" class="mega-menu-title">Trải Nghiệm Cùng TenPM</a>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li><a href="#">Hành Trình Tận Tâm</a></li>
+                                        <li><a href="#">Hạng Business</a></li>
+                                        <li><a href="#">Hạng Economy</a></li>
+                                    </ul>
+                                    <h6 style="font-weight: bold; margin-top: 16px;">Sản Phẩm Bổ Trợ</h6>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li><a href="#">Thẻ Quà Tặng</a></li>
+                                        <li><a href="#">Liên Kết Đối Tác</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown-mega" style="position: relative;">
+                        <a class="nav-link" href="/JourneyInfor" id="journeyInfoBtn">Thông tin hành trình</a>
+                        <div class="mega-menu">
+                            <div class="row">
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="#" class="mega-menu-title">Tra cứu hành trình</a>
+                                    <a href="#">Lịch Bay</a>
+                                    <a href="#">Tra Cứu Vé Đã Đặt</a>
+                                    <a href="#">Tra Cứu Hành Lý</a>
+                                    <a href="#">Tra Cứu Hoá Đơn</a>
+                                </div>
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="#" class="mega-menu-title">Thông tin chuyến bay</a>
+                                    <a href="#">Tình Trạng Chuyến Bay</a>
+                                    <a href="#">Thời Gian Cất/Hạ Cánh</a>
+                                    <a href="#">Cổng Ra Máy Bay</a>
+                                </div>
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="#" class="mega-menu-title">Hỗ trợ khách hàng</a>
+                                    <a href="#">Câu Hỏi Thường Gặp</a>
+                                    <a href="#">Liên Hệ Tổng Đài</a>
+                                    <a href="#">Hướng Dẫn Đổi Vé</a>
+                                </div>
+                                <div class="col" style="min-width: 180px;">
+                                    <a href="#" class="mega-menu-title">Dịch vụ bổ trợ</a>
+                                    <a href="#">Chọn Chỗ Ngồi</a>
+                                    <a href="#">Mua Thêm Hành Lý</a>
+                                    <a href="#">Đặt Trước Suất Ăn</a>
+                                    <a href="#">Bảo Hiểm Du Lịch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown-mega" style="position: relative;">
+                        <a class="nav-link" href="/TenPMClub" id="tenpmClubBtn">TenPM Club</a>
+                        <div class="mega-menu mega-menu-tenpmclub">
+                            <div class="row">
+                                <div class="col" style="min-width: 100px;">
+                                    <a href="#" class="mega-menu-title">Giới Thiệu TenPM Club</a>
+                                    <a href="#">Giới Thiệu</a>
+                                    <a href="#">Tiêu Chí Xét Hạng</a>
+                                    <a href="#">Quyền Lợi Hạng Thẻ</a>
+                                </div>
+                                <div class="col" style="min-width: 100px;">
+                                    <a href="#" class="mega-menu-title">Tích Lũy Điểm</a>
+                                    <a href="#">TenPM Airways</a>
+                                    <a href="#">Trên Đối Tác Hàng Không</a>
+                                    <a href="#">Yêu Cầu Cộng Điểm</a>
+                                    <a href="#">Tiêu & Tích</a>
+                                </div>
+                                <div class="col" style="min-width: 100px;">
+                                    <a href="#" class="mega-menu-title">Sử Dụng Điểm</a>
+                                    <a href="#">Trên TenPM Airways</a>
+                                    <a href="#">Trên Đối Tác Khác</a>
+                                    <a href="#">TenPM Shop</a>
+                                    <a href="#">Quyên Góp Điểm</a>
+                                </div>
+                                <div class="col" style="min-width: 100px;">
+                                    <a href="#" class="mega-menu-title">Mua & Tặng Điểm</a>
+                                    <a href="#">Mua Điểm Xét Hạng</a>
+                                    <a href="#">Mua Điểm Thưởng</a>
+                                    <a href="#">Mua Chuyến Bay Xét Hạng</a>
+                                    <a href="#">Chuyển Nhượng Điểm</a>
+                                    <a href="#">Mua Số Đẹp</a>
+                                </div>
+                                <div class="col" style="min-width: 100px;">
+                                    <a href="#" class="mega-menu-title">Tin Tức & Ưu Đãi</a>
+                                    <a href="#">Tin Tức TenPM Club</a>
+                                    <a href="#">Ưu Đãi Đối Tác</a>
+                                    <a href="#">TenPM Choice</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+>>>>>>> 30fa5190b0fed303c53aac52927dc42e07055e86
 
                     @* @if (User.Identity.IsAuthenticated) *@
                     @if (true)
@@ -106,6 +266,310 @@
 
 
     @RenderBody()
+
+    <!-- Modal Đặt Vé Ngay -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 18px; min-width: 700px; max-width: 98vw;">
+                <div class="modal-header" style="border-bottom: none;">
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs mb-3" style="border-bottom: none;">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#tab-datve-modal"><i class="fas fa-plane"></i> Đặt Vé</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-lamthutuc-modal"><i class="fas fa-suitcase-rolling"></i> Làm Thủ Tục</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-datcho-modal"><i class="fas fa-calendar-alt"></i> Đặt Vé Của Tôi</a>
+                    </li>
+                </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="tab-datve-modal">
+                            <div class="mb-3" style="border-bottom: 2px solid #1987c6; padding-bottom: 8px;">
+                                <span class="fw-bold" style="color: #1987c6; font-size: 1.2rem;">Bảng Tiền</span>
+                            </div>
+                            <div class="mb-3 d-flex gap-4 align-items-center flex-wrap">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tripTypeModal" id="oneWayModal" checked>
+                                    <label class="form-check-label" for="oneWayModal">Một chiều</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tripTypeModal" id="roundTripModal">
+                                    <label class="form-check-label" for="roundTripModal">Khứ hồi</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="tripTypeModal" id="multicityModal">
+                                    <label class="form-check-label" for="multicityModal">Đa chặng</label>
+                                </div>
+                            </div>
+                            <form>
+                                <div class="row g-2 mb-2 align-items-end flex-nowrap">
+                                    <div class="col-md-5 col-12">
+                                        <label class="form-label fw-bold">TỪ</label>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control" id="fromInputModal" placeholder="Chọn điểm đi" autocomplete="off" readonly style="background: #fff; cursor: pointer;">
+                                            <div id="fromDropdownModal" class="dropdown-menu w-100" style="max-height: 300px; overflow-y: auto; display: none;">
+                                                <div class="px-3 py-2 fw-bold" style="color: #1987c6;">Việt Nam</div>
+                                                <button class="dropdown-item" data-city="Hà Nội" data-code="HAN">Hà Nội <span class="text-secondary small">Sân Bay Quốc Tế Nội Bài</span> <span class="badge bg-primary ms-2">HAN</span></button>
+                                                <button class="dropdown-item" data-city="TP. Hồ Chí Minh" data-code="SGN">TP. Hồ Chí Minh <span class="text-secondary small">Sân bay Quốc tế Tân Sơn Nhất</span> <span class="badge bg-primary ms-2">SGN</span></button>
+                                                <button class="dropdown-item" data-city="Đà Nẵng" data-code="DAD">Đà Nẵng <span class="text-secondary small">Sân bay Quốc tế Đà Nẵng</span> <span class="badge bg-primary ms-2">DAD</span></button>
+                                                <button class="dropdown-item" data-city="Hải Phòng" data-code="HPH">Hải Phòng <span class="text-secondary small">Sân bay Quốc tế Cát Bi</span> <span class="badge bg-primary ms-2">HPH</span></button>
+                                                <button class="dropdown-item" data-city="Thanh Hóa" data-code="THD">Thanh Hóa <span class="text-secondary small">Sân bay Thọ Xuân</span> <span class="badge bg-primary ms-2">THD</span></button>
+                                                <button class="dropdown-item" data-city="Vinh" data-code="VII">Vinh <span class="text-secondary small">Sân bay Vinh</span> <span class="badge bg-primary ms-2">VII</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-12 text-center" id="swap-col-modal" style="display: none; min-width: 60px;">
+                                        <button type="button" class="btn btn-outline-success" id="swapBtnModal" style="border-radius: 50%;"><i class="fas fa-exchange-alt"></i></button>
+                                    </div>
+                                    <div class="col-md-5 col-12" id="to-col-modal" style="display: none;">
+                                        <label class="form-label fw-bold">TỚI</label>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control" id="toInputModal" placeholder="Chọn điểm đến" autocomplete="off" readonly style="background: #fff; cursor: pointer;">
+                                            <div id="toDropdownModal" class="dropdown-menu w-100" style="max-height: 300px; overflow-y: auto; display: none;">
+                                                <div class="px-3 py-2 fw-bold" style="color: #1987c6;">Việt Nam</div>
+                                                <button class="dropdown-item" data-city="Hà Nội" data-code="HAN">Hà Nội <span class="text-secondary small">Sân Bay Quốc Tế Nội Bài</span> <span class="badge bg-primary ms-2">HAN</span></button>
+                                                <button class="dropdown-item" data-city="TP. Hồ Chí Minh" data-code="SGN">TP. Hồ Chí Minh <span class="text-secondary small">Sân bay Quốc tế Tân Sơn Nhất</span> <span class="badge bg-primary ms-2">SGN</span></button>
+                                                <button class="dropdown-item" data-city="Đà Nẵng" data-code="DAD">Đà Nẵng <span class="text-secondary small">Sân bay Quốc tế Đà Nẵng</span> <span class="badge bg-primary ms-2">DAD</span></button>
+                                                <button class="dropdown-item" data-city="Hải Phòng" data-code="HPH">Hải Phòng <span class="text-secondary small">Sân bay Quốc tế Cát Bi</span> <span class="badge bg-primary ms-2">HPH</span></button>
+                                                <button class="dropdown-item" data-city="Thanh Hóa" data-code="THD">Thanh Hóa <span class="text-secondary small">Sân bay Thọ Xuân</span> <span class="badge bg-primary ms-2">THD</span></button>
+                                                <button class="dropdown-item" data-city="Vinh" data-code="VII">Vinh <span class="text-secondary small">Sân bay Vinh</span> <span class="badge bg-primary ms-2">VII</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2 mb-2">
+                                    <div class="col-md-6 col-12">
+                                        <label class="form-label fw-bold">NGÀY ĐI</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 col-12" id="return-date-modal" style="display: none;">
+                                        <label class="form-label fw-bold">NGÀY VỀ</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <label class="form-label fw-bold">HÀNH KHÁCH</label>
+                                        <input type="number" class="form-control" value="1" min="1">
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <button type="submit" class="btn w-100" style="background: #2d8c2d; color: #fff; font-weight: bold; font-size: 1.2rem; border-radius: 10px; height: 48px;">Tìm Chuyến Bay</button>
+                                </div>
+                                <div class="d-flex align-items-center mt-2" id="discount-row-modal" style="cursor: pointer;">
+                                    <i class="fas fa-plus me-2" id="discount-plus-modal"></i>
+                                    <span style="color: #6c757d; font-weight: 500;">NHẬP MÃ GIẢM</span>
+                                </div>
+                                <div class="mt-2" id="discount-input-modal" style="display: none;">
+                                    <input type="text" class="form-control" placeholder="Nhập mã giảm giá của bạn">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab-lamthutuc-modal">
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">Mã đặt chỗ</label>
+                                    <input type="text" class="form-control" placeholder="123XXX">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Họ</label>
+                                    <input type="text" class="form-control" placeholder="NGUYEN">
+                                </div>
+                                <button type="submit" class="btn btn-success w-100">Làm Thủ Tục</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab-datcho-modal">
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">Mã đặt chỗ/Số vé</label>
+                                    <input type="text" class="form-control" placeholder="123xxxxxxxxxxx">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Họ</label>
+                                    <input type="text" class="form-control" placeholder="NGUYEN">
+                                </div>
+                                <button type="submit" class="btn btn-success w-100">Tìm Kiếm</button>
+                            </form>
+                        </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        navFunction = () => {
+            // Use '===' for comparison instead of '=' for assignment
+            const homeBtn = document.getElementById("homeBtn");
+            const exploreBtn = document.getElementById("exploreBtn");
+            const bookingBtn = document.getElementById("bookingBtn");
+            const journeyInfoBtn = document.getElementById("journeyInfoBtn");
+            const tenpmClubBtn = document.getElementById("tenpmClubBtn");
+
+            if (location.href === "http://localhost:5002/") {
+                homeBtn.style.color = "blue";
+                exploreBtn.style.color = "var(--bs-nav-link-color);";
+                bookingBtn.style.color = "var(--bs-nav-link-color);";
+                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
+                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
+            }
+            else if (location.href === "http://localhost:5002/explore") {
+                exploreBtn.style.color = "blue";
+                homeBtn.style.color = "var(--bs-nav-link-color);";
+                bookingBtn.style.color = "var(--bs-nav-link-color);";
+                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
+                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
+            }
+            else if (location.href === "http://localhost:5002/booking") {
+                bookingBtn.style.color = "blue";
+                exploreBtn.style.color = "var(--bs-nav-link-color);";
+                homeBtn.style.color = "var(--bs-nav-link-color);";
+                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
+                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
+            }
+            else if (location.href === "http://localhost:5002/journey-info") {
+                journeyInfoBtn.style.color = "blue";
+                exploreBtn.style.color = "var(--bs-nav-link-color);";
+                bookingBtn.style.color = "var(--bs-nav-link-color);";
+                homeBtn.style.color = "var(--bs-nav-link-color);";
+                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
+            }
+            else if (location.href === "http://localhost:5002/TenPMClub") {
+                tenpmClubBtn.style.color = "blue";
+                exploreBtn.style.color = "var(--bs-nav-link-color);";
+                bookingBtn.style.color = "var(--bs-nav-link-color);";
+                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
+                homeBtn.style.color = "var(--bs-nav-link-color);";
+            }
+        }
+
+        // Call the function to apply the changes on page load
+        window.onload = navFunction;
+
+        const dropdown = document.querySelector('#userDropdown').parentElement;
+
+        dropdown.addEventListener('mouseover', function () {
+            dropdown.querySelector('.dropdown-menu').style.display = 'block';
+        });
+
+        dropdown.addEventListener('mouseout', function () {
+            dropdown.querySelector('.dropdown-menu').style.display = 'none';
+        });
+
+        // Gắn sự kiện cho nút ĐẶT VÉ NGAY trong mega menu
+        window.addEventListener('DOMContentLoaded', function() {
+            var btn = document.querySelector('.mega-menu .btn.btn-primary');
+            if(btn) {
+                btn.setAttribute('data-bs-toggle', 'modal');
+                btn.setAttribute('data-bs-target', '#bookingModal');
+            }
+            // Hiện/ẩn ngày về, swap, tới khi chọn khứ hồi/1 chiều
+            const oneWay = document.getElementById('oneWayModal');
+            const roundTrip = document.getElementById('roundTripModal');
+            const returnDate = document.getElementById('return-date-modal');
+            const toCol = document.getElementById('to-col-modal');
+            const swapCol = document.getElementById('swap-col-modal');
+            function updateTripTypeModal() {
+                if(oneWay.checked) {
+                    if(returnDate) returnDate.style.display = 'none';
+                    if(toCol) toCol.style.display = 'none';
+                    if(swapCol) swapCol.style.display = 'none';
+                } else if(roundTrip.checked) {
+                    if(returnDate) returnDate.style.display = 'block';
+                    if(toCol) toCol.style.display = 'block';
+                    if(swapCol) swapCol.style.display = 'block';
+                }
+            }
+            if(oneWay && roundTrip) {
+                oneWay.addEventListener('change', updateTripTypeModal);
+                roundTrip.addEventListener('change', updateTripTypeModal);
+                updateTripTypeModal();
+            }
+        });
+
+        // Dropdown chọn điểm đi Việt Nam cho modal
+        (function() {
+            const fromInput = document.getElementById('fromInputModal');
+            const fromDropdown = document.getElementById('fromDropdownModal');
+            const toInput = document.getElementById('toInputModal');
+            const toDropdown = document.getElementById('toDropdownModal');
+            if(fromInput && fromDropdown) {
+                fromInput.addEventListener('click', function(e) {
+                    fromDropdown.style.display = 'block';
+                });
+                fromDropdown.querySelectorAll('.dropdown-item').forEach(function(item) {
+                    item.addEventListener('click', function() {
+                        fromInput.value = this.getAttribute('data-city') + ' (' + this.getAttribute('data-code') + ')';
+                        fromDropdown.style.display = 'none';
+                    });
+                });
+                document.addEventListener('click', function(e) {
+                    if(!fromInput.contains(e.target) && !fromDropdown.contains(e.target)) {
+                        fromDropdown.style.display = 'none';
+                    }
+                });
+            }
+            if(toInput && toDropdown) {
+                toInput.addEventListener('click', function(e) {
+                    toDropdown.style.display = 'block';
+                });
+                toDropdown.querySelectorAll('.dropdown-item').forEach(function(item) {
+                    item.addEventListener('click', function() {
+                        toInput.value = this.getAttribute('data-city') + ' (' + this.getAttribute('data-code') + ')';
+                        toDropdown.style.display = 'none';
+                    });
+                });
+                document.addEventListener('click', function(e) {
+                    if(!toInput.contains(e.target) && !toDropdown.contains(e.target)) {
+                        toDropdown.style.display = 'none';
+                    }
+                });
+            }
+            // Swap chức năng
+            const swapBtn = document.getElementById('swapBtnModal');
+            if(swapBtn && fromInput && toInput) {
+                swapBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tmp = fromInput.value;
+                    fromInput.value = toInput.value;
+                    toInput.value = tmp;
+                });
+            }
+        })();
+
+        // Toggle input mã giảm giá khi bấm dấu cộng
+        (function() {
+            const plus = document.getElementById('discount-plus-modal');
+            const input = document.getElementById('discount-input-modal');
+            const row = document.getElementById('discount-row-modal');
+            if(plus && input && row) {
+                row.addEventListener('click', function() {
+                    if(input.style.display === 'none') {
+                        input.style.display = 'block';
+                        plus.classList.remove('fa-plus');
+                        plus.classList.add('fa-minus');
+                    } else {
+                        input.style.display = 'none';
+                        plus.classList.remove('fa-minus');
+                        plus.classList.add('fa-plus');
+                    }
+                });
+            }
+        })();
+
+        // Sự kiện chuyển trang khi chọn Đa chặng
+        (function() {
+            const multicityRadio = document.getElementById('multicityModal');
+            if(multicityRadio) {
+                multicityRadio.addEventListener('change', function() {
+                    if(this.checked) {
+                        window.location.href = '/Multicity';
+                    }
+                });
+            }
+        })();
+    </script>
 
 </body>
 <!-- [Body] end -->
@@ -160,66 +624,6 @@
     </div>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="~/js/homepage/swiper-scripts.js"></script>
-    <script>
-        navFunction = () => {
-            // Use '===' for comparison instead of '=' for assignment
-            const homeBtn = document.getElementById("homeBtn");
-            const exploreBtn = document.getElementById("exploreBtn");
-            const bookingBtn = document.getElementById("bookingBtn");
-            const journeyInfoBtn = document.getElementById("journeyInfoBtn");
-            const tenpmClubBtn = document.getElementById("tenpmClubBtn");
-
-            if (location.href === "http://localhost:5002/") {
-                homeBtn.style.color = "blue";
-                exploreBtn.style.color = "var(--bs-nav-link-color);";
-                bookingBtn.style.color = "var(--bs-nav-link-color);";
-                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
-                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
-            }
-            else if (location.href === "http://localhost:5002/Explore") {
-                exploreBtn.style.color = "blue";
-                homeBtn.style.color = "var(--bs-nav-link-color);";
-                bookingBtn.style.color = "var(--bs-nav-link-color);";
-                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
-                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
-            }
-            else if (location.href === "http://localhost:5002/Booking") {
-                bookingBtn.style.color = "blue";
-                exploreBtn.style.color = "var(--bs-nav-link-color);";
-                homeBtn.style.color = "var(--bs-nav-link-color);";
-                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
-                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
-            }
-            else if (location.href === "http://localhost:5002/JourneyInfor") {
-                journeyInfoBtn.style.color = "blue";
-                exploreBtn.style.color = "var(--bs-nav-link-color);";
-                bookingBtn.style.color = "var(--bs-nav-link-color);";
-                homeBtn.style.color = "var(--bs-nav-link-color);";
-                tenpmClubBtn.style.color = "var(--bs-nav-link-color);";
-            }
-            else if (location.href === "http://localhost:5002/TenPMClub") {
-                tenpmClubBtn.style.color = "blue";
-                exploreBtn.style.color = "var(--bs-nav-link-color);";
-                bookingBtn.style.color = "var(--bs-nav-link-color);";
-                journeyInfoBtn.style.color = "var(--bs-nav-link-color);";
-                homeBtn.style.color = "var(--bs-nav-link-color);";
-            }
-        }
-
-        // Call the function to apply the changes on page load
-        window.onload = navFunction;
-
-        const dropdown = document.querySelector('#userDropdown').parentElement;
-
-        dropdown.addEventListener('mouseover', function () {
-            dropdown.querySelector('.dropdown-menu').style.display = 'block';
-        });
-
-        dropdown.addEventListener('mouseout', function () {
-            dropdown.querySelector('.dropdown-menu').style.display = 'none';
-        });
-    </script>
-
 </footer>
 
 

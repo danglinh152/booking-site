@@ -1,0 +1,360 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/css/homepage/styles.css">
+<!-- Banner hình ảnh -->
+<div style="width: 100%; background: linear-gradient(135deg, #f8f9fa, #e9ecef); min-height: 220px; position: relative;">
+    <img src="https://bambooairways.com/documents/20122/768330/Banner_2.png/14baa1c6-3b02-aecf-b044-ce312f7a1182?t=1689611909463" alt="Banner hành lý" style="width: 100%; max-height: 220px; object-fit: cover; border-radius: 0 0 18px 18px;">
+</div>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" style="background: #fff; border-radius: 0; margin-top: 0; padding: 20px 0 0 32px;">
+    <ol class="breadcrumb mb-0" style="background: transparent;">
+        <li class="breadcrumb-item"><a href="/" style="color: #6c757d;"><i class="fas fa-home"></i></a></li>
+        <li class="breadcrumb-item"><a href="/Booking" style="color: #6c757d; text-decoration: none;">Đặt Vé</a></li>
+        <li class="breadcrumb-item"><a href="/SupportServices" style="color: #6c757d; text-decoration: none;">Dịch Vụ Bổ Trợ</a></li>
+        <li class="breadcrumb-item active"> <a href= "/Luggage" aria-current="page" style="color: #156082; font-weight: 500;">Mua Thêm Hành Lý</a></li>
+    </ol>
+</nav>
+<div class="container py-5" style="margin-top: 0;">
+    <!-- PHẦN 1: Mua thêm hành lý -->
+    <div class="card shadow-sm p-4 mb-5" style="border-radius: 18px; background: #fff;">
+        <h2 class="mb-3" style="font-weight:bold; color:#156082; font-size:2.2rem;">Mua thêm hành lý</h2>
+        <p style="font-size:1.1rem; color:#444; margin-bottom:2rem;">
+            Hành khách có thể nâng trọng lượng hành lý ký gửi của mình theo các gói đa dạng và linh hoạt. Tận hưởng giá ưu đãi lớn khi mua thêm hành lý ký gửi qua các kênh chính thức của TenPM Airways trước giờ khởi hành.
+        </p>
+        <div class="row align-items-center mb-3">
+            <div class="col-md-6">
+                <div style="display: flex; align-items: center; gap: 18px;">
+                    <div style="background: #7ed957; border-radius: 12px; padding: 32px 24px; min-width: 210px; text-align: left;">
+                        <div style="font-weight: bold; color: #fff; font-size: 1.4rem; line-height: 1.3;">QUY CHUẨN<br>HÀNH LÝ KÝ GỬI</div>
+                    </div>
+                    <div style="margin-left: 12px;">
+                        <img src="https://bambooairways.com/documents/d/global/baggage-vi-png-1" alt="Quy chuẩn hành lý" style="max-width: 120px; border-radius: 12px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="font-size:1.3rem; color:#156082; font-weight:bold; margin-bottom:10px;">
+                    Mỗi kiện <span style="font-size:1.5rem; color:#1987c6;">≤ 32kg</span><br>
+                    và/hoặc <span style="font-size:1.5rem; color:#1987c6;">a + b + c ≤ 203cm</span>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <img src="https://bambooairways.com/documents/d/global/baggage-vi-png-1" alt="Bamboo Airways" style="height:32px; margin-right:8px;">
+                </div>
+            </div>
+        </div>
+        <p class="mb-1" style="font-size:1.05rem;">Trường hợp Quý khách đã mua hành lý trả trước lần đầu trước đó và muốn mua bổ sung, vui lòng liên hệ Phòng vé hoặc Tổng đài chăm sóc khách hàng <a href="tel:+8419001166" style="color: #1987c6; font-weight:bold; text-decoration: underline;">+84 1900 1166</a> của TenPM Airways.</p>
+        <p class="mb-1" style="font-size:1.05rem;">Hành khách có nhu cầu vui lòng tham khảo hướng dẫn và bảng phí dưới đây.</p>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <div style="font-weight: bold; color: #156082;">Chặng bay nội địa Việt Nam</div>
+                <ul style="margin-bottom: 0;">
+                    <li><a href="#" style="color: #1987c6; text-decoration: underline;">Mua trước giờ bay tối thiểu 03 giờ</a></li>
+                    <li><a href="#" style="color: #1987c6; text-decoration: underline;">Mua tại sân</a></li>
+                    <li><a href="#" style="color: #1987c6; text-decoration: underline;">Phí hành lý quá cân tại cửa khởi hành</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div style="font-weight: bold; color: #156082;">Chặng bay quốc tế</div>
+                <div style="font-size: 1rem; color: #444;">Việt Nam - Thái Lan</div>
+                <ul style="margin-bottom: 0;">
+                    <li><a href="#" style="color: #1987c6; text-decoration: underline;">Mua trước thời điểm dừng đặt chỗ</a></li>
+                    <li><a href="#" style="color: #1987c6; text-decoration: underline;">Mua tại sân</a></li>
+                    <li><a href="#" style="color: #1987c6; text-decoration: underline;">Phí hành lý quá cân tại cửa khởi hành</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Nút MUA NGAY -->
+        <div class="text-center mt-4">
+            <a href="#" class="btn btn-primary px-5 py-3" style="font-weight: bold; font-size: 1.2rem; border-radius: 12px; letter-spacing:1px; box-shadow:0 2px 8px #1987c633;">MUA NGAY</a>
+        </div>
+    </div>
+
+    <!-- PHẦN 2: Chặng bay nội địa Việt Nam -->
+    <div class="card shadow-sm p-4 mb-5" style="border-radius: 18px;">
+        <h3 class="mb-3" style="color: #156082; font-weight: bold; font-size:1.6rem;">Chặng bay nội địa Việt Nam</h3>
+        <div class="mb-3">
+            <strong style="font-size:1.1rem;">Mua trước giờ bay tối thiểu 03 giờ</strong>
+        </div>
+        <!-- Accordion thông báo áp dụng -->
+        <div class="mb-3">
+            <div class="alert alert-primary py-2" style="border-radius: 8px;">
+                Áp dụng cho các vé xuất/đổi từ ngày <b>20/5/2024</b>
+            </div>
+        </div>
+        <ul>
+            <li>Mức hành lý mua thêm lần đầu: tối đa 60kg (áp dụng cho cả hạng Business và Economy)</li>
+            <li>Trường hợp cần mua thêm khách liên hệ Phòng vé hoặc bộ phận Chăm sóc khách hàng để đặt thêm gói bổ sung</li>
+        </ul>
+        <!-- Bảng giá cả năm -->
+        <div class="mb-4">
+            <div style="background:#f1f6fa; padding:8px 16px; border-radius:8px 8px 0 0; font-weight:bold;">Cả năm (trừ giai đoạn cao điểm Tết và hè<sup>*</sup>)</div>
+            <table class="table table-bordered align-middle text-center mb-0" style="background: #f8f9fa;">
+                <thead style="background: #e9ecef;">
+                    <tr>
+                        <th>Gói hành lý</th>
+                        <th>10kg</th>
+                        <th>20kg</th>
+                        <th>30kg</th>
+                        <th>40kg</th>
+                        <th>50kg</th>
+                        <th>60kg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Giá VND</td>
+                        <td>130.000</td>
+                        <td>260.000</td>
+                        <td>390.000</td>
+                        <td>520.000</td>
+                        <td>650.000</td>
+                        <td>780.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Bảng giá cao điểm -->
+        <div class="mb-4">
+            <div style="background:#f1f6fa; padding:8px 16px; border-radius:8px 8px 0 0; font-weight:bold;">Cao điểm Tết và hè<sup>*</sup></div>
+            <table class="table table-bordered align-middle text-center mb-0" style="background: #f8f9fa;">
+                <thead style="background: #e9ecef;">
+                    <tr>
+                        <th>Gói hành lý</th>
+                        <th>10kg</th>
+                        <th>20kg</th>
+                        <th>30kg</th>
+                        <th>40kg</th>
+                        <th>50kg</th>
+                        <th>60kg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Giá VND</td>
+                        <td>150.000</td>
+                        <td>300.000</td>
+                        <td>450.000</td>
+                        <td>600.000</td>
+                        <td>750.000</td>
+                        <td>900.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Khuyến cáo -->
+        <div class="mb-3" style="font-size:1rem;">
+            <b>Khuyến cáo giới hạn số lượng kiện hành lý:</b>
+            <ul>
+                <li>Hành lý 10kg – 20kg: tối đa 1 kiện</li>
+                <li>Hành lý 25kg – 40kg: tối đa 2 kiện</li>
+                <li>Hành lý 45kg – 60kg: tối đa 3 kiện</li>
+                <li>Hành lý từ 65kg trở lên: mỗi 20kg hành lý thêm tương đương tối đa 1 kiện</li>
+            </ul>
+            <div style="font-size:0.95rem; color:#888;">
+                <b>(*) Cao điểm Tết và hè:</b> <br>
+                Năm 2025: 21/01/2025 – 08/02/2025 và 20/5 – 15/8/2025<br>
+                Năm 2026: 9/2/2026 – 27/2/2026 và 20/5 – 15/8/2026<br>
+                <i>Lưu ý: Giá đã bao gồm VAT</i>
+            </div>
+        </div>
+        <!-- Accordion áp dụng cho các vé khác (nếu có) -->
+        <div class="alert alert-primary py-2 mb-3" style="border-radius: 8px;">
+            Áp dụng cho các vé xuất/đổi từ ngày <b>01/3/2024 đến 19/5/2024</b>
+        </div>
+        <!-- Bảng giá mua tại sân -->
+        <div class="mb-4">
+            <b>Mua tại sân</b>
+            <p>Hành lý ký gửi mua thêm tại sân được <b>bán theo các gói</b>. Trường hợp khách có số cân hành lý ký gửi mua thêm nằm trong khoảng các gói thì sẽ được <b>làm tròn lên</b> tới mức giá gói gần nhất.</p>
+            <table class="table table-bordered align-middle text-center mb-0" style="background: #f8f9fa;">
+                <thead style="background: #e9ecef;">
+                    <tr>
+                        <th>Gói hành lý</th>
+                        <th>05 kg</th>
+                        <th>10 kg</th>
+                        <th>15 kg</th>
+                        <th>20 kg</th>
+                        <th>25 kg</th>
+                        <th>30 kg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Giá VND (*)</td>
+                        <td>150.000</td>
+                        <td>300.000</td>
+                        <td>400.000</td>
+                        <td>550.000</td>
+                        <td>650.000</td>
+                        <td>750.000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="font-size:0.95rem; color:#888;">
+                <b>(*) Lưu ý:</b><br>
+                - Giá đã bao gồm VAT<br>
+                - Riêng gói 05kg chỉ áp dụng cho hành khách đã có hành lý ký gửi<br>
+                - Đối với hành khách chưa có hành lý ký gửi, gói hành lý tại sân tính từ gói 10kg trở lên
+            </div>
+        </div>
+        <!-- Phí quá cân -->
+        <div class="mb-2" style="font-size:1.1rem;">
+            <b>Phí hành lý quá cân tại cửa khởi hành</b><br>
+            Mức giá hành lý xách tay quá cước thu tại cửa khởi hành: <b>50.000 VND/01kg</b> (đã bao gồm VAT).
+        </div>
+    </div>
+
+    <!-- PHẦN 3: Chặng bay quốc tế -->
+    <div class="card shadow-sm p-4 mb-5" style="border-radius: 18px;">
+        <h3 class="mb-3" style="color: #156082; font-weight: bold; font-size:1.6rem;">Chặng bay Quốc tế</h3>
+        <div class="alert alert-primary py-2 mb-3" style="border-radius: 8px;">
+            Áp dụng cho các vé xuất/đổi từ ngày <b>01/4/2025</b>
+        </div>
+        <div class="mb-3">
+            <b>Việt Nam - Thái Lan</b>
+            <div style="font-size:1.05rem; font-weight:500;">Mua trước thời điểm dừng đặt chỗ</div>
+            <ul>
+                <li><b>Khởi hành từ TP. Hồ Chí Minh:</b> 03 tiếng trước giờ khởi hành</li>
+                <li><b>Khởi hành từ Bangkok:</b> 05 tiếng trước giờ khởi hành</li>
+            </ul>
+        </div>
+        <!-- Bảng giá cả năm -->
+        <div class="mb-4">
+            <div style="background:#f1f6fa; padding:8px 16px; border-radius:8px 8px 0 0; font-weight:bold;">Cả năm (trừ giai đoạn cao điểm Tết và hè<sup>*</sup>)</div>
+            <table class="table table-bordered align-middle text-center mb-0" style="background: #f8f9fa;">
+                <thead style="background: #e9ecef;">
+                    <tr>
+                        <th>Gói hành lý</th>
+                        <th>10kg</th>
+                        <th>20kg</th>
+                        <th>30kg</th>
+                        <th>40kg</th>
+                        <th>50kg</th>
+                        <th>60kg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Giá khởi hành từ Việt Nam (USD)</td>
+                        <td>10</td><td>20</td><td>30</td><td>40</td><td>50</td><td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Giá khởi hành từ Thái Lan (THB)</td>
+                        <td>340</td><td>680</td><td>1020</td><td>1360</td><td>1700</td><td>2040</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Bảng giá cao điểm -->
+        <div class="mb-4">
+            <div style="background:#f1f6fa; padding:8px 16px; border-radius:8px 8px 0 0; font-weight:bold;">Cao điểm Tết và hè<sup>*</sup></div>
+            <table class="table table-bordered align-middle text-center mb-0" style="background: #f8f9fa;">
+                <thead style="background: #e9ecef;">
+                    <tr>
+                        <th>Gói hành lý</th>
+                        <th>10kg</th>
+                        <th>20kg</th>
+                        <th>30kg</th>
+                        <th>40kg</th>
+                        <th>50kg</th>
+                        <th>60kg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Giá khởi hành từ Việt Nam (USD)</td>
+                        <td>12</td><td>24</td><td>36</td><td>48</td><td>60</td><td>72</td>
+                    </tr>
+                    <tr>
+                        <td>Giá khởi hành từ Thái Lan (THB)</td>
+                        <td>400</td><td>800</td><td>1200</td><td>1600</td><td>2000</td><td>2400</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Khuyến cáo -->
+        <div class="mb-3" style="font-size:1rem;">
+            <b>Khuyến cáo giới hạn số lượng kiện hành lý:</b>
+            <ul>
+                <li>Hành lý 10kg – 20kg: tối đa 1 kiện</li>
+                <li>Hành lý 25kg – 40kg: tối đa 2 kiện</li>
+                <li>Hành lý 45kg – 60kg: tối đa 3 kiện</li>
+                <li>Hành lý từ 65kg trở đi: mỗi 20kg hành lý thêm tương đương tối đa 01 kiện</li>
+            </ul>
+            <div style="font-size:0.95rem; color:#888;">
+                <b>(*) Cao điểm Tết và hè:</b> <br>
+                Năm 2025: 21/01/2025 – 08/02/2025 và 20/5/2025 – 15/8/2025
+            </div>
+        </div>
+        <!-- Các alert áp dụng cho các giai đoạn khác -->
+        <div class="alert alert-primary py-2 mb-2" style="border-radius: 8px;">
+            Áp dụng cho các vé xuất/đổi từ ngày <b>16/01/2025 đến 31/3/2025</b>
+        </div>
+        <div class="alert alert-primary py-2 mb-2" style="border-radius: 8px;">
+            Áp dụng cho các vé xuất/đổi từ <b>25/12/2024 đến 15/01/2025</b>
+        </div>
+        <div class="alert alert-primary py-2 mb-2" style="border-radius: 8px;">
+            Áp dụng cho các vé xuất/đổi từ <b>14/12/2024 đến 24/12/2024</b>
+        </div>
+        <div class="alert alert-primary py-2 mb-3" style="border-radius: 8px;">
+            Áp dụng cho các vé xuất/đổi từ <b>14/11 đến 13/12/2024</b>
+        </div>
+        <!-- Bảng giá mua tại sân -->
+        <div class="mb-4">
+            <b>Mua tại sân</b>
+            <p>Hành lý ký gửi mua thêm tại sân được <b>bán theo các gói</b>. Trường hợp khách có số cân hành lý ký gửi mua thêm nằm trong khoảng các gói thì sẽ được <b>làm tròn lên</b> tới mức giá gói gần nhất.<br>
+            <i>Ví dụ: Hành khách có hành lý cần ký gửi 11kg thì sẽ lấy giá của gói lớn hơn gần nhất là 15kg.</i></p>
+            <p>Chỉ chấp nhận nếu đáp ứng đủ điều kiện vận chuyển/khả năng tải của Hãng tại thời điểm làm thủ tục tại sân bay – trong vòng 3 giờ trước giờ bay.</p>
+            <table class="table table-bordered align-middle text-center mb-0" style="background: #f8f9fa;">
+                <thead style="background: #e9ecef;">
+                    <tr>
+                        <th>Gói hành lý</th>
+                        <th>05 kg</th>
+                        <th>10 kg</th>
+                        <th>15 kg</th>
+                        <th>20 kg</th>
+                        <th>25 kg</th>
+                        <th>30 kg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Khởi hành từ Việt Nam (USD)</td>
+                        <td>15</td><td>25</td><td>35</td><td>45</td><td>55</td><td>65</td>
+                    </tr>
+                    <tr>
+                        <td>Khởi hành từ Thái Lan (THB)</td>
+                        <td>490</td><td>820</td><td>1150</td><td>1480</td><td>1800</td><td>2150</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="font-size:0.95rem; color:#888;">
+                <b>(*) Lưu ý:</b><br>
+                - Riêng gói 05kg chỉ áp dụng cho hành khách đã có hành lý ký gửi<br>
+                - Đối với hành khách chưa có hành lý ký gửi, gói hành lý tại sân tính từ gói 10kg trở lên
+            </div>
+        </div>
+        <!-- Phí quá cân -->
+        <div class="mb-2" style="font-size:1.1rem;">
+            <b>Phí hành lý quá cân tại cửa khởi hành</b>
+            <table class="table table-bordered align-middle text-center mb-0" style="background: #f8f9fa;">
+                <thead style="background: #e9ecef;">
+                    <tr>
+                        <th>Đơn vị</th>
+                        <th>01 kg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Khởi hành từ Việt Nam (USD)</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Khởi hành từ Thái Lan (THB)</td>
+                        <td>330</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 
