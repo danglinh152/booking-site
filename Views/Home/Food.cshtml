@@ -1,0 +1,191 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var allFoods = new List<dynamic>
+{
+    new { Title = "Phở Bò", Img = "https://tiki.vn/blog/wp-content/uploads/2023/07/thumb-12.jpg", Desc = "Phở bò truyền thống." },
+    new { Title = "Chả Giò", Img = "https://cdn.tgdd.vn/Files/2017/03/28/965860/bi-quyet-lam-mon-cha-gio-vang-gion-thom-ngon-tai-nha-202205241601315587.jpg", Desc = "Chả giò chiên giòn." },
+    new { Title = "Gỏi Cuốn", Img = "https://cdn.tgdd.vn/2021/08/CookProduct/z262692910475431f8fbc533ea57bff69e5e86a005e04a1200-1200x676.jpg", Desc = "Cuốn tôm thịt." },
+    new { Title = "Bánh Mì", Img = "https://cdn.xanhsm.com/2025/01/125f9835-banh-mi-sai-gon-thumb.jpg", Desc = "Bánh mì thịt Việt Nam." },
+    new { Title = "Cơm Gà", Img = "https://cdn.tgdd.vn/2020/09/CookProduct/3-1200x676.jpg", Desc = "Cơm gà xối mỡ." },
+    new { Title = "Bún Chả", Img = "https://khaihoanphuquoc.com.vn/wp-content/uploads/2023/08/cach-lam-nuoc-mam-bun-cha-02.jpg", Desc = "Bún chả Hà Nội." },
+    new { Title = "Hủ Tiếu", Img = "https://lh4.googleusercontent.com/proxy/Ed62MP6tKDb_vr0mdGMO_DWgsKcDWJkXTxbM6EpFtn1h9ILNPpaYTE91xKIiId9_fzqvxv22XVE_OCAQXrzJbfKl3LPgT0njRBpzWtzr6BxxPiX0X5Uz0gCq1U7k8foSfRzwye02E2_UqhDh1MD29ckBONj3Kg1telnP2l7C", Desc = "Hủ tiếu Nam Vang." },
+    new { Title = "Bánh Cuốn", Img = "https://feedthepudge.com/wp-content/uploads/2025/02/Banh-Cuon-Cover-.webp", Desc = "Bánh cuốn tráng mỏng." },
+    new { Title = "Mì Quảng", Img = "https://hoiana.com/wp-content/uploads/2024/12/mi-quang-hoi-an-5.webp", Desc = "Mì Quảng miền Trung." },
+    new { Title = "Bún Bò Huế", Img = "https://tourhue.vn/wp-content/uploads/2024/08/quan-bun-bo-hue-1.png", Desc = "Bún bò Huế cay nồng." },
+    new { Title = "Bánh Xèo", Img = "https://daylambanh.edu.vn/wp-content/uploads/2019/03/banh-xeo-bang-bot-pha-san-600x400.jpg", Desc = "Bánh xèo miền Nam." },
+    new { Title = "Cơm Tấm", Img = "https://file.hstatic.net/1000394081/article/com-tam_e03b4325c9914def9d66619930a73432.jpg", Desc = "Cơm tấm sườn bì." },
+    new { Title = "Gà Rán", Img = "https://cokhiviendong.com/wp-content/uploads/2019/01/kinnh-nghi%E1%BB%87m-m%E1%BB%9F-qu%C3%A1n-g%C3%A0-r%C3%A1n-7.jpg", Desc = "Gà rán giòn rụm." },
+    new { Title = "Mì Xào", Img = "https://i-giadinh.vnecdn.net/2022/07/30/Thanh-pham-1-1-2409-1659167237.jpg", Desc = "Mì xào thập cẩm." },
+    new { Title = "Lẩu Thái", Img = "https://i-giadinh.vnecdn.net/2022/12/17/Thanh-pham-1-1-5372-1671269525.jpg", Desc = "Lẩu Thái chua cay." },
+    new { Title = "Bún Riêu", Img = "https://i-giadinh.vnecdn.net/2023/10/05/Thanh-pham-3-3-1690-1696489497.jpg", Desc = "Bún riêu cua thơm ngon." },
+    new { Title = "Nem Nướng", Img = "https://i.ytimg.com/vi/I_n1IQggIQ4/maxresdefault.jpg", Desc = "Nem nướng Nha Trang." },
+    new { Title = "Cá Kho Tộ", Img = "https://beptruong.edu.vn/wp-content/uploads/2021/01/ca-kho-to.jpg", Desc = "Cá kho tộ truyền thống." },
+};
+
+
+    while (allFoods.Count < 18)
+    {
+        allFoods.AddRange(allFoods.Take(5));
+    }
+
+    int pageSize = 6;
+    int totalItems = allFoods.Count;
+    int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+    // ✅ Phân trang an toàn từ URL
+    int page = 1;
+    var queryPage = Context.Request.Query["page"];
+    if (!string.IsNullOrEmpty(queryPage) && int.TryParse(queryPage, out var parsedPage))
+    {
+        page = parsedPage;
+    }
+
+    page = Math.Clamp(page, 1, totalPages);
+    var items = allFoods.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+}
+
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>TenPM - Dịch vụ Đồ ăn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/homepage/styles.css">
+    <link rel="stylesheet" href="~/css/booking/style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .food-section {
+            padding: 40px 0;
+        }
+
+        .food-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            background-color: #fff;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-card img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .food-card .card-body {
+            padding: 15px;
+        }
+
+        .food-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00558F;
+        }
+
+        .food-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .btn-order {
+            margin-top: 15px;
+            background-color: #00558F;
+            color: white;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .btn-order:hover {
+            background-color: #003F6B;
+        }
+
+        .pagination .page-link {
+            color: #00558F;
+        }
+
+        .pagination .active .page-link {
+            background-color: #00558F;
+            border-color: #00558F;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <img src="https://www.bambooairways.com/documents/20122/1976277/1920+x+360+su%C3%A1t+%C4%83n+%2B+x%C3%B4i+s%E1%BA%AFn+vi.png/7236a4e8-cd97-6951-2ddd-0bfc3ac0c107?t=1736739617800"
+             alt="" class="w-100">
+    </div>
+
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '›';">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/booking">Đặt vé</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Dịch vụ Đồ ăn
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+   <div class="container text-center my-5">
+    <div class="px-3 py-4 rounded-4 shadow-sm" style="background: linear-gradient(135deg, #e0f2ff, #f0fbff); ">
+        <h2 class="fw-bold mb-2" style="color: #003f6b;">
+            <i class="fas fa-utensils me-2 text-primary"></i>ĐẶT TRƯỚC SUẤT ĂN
+        </h2>
+        <p class="lead text-muted mb-0">
+            Đặt món ăn yêu thích ngay khi đặt vé để chuyến bay của bạn thêm trọn vẹn và tiện lợi!
+        </p>
+    </div>
+</div>
+
+    <div class="container food-section">
+        <div class="row g-4">
+            @foreach (var food in items)
+            {
+                <div class="col-md-4">
+                    <div class="food-card">
+                        <img src="@food.Img" alt="@food.Title">
+                        <div class="card-body">
+                            <div class="food-title">@food.Title</div>
+                            <div class="food-description">@food.Desc</div>
+                            <button class="btn btn-order">Đặt món</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Pagination -->
+        <nav class="mt-5 d-flex justify-content-center">
+            <ul class="pagination">
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(i == page ? "active" : "")">
+                        <a class="page-link" style="color: black;" href="?page=@i">@i</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+
+</body>
+</html>

@@ -23,25 +23,37 @@ namespace BookingSite.Controllers
             return View();
         }
 
-        [Route("Booking")]
+        [Route("booking/food")]
+        public IActionResult Food()
+        {
+            return View();
+        }
+
+        [Route("booking/baggage")]
+        public IActionResult Baggage()
+        {
+            return View();
+        }
+
+        [Route("booking")]
         public IActionResult Booking()
         {
             return View();
         }
 
-        [Route("JourneyInfor")]
+        [Route("journey-info")]
         public IActionResult JourneyInfor()
         {
             return View();
         }
 
-        [Route("Explore")]
+        [Route("explore")]
         public IActionResult Explore()
         {
             return View();
         }
 
-        [Route("TenPMClub")]
+        [Route("tenpm-club")]
         public IActionResult TenPMClub()
         {
             return View();
