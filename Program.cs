@@ -48,8 +48,15 @@ app.UseRouting();
 app.MapControllerRoute(
     name: "admin",
     pattern: "admin/{controller=Admin}/{action=Index}/{id?}");
+    
 
 // Route for Users
+app.MapControllerRoute(
+    name: "booking",
+    pattern: "dat-ve",
+    defaults: new { controller = "GetTicket", action = "GetTicket" }
+);
+
 app.MapControllerRoute(
     name: "adminUsers",
     pattern: "admin/users/{action=Index}/{id?}",

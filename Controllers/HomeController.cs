@@ -15,9 +15,16 @@ namespace BookingSite.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
-
+        
+        [Route("Multicity")]
+        public IActionResult MultiCity()
+        {
+            return View();
+        }
+        
         public IActionResult Privacy()
         {
             return View();
@@ -58,7 +65,41 @@ namespace BookingSite.Controllers
         {
             return View();
         }
-
+        [Route("Meal")]
+        public IActionResult Meal()
+        {
+            return View();
+        }
+        [Route("SupportServices")]
+        public IActionResult SupportServices()
+        {
+            return View();
+        }
+        [Route("Luggage")]
+        public IActionResult Luggage()
+        {
+            return View();
+        }
+        [Route("ChooseSeat")]
+        public IActionResult ChooseSeat()
+        {
+            return View();
+        }
+        [Route("Insurance")]
+        public IActionResult Insurance()
+        {
+            return View();
+        }
+        [Route("Lounge")]
+        public IActionResult Lounge()
+        {
+            return View();
+        }
+        [Route("Hotel")]
+        public IActionResult Hotel()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

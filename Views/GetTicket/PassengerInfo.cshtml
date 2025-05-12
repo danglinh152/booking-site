@@ -1,0 +1,313 @@
+@{
+    Layout = "_GetTicketLayout";
+    ViewData["Title"] = "Nhập thông tin hành khách";
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập thông tin hành khách</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Banner -->
+    <div class="relative w-full h-56 md:h-64 bg-gradient-to-b from-blue-100 to-white flex items-center justify-center">
+        <img src="https://digital.bambooairways.com/statics/applications/booking/dynamicContent/1.0.10/assets/img/background/default-title-background-600.png" alt="Bamboo Airways" class="absolute inset-0 w-full h-full object-cover object-top" style="z-index:1;">
+        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-10">
+            <div class="bg-white rounded-xl shadow-lg px-8 py-4 text-center">
+                <h1 class="text-2xl md:text-3xl font-bold text-green-700">Nhập thông tin hành khách</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Form nhập thông tin -->
+    <div class="max-w-2xl mx-auto mt-10 bg-white rounded-2xl shadow p-8">
+        <div id="errorSummary" class="max-w-2xl mx-auto mt-6"></div>
+        <h2 class="text-xl font-bold text-blue-900 mb-4 text-center">Thông tin cá nhân</h2>
+        <div class="text-xs text-gray-500 mb-4">* = các trường bắt buộc</div>
+        <div class="text-sm text-gray-700 mb-4">
+            Vui lòng điền thông tin cá nhân như trong hộ chiếu.<br>
+            Do hạn chế hệ thống, tên em bé quá dài sẽ tự động bị cắt ngắn khi lưu. Với trường hợp Quý khách đi kèm em bé có tên quá dài, vui lòng viết tắt chữ cái đầu tiên của phần tên đệm em bé (phần Họ và phần Tên vẫn viết đầy đủ).
+        </div>
+        <form class="space-y-4">
+            <div>
+                <label class="block text-sm font-semibold mb-1">Danh xưng *</label>
+                <select class="w-full border rounded p-2" required>
+                    <option value="">Chọn danh xưng</option>
+                    <option value="MR">Ông (MR)</option>
+                    <option value="MRS">Bà (MRS)</option>
+                    <option value="MS">Cô (MS)</option>
+                    <option value="CHILD">Trẻ em (CHILD)</option>
+                    <option value="INFANT">Em bé (INFANT)</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">Tên đệm và tên *</label>
+                <input type="text" class="w-full border rounded p-2" placeholder="Tên đệm và tên" required />
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">Họ *</label>
+                <input type="text" class="w-full border rounded p-2" placeholder="Họ" required />
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">Ngày sinh *</label>
+                <input type="date" class="w-full border rounded p-2" placeholder="dd/mm/yyyy" required />
+                <div class="text-xs text-gray-400 mt-1">Định dạng là Ngày / Tháng / Năm</div>
+            </div>
+        </form>
+    </div>
+    <!-- Chương trình Khách hàng thân thiết -->
+    <div class="max-w-2xl mx-auto mt-10 bg-white rounded-2xl shadow p-8 mb-8">
+        <h2 class="text-lg font-bold text-green-700 mb-4 text-center">Chương trình Khách hàng thân thiết</h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-semibold mb-1">Chương trình Khách hàng thân thiết</label>
+                <select class="w-full border rounded p-2">
+                    <option>Chọn chương trình Khách hàng thân thiết</option>
+                    <option>Bamboo Club</option>
+                    <option>Vietnam Airlines Lotusmiles</option>
+                    <option>Vietjet SkyJoy</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">Số thẻ hội viên</label>
+                <input type="text" class="w-full border rounded p-2" placeholder="Số thẻ hội viên của Quý khách" />
+            </div>
+        </div>
+    </div>
+    <!-- Thông tin liên lạc -->
+    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow p-8 mb-8">
+        <h2 class="text-lg font-bold text-blue-900 mb-4 text-center">Thông tin liên lạc</h2>
+        <div id="emailSection" class="space-y-4">
+            <div>
+                <label class="block text-sm font-semibold mb-1">E-mail *</label>
+                <input type="email" class="w-full border rounded p-2" placeholder="Địa chỉ email" required />
+                <button id="btnAddEmail" type="button" class="mt-2 px-4 py-1 border border-green-600 text-green-700 rounded hover:bg-green-50 text-sm">Thêm địa chỉ email</button>
+            </div>
+        </div>
+        <div id="phoneSection" class="space-y-4 mt-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="phoneGrid">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Loại điện thoại *</label>
+                    <select class="w-full border rounded p-2">
+                        <option>Cá nhân</option>
+                        <option>Cơ quan</option>
+                        <option>Khác</option>
+                    </select>
+                </div>
+                <div></div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Mã quốc gia *</label>
+                    <input type="text" class="w-full border rounded p-2" placeholder="Mã quốc gia" required />
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Số điện thoại *</label>
+                    <input type="text" class="w-full border rounded p-2" placeholder="Số điện thoại" required />
+                </div>
+            </div>
+            <button id="btnAddPhone" type="button" class="mt-2 px-4 py-1 border border-green-600 text-green-700 rounded hover:bg-green-50 text-sm">Thêm số điện thoại khác</button>
+        </div>
+        <div class="flex items-center mt-2">
+            <input type="checkbox" id="urgentContact" class="accent-green-600 mr-2" />
+            <label for="urgentContact" class="text-sm">Thêm thông tin liên lạc khẩn cấp</label>
+        </div>
+    </div>
+    <!-- Điều khoản và nút xác nhận -->
+    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow p-8 mb-8">
+        <div class="flex items-start gap-2 mb-4">
+            <input type="checkbox" id="agreePolicy" class="accent-green-600 mt-1" required />
+            <label for="agreePolicy" class="text-sm">Tôi đã đọc và đồng ý rằng dữ liệu của tôi sẽ được xử lý theo <a href="#" class="text-green-700 underline">Chính sách bảo mật</a>, <a href="#" class="text-green-700 underline">Điều kiện sử dụng chức năng đặt chỗ trực tuyến</a> và <a href="#" class="text-green-700 underline">Điều khoản sử dụng website</a> của Bamboo Airways.</label>
+        </div>
+        <div class="flex justify-end">
+            <button id="btnFinalSubmit" type="submit" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-8 rounded-lg shadow transition">Xác nhận</button>
+        </div>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Thêm/xóa email
+      const emailSection = document.getElementById('emailSection');
+      const addEmailBtn = document.getElementById('btnAddEmail');
+      addEmailBtn.addEventListener('click', function() {
+        const newEmail = document.createElement('div');
+        newEmail.className = 'flex items-center mt-2';
+        newEmail.innerHTML = `<input type=\"email\" class=\"w-full border rounded p-2 mr-2\" placeholder=\"Địa chỉ email khác\" required />
+          <button type=\"button\" class=\"remove-email text-red-600 hover:underline text-sm\">Xóa</button>`;
+        emailSection.appendChild(newEmail);
+        newEmail.querySelector('.remove-email').onclick = function() {
+          newEmail.remove();
+        };
+      });
+
+      // Thêm/xóa số điện thoại
+      const phoneGrid = document.getElementById('phoneGrid');
+      const addPhoneBtn = document.getElementById('btnAddPhone');
+      addPhoneBtn.addEventListener('click', function() {
+        // Thêm 2 ô input mới vào grid: mã quốc gia và số điện thoại (có nút xóa)
+        const maQuocGiaDiv = document.createElement('div');
+        maQuocGiaDiv.innerHTML = `<input type="text" class="w-full border rounded p-2" placeholder="Mã quốc gia" required />`;
+        const soDienThoaiDiv = document.createElement('div');
+        soDienThoaiDiv.className = 'flex items-center';
+        soDienThoaiDiv.innerHTML = `<input type="text" class="w-full border rounded p-2 mr-2" placeholder="Số điện thoại" required />
+          <button type="button" class="remove-phone text-red-600 hover:underline text-sm">Xóa</button>`;
+        phoneGrid.appendChild(maQuocGiaDiv);
+        phoneGrid.appendChild(soDienThoaiDiv);
+        soDienThoaiDiv.querySelector('.remove-phone').onclick = function() {
+          maQuocGiaDiv.remove();
+          soDienThoaiDiv.remove();
+        };
+      });
+
+      // Hiện/ẩn thông tin liên lạc khẩn cấp
+      const urgentCheckbox = document.getElementById('urgentContact');
+      if (urgentCheckbox) {
+        urgentCheckbox.addEventListener('change', function() {
+          let urgentDiv = document.getElementById('urgentInfo');
+          if (this.checked) {
+            if (!urgentDiv) {
+              urgentDiv = document.createElement('div');
+              urgentDiv.id = 'urgentInfo';
+              urgentDiv.className = 'mt-4 p-4 border rounded bg-gray-50';
+              urgentDiv.innerHTML = `
+                <div class="font-semibold mb-2 text-green-700">Thông tin liên lạc khẩn cấp</div>
+                <div class="mb-2">
+                  <label class="block text-sm font-semibold mb-1">Tên người liên hệ</label>
+                  <input type="text" class="w-full border rounded p-2" placeholder="Tên người liên hệ" />
+                </div>
+                <div class="mb-2">
+                  <label class="block text-sm font-semibold mb-1">Số điện thoại</label>
+                  <input type="text" class="w-full border rounded p-2" placeholder="Số điện thoại" />
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold mb-1">Mối quan hệ</label>
+                  <input type="text" class="w-full border rounded p-2" placeholder="Mối quan hệ với hành khách" />
+                </div>
+              `;
+              urgentCheckbox.parentNode.parentNode.appendChild(urgentDiv);
+            }
+          } else {
+            if (urgentDiv) urgentDiv.remove();
+          }
+        });
+      }
+
+      // Kiểm tra tất cả trường bắt buộc khi bấm nút Xác nhận
+      const btnFinalSubmit = document.getElementById('btnFinalSubmit');
+      btnFinalSubmit.addEventListener('click', function(e) {
+        const form = document.querySelector('form');
+        let valid = true;
+        let firstInvalid = null;
+        let errors = [];
+
+        // Kiểm tra các trường thông tin cá nhân
+        const selectTitle = form.querySelector('select[required]');
+        if (!selectTitle.value) {
+          valid = false;
+          errors.push('Vui lòng chọn một tiêu đề.');
+          if (!firstInvalid) firstInvalid = selectTitle;
+          selectTitle.classList.add('border-red-500');
+        } else {
+          selectTitle.classList.remove('border-red-500');
+        }
+
+        const hoInput = form.querySelector('input[placeholder="Họ"]');
+        if (!hoInput.value) {
+          valid = false;
+          errors.push('Vui lòng nhập họ.');
+          if (!firstInvalid) firstInvalid = hoInput;
+          hoInput.classList.add('border-red-500');
+        } else {
+          hoInput.classList.remove('border-red-500');
+        }
+
+        const tenInput = form.querySelector('input[placeholder="Tên đệm và tên"]');
+        if (!tenInput.value) {
+          valid = false;
+          errors.push('Vui lòng nhập tên đệm và tên.');
+          if (!firstInvalid) firstInvalid = tenInput;
+          tenInput.classList.add('border-red-500');
+        } else {
+          tenInput.classList.remove('border-red-500');
+        }
+
+        const dobInput = form.querySelector('input[type="date"]');
+        if (!dobInput.value) {
+          valid = false;
+          errors.push('Vui lòng nhập ngày tháng năm sinh.');
+          if (!firstInvalid) firstInvalid = dobInput;
+          dobInput.classList.add('border-red-500');
+        } else {
+          dobInput.classList.remove('border-red-500');
+        }
+
+        // Email
+        const emailInput = document.querySelector('input[type=email][required]');
+        if (!emailInput.value) {
+          valid = false;
+          errors.push('Vui lòng nhập một email.');
+          if (!firstInvalid) firstInvalid = emailInput;
+          emailInput.classList.add('border-red-500');
+        } else {
+          emailInput.classList.remove('border-red-500');
+        }
+
+        // Mã quốc gia
+        const countryCodeInput = document.querySelector('input[placeholder="Mã quốc gia"]');
+        if (!countryCodeInput.value) {
+          valid = false;
+          errors.push('Vui lòng chọn mã quốc gia của điện thoại.');
+          if (!firstInvalid) firstInvalid = countryCodeInput;
+          countryCodeInput.classList.add('border-red-500');
+        } else {
+          countryCodeInput.classList.remove('border-red-500');
+        }
+
+        // Số điện thoại
+        const phoneInput = document.querySelector('input[placeholder="Số điện thoại"]');
+        if (!phoneInput.value) {
+          valid = false;
+          errors.push('Vui lòng nhập số điện thoại.');
+          if (!firstInvalid) firstInvalid = phoneInput;
+          phoneInput.classList.add('border-red-500');
+        } else {
+          phoneInput.classList.remove('border-red-500');
+        }
+
+        // Điều khoản
+        const agreePolicy = document.getElementById('agreePolicy');
+        if (!agreePolicy.checked) {
+          valid = false;
+          errors.push('Vui lòng cho phép lưu trữ dữ liệu của bạn để tiếp tục.');
+          agreePolicy.classList.add('ring-2', 'ring-red-500');
+        } else {
+          agreePolicy.classList.remove('ring-2', 'ring-red-500');
+        }
+
+        // Hiển thị thông báo lỗi
+        const errorSummary = document.getElementById('errorSummary');
+        if (!valid) {
+          e.preventDefault();
+          let html = `
+            <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded mb-6 shadow">
+              <div class="flex items-center mb-2">
+                <span class="text-2xl mr-2">❗</span>
+                <span class="font-bold text-xl">${errors.length} lỗi</span>
+              </div>
+              <div>Vui lòng kiểm tra thông tin bên dưới:</div>
+              <ul class="list-disc pl-6 mt-2">
+                ${errors.map(err => `<li class="text-green-700 hover:underline cursor-pointer">${err}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+          errorSummary.innerHTML = html;
+          if (firstInvalid) firstInvalid.focus();
+          return false;
+        } else {
+          errorSummary.innerHTML = '';
+          e.preventDefault();
+          window.location.href = '/get-ticket/itinerary';
+        }
+      });
+    });
+    </script>
+</body>
+</html> 

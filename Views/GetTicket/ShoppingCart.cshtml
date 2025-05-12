@@ -1,0 +1,167 @@
+@{
+    Layout = "_GetTicketLayout";
+    ViewData["Title"] = "Giỏ vé của bạn";
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giỏ vé của bạn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans min-h-screen">
+  <!-- Banner hành trình -->
+  <div class="max-w-5xl mx-auto mt-8 mb-6">
+    <div class="bg-white rounded-xl shadow flex flex-col md:flex-row items-center justify-between p-6">
+      <div class="flex items-center gap-4">
+        <span class="font-bold text-2xl text-green-700">Hành trình của Quý khách</span>
+        <span class="ml-4 text-lg font-semibold text-gray-700">Hà Nội đến TP. Hồ Chí Minh</span>
+      </div>
+      <div class="mt-4 md:mt-0">
+        <span class="text-sm text-gray-500">Khởi hành: Thứ Tư, 7 tháng 5, 2025</span>
+      </div>
+    </div>
+  </div>
+  <!-- Danh sách chuyến bay đã chọn -->
+  <div class="max-w-5xl mx-auto">
+    <div class="bg-white rounded-xl shadow p-6 mb-6">
+      <h2 class="text-xl font-bold text-blue-900 mb-4">Các chuyến bay</h2>
+      <div class="space-y-6">
+        <!-- Chuyến bay 1 -->
+        <div class="flex flex-col md:flex-row justify-between items-center border-b pb-4">
+          <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
+            <div class="text-center md:text-left">
+              <div class="text-lg font-bold text-gray-800">17:05</div>
+              <div class="text-xs text-gray-500">HAN</div>
+              <div class="text-xs text-gray-500">Nhà ga 1</div>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="text-xs text-green-700 font-semibold mb-1">Bay thẳng</div>
+              <div class="w-24 border-t-2 border-dotted border-gray-400 mb-1"></div>
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M2.5 19l19-7-7 7-2-2-7 2z" /></svg>
+            </div>
+            <div class="text-center md:text-left">
+              <div class="text-lg font-bold text-gray-800">19:15</div>
+              <div class="text-xs text-gray-500">SGN</div>
+              <div class="text-xs text-gray-500">Nhà ga 1</div>
+            </div>
+            <div class="flex flex-col text-xs text-gray-600 ml-4">
+              <span>⏱ Thời gian bay 2h 10min</span>
+              <span>✈ QH 269 được Bamboo Airways khai thác.</span>
+              <a href="#" class="text-green-700 font-semibold hover:underline view-detail"
+                 data-from="Hà Nội" data-to="TP. Hồ Chí Minh"
+                 data-date="Thứ Tư, 7 tháng 5, 2025"
+                 data-time="17:05" data-arrive="19:15"
+                 data-from-airport="Sân bay Quốc tế Nội Bài (HAN)"
+                 data-to-airport="Sân bay Quốc tế Tân Sơn Nhất (SGN)"
+                 data-from-terminal="Nhà ga 1"
+                 data-to-terminal="Nhà ga 1"
+                 data-duration="2h 10min"
+                 data-flight="QH 269"
+                 data-airline="Bamboo Airways"
+                 data-plane="AIRBUS A321"
+              >Xem chi tiết hành trình</a>
+            </div>
+          </div>
+          <div class="flex flex-col items-end mt-4 md:mt-0">
+            <div class="text-green-700 font-bold text-lg">Economy Smart</div>
+            <div class="text-blue-900 font-bold text-xl">2.024.500 VND</div>
+          </div>
+        </div>
+        <!-- Chuyến bay 2 -->
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
+            <div class="text-center md:text-left">
+              <div class="text-lg font-bold text-gray-800">07:10</div>
+              <div class="text-xs text-gray-500">SGN</div>
+              <div class="text-xs text-gray-500">Nhà ga 1</div>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="text-xs text-green-700 font-semibold mb-1">Bay thẳng</div>
+              <div class="w-24 border-t-2 border-dotted border-gray-400 mb-1"></div>
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M2.5 19l19-7-7 7-2-2-7 2z" /></svg>
+            </div>
+            <div class="text-center md:text-left">
+              <div class="text-lg font-bold text-gray-800">09:20</div>
+              <div class="text-xs text-gray-500">HAN</div>
+              <div class="text-xs text-gray-500">Nhà ga 1</div>
+            </div>
+            <div class="flex flex-col text-xs text-gray-600 ml-4">
+              <span>⏱ Thời gian bay 2h 10min</span>
+              <span>✈ QH 204 được Bamboo Airways khai thác.</span>
+              <a href="#" class="text-green-700 font-semibold hover:underline view-detail"
+                 data-from="TP. Hồ Chí Minh" data-to="Hà Nội"
+                 data-date="Thứ Bảy, 10 tháng 5, 2025"
+                 data-time="07:10" data-arrive="09:20"
+                 data-from-airport="Sân bay Quốc tế Tân Sơn Nhất (SGN)"
+                 data-to-airport="Sân bay Quốc tế Nội Bài (HAN)"
+                 data-from-terminal="Nhà ga 1"
+                 data-to-terminal="Nhà ga 1"
+                 data-duration="2h 10min"
+                 data-flight="QH 204"
+                 data-airline="Bamboo Airways"
+                 data-plane="AIRBUS A321"
+              >Xem chi tiết hành trình</a>
+            </div>
+          </div>
+          <div class="flex flex-col items-end mt-4 md:mt-0">
+            <div class="text-green-700 font-bold text-lg">Economy Smart</div>
+            <div class="text-blue-900 font-bold text-xl">2.024.500 VND</div>
+          </div>
+        </div>
+      </div>
+      <!-- Tổng giá -->
+      <div class="flex justify-end mt-6">
+        <div class="text-green-700 font-bold text-lg">Tổng giá cho các chuyến bay: <span class="text-2xl">4.049.000 VND</span></div>
+      </div>
+      <div class="text-sm text-gray-500 mt-2">Giá khứ hồi cho tất cả các hành khách (đã bao gồm thuế, phí và các chiết khấu). <a href="#" class="text-green-700 hover:underline">Xem chi tiết giá</a></div>
+      <div class="flex justify-end mt-4">
+        <a href="/get-ticket/passengerinfo" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg shadow transition">Điền thông tin hành khách</a>
+      </div>
+    </div>
+  </div>
+  <!-- Footer thông tin phụ -->
+  <div class="max-w-5xl mx-auto text-xs text-gray-500 flex flex-wrap justify-between gap-4 py-8">
+    <div>
+      <div class="font-bold mb-1">Về chúng tôi</div>
+      <a href="#" class="block hover:underline">Thông tin Công ty</a>
+      <a href="#" class="block hover:underline">Báo chí & tin tức</a>
+      <a href="#" class="block hover:underline">Đối tác</a>
+    </div>
+    <div>
+      <div class="font-bold mb-1">Pháp lý</div>
+      <a href="#" class="block hover:underline">Điều kiện & Điều khoản</a>
+      <a href="#" class="block hover:underline">Điều lệ vận chuyển</a>
+      <a href="#" class="block hover:underline">Cookie & Chính sách quyền riêng tư</a>
+    </div>
+    <div>
+      <div class="font-bold mb-1">Hỗ trợ</div>
+      <a href="#" class="block hover:underline">Nội quy/Đề nghị</a>
+      <a href="#" class="block hover:underline">Trợ giúp</a>
+      <a href="#" class="block hover:underline">Kế hoạch dịch vụ khách hàng</a>
+      <a href="#" class="block hover:underline">Thuế, phí, lệ phí và phụ thu</a>
+    </div>
+    <div>
+      <div class="font-bold mb-1">Thông tin hữu ích</div>
+      <a href="#" class="block hover:underline">Biểu phí hành lý</a>
+      <a href="#" class="block hover:underline">Biểu phí dịch vụ đặc biệt & tuỳ chọn</a>
+      <a href="#" class="block hover:underline">Thuế, phí, lệ phí và phụ thu</a>
+    </div>
+  </div>
+  <div id="veDiInfo"></div>
+  <div id="veVeInfo"></div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const veDi = JSON.parse(localStorage.getItem('veDi') || '{}');
+    const veVe = JSON.parse(localStorage.getItem('veVe') || '{}');
+    // Render thông tin vé đi/vé về ra giao diện
+    document.getElementById('veDiInfo').textContent = veDi.selectedClass + ' - ' + veDi.selectedPrice;
+    document.getElementById('veVeInfo').textContent = veVe.selectedClass + ' - ' + veVe.selectedPrice;
+    // Xóa localStorage nếu muốn sau khi render
+    // localStorage.removeItem('veDi');
+    // localStorage.removeItem('veVe');
+  });
+  </script>
+</body>
+</html> 
