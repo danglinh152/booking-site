@@ -24,8 +24,8 @@
                                     <tr>
                                         <th>Airport ID</th>
                                         <th>Name</th>
+                                        <th>Airport Code</th>
                                         <th>City</th>
-                                        <th>Country</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -35,11 +35,11 @@
                                         <tr>
                                             <td>@airport.AirportID</td>
                                             <td>@airport.Name</td>
+                                            <td>@airport.AirportCode</td>
                                             <td>@airport.City</td>
-                                            <td>@airport.Country</td>
                                             <td>
                                                 <button class="btn btn-secondary"
-                                                    onclick="showDetails(@airport.AirportID, '@airport.Name', '@airport.City', '@airport.Country')">
+                                                    onclick="showDetails(@airport.AirportID, '@airport.Name', '@airport.City', '@airport.AirportCode')">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                                 <a href="/admin/airports/edit/@airport.AirportID"
@@ -76,8 +76,9 @@
             <div class="modal-body">
                 <p><strong>Airport ID:</strong> <span id="airportId"></span></p>
                 <p><strong>Name:</strong> <span id="airportName"></span></p>
+                <p><strong>Airport Code:</strong> <span id="airportCode"></span></p>
                 <p><strong>City:</strong> <span id="airportCity"></span></p>
-                <p><strong>Country:</strong> <span id="airportCountry"></span></p>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -107,12 +108,12 @@
 </div>
 
 <script>
-    function showDetails(id, name, city, country) {
+    function showDetails(id, name, city, code) {
         // Set the modal content
         document.getElementById('airportId').textContent = id;
         document.getElementById('airportName').textContent = name;
         document.getElementById('airportCity').textContent = city;
-        document.getElementById('airportCountry').textContent = country;
+        document.getElementById('airportCode').textContent = code;
 
         // Show the modal
         const modal = new bootstrap.Modal(document.getElementById('airportDetailsModal'));

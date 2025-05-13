@@ -22,33 +22,33 @@
                                     placeholder="Enter Airport Name" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label" for="countrySelect">Country</label>
-                                <select class="form-select" asp-for="Country" id="countrySelect"
-                                    onchange="updateCityOptions()" required>
-                                    <option value="">Select a Country</option> <!-- Added placeholder option -->
-                                    <option value="Vietnam">Vietnam</option>
-                                    <option value="USA">USA</option>
-                                    <option value="Canada">Canada</option>
-                                    <option value="Germany">Germany</option>
-                                    <option value="France">France</option>
-                                    <option value="Japan">Japan</option>
-                                    <option value="Italy">Italy</option>
-                                    <option value="UK">UK</option>
-                                    <option value="Australia">Australia</option>
-                                    <option value="India">India</option>
-                                    <option value="SouthKorea">South Korea</option>
-                                    <option value="Brazil">Brazil</option>
-                                    <option value="Mexico">Mexico</option>
-                                    <option value="Russia">Russia</option>
-                                    <option value="China">China</option>
-                                    <option value="Spain">Spain</option>
-                                    <option value="Argentina">Argentina</option>
-                                </select>
+                                <label class="form-label" for="airportCode">Airport Code</label>
+                                <input type="text" class="form-control" id="AirportCode" asp-for="AirportCode"
+                                    placeholder="Enter Airport Code" required>
                             </div>
+                            
                             <div class="form-group mb-3">
                                 <label class="form-label" for="citySelect">City</label>
                                 <select asp-for="City" class="form-select" id="citySelect" required>
-                                    <!-- Cities will be populated based on selected country -->
+                                    <option value="">-- Chọn tỉnh/thành có sân bay --</option>
+                                    <option value="Hà Nội">Hà Nội</option>
+                                    <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                    <option value="Hải Phòng">Hải Phòng</option>
+                                    <option value="Thanh Hóa">Thanh Hóa</option>
+                                    <option value="Nghệ An">Nghệ An</option>
+                                    <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                                    <option value="Khánh Hòa">Khánh Hòa</option>
+                                    <option value="Lâm Đồng">Lâm Đồng</option>
+                                    <option value="Bình Định">Bình Định</option>
+                                    <option value="Quảng Bình">Quảng Bình</option>
+                                    <option value="Quảng Nam">Quảng Nam</option>
+                                    <option value="Quảng Ninh">Quảng Ninh</option>
+                                    <option value="Cần Thơ">Cần Thơ</option>
+                                    <option value="Kiên Giang">Kiên Giang</option>
+                                    <option value="Cà Mau">Cà Mau</option>
+                                    <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
+                                    <option value="Điện Biên">Điện Biên</option>
                                 </select>
                             </div>
                             <div class="d-flex justify-content-between">
@@ -64,7 +64,7 @@
     </div>
 </div>
 
-<script>
+<!-- <script>
     // Function to update city options based on selected country
     function updateCityOptions() {
         const countrySelect = document.getElementById('countrySelect');
@@ -115,4 +115,4 @@
     document.addEventListener('DOMContentLoaded', function () {
         updateCityOptions();
     });
-</script>
+</script> -->
