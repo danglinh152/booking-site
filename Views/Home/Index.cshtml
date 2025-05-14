@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@model List<BookingSite.Models.Airport>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +13,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/homepage/styles.css">
 </head>
+<style>
+    .dropdown-list {
+        border: 1px solid #ccc;
+        max-height: 150px;
+        overflow-y: auto;
+        position: absolute;
+        background: white;
+        color: #000;
+        z-index: 1000;
+        width: 400px;
+    }
+
+    .dropdown-list div {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .dropdown-list div:hover {
+        background-color: #eee;
+    }
+</style>
 
 <body>
     <div>
@@ -56,22 +77,10 @@
                                 <!-- Cột "Từ" -->
                                 <div class="col-md-3">
                                     <label class="form-label">Từ</label>
-                                    <div class="dropdown">
-                                        <button id="dropdownFromBtn" class="btn btn-light dropdown-toggle w-100" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                                            <span class="dropdown-text">Chọn điểm đi</span>
-                                        </button>
-                                        <div class="dropdown-menu p-2" style="min-width: 220px;">
-                                            
-                                            <div class="tab-content mt-2" id="tabCountryFromContent">
-                                                <div class="tab-pane fade show active" id="vn-from" role="tabpanel" aria-labelledby="vn-tab-from">
-                                                    <button class="dropdown-item" data-value="HAN">Hà Nội (HAN)</button>
-                                                    <button class="dropdown-item" data-value="SGN">TP. Hồ Chí Minh (SGN)</button>
-                                                    <button class="dropdown-item" data-value="DAD">Đà Nẵng (DAD)</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <input type="text" id="departureInput" placeholder="Điểm đi" autocomplete="off"
+                                        class="form-control mt-1" />
+                                    <input type="text" id="departureHide" class="form-control mt-1" hidden/>
+                                    <div id="departureList" class="dropdown-list" ></div>
                                 </div>
                                 <!-- Nút Swap -->
                                 <div class="col-md-1 d-flex align-items-end">
@@ -80,21 +89,10 @@
                                 <!-- Cột "Tới" -->
                                 <div class="col-md-3">
                                     <label class="form-label">Tới</label>
-                                    <div class="dropdown">
-                                        <button id="dropdownToBtn" class="btn btn-light dropdown-toggle w-100" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                                            <span class="dropdown-text">Chọn điểm đến</span>
-                                        </button>
-                                        <div class="dropdown-menu p-2" style="min-width: 220px;">
-                                            <div class="tab-content mt-2" id="tabCountryToContent">
-                                                <div class="tab-pane fade show active" id="vn-to" role="tabpanel" aria-labelledby="vn-tab-to">
-                                                    <button class="dropdown-item" data-value="HAN">Hà Nội (HAN)</button>
-                                                    <button class="dropdown-item" data-value="SGN">TP. Hồ Chí Minh (SGN)</button>
-                                                    <button class="dropdown-item" data-value="DAD">Đà Nẵng (DAD)</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <input type="text" id="arrivalInput" placeholder="Điểm đến" autocomplete="off"
+                                            class="form-control mt-1" />
+                                    <input type="text" id="arrivalHide" class="form-control mt-1" hidden/>
+                                    <div id="arrivalList" class="dropdown-list" ></div>
                                 </div>
 
                                 <!-- Cột "Ngày đi" -->
@@ -160,14 +158,15 @@
                                         placeholder="Nhập mã giảm giá của bạn">
                                 </div>
                                 <!-- Nút tìm chuyến bay -->
-                                <form class="col-md-4 align-self-end" asp-action="GetTicket" asp-controller="GetTicket" method="get">
+                                <form class="col-md-4 align-self-end" asp-action="GetTicket" asp-controller="GetTicket"
+                                    method="get">
                                     <!-- Các input -->
-                                    <div >
+                                    <div>
                                         <button type="submit" class="btn-cuatao w-100">Tìm Chuyến Bay</button>
                                     </div>
                                 </form>
 
-                                
+
                             </div>
 
                             <div class="form-check form-switch mt-3">
@@ -250,23 +249,28 @@
                 </div>
                 <!-- Thanh dịch vụ: Hiển thị các tiện ích, có hiệu ứng động khi hover. Đặt dưới form, ngoài tab-content. -->
                 <div class="service-bar d-flex justify-content-center align-items-center gap-3 mt-4">
-                    <button type="button" class="service-item text-center" aria-label="Suất Ăn" onclick="window.location.href='/Meal'">
+                    <button type="button" class="service-item text-center" aria-label="Suất Ăn"
+                        onclick="window.location.href='/Meal'">
                         <i class="fas fa-utensils service-icon"></i>
                         <div>Suất Ăn</div>
                     </button>
-                    <button type="button" class="service-item text-center" aria-label="Hành Lý" onclick="window.location.href='/Luggage'">
+                    <button type="button" class="service-item text-center" aria-label="Hành Lý"
+                        onclick="window.location.href='/Luggage'">
                         <i class="fas fa-suitcase-rolling service-icon"></i>
                         <div>Hành Lý</div>
                     </button>
-                    <button type="button" class="service-item text-center" aria-label="Chọn Chỗ Ngồi" onclick="window.location.href='/ChooseSeat' ">
+                    <button type="button" class="service-item text-center" aria-label="Chọn Chỗ Ngồi"
+                        onclick="window.location.href='/ChooseSeat' ">
                         <i class="fas fa-chair service-icon"></i>
                         <div>Chọn Chỗ Ngồi</div>
                     </button>
-                    <button type="button" class="service-item text-center" aria-label="Bảo Hiểm" onclick="window.location.href='/Insurance' " >
+                    <button type="button" class="service-item text-center" aria-label="Bảo Hiểm"
+                        onclick="window.location.href='/Insurance' ">
                         <i class="fas fa-shield-alt service-icon"></i>
                         <div>Bảo Hiểm</div>
                     </button>
-                    <button type="button" class="service-item text-center" aria-label="Phòng Chờ" onclick="window.location.href='/Lounge' " >
+                    <button type="button" class="service-item text-center" aria-label="Phòng Chờ"
+                        onclick="window.location.href='/Lounge' ">
                         <i class="fas fa-couch service-icon"></i>
                         <div>Phòng Chờ</div>
                     </button>
@@ -278,7 +282,8 @@
                         <i class="fas fa-gift service-icon"></i>
                         <div>Thẻ Quà Tặng</div>
                     </button>
-                    <button type="button" class="service-item text-center" aria-label="Khách Sạn" onclick="window.location.href='/Hotel' " >
+                    <button type="button" class="service-item text-center" aria-label="Khách Sạn"
+                        onclick="window.location.href='/Hotel' ">
                         <i class="fas fa-hotel service-icon"></i>
                         <div>Khách Sạn</div>
                     </button>
@@ -624,28 +629,29 @@
                     </div> 
                 `;
             }
-            
+
             //hàm chuyển đổi giữa các thẻ Đặt Vé, Làm Thủ Tục, Đặt Chỗ Của Tôi  
             function switchTab(tabId, element) {
-            // Hide all tabs
-            const tabs = document.querySelectorAll('.tab-pane');
-            tabs.forEach(tab => {
-                tab.classList.remove('show', 'active');
-            });
+                // Hide all tabs
+                const tabs = document.querySelectorAll('.tab-pane');
+                tabs.forEach(tab => {
+                    tab.classList.remove('show', 'active');
+                });
 
-            // Show the selected tab
-            const selectedTab = document.getElementById(tabId);
-            selectedTab.classList.add('show', 'active');
+                // Show the selected tab
+                const selectedTab = document.getElementById(tabId);
+                selectedTab.classList.add('show', 'active');
 
-            // Remove active class from all tab links
-            const tabLinks = document.querySelectorAll('.nav-link');
-            tabLinks.forEach(link => {
-                link.classList.remove('active');
-            });
+                // Remove active class from all tab links
+                const tabLinks = document.querySelectorAll('.nav-link');
+                tabLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
 
-            // Add active class to the clicked tab link
-            element.classList.add('active');
+                // Add active class to the clicked tab link
+                element.classList.add('active');
             }
+            
 
             // Bấm vào đa chặng thì sẽ hiện ra web để chọn đa chặng
             const multicityRadio = document.getElementById('multicity');
@@ -683,7 +689,7 @@
             }
 
             // Kiểm tra khi trang được tải
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 // Kiểm tra nếu quay về từ Multicity
                 if (localStorage.getItem('fromMulticity') === 'true') {
                     const oneWayRadio = document.getElementById('oneWay');
@@ -697,6 +703,81 @@
                     localStorage.removeItem('fromMulticity');
                 }
             });
+
+            const airportList = @Html.Raw(Json.Serialize(
+                Model.Select(a => new {
+                    id = a.AirportID,
+                    name = a.Name,
+                    code = a.AirportCode,
+                    city = a.City,
+                    display = $"{a.City}, {a.Name} ({a.AirportCode})",
+                    displayInput = $"{a.City} ({a.AirportCode})"
+                })
+            ));
+
+            function setupSearch(inputId, listId, inputHidden) {
+                const input = document.getElementById(inputId);
+                const list = document.getElementById(listId);
+                const inputHide = document.getElementById(inputHidden);
+
+                input.addEventListener("input", function () {
+                    const value = input.value.toLowerCase();
+                    list.innerHTML = "";
+
+                    if (value === "") {
+                        list.innerHTML = ""
+                        airportList.forEach((item) => {
+                            const div = document.createElement("div");
+                            div.textContent = item.display;
+                            div.onclick = function () {
+                                input.value = item.displayInput;
+                                inputHide.value = item.id;
+                                list.style.display = "none";
+                            };
+                            list.appendChild(div);
+                        })
+                        list.style.display = "block"
+                    }
+
+                    const matches = airportList.filter(item => item.display.toLowerCase().includes(value));
+                    matches.forEach(item => {
+                        const div = document.createElement("div");
+                        div.textContent = item.display;
+                        div.onclick = function () {
+                            input.value = item.displayInput;
+                            inputHide.value = item.id;
+                            list.style.display = "none";
+                        };
+                        list.appendChild(div);
+                    });
+                });
+
+                input.addEventListener("focus", () => {
+                    if (input.value !== "") input.dispatchEvent(new Event("input"));
+                    list.innerHTML = ""
+                    airportList.forEach((item) => {
+                        const div = document.createElement("div");
+                        div.textContent = item.display;
+                        div.onclick = function () {
+                            input.value = item.displayInput;
+                            inputHide.value = item.id;
+                            list.style.display = "none";
+                        };
+                        list.appendChild(div);
+                    })
+                    list.style.display = "block"
+                });
+
+                document.addEventListener("click", (e) => {
+                    if (!input.contains(e.target) && !list.contains(e.target)) {
+                        list.style.display = "none";
+                    }
+                });
+            }
+
+            setupSearch("departureInput", "departureList","departureHide");
+            setupSearch("arrivalInput", "arrivalList", "arrivalHide");
         </script>
 </body>
+
 </html>

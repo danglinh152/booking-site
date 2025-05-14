@@ -7,24 +7,26 @@ namespace BookingSite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly FlightBookingContext context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, FlightBookingContext context)
         {
             _logger = logger;
+            this.context = context;
         }
 
         public IActionResult Index()
         {
-            
-            return View();
+            var airports = context.Airports.ToList();
+            return View(airports);
         }
-        
+
         [Route("Multicity")]
         public IActionResult MultiCity()
         {
             return View();
         }
-        
+
         public IActionResult Privacy()
         {
             return View();
@@ -54,7 +56,7 @@ namespace BookingSite.Controllers
             return View();
         }
 
-        [Route("explore")]
+        [Route("Explore")]
         public IActionResult Explore()
         {
             return View();
