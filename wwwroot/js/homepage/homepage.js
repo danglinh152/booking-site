@@ -149,59 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
     
-    // === Điều chỉnh số lượng hành khách ===
-    const amountPassenger = document.getElementById("amountPassenger");
-    const adultCountEl = document.getElementById("adultCount");
-    const childCountEl = document.getElementById("childCount");
-    const infantCountEl = document.getElementById("infantCount");
-
-    function updatePassengerLabel() {
-        if (amountPassenger && adultCountEl && childCountEl && infantCountEl) {
-            let adult = parseInt(adultCountEl.textContent);
-            let child = parseInt(childCountEl.textContent);
-            let infant = parseInt(infantCountEl.textContent);
-            amountPassenger.textContent = `${adult + child + infant}`;
-        }
-    }
-    //cập nhật số lượng hành khách
-    function updateCount(type, change) {
-      const adultCount = document.getElementById('adultCount');
-      const childCount = document.getElementById('childCount');
-      const infantCount = document.getElementById('infantCount');
-
-      if (type === 'adult') {
-          let count = parseInt(adultCount.innerText) + change;
-          adultCount.innerText = count < 1 ? 1 : count; // Minimum 1 adult
-      } else if (type === 'child') {
-          let count = parseInt(childCount.innerText) + change;
-          childCount.innerText = count < 0 ? 0 : count; // Minimum 0 children
-      } else if (type === 'infant') {
-          let count = parseInt(infantCount.innerText) + change;
-          infantCount.innerText = count < 0 ? 0 : count; // Minimum 0 infants
-      }
-
-      // Update total passengers
-      const totalPassengers = parseInt(adultCount.innerText) + parseInt(childCount.innerText) + parseInt(infantCount.innerText);
-      document.getElementById('amountPassenger').innerText = totalPassengers;
-  }
-    window.updateCount = function (type, change) {
-        let countElement = type === "adult" ? adultCountEl : type === "child" ? childCountEl : infantCountEl;
-
-        if (!countElement) return;
-        let count = parseInt(countElement.textContent) + change;
-
-        if (type === "adult" && count < 1) return;
-        if ((type === "child" || type === "infant") && count < 0) return;
-        if (type === "infant" && count > parseInt(adultCountEl.textContent)) {
-            alert("Mỗi trẻ sơ sinh cần ít nhất một người lớn đi kèm.");
-            return;
-        }
-
-        countElement.textContent = count;
-        updatePassengerLabel();
-    };
-
-    if (amountPassenger) updatePassengerLabel();
+    
 
     // === Giữ dropdown mở khi chọn số lượng hành khách ===
     const passengerSelect = document.getElementById("passengerSelect");
