@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using BookingSite.Models;
+using BookingSite.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookingSite.Controllers
@@ -17,6 +18,14 @@ namespace BookingSite.Controllers
         [HttpGet("")] // Đây là action mặc định cho /get-ticket
         public IActionResult GetTicket()
         {
+            return View();
+        }
+
+        [HttpPost("")] 
+        public IActionResult GetTicket(SearchFlightViewModel searchFlightViewModel)
+        {
+            
+            
             return View();
         }
 

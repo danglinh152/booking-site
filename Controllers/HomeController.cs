@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using BookingSite.Models;
+using BookingSite.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookingSite.Controllers
@@ -18,7 +19,9 @@ namespace BookingSite.Controllers
         public IActionResult Index()
         {
             var airports = context.Airports.ToList();
-            return View(airports);
+            SearchFlightViewModel searchFlightViewModel = new SearchFlightViewModel();
+            searchFlightViewModel.Airports = airports;
+            return View(searchFlightViewModel);
         }
 
         [Route("Multicity")]

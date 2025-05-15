@@ -1,7 +1,8 @@
-﻿@{
+﻿@using BookingSite.ViewModel
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model List<BookingSite.Models.Airport>
+@model SearchFlightViewModel
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +24,7 @@
         color: #000;
         z-index: 1000;
         width: 400px;
-    }
+  }
 
     .dropdown-list div {
         padding: 8px;
@@ -72,14 +73,15 @@
                                     </label>
                                 </div>
                             </div>
-
+                            <form method="post" asp-controller="GetTicket" asp-action="GetTicket">
+                                <input type="text" id="searchType" asp-for="SearchType" hidden>
                             <div class="row g-3">
                                 <!-- Cột "Từ" -->
                                 <div class="col-md-3">
                                     <label class="form-label">Từ</label>
                                     <input type="text" id="departureInput" placeholder="Điểm đi" autocomplete="off"
                                         class="form-control mt-1" />
-                                    <input type="text" id="departureHide" class="form-control mt-1" hidden/>
+                                    <input asp-for="DepartureID"  type="text" id="departureHide" class="form-control mt-1" hidden/>
                                     <div id="departureList" class="dropdown-list" ></div>
                                 </div>
                                 <!-- Nút Swap -->
@@ -91,19 +93,19 @@
                                     <label class="form-label">Tới</label>
                                     <input type="text" id="arrivalInput" placeholder="Điểm đến" autocomplete="off"
                                             class="form-control mt-1" />
-                                    <input type="text" id="arrivalHide" class="form-control mt-1" hidden/>
+                                    <input type="text" id="arrivalHide" class="form-control mt-1" hidden asp-for="ArrivalID"/>
                                     <div id="arrivalList" class="dropdown-list" ></div>
                                 </div>
 
                                 <!-- Cột "Ngày đi" -->
                                 <div id="depart-date-container" class="col-md-2">
                                     <label for="depart-date" class="form-label">Ngày đi</label>
-                                    <input type="date" id="depart-date" class="form-control">
+                                    <input type="date" id="depart-date" class="form-control" asp-for="DepartureDate" />
                                 </div>
                                 <!-- Cột "Ngày về" -->
                                 <div id="return-date-container" class="col-md-2" style="display: none;">
                                     <label for="return-date" class="form-label">Ngày về</label>
-                                    <input type="date" id="return-date" class="form-control">
+                                    <input type="date" id="return-date" class="form-control" asp-for="ReturnDate" >
                                 </div>
                             </div>
 
@@ -116,35 +118,36 @@
                                             type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                                             aria-expanded="false">
                                             <span id="amountPassenger">1</span>
+                                            <input type="number" asp-for="PassengerNumber" hidden id="PassengerHidden" />
                                         </button>
                                         <div class="dropdown-menu p-3" id="passengerBox">
                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                 <span class="passenger-label">Người lớn</span>
                                                 <div class="counter">
-                                                    <button class="btn btn-outline-secondary btn-sm"
+                                                    <button class="btn btn-outline-secondary btn-sm" type="button"
                                                         onclick="updateCount('adult', -1)">-</button>
                                                     <span id="adultCount">1</span>
-                                                    <button class="btn btn-outline-secondary btn-sm"
+                                                    <button class="btn btn-outline-secondary btn-sm" type="button"
                                                         onclick="updateCount('adult', 1)">+</button>
                                                 </div>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                 <span class="passenger-label">Trẻ em (2-11 tuổi)</span>
                                                 <div class="counter">
-                                                    <button class="btn btn-outline-secondary btn-sm"
+                                                    <button class="btn btn-outline-secondary btn-sm" type="button"
                                                         onclick="updateCount('child', -1)">-</button>
                                                     <span id="childCount">0</span>
-                                                    <button class="btn btn-outline-secondary btn-sm"
+                                                    <button class="btn btn-outline-secondary btn-sm" type="button"
                                                         onclick="updateCount('child', 1)">+</button>
                                                 </div>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <span class="passenger-label">Trẻ sơ sinh (0-2 tuổi)</span>
                                                 <div class="counter">
-                                                    <button class="btn btn-outline-secondary btn-sm"
+                                                    <button class="btn btn-outline-secondary btn-sm" type="button"
                                                         onclick="updateCount('infant', -1)">-</button>
                                                     <span id="infantCount">0</span>
-                                                    <button class="btn btn-outline-secondary btn-sm"
+                                                    <button class="btn btn-outline-secondary btn-sm" type="button"
                                                         onclick="updateCount('infant', 1)">+</button>
                                                 </div>
                                             </div>
@@ -158,15 +161,13 @@
                                         placeholder="Nhập mã giảm giá của bạn">
                                 </div>
                                 <!-- Nút tìm chuyến bay -->
-                                <form class="col-md-4 align-self-end" asp-action="GetTicket" asp-controller="GetTicket"
-                                    method="get">
+                                <div class="col-md-4 align-self-end">
                                     <!-- Các input -->
                                     <div>
                                         <button type="submit" class="btn-cuatao w-100">Tìm Chuyến Bay</button>
                                     </div>
+                                </div>
                                 </form>
-
-
                             </div>
 
                             <div class="form-check form-switch mt-3">
@@ -667,24 +668,25 @@
 
             // Xử lý sự kiện swap điểm đi và điểm đến
             const swapButton = document.getElementById("swapButton");
-            const fromDropdown = document.getElementById("dropdownFromBtn");
-            const toDropdown = document.getElementById("dropdownToBtn");
+            
+            const departureInput = document.getElementById("departureInput");
+            const arrivalInput = document.getElementById("arrivalInput");
+            const departureHide = document.getElementById("departureHide");
+            const arrivalHide = document.getElementById("arrivalHide");
 
-            if (swapButton && fromDropdown && toDropdown) {
+            if (swapButton && departureInput && arrivalInput && departureHide && arrivalHide) {
                 swapButton.addEventListener("click", function (e) {
                     e.preventDefault();
-                    const fromTextSpan = fromDropdown.querySelector('.dropdown-text');
-                    const toTextSpan = toDropdown.querySelector('.dropdown-text');
-                    const fromValue = fromDropdown.getAttribute("data-value");
-                    const toValue = toDropdown.getAttribute("data-value");
-                    const fromText = fromTextSpan ? fromTextSpan.textContent : '';
-                    const toText = toTextSpan ? toTextSpan.textContent : '';
+                    const departureInputText = departureInput.value;
+                    const arrivalInputText = arrivalInput.value;
+                    const departureHideValue = departureHide.value;
+                    const arrivalHideValue = arrivalHide.value;
 
                     // Hoán đổi text và value
-                    if (fromTextSpan) fromTextSpan.textContent = toText;
-                    if (toTextSpan) toTextSpan.textContent = fromText;
-                    fromDropdown.setAttribute("data-value", toValue);
-                    toDropdown.setAttribute("data-value", fromValue);
+                    if (departureInput) departureInput.value = arrivalInputText;
+                    if (arrivalInput) arrivalInput.value = departureInputText;
+                    if (departureHide) departureHide.value = arrivalHideValue;
+                    if (arrivalHide) arrivalHide.value = departureHideValue;
                 });
             }
 
@@ -705,7 +707,7 @@
             });
 
             const airportList = @Html.Raw(Json.Serialize(
-                Model.Select(a => new {
+                Model.Airports.Select(a => new {
                     id = a.AirportID,
                     name = a.Name,
                     code = a.AirportCode,
@@ -784,6 +786,8 @@
             const adultCountEl = document.getElementById("adultCount");
             const childCountEl = document.getElementById("childCount");
             const infantCountEl = document.getElementById("infantCount");
+            const passengerHidden = document.getElementById("PassengerHidden");
+            passengerHidden.value = amountPassenger.textContent;
 
             function updatePassengerLabel() {
                 if (amountPassenger && adultCountEl && childCountEl && infantCountEl) {
@@ -791,6 +795,7 @@
                     let child = parseInt(childCountEl.textContent);
                     let infant = parseInt(infantCountEl.textContent);
                     amountPassenger.textContent = `${adult + child + infant}`;
+                    passengerHidden.value = amountPassenger.textContent;
                 }
             }
             //cập nhật số lượng hành khách
@@ -832,6 +837,31 @@
             };
 
             if (amountPassenger) updatePassengerLabel();
+
+            const searchType = document.getElementById("searchType");
+            searchType.value = "oneWay";
+
+            // Xử lý hiển thị/ẩn ngày về khi chọn loại vé
+            const roundTripRadio = document.getElementById("roundTrip");
+            const oneWayRadio = document.getElementById("oneWay");
+            const returnDateContainer = document.getElementById("return-date-container");
+
+            if (searchType && roundTripRadio && oneWayRadio && returnDateContainer) {
+                roundTripRadio.addEventListener("change", function () {
+                if (this.checked) {
+                    searchType.value = "roundTrip";
+                    returnDateContainer.style.display = "block";   
+                }
+                });
+
+                oneWayRadio.addEventListener("change", function () {
+                if (this.checked) {
+                    returnDateContainer.style.display = "none";
+                    searchType.value = "oneWay";
+                }
+                });
+            }
+            
         </script>
 </body>
 
