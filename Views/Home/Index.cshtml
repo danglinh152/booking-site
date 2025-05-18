@@ -24,6 +24,7 @@
         color: #000;
         z-index: 1000;
         width: 400px;
+        display: none;
   }
 
     .dropdown-list div {
@@ -73,9 +74,9 @@
                                     </label>
                                 </div>
                             </div>
-                            <form method="post" asp-controller="GetTicket" asp-action="GetTicket">
-                                <input type="text" id="searchType" asp-for="SearchType" hidden>
+                            <form method="post" asp-action="Search" asp-controller="Home">
                             <div class="row g-3">
+                                <input type="text" id="searchType" asp-for="SearchType" hidden>
                                 <!-- Cột "Từ" -->
                                 <div class="col-md-3">
                                     <label class="form-label">Từ</label>
@@ -83,6 +84,7 @@
                                         class="form-control mt-1" />
                                     <input asp-for="DepartureID"  type="text" id="departureHide" class="form-control mt-1" hidden/>
                                     <div id="departureList" class="dropdown-list" ></div>
+                                    <span asp-validation-for="DepartureID" style="color: #dc3545;"></span>
                                 </div>
                                 <!-- Nút Swap -->
                                 <div class="col-md-1 d-flex align-items-end">
@@ -95,17 +97,20 @@
                                             class="form-control mt-1" />
                                     <input type="text" id="arrivalHide" class="form-control mt-1" hidden asp-for="ArrivalID"/>
                                     <div id="arrivalList" class="dropdown-list" ></div>
+                                    <span asp-validation-for="ArrivalID" style="color: #dc3545;"></span>
                                 </div>
 
                                 <!-- Cột "Ngày đi" -->
                                 <div id="depart-date-container" class="col-md-2">
                                     <label for="depart-date" class="form-label">Ngày đi</label>
                                     <input type="date" id="depart-date" class="form-control" asp-for="DepartureDate" />
+                                    <span asp-validation-for="DepartureDate" style="color: #dc3545;"></span>
                                 </div>
                                 <!-- Cột "Ngày về" -->
                                 <div id="return-date-container" class="col-md-2" style="display: none;">
                                     <label for="return-date" class="form-label">Ngày về</label>
                                     <input type="date" id="return-date" class="form-control" asp-for="ReturnDate" >
+                                    <span asp-validation-for="ReturnDate" style="color: #dc3545;"></span>
                                 </div>
                             </div>
 

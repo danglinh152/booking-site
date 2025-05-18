@@ -1,10 +1,13 @@
 using System.Diagnostics;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using BookingSite.Models;
 using BookingSite.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookingSite.Controllers
 {
+    [Route("/")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -16,12 +19,48 @@ namespace BookingSite.Controllers
             this.context = context;
         }
 
+        [HttpGet("")]
         public IActionResult Index()
         {
             var airports = context.Airports.ToList();
             SearchFlightViewModel searchFlightViewModel = new SearchFlightViewModel();
             searchFlightViewModel.Airports = airports;
             return View(searchFlightViewModel);
+        }
+
+        [HttpPost("")]
+        public IActionResult Search(SearchFlightViewModel searchFlightViewModel)
+        {
+            bool error = false;
+            if (searchFlightViewModel.DepartureID == 0)
+            {
+                error = true;
+                ModelState.AddModelError(nameof(searchFlightViewModel.DepartureID), "*Chọn điểm đi");
+            }
+            if (searchFlightViewModel.ArrivalID == 0)
+            {
+                error = true;
+                ModelState.AddModelError(nameof(searchFlightViewModel.ArrivalID), "*Chọn điểm đến");
+            }
+            if (searchFlightViewModel.DepartureDate == null)
+            {
+                error = true;
+                ModelState.AddModelError(nameof(searchFlightViewModel.DepartureDate), "*Chọn ngày đi");
+            }
+            if (searchFlightViewModel.SearchType == "roundTrip" && searchFlightViewModel.ReturnDate == null)
+            {
+                error = true;
+                ModelState.AddModelError(nameof(searchFlightViewModel.ReturnDate), "*Chọn ngày về");
+            }
+            if (error == true)
+            {
+                searchFlightViewModel.Airports = context.Airports.ToList();
+                return View("Index", searchFlightViewModel);
+            }
+
+            var json = JsonSerializer.Serialize(searchFlightViewModel);
+            TempData["SearchModel"] = json;
+            return RedirectToAction("GetTicket", "GetTicket");
         }
 
         [Route("Multicity")]

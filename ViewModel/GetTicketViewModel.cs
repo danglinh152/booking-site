@@ -14,12 +14,15 @@ namespace BookingSite.ViewModel
   public class SearchFlightViewModel
   {
     public List<Airport> Airports { get; set; } = new List<Airport>();
-    public string SearchType { get; set; } = ""; // "oneWay", "roundTrip", "multiCity"
+
+    [Required(ErrorMessage = "Vui lòng chọn loại chuyến bay")]
+    public string SearchType
+    { get; set; } = ""; // "oneWay", "roundTrip", "multiCity"
     public int DepartureID { get; set; }
     public int ArrivalID { get; set; }
     public DateTime? DepartureDate { get; set; }
     public DateTime? ReturnDate { get; set; }
-
+    [Required]
     public int PassengerNumber { get; set; }
 
     public List<FlightSegment> flightSegments = new List<FlightSegment>();
