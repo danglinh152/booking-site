@@ -16,6 +16,6 @@ namespace BookingSite.ViewModel
 
     [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
     [DataType(DataType.Password)]
-    public string Password { get; set; } = "";
+    public string Password { get; set; } = ""; 
   }
 }

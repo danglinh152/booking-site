@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookingSite.Models;
+using BookingSite.ViewModel;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookingSite.Controllers
@@ -36,24 +37,67 @@ namespace BookingSite.Controllers
             ViewBag.DepartureAirportID = new SelectList(context.Airports, "AirportID", "Name");
             ViewBag.ArrivalAirportID = new SelectList(context.Airports, "AirportID", "Name");
             ViewBag.PlaneID = new SelectList(context.Planes, "PlaneID", "Model");
-            return View();
-        }
+            return View(new CreateFlightViewModel { FareClasses = new List<CreateFareClassViewModel>() });
+        } 
+
 
         /* ==============================================================================================*/
-        [HttpPost("create")]
-        public ActionResult CreateFlight(Flight flight)
+        [HttpGet("GetPlaneCapacity/{planeId}")]
+        public async Task<IActionResult> GetPlaneCapacity(int planeId)
         {
-            if (ModelState.IsValid)
-            {
-                context.Flights.Add(flight);
-                context.SaveChanges();
-                return RedirectToAction("Flights");
-            }
-            ViewBag.DepartureAirportID = new SelectList(context.Airports, "AirportID", "Name", flight.DepartureAirportID);
-            ViewBag.ArrivalAirportID = new SelectList(context.Airports, "AirportID", "Name", flight.ArrivalAirportID);
-            ViewBag.PlaneID = new SelectList(context.Planes, "PlaneID", "Model", flight.PlaneID);
-            return View(flight);
+            var plane = await context.Planes.FindAsync(planeId);
+            if (plane == null) return NotFound();
+            return Json(new { capacity = plane.Capacity });
         }
+
+
+        /* ==============================================================================================*/
+        // [HttpPost("create")]
+        // public ActionResult CreateFlight(Flight flight)
+        // {
+        //     if (ModelState.IsValid)
+        //     {
+        //         context.Flights.Add(flight);
+        //         context.SaveChanges();
+        //         return RedirectToAction("Flights");
+        //     }
+        //     ViewBag.DepartureAirportID = new SelectList(context.Airports, "AirportID", "Name", flight.DepartureAirportID);
+        //     ViewBag.ArrivalAirportID = new SelectList(context.Airports, "AirportID", "Name", flight.ArrivalAirportID);
+        //     ViewBag.PlaneID = new SelectList(context.Planes, "PlaneID", "Model", flight.PlaneID);
+        //     return View(flight);
+        // }
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateFlight(CreateFlightViewModel model)
+        {
+            int totalSeats = model.FareClasses.Sum(fc => fc.SeatsAvailable);
+            if (totalSeats > model.PlaneCapacity)
+            {
+                ModelState.AddModelError("", "Tổng số ghế vượt quá sức chứa máy bay.");
+                return View(model);
+            }
+
+            var flight = new Flight
+            {
+                PlaneID = model.PlaneID,
+                DepartureTime = model.DepartureTime,
+                ArrivalTime = model.ArrivalTime,
+                FlightDate = model.FlightDate,
+                DepartureAirportID = model.DepartureAirportID,
+                ArrivalAirportID = model.ArrivalAirportID,
+                Status = model.Status,
+                FareClasses = model.FareClasses.Select(fc => new FareClass
+                {
+                    ClassName = fc.ClassName,
+                    Price = fc.Price,
+                    SeatsAvailable = fc.SeatsAvailable
+                }).ToList()
+            };
+
+            context.Flights.Add(flight);
+            await context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
 
         /* ==============================================================================================*/
         // GET: admin/flights/edit/1
