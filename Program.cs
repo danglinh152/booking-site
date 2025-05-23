@@ -49,7 +49,6 @@ app.MapControllerRoute(
     name: "admin",
     pattern: "admin/{controller=Admin}/{action=Index}/{id?}");
     
-
 // Route for Users
 app.MapControllerRoute(
     name: "booking",

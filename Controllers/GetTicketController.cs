@@ -1,10 +1,12 @@
 using System.Diagnostics;
+using System.Text.Json;
 using BookingSite.Models;
+using BookingSite.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookingSite.Controllers
 {
-    [Route("get-ticket")] 
+    [Route("get-ticket")]
     public class GetTicketController : Controller
     {
         private readonly ILogger<GetTicketController> _logger;
@@ -17,6 +19,16 @@ namespace BookingSite.Controllers
         [HttpGet("")] // Đây là action mặc định cho /get-ticket
         public IActionResult GetTicket()
         {
+            // var searchJson = TempData["SearchModel"] as string;
+            // var model = JsonSerializer.Deserialize<SearchFlightViewModel>(searchJson);
+
+            return View();
+        }
+
+        [HttpPost("")]
+        public IActionResult GetTicket(SearchFlightViewModel searchFlightViewModel)
+        {
+
             return View();
         }
 
@@ -55,7 +67,7 @@ namespace BookingSite.Controllers
         {
             return View();
         }
-        
+
         [HttpGet("loungeservice")]
         public IActionResult LoungeService()
         {

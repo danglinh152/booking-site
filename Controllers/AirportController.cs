@@ -68,10 +68,9 @@ namespace BookingSite.Controllers
                 return NotFound();
             }
 
-            Airport.Country = updatedAirport.Country;
+            Airport.Name = updatedAirport.Name;
+            Airport.AirportCode = updatedAirport.AirportCode;
             Airport.City = updatedAirport.City;
-            Airport.Country = updatedAirport.Country;
-
             try
             {
                 await context.SaveChangesAsync();

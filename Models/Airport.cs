@@ -11,11 +11,13 @@ namespace BookingSite.Models
         public int AirportID { get; set; } // ID của sân bay
 
         [Required]
+        public string AirportCode { get; set;}
+
+        [Required]
         public string Name { get; set; } // Tên sân bay
         [Required]
         public string City { get; set; } // Thành phố nơi sân bay tọa lạc
-        [Required]
-        public string Country { get; set; } // Quốc gia nơi sân bay tọa lạc
+        
 
         [InverseProperty("DepartureAirport")]
         [ValidateNever]
