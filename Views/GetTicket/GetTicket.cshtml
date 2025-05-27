@@ -121,7 +121,7 @@
     </div>
   </div>
 
-  </div>
+</div>
   <!-- Bộ lọc và thông báo -->
   <div class="flex items-center justify-between mt-8 mb-2 max-w-4xl mx-auto">
     <button
@@ -319,7 +319,7 @@
         mỗi hành khách.</span></div>
     <div class="flex flex-col md:flex-row gap-6 justify-center">
       <div class="ticket-class-option border rounded-xl p-6 flex-1 max-w-md bg-white cursor-pointer"
-        data-class="Economy Smart">
+        data-class="Economy">
         <div class="text-center font-semibold mb-4">Economy Class</div>
         <ul class="text-sm space-y-2">
           <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Hành lý xách tay: 7kg</li>
@@ -350,8 +350,8 @@
         mỗi hành khách.</span></div>
     <div class="flex flex-col md:flex-row gap-6 justify-center">
       <div class="ticket-class-option border rounded-xl p-6 flex-1 max-w-md bg-white cursor-pointer"
-        data-class="Business Flex">
-        <div class="text-center font-semibold mb-4">Business Flex</div>
+        data-class="Business">
+        <div class="text-center font-semibold mb-4">Business Class</div>
         <ul class="text-sm space-y-2">
           <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Hành lý xách tay: 14kg</li>
           <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>02 kiện hành lý ký gửi 32kg</li>
@@ -378,7 +378,7 @@
       ← Quay lại trang chủ
     </a>
   </div>
-  </div>
+</div>
 
   <script src="~/js/GetTicket/GetTicket.js"></script>
   <script>
@@ -659,7 +659,7 @@
           window.location.reload();
         });
       }
-
+      const passengerNumber = document.getElementById('passengerNumber').textContent;
       // Xử lý xác nhận vé
       document.body.addEventListener('click', function (e) {
         if (e.target && e.target.id === 'confirmTicketBtn') {
@@ -669,26 +669,31 @@
           if (optionsDiv) {
             // Lấy thông tin chuyến bay từ card cha
             const card = optionsDiv.closest('.flight-card');
+            const fareClass = optionsDiv.getAttribute('data-selected-class');
             if (card) {
-              const from = card.querySelector('.text-xs.text-gray-500')?.textContent || '';
-              const timeStart = card.querySelector('.text-lg.font-bold.text-gray-800')?.textContent || '';
-              const selectedClass = optionsDiv.dataset.selectedClass || '';
-              const selectedPrice = optionsDiv.dataset.selectedPrice || '';
-              let ticketData = {
-                from,
-                timeStart,
-                selectedClass,
-                selectedPrice
+              const flightId = card.getAttribute('data-flight-id');
+
+
+              // Tạo object data
+              const flightData = {
+                flightId: flightId,
+                class: fareClass,
+                passengerCount: passengerNumber
               };
-              if (step === 1) {
-                localStorage.setItem('veDi', JSON.stringify(ticketData));
-                localStorage.setItem('chonVeDi', '1');
-                window.location.reload();
-              } else if (step === 2) {
-                localStorage.setItem('veVe', JSON.stringify(ticketData));
-                localStorage.removeItem('chonVeDi');
-                window.location.href = '/get-ticket/shoppingcart';
+
+              // Lưu vào localStorage
+              localStorage.setItem('selectedFlight', JSON.stringify(flightData));
+
+              // Kiểm tra đăng nhập
+              const userId = '@Context.Session.GetString("UserID")';
+              if (!userId) {
+                sessionStorage.setItem('returnUrl', window.location.href);
+                window.location.href = '/login';
+                return;
               }
+
+              // Chuyển trang
+              window.location.href = `/get-ticket/passenger-info`;
             }
           }
         }
@@ -790,13 +795,13 @@
     });
   </script>
 
-  @* Ajax handle get flight by date *@
+@* Ajax handle get flight by date *@
   <script>
     const departureID = document.getElementById("departureID").value;
     const arrivalID = document.getElementById("arrivalID").value;
     const passengerNumber = document.getElementById("passengerNumber").textContent;
     const departureDate = document.getElementById("departureDate").textContent;
-    
+
     document.addEventListener('DOMContentLoaded', function () {
       loadFlightsForDate(departureDate, departureID, arrivalID, passengerNumber);
 
@@ -839,7 +844,7 @@
 
       flights.forEach((flight, index) => {
         html += `
-        <div class="flight-card" data-card="${index + 1}">
+        <div class="flight-card" data-card="${index + 1}" data-flight-id="${flight.FlightID}">
             <div class="flex flex-col md:flex-row bg-white rounded-xl shadow p-4 items-center justify-between mt-6">
                 <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
                     <div class="text-center md:text-left">
@@ -953,7 +958,7 @@
       });
 
     
-    }
+    }                  
   </script>
 </body>
 
