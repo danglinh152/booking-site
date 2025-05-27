@@ -3,7 +3,7 @@
   Layout = "_GetTicketLayout";
   ViewData["Title"] = "Đặt vé máy bay";
 }
-@* @model SearchFlightViewModel *@
+@model SearchFlightViewModel
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -12,115 +12,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Đặt vé máy bay</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body class="bg-white font-sans">
-
-
   <!-- Main Content -->
-  <div class="max-w-4xl mx-auto p-6 shadow-lg border mt-10 rounded-xl">
+  <div class="max-w-7xl mx-auto p-6 shadow-lg border mt-10 rounded-xl">
     <!-- Thanh tóm tắt thông tin đặt vé -->
     <div class="relative bg-white shadow rounded-lg p-4 mb-6">
-      <div class="flex items-center gap-4">
-        <span class="font-bold text-2xl text-blue-900"></span>
+      <div class="flex items-center gap-4 justify-center">
+        <span class="font-bold text-2xl text-blue-900">@Model.DepartureCode</span>
+        <input type="text" name="" id="departureID" hidden value=@Model.DepartureID>
         <span class="text-gray-400 text-xl">....................✈....................</span>
-        <span class="font-bold text-2xl text-blue-900">SGN</span>
+        <span class="font-bold text-2xl text-blue-900" id="arrivalCode">@Model.ArrivalCode</span>
+        <input type="text" name="" id="arrivalID" hidden value=@Model.ArrivalID>
         <div class="ml-6">
           <div class="text-sm text-gray-500">Khởi hành</div>
-          <div class="font-semibold">Th 4, 7 thg 5</div>
+          <div class="font-semibold" id="departureDate">@Model.DepartureDate</div>
         </div>
-        <div class="ml-6">
-          <div class="text-sm text-gray-500">Trở về</div>
-          <div class="font-semibold">Th 7, 10 thg 5</div>
-        </div>
+        @if (@Model.ReturnDate != null)
+        {
+          <div class="ml-6">
+            <div class="text-sm text-gray-500">Trở về</div>
+            <div class="font-semibold">@Model.ReturnDate</div>
+          </div>
+        }
         <div class="ml-6">
           <div class="text-sm text-gray-500">Hành khách</div>
           <div class="font-semibold flex items-center">
-            <span>1</span>
+            <span id="passengerNumber">@Model.PassengerNumber</span>
             <svg class="w-5 h-5 ml-1 text-green-600" fill="currentColor" viewBox="0 0 20 20">
               <path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z" />
             </svg>
           </div>
         </div>
       </div>
-      <!-- Nút Đặt Chỗ Của Bạn ở góc phải trên -->
-      <button class="absolute top-4 right-4 bg-green-700 text-white font-bold px-6 py-2 rounded-lg hover:bg-green-800">
-        Đặt Chỗ Của Bạn
-      </button>
-    </div>
-
-    <!-- Nút Thay đổi ở dưới, căn giữa -->
-    <div class="flex justify-center mb-6">
-      <button id="btnThayDoi" class="text-blue-700 font-semibold border px-6 py-2 rounded-lg hover:bg-blue-50">
-        Thay đổi
-      </button>
-      <button id="btnXoaChang"
-        class="text-red-700 font-semibold border border-red-700 px-6 py-2 rounded-lg hover:bg-red-50 ml-4 hidden">
-        Xóa chặng
-      </button>
-    </div>
-
-
-
-    <!-- Form đặt vé -->
-    <div id="formDatVe" class="hidden">
-      <h2 class="text-2xl font-bold mb-4 text-green-700">Đặt vé máy bay</h2>
-      <!-- Loại vé -->
-      <div class="flex gap-6 mb-4">
-        <label class="flex items-center space-x-2">
-          <input type="radio" name="tripType" id="roundTrip" checked class="form-radio text-green-600" />
-          <span>Khứ hồi</span>
-        </label>
-        <label class="flex items-center space-x-2">
-          <input type="radio" name="tripType" id="oneWay" class="form-radio text-green-600" />
-          <span>Một chiều</span>
-        </label>
-        <label class="flex items-center space-x-2">
-          <input type="radio" name="tripType" id="multiCity" class="form-radio text-green-600" />
-          <span>Nhiều chặng</span>
-        </label>
-      </div>
-      <!-- Chặng bay đầu tiên -->
-      <div class="flight-segment">
-        <h3 id="labelChangBay1" class="text-lg font-semibold text-gray-800 mb-2">Chặng bay 1</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-sm font-medium text-gray-700">Từ *</label>
-            <input type="text" required class="mt-1 block w-full p-2 border rounded" placeholder="Nhập điểm đi" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700">Đến *</label>
-            <input type="text" required class="mt-1 block w-full p-2 border rounded" placeholder="Nhập điểm đến" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700">Ngày khởi hành *</label>
-            <input type="date" required class="mt-1 block w-full p-2 border rounded" />
-          </div>
-          <div id="returnDateContainer">
-            <label class="block text-sm font-medium text-gray-700">Ngày trở về *</label>
-            <input type="date" id="returnDate" class="mt-1 block w-full p-2 border rounded" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Danh sách chặng bay thêm động -->
-      <div id="dsChang"></div>
-
-      <!-- Thông tin hành khách -->
-      <div class="mt-4">
-        <label class="block text-sm font-medium text-gray-700">Hành khách *</label>
-        <input type="number" value="1" min="1" max="10" required class="mt-1 block w-full p-2 border rounded" />
-      </div>
-
-      <!-- Nút xác nhận -->
-      <div class="mt-6 text-right">
-        <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded transition">
-          Xác nhận
-        </button>
-      </div>
     </div>
   </div>
+
   <!-- Banner chọn chuyến đi -->
   <div class="relative w-full h-48 mt-8 mb-4">
     <!-- Ảnh nền -->
@@ -129,7 +61,7 @@
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="bg-white bg-opacity-95 rounded-xl px-10 py-6 shadow-lg text-center">
         <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-2">Vui lòng chọn chuyến đi</h2>
-        <p class="text-lg text-gray-700">Hà Nội đến TP. Hồ Chí Minh</p>
+        <p class="text-lg text-gray-700">@Model.DepartureCode đến @Model.ArrivalCode</p>
       </div>
     </div>
   </div>
@@ -146,65 +78,32 @@
       </button>
       <!-- Thanh ngày và giá vé -->
       <div id="dateScroll" class="flex gap-2 overflow-x-auto px-6 scroll-smooth w-full">
-        <!-- Ngày không có chuyến bay -->
-        <div class="flex flex-col items-center bg-gray-200 rounded-lg px-4 py-2 min-w-[90px]">
-          <span class="text-sm text-gray-500">No flights</span>
-          <span class="text-xs text-gray-500 mt-1">Th 5 1</span>
-        </div>
-        <div class="flex flex-col items-center bg-gray-200 rounded-lg px-4 py-2 min-w-[90px]">
-          <span class="text-sm text-gray-500">No flights</span>
-          <span class="text-xs text-gray-500 mt-1">Th 6 2</span>
-        </div>
-        <div class="flex flex-col items-center bg-gray-200 rounded-lg px-4 py-2 min-w-[90px]">
-          <span class="text-sm text-gray-500">No flights</span>
-          <span class="text-xs text-gray-500 mt-1">Th 7 3</span>
-        </div>
-        <div class="flex flex-col items-center bg-gray-200 rounded-lg px-4 py-2 min-w-[90px]">
-          <span class="text-sm text-gray-500">No flights</span>
-          <span class="text-xs text-gray-500 mt-1">CN 4</span>
-        </div>
-        <div class="flex flex-col items-center bg-gray-200 rounded-lg px-4 py-2 min-w-[90px]">
-          <span class="text-sm text-gray-500">No flights</span>
-          <span class="text-xs text-gray-500 mt-1">Th 2 5</span>
-        </div>
-        <div class="flex flex-col items-center bg-gray-200 rounded-lg px-4 py-2 min-w-[90px]">
-          <span class="text-sm text-gray-500">No flights</span>
-          <span class="text-xs text-gray-500 mt-1">Th 3 6</span>
-        </div>
-        <!-- Ngày đang chọn -->
-        <div
-          class="flex flex-col items-center bg-blue-900 rounded-lg px-4 py-2 min-w-[90px] text-white font-bold shadow-lg border-2 border-blue-900"
-          data-label="Thứ Tư, 7 tháng 5, 2025">
-          <span>1.745.500 VND</span>
-          <span class="text-xs mt-1 flex items-center">
-            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="white" />
-              <path stroke="currentColor" stroke-width="2" d="M9 12l2 2 4-4" />
-            </svg>
-            Th 4 7
-          </span>
-        </div>
-        <!-- Ngày có chuyến bay -->
-        <div class="flex flex-col items-center bg-blue-100 rounded-lg px-4 py-2 min-w-[90px] text-blue-900 font-bold"
-          data-label="Thứ Năm, 8 tháng 5, 2025">
-          <span>1.745.500 VND</span>
-          <span class="text-xs mt-1">Th 5 8</span>
-        </div>
-        <div class="flex flex-col items-center bg-blue-100 rounded-lg px-4 py-2 min-w-[90px] text-blue-900 font-bold"
-          data-label="Thứ Sáu, 9 tháng 5, 2025">
-          <span>1.932.500 VND</span>
-          <span class="text-xs mt-1">Th 6 9</span>
-        </div>
-        <div class="flex flex-col items-center bg-blue-100 rounded-lg px-4 py-2 min-w-[90px] text-blue-900 font-bold"
-          data-label="Thứ Bảy, 10 tháng 5, 2025">
-          <span>1.932.500 VND</span>
-          <span class="text-xs mt-1">Th 7 10</span>
-        </div>
-        <!-- Ngày không có vé -->
-        <div class="flex flex-col items-center bg-gray-200 rounded-lg px-4 py-2 min-w-[90px]">
-          <span class="text-sm text-gray-500">Not available</span>
-          <span class="text-xs text-gray-500 mt-1">CN 11</span>
-        </div>
+        @foreach (var day in Model.flightsByDateViewModel)
+        {
+          @if (day.FlightDate == Model.DepartureDate)
+          {
+            <div
+              class="flex flex-col items-center bg-blue-900 rounded-lg px-4 py-2 min-w-[90px] text-white font-bold shadow-lg border-2 border-blue-900"
+              data-label="@day.dateName, @day.FlightDate.ToString("dd/MM/yyyy")">
+              <span>@day.cheapestPrice VND</span>
+              <span class="text-xs mt-1 flex items-center">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="white" />
+                  <path stroke="currentColor" stroke-width="2" d="M9 12l2 2 4-4" />
+                </svg>
+                @day.dateName, @day.FlightDate.ToString("dd/MM/yyyy")
+              </span>
+            </div>
+          }
+          else
+          {
+            <div class="flex flex-col items-center bg-blue-100 rounded-lg px-4 py-2 min-w-[90px] text-blue-900 font-bold"
+              data-label="@day.dateName, @day.FlightDate.ToString("dd/MM/yyyy")">
+              <span>@day.cheapestPrice VND</span>
+              <span class="text-xs mt-1">@day.dateName, @day.FlightDate.ToString("dd/MM/yyyy")</span>
+            </div>
+          }
+        }
       </div>
       <!-- Nút điều hướng phải -->
       <button id="btnRight"
@@ -410,304 +309,9 @@
 
   <!-- Danh sách chuyến bay đi -->
   <div class="space-y-6 max-w-4xl mx-auto" id="flightListGo">
-    <!-- Card chuyến bay 1 + vùng chọn hạng vé -->
-    <div class="flight-card" data-card="1">
-      <div class="flex flex-col md:flex-row bg-white rounded-xl shadow p-4 items-center justify-between mt-6">
-        <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">15:40</div>
-            <div class="text-xs text-gray-500">HAN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="text-xs text-green-700 font-semibold mb-1">Bay thẳng</div>
-            <div class="w-24 border-t-2 border-dotted border-gray-400 mb-1"></div>
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M2.5 19l19-7-7 7-2-2-7 2z" />
-            </svg>
-          </div>
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">17:50</div>
-            <div class="text-xs text-gray-500">SGN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col text-xs text-gray-600 ml-4">
-            <span>⏱ Thời gian bay 2h 10min</span>
-            <span>✈ QH 255 được TenPM Airways khai thác.</span>
-            <a href="#" class="text-green-700 font-semibold hover:underline view-detail" data-from="Hà Nội"
-              data-to="TP. Hồ Chí Minh" data-date="Thứ Tư, 7 tháng 5, 2025" data-time="15:40" data-arrive="17:50"
-              data-from-airport="Sân bay Quốc tế Nội Bài (HAN)" data-to-airport="Sân bay Quốc tế Tân Sơn Nhất (SGN)"
-              data-from-terminal="Nhà ga 1" data-to-terminal="Nhà ga 1" data-duration="2h 10min" data-flight="QH 255"
-              data-airline="TenPM Airways" data-plane="AIRBUS A321">Xem chi tiết hành trình</a>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-2 mt-4 md:mt-0">
-          <button
-            class="btnEconomy relative bg-white text-green-700 border-2 border-green-700 rounded-lg px-6 py-3 text-center font-bold focus:outline-none transition shadow"
-            data-card="1">
-            <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">3
-              chỗ còn lại</span>
-            <div>Economy<br><span class="text-lg">1.932.500 VND</span></div>
-          </button>
-          <button
-            class="btnBusiness relative bg-white text-blue-900 border-2 border-blue-900 rounded-lg px-6 py-3 text-center font-bold focus:outline-none transition shadow"
-            data-card="1">
-            <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">1
-              chỗ còn lại</span>
-            <div>Business<br><span class="text-lg">5.208.500 VND</span></div>
-          </button>
-        </div>
-      </div>
-      <div class="ticketOptions hidden mt-8 transition-all duration-300 transform scale-95 opacity-0" data-card="1"
-        data-type=""></div>
-    </div>
-    <!-- Card chuyến bay 2 + vùng chọn hạng vé -->
-    <div class="flight-card" data-card="2">
-      <div class="flex flex-col md:flex-row bg-white rounded-xl shadow p-4 items-center justify-between mt-6">
-        <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">17:05</div>
-            <div class="text-xs text-gray-500">HAN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="text-xs text-green-700 font-semibold mb-1">Bay thẳng</div>
-            <div class="w-24 border-t-2 border-dotted border-gray-400 mb-1"></div>
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M2.5 19l19-7-7 7-2-2-7 2z" />
-            </svg>
-          </div>
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">19:15</div>
-            <div class="text-xs text-gray-500">SGN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col text-xs text-gray-600 ml-4">
-            <span>⏱ Thời gian bay 2h 10min</span>
-            <span>✈ QH 269 được TenPM Airways khai thác.</span>
-            <a href="#" class="text-green-700 font-semibold hover:underline view-detail" data-from="Hà Nội"
-              data-to="TP. Hồ Chí Minh" data-date="Thứ Tư, 7 tháng 5, 2025" data-time="15:40" data-arrive="17:50"
-              data-from-airport="Sân bay Quốc tế Nội Bài (HAN)" data-to-airport="Sân bay Quốc tế Tân Sơn Nhất (SGN)"
-              data-from-terminal="Nhà ga 1" data-to-terminal="Nhà ga 1" data-duration="2h 10min" data-flight="QH 255"
-              data-airline="TenPM Airways" data-plane="AIRBUS A321">Xem chi tiết hành trình</a>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-2 mt-4 md:mt-0">
-          <button
-            class="btnEconomy relative bg-green-700 text-white rounded-lg px-6 py-3 text-center font-bold focus:outline-none"
-            data-card="2">
-            <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">8
-              chỗ còn lại</span>
-            <div>Economy<br><span class="text-lg">1.745.500 VND</span></div>
-          </button>
-          <button
-            class="btnBusiness bg-blue-900 text-white rounded-lg px-6 py-3 text-center font-bold focus:outline-none"
-            data-card="2">
-            <div>Business<br><span class="text-lg">5.208.500 VND</span></div>
-          </button>
-        </div>
-      </div>
-      <div class="ticketOptions hidden mt-8 transition-all duration-300 transform scale-95 opacity-0" data-card="2"
-        data-type=""></div>
-    </div>
-    <!-- Card chuyến bay 3 + vùng chọn hạng vé -->
-    <div class="flight-card" data-card="3">
-      <div class="flex flex-col md:flex-row bg-white rounded-xl shadow p-4 items-center justify-between mt-6">
-        <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">21:55</div>
-            <div class="text-xs text-gray-500">HAN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="text-xs text-green-700 font-semibold mb-1">Bay thẳng</div>
-            <div class="w-24 border-t-2 border-dotted border-gray-400 mb-1"></div>
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M2.5 19l19-7-7 7-2-2-7 2z" />
-            </svg>
-          </div>
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">00:05 <span class='text-xs text-gray-500'>+1 ngày</span></div>
-            <div class="text-xs text-gray-500">SGN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col text-xs text-gray-600 ml-4">
-            <span>⏱ Thời gian bay 2h 10min</span>
-            <span>✈ QH 283 được TenPM Airways khai thác.</span>
-            <a href="#" class="text-green-700 font-semibold hover:underline view-detail" data-from="Hà Nội"
-              data-to="TP. Hồ Chí Minh" data-date="Thứ Tư, 7 tháng 5, 2025" data-time="15:40" data-arrive="17:50"
-              data-from-airport="Sân bay Quốc tế Nội Bài (HAN)" data-to-airport="Sân bay Quốc tế Tân Sơn Nhất (SGN)"
-              data-from-terminal="Nhà ga 1" data-to-terminal="Nhà ga 1" data-duration="2h 10min" data-flight="QH 255"
-              data-airline="TenPM Airways" data-plane="AIRBUS A321">Xem chi tiết hành trình</a>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-2 mt-4 md:mt-0">
-          <button
-            class="btnEconomy relative bg-green-700 text-white rounded-lg px-6 py-3 text-center font-bold focus:outline-none"
-            data-card="3">
-            <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">2
-              chỗ còn lại</span>
-            <div>Economy<br><span class="text-lg">1.745.500 VND</span></div>
-          </button>
-          <button
-            class="btnBusiness bg-blue-900 text-white rounded-lg px-6 py-3 text-center font-bold focus:outline-none"
-            data-card="3">
-            <div>Business<br><span class="text-lg">5.208.500 VND</span></div>
-          </button>
-        </div>
-      </div>
-      <div class="ticketOptions hidden mt-8 transition-all duration-300 transform scale-95 opacity-0" data-card="3"
-        data-type=""></div>
-    </div>
   </div>
   <!-- Danh sách chuyến bay về (ẩn ban đầu) -->
   <div class="space-y-6 max-w-4xl mx-auto hidden" id="flightListReturn">
-    <div class="flight-card" data-card="4">
-      <div class="flex flex-col md:flex-row bg-white rounded-xl shadow p-4 items-center justify-between mt-6">
-        <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">15:40</div>
-            <div class="text-xs text-gray-500">SGN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="text-xs text-green-700 font-semibold mb-1">Bay thẳng</div>
-            <div class="w-24 border-t-2 border-dotted border-gray-400 mb-1"></div>
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M2.5 19l19-7-7 7-2-2-7 2z" />
-            </svg>
-          </div>
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">17:50</div>
-            <div class="text-xs text-gray-500">HAN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col text-xs text-gray-600 ml-4">
-            <span>⏱ Thời gian bay 2h 10min</span>
-            <span>✈ QH 255 được TenPM Airways khai thác.</span>
-            <a href="#" class="text-green-700 font-semibold hover:underline view-detail" data-from="TP. Hồ Chí Minh"
-              data-to="Hà Nội" data-date="Thứ Tư, 7 tháng 5, 2025" data-time="15:40" data-arrive="17:50"
-              data-from-airport="Sân bay Quốc tế Tân Sơn Nhất (SGN)" data-to-airport="Sân bay Quốc tế Nội Bài (HAN)"
-              data-from-terminal="Nhà ga 1" data-to-terminal="Nhà ga 1" data-duration="2h 10min" data-flight="QH 255"
-              data-airline="TenPM Airways" data-plane="AIRBUS A321">Xem chi tiết hành trình</a>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-2 mt-4 md:mt-0">
-          <button
-            class="btnEconomy relative bg-green-700 text-white rounded-lg px-6 py-3 text-center font-bold focus:outline-none"
-            data-card="4">
-            <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">3
-              chỗ còn lại</span>
-            <div>Economy<br><span class="text-lg">1.932.500 VND</span></div>
-          </button>
-          <button
-            class="btnBusiness relative bg-blue-900 text-white rounded-lg px-6 py-3 text-center font-bold focus:outline-none"
-            data-card="4">
-            <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">1
-              chỗ còn lại</span>
-            <div>Business<br><span class="text-lg">5.208.500 VND</span></div>
-          </button>
-        </div>
-      </div>
-      <div class="ticketOptions hidden mt-8 transition-all duration-300 transform scale-95 opacity-0" data-card="4"
-        data-type=""></div>
-    </div>
-    <div class="flight-card" data-card="5">
-      <div class="flex flex-col md:flex-row bg-white rounded-xl shadow p-4 items-center justify-between mt-6">
-        <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">17:05</div>
-            <div class="text-xs text-gray-500">SGN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="text-xs text-green-700 font-semibold mb-1">Bay thẳng</div>
-            <div class="w-24 border-t-2 border-dotted border-gray-400 mb-1"></div>
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M2.5 19l19-7-7 7-2-2-7 2z" />
-            </svg>
-          </div>
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">19:15</div>
-            <div class="text-xs text-gray-500">HAN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col text-xs text-gray-600 ml-4">
-            <span>⏱ Thời gian bay 2h 10min</span>
-            <span>✈ QH 269 được TenPM Airways khai thác.</span>
-            <a href="#" class="text-green-700 font-semibold hover:underline view-detail" data-from="TP. Hồ Chí Minh"
-              data-to="Hà Nội" data-date="Thứ Tư, 7 tháng 5, 2025" data-time="15:40" data-arrive="17:50"
-              data-from-airport="Sân bay Quốc tế Tân Sơn Nhất (SGN)" data-to-airport="Sân bay Quốc tế Nội Bài (HAN)"
-              data-from-terminal="Nhà ga 1" data-to-terminal="Nhà ga 1" data-duration="2h 10min" data-flight="QH 255"
-              data-airline="TenPM Airways" data-plane="AIRBUS A321">Xem chi tiết hành trình</a>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-2 mt-4 md:mt-0">
-          <button
-            class="btnEconomy relative bg-green-700 text-white rounded-lg px-6 py-3 text-center font-bold focus:outline-none"
-            data-card="5">
-            <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">8
-              chỗ còn lại</span>
-            <div>Economy<br><span class="text-lg">1.745.500 VND</span></div>
-          </button>
-          <button
-            class="btnBusiness bg-blue-900 text-white rounded-lg px-6 py-3 text-center font-bold focus:outline-none"
-            data-card="5">
-            <div>Business<br><span class="text-lg">5.208.500 VND</span></div>
-          </button>
-        </div>
-      </div>
-      <div class="ticketOptions hidden mt-8 transition-all duration-300 transform scale-95 opacity-0" data-card="5"
-        data-type=""></div>
-    </div>
-    <div class="flight-card" data-card="6">
-      <div class="flex flex-col md:flex-row bg-white rounded-xl shadow p-4 items-center justify-between mt-6">
-        <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">21:55</div>
-            <div class="text-xs text-gray-500">SGN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="text-xs text-green-700 font-semibold mb-1">Bay thẳng</div>
-            <div class="w-24 border-t-2 border-dotted border-gray-400 mb-1"></div>
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M2.5 19l19-7-7 7-2-2-7 2z" />
-            </svg>
-          </div>
-          <div class="text-center md:text-left">
-            <div class="text-lg font-bold text-gray-800">00:05 <span class='text-xs text-gray-500'>+1 ngày</span></div>
-            <div class="text-xs text-gray-500">HAN</div>
-            <div class="text-xs text-gray-500">Nhà ga 1</div>
-          </div>
-          <div class="flex flex-col text-xs text-gray-600 ml-4">
-            <span>⏱ Thời gian bay 2h 10min</span>
-            <span>✈ QH 283 được TenPM Airways khai thác.</span>
-            <a href="#" class="text-green-700 font-semibold hover:underline view-detail" data-from="TP. Hồ Chí Minh"
-              data-to="Hà Nội" data-date="Thứ Tư, 7 tháng 5, 2025" data-time="15:40" data-arrive="17:50"
-              data-from-airport="Sân bay Quốc tế Tân Sơn Nhất (SGN)" data-to-airport="Sân bay Quốc tế Nội Bài (HAN)"
-              data-from-terminal="Nhà ga 1" data-to-terminal="Nhà ga 1" data-duration="2h 10min" data-flight="QH 255"
-              data-airline="TenPM Airways" data-plane="AIRBUS A321">Xem chi tiết hành trình</a>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-2 mt-4 md:mt-0">
-          <button
-            class="btnEconomy relative bg-green-700 text-white rounded-lg px-6 py-3 text-center font-bold focus:outline-none"
-            data-card="6">
-            <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">2
-              chỗ còn lại</span>
-            <div>Economy<br><span class="text-lg">1.745.500 VND</span></div>
-          </button>
-          <button
-            class="btnBusiness bg-blue-900 text-white rounded-lg px-6 py-3 text-center font-bold focus:outline-none"
-            data-card="6">
-            <div>Business<br><span class="text-lg">5.208.500 VND</span></div>
-          </button>
-        </div>
-      </div>
-      <div class="ticketOptions hidden mt-8 transition-all duration-300 transform scale-95 opacity-0" data-card="6"
-        data-type=""></div>
-    </div>
   </div>
   <!-- Nội dung chọn hạng vé mẫu (dùng cho JS) -->
   <template id="economyOptionsTemplate">
@@ -716,8 +320,7 @@
     <div class="flex flex-col md:flex-row gap-6 justify-center">
       <div class="ticket-class-option border rounded-xl p-6 flex-1 max-w-md bg-white cursor-pointer"
         data-class="Economy Smart">
-        <div class="text-center text-green-700 font-bold text-2xl mb-2">1.932.500 VND</div>
-        <div class="text-center font-semibold mb-4">Economy Smart</div>
+        <div class="text-center font-semibold mb-4">Economy Class</div>
         <ul class="text-sm space-y-2">
           <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Hành lý xách tay: 7kg</li>
           <li class="flex items-center"><span class="text-red-600 mr-2">✖</span>Không bao gồm hành lý ký gửi</li>
@@ -735,26 +338,7 @@
         </ul>
         <a href="#" class="block text-green-700 font-semibold mt-2 hover:underline text-sm">Xem chi tiết</a>
       </div>
-      <div class="ticket-class-option border rounded-xl p-6 flex-1 max-w-md bg-white cursor-pointer"
-        data-class="Economy Flex">
-        <div class="text-center text-green-700 font-bold text-2xl mb-2">3.014.500 VND</div>
-        <div class="text-center font-semibold mb-4">Economy Flex</div>
-        <ul class="text-sm space-y-2">
-          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Hành lý xách tay: 7kg</li>
-          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>01 kiện hành lý ký gửi 20kg</li>
-          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Hoàn/hủy trước giờ khởi hành: 300.000
-            VND (*)</li>
-          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Hoàn/hủy sau giờ khởi hành: 300.000
-            VND (*)</li>
-          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Thay đổi miễn phí</li>
-          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Hệ số cộng điểm Bamboo Club: 1.00</li>
-          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Chọn ghế ngồi miễn phí</li>
-          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Đổi chuyến tại sân bay miễn phí</li>
-        </ul>
-        <a href="#" class="block text-green-700 font-semibold mt-2 hover:underline text-sm">Xem chi tiết</a>
-      </div>
     </div>
-
     <div class="flex justify-center mt-6 hidden" id="confirmBtnWrapper">
       <button id="confirmTicketBtn"
         class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg shadow transition">Xác nhận và
@@ -767,7 +351,6 @@
     <div class="flex flex-col md:flex-row gap-6 justify-center">
       <div class="ticket-class-option border rounded-xl p-6 flex-1 max-w-md bg-white cursor-pointer"
         data-class="Business Flex">
-        <div class="text-center text-blue-900 font-bold text-2xl mb-2">5.208.500 VND</div>
         <div class="text-center font-semibold mb-4">Business Flex</div>
         <ul class="text-sm space-y-2">
           <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Hành lý xách tay: 14kg</li>
@@ -797,8 +380,6 @@
   </div>
   </div>
 
-
-
   <script src="~/js/GetTicket/GetTicket.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -813,17 +394,6 @@
 
       btnRight.addEventListener('click', function () {
         scrollDiv.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      });
-    });
-  </script>
-  <script>
-    //Nút thay đổi
-    document.addEventListener("DOMContentLoaded", function () {
-      const btnThayDoi = document.querySelector("#btnThayDoi");
-      const formDatVe = document.querySelector("#formDatVe");
-
-      btnThayDoi.addEventListener("click", function () {
-        formDatVe.classList.toggle("hidden");
       });
     });
   </script>
@@ -1090,36 +660,6 @@
         });
       }
 
-      // Xử lý xóa chặng trong form đặt vé (đa chặng)
-      if (dsChang) {
-        dsChang.addEventListener('click', function (e) {
-          if (e.target && e.target.classList.contains('remove-segment')) {
-            const segment = e.target.closest('.flight-segment');
-            if (segment) {
-              dsChang.removeChild(segment);
-              // Cập nhật lại số thứ tự các chặng
-              Array.from(dsChang.children).forEach((seg, idx) => {
-                seg.querySelector('h3').textContent = `Chặng bay ${idx + 2}`;
-              });
-            }
-          }
-        });
-      }
-
-      // Kiểm tra trạng thái đã chọn vé đi
-      if (localStorage.getItem('chonVeDi') === '1') {
-        // Đã chọn vé đi, chuyển sang giao diện chọn vé về
-        document.getElementById('flightListGo').classList.add('hidden');
-        document.getElementById('flightListReturn').classList.remove('hidden');
-        const mainTitle = document.querySelector('.text-2xl.md\\:text-3xl.font-bold.text-green-700.mb-2');
-        if (mainTitle) mainTitle.textContent = "Vui lòng chọn chuyến về";
-        const title = document.querySelector('.text-2xl.font-bold.text-blue-900.mb-2');
-        if (title) title.textContent = "Chọn vé về";
-        // Hiện nút xóa chặng
-        if (btnXoaChang) btnXoaChang.classList.remove('hidden');
-        step = 2;
-      }
-
       // Xử lý xác nhận vé
       document.body.addEventListener('click', function (e) {
         if (e.target && e.target.id === 'confirmTicketBtn') {
@@ -1200,6 +740,7 @@
         if (btnEco) btnEco.click();
       });
     });
+    });
   </script>
 
   <script>
@@ -1249,70 +790,170 @@
     });
   </script>
 
+  @* Ajax handle get flight by date *@
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const roundTrip = document.getElementById('roundTrip');
-      const oneWay = document.getElementById('oneWay');
-      const multiCity = document.getElementById('multiCity');
-      const returnDateContainer = document.getElementById('returnDateContainer');
-      const themChang = document.getElementById('themChang');
-      const dsChang = document.getElementById('dsChang');
-      const flightSegment = document.querySelector('.flight-segment');
-      const labelChangBay1 = document.getElementById('labelChangBay1');
+    const departureID = document.getElementById("departureID").value;
+    const arrivalID = document.getElementById("arrivalID").value;
+    const passengerNumber = document.getElementById("passengerNumber").textContent;
+    const departureDate = document.getElementById("departureDate").textContent;
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      loadFlightsForDate(departureDate, departureID, arrivalID, passengerNumber);
 
-      function updateForm() {
-        if (multiCity.checked) {
-          if (flightSegment) flightSegment.style.display = '';
-          if (themChang) themChang.classList.remove('hidden');
-          if (returnDateContainer) returnDateContainer.style.display = 'none';
-          if (dsChang) dsChang.style.display = '';
-          if (labelChangBay1) labelChangBay1.style.display = '';
-
-          // Nếu chưa có chặng bay 2 thì tự động thêm
-          if (dsChang && dsChang.children.length === 0) {
-            const newSegment = document.createElement('div');
-            newSegment.classList.add('flight-segment', 'mt-6', 'p-4', 'border', 'rounded', 'bg-gray-50');
-            newSegment.innerHTML = `
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">Chặng bay 2</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Từ *</label>
-              <input type="text" required class="mt-1 block w-full p-2 border rounded" placeholder="Nhập điểm đi" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Đến *</label>
-              <input type="text" required class="mt-1 block w-full p-2 border rounded" placeholder="Nhập điểm đến" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Ngày khởi hành *</label>
-              <input type="date" required class="mt-1 block w-full p-2 border rounded" />
-            </div>
-          </div>
-        `;
-            dsChang.appendChild(newSegment);
-          }
-        } else {
-          if (dsChang) {
-            dsChang.innerHTML = '';
-            dsChang.style.display = 'none';
-          }
-          if (themChang) themChang.classList.add('hidden');
-          if (flightSegment) flightSegment.style.display = '';
-          if (oneWay.checked && returnDateContainer) {
-            returnDateContainer.style.display = 'none';
-          } else if (roundTrip.checked && returnDateContainer) {
-            returnDateContainer.style.display = '';
-          }
-          if (labelChangBay1) labelChangBay1.style.display = 'none';
-        }
-      }
-
-      updateForm();
-
-      roundTrip.addEventListener('change', updateForm);
-      oneWay.addEventListener('change', updateForm);
-      multiCity.addEventListener('change', updateForm);
+      document.querySelectorAll('[data-label]').forEach(dayElement => {
+        dayElement.addEventListener('click', function () {
+          console.log("click")
+          const flightDate = this.getAttribute('data-label').split(', ')[1];
+          loadFlightsForDate(flightDate, departureID, arrivalID, passengerNumber);
+        });
+      });
     });
+
+    function loadFlightsForDate(date, departureID, arrivalID, passengerNumber) {
+      $('#flightListGo').html('<div class="text-center py-4">Đang tải chuyến bay...</div>');
+
+      $.ajax({
+        url: '/get-ticket/get-flight-by-date',
+        type: 'GET',
+        data: {
+          date: date,
+          departureID: departureID,
+          arrivalID: arrivalID,
+          passengerNumber: passengerNumber
+        },
+        dataType: 'json',
+        success: function (response) {
+          if (response && response.length > 0) {
+            renderFlights(response);
+          } else {
+            $('#flightListGo').html('<div class="text-center py-4">Không có chuyến bay nào trong ngày này.</div>');
+          }
+        },
+        error: function (xhr) {
+          $('#flightListGo').html('<div class="text-center py-4 text-red-500">Có lỗi xảy ra khi tải chuyến bay.</div>');
+        }
+      });
+    }
+    function renderFlights(flights) {
+      let html = '';
+
+      flights.forEach((flight, index) => {
+        html += `
+        <div class="flight-card" data-card="${index + 1}">
+            <div class="flex flex-col md:flex-row bg-white rounded-xl shadow p-4 items-center justify-between mt-6">
+                <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
+                    <div class="text-center md:text-left">
+                        <div class="text-lg font-bold text-gray-800">${flight.DepartureTime}</div>
+                        <div class="text-xs text-gray-500">${flight.DepartureAirport.AirportCode}</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-xs text-green-700 font-semibold mb-1">Bay thẳng</div>
+                        <div class="w-24 border-t-2 border-dotted border-gray-400 mb-1"></div>
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M2.5 19l19-7-7 7-2-2-7 2z" />
+                        </svg>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <div class="text-lg font-bold text-gray-800">${flight.ArrivalTime}</div>
+                        <div class="text-xs text-gray-500">${flight.ArrivalAirport.AirportCode}</div>
+                    </div>
+                    <div class="flex flex-col text-xs text-gray-600 ml-4">
+                        <span>✈ ${flight.Plane?.Model || 'Unknown'} được TenPM Airways khai thác.</span>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-2 mt-4 md:mt-0">`;
+
+        flight.FareClasses.forEach(item => {
+          if (item.ClassName === 'EconomyClass') {
+            html += `
+                    <button class="btnEconomy relative bg-white text-green-700 border-2 border-green-700 rounded-lg px-6 py-3 text-center font-bold focus:outline-none transition shadow"
+                            data-card="${index + 1}">
+                        <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">
+                            ${item.SeatsAvailable} chỗ còn lại
+                        </span>
+                        <div>Economy<br><span class="text-lg">${item.Price.toLocaleString('vi-VN')} VND</span></div>
+                    </button>`;
+          } else if (item.ClassName === 'BusinessClass') {
+            html += `
+                    <button class="btnBusiness relative bg-white text-blue-900 border-2 border-blue-900 rounded-lg px-6 py-3 text-center font-bold focus:outline-none transition shadow"
+                            data-card="${index + 1}">
+                        <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">
+                            ${item.SeatsAvailable} chỗ còn lại
+                        </span>
+                        <div>Business<br><span class="text-lg">${item.Price.toLocaleString('vi-VN')} VND</span></div>
+                    </button>`;
+          }
+        });
+
+        html += `
+                </div>
+            </div>
+            <div class="ticketOptions hidden mt-8 transition-all duration-300 transform scale-95 opacity-0" 
+                 data-card="${index + 1}" data-type="">
+            </div>
+        </div>`;
+      });
+
+      $('#flightListGo').html(html);
+
+      const economyTemplate = document.getElementById('economyOptionsTemplate');
+      const businessTemplate = document.getElementById('businessOptionsTemplate');
+      document.querySelectorAll('.btnEconomy, .btnBusiness').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const cardId = this.getAttribute('data-card');
+          const isEconomy = this.classList.contains('btnEconomy');
+          const card = document.querySelector('[data-card="' + cardId + '"]');
+          if (card) {
+            // Hiệu ứng giao diện nút
+            card.querySelectorAll('.btnEconomy, .btnBusiness').forEach(tab => {
+              tab.classList.remove('bg-green-700', 'text-white', 'ring-2', 'ring-green-600', 'z-10', 'shadow-lg', 'bg-blue-900', 'ring-blue-800', 'text-blue-900', 'text-green-700', 'border-green-700', 'border-blue-900');
+              tab.classList.add('bg-white', 'shadow', 'transition');
+              if (tab.classList.contains('btnEconomy')) {
+                tab.classList.add('text-green-700', 'border-2', 'border-green-700');
+              } else {
+                tab.classList.add('text-blue-900', 'border-2', 'border-blue-900');
+              }
+            });
+            if (isEconomy) {
+              this.classList.remove('bg-white', 'text-green-700', 'border-2', 'border-green-700', 'shadow');
+              this.classList.add('bg-green-700', 'text-white', 'ring-2', 'ring-green-600', 'z-10', 'shadow-lg');
+            } else {
+              this.classList.remove('bg-white', 'text-blue-900', 'border-2', 'border-blue-900', 'shadow');
+              this.classList.add('bg-blue-900', 'text-white', 'ring-2', 'ring-blue-800', 'z-10', 'shadow-lg');
+            }
+
+            // Render lại vùng chọn hạng vé
+            document.querySelectorAll('.ticketOptions').forEach(opt => {
+              if (opt.getAttribute('data-card') !== cardId) {
+                opt.classList.remove('scale-100', 'opacity-100');
+                opt.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                  opt.classList.add('hidden');
+                }, 300);
+              }
+            });
+            const optionsDiv = document.querySelector('.ticketOptions[data-card="' + cardId + '"]');
+            if (optionsDiv) {
+              const currentType = optionsDiv.getAttribute('data-type');
+              const newType = isEconomy ? 'economy' : 'business';
+              if (currentType !== newType || !optionsDiv.innerHTML.trim()) {
+                optionsDiv.innerHTML = isEconomy ? economyTemplate.innerHTML : businessTemplate.innerHTML;
+                optionsDiv.setAttribute('data-type', newType);
+                enableTicketClassSelect(optionsDiv);
+              }
+              optionsDiv.classList.remove('hidden');
+              setTimeout(() => {
+                optionsDiv.classList.add('scale-100', 'opacity-100');
+                optionsDiv.classList.remove('scale-95', 'opacity-0');
+              }, 10);
+            }
+          }
+        });
+      });
+
+    
+    }
   </script>
 </body>
 

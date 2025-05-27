@@ -28,6 +28,7 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseSession();
+app.UseMiddleware<AuthenticationMiddleware>();
 app.Use(async (context, next) =>
 {
     var path = context.Request.Path.ToString().ToLower();
@@ -48,7 +49,7 @@ app.UseRouting();
 app.MapControllerRoute(
     name: "admin",
     pattern: "admin/{controller=Admin}/{action=Index}/{id?}");
-    
+
 // Route for Users
 app.MapControllerRoute(
     name: "booking",

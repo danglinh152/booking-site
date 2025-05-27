@@ -90,6 +90,14 @@ namespace BookingSite.Controllers
         HttpContext.Session.SetString("UserName", user.FullName.ToString());
         HttpContext.Session.SetString("UserRole", user.Role.ToString());
 
+        // Kiểm tra có URL return không
+        var returnUrl = HttpContext.Session.GetString("ReturnUrl");
+        if (!string.IsNullOrEmpty(returnUrl))
+        {
+          HttpContext.Session.Remove("ReturnUrl");
+          return Redirect(returnUrl);
+        }
+
         if (user.Role == "Admin")
           return Redirect("/admin");
         else
