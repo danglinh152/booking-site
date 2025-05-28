@@ -101,8 +101,33 @@ namespace BookingSite.Controllers
                 return Json(new { error = "Invalid date format" });
             }
         }
-
-
+        [HttpGet("selected-flight-info")]
+        public JsonResult getSelectedFlightInfo([FromQuery] int flightId, [FromQuery] string flightClass)
+        {
+            string fareClassName = (flightClass == "Economy") ? "EconomyClass" : "BusinessClass";
+            try
+            {
+                var flights = context.Flights
+                    .Where(f => f.FlightID == flightId
+                    && f.FareClasses.Any(fc => fc.ClassName == fareClassName)
+                    )
+                    .Include(f => f.FareClasses)
+                    .Include(f => f.DepartureAirport)
+                    .Include(f => f.ArrivalAirport)
+                    .Include(f => f.Plane)
+                    .FirstOrDefault();
+                var options = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.IgnoreCycles,
+                    WriteIndented = true
+                };
+                return Json(flights, options);
+            }
+            catch (FormatException)
+            {
+                return Json(new { error = "No data" });
+            }
+        }
 
         [HttpPost("")]
         public IActionResult GetTicket(SearchFlightViewModel searchFlightViewModel)

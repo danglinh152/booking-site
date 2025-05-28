@@ -682,7 +682,7 @@
               };
 
               // Lưu vào localStorage
-              localStorage.setItem('selectedFlight', JSON.stringify(flightData));
+              sessionStorage.setItem('selectedFlight', JSON.stringify(flightData));
 
               @* // Kiểm tra đăng nhập
               const userId = '@Context.Session.GetString("UserID")';
@@ -958,7 +958,7 @@
       });
 
     
-    }                   
+    }                     
   </script>
 </body>
 
