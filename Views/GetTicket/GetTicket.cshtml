@@ -684,16 +684,16 @@
               // Lưu vào localStorage
               localStorage.setItem('selectedFlight', JSON.stringify(flightData));
 
-              // Kiểm tra đăng nhập
+              @* // Kiểm tra đăng nhập
               const userId = '@Context.Session.GetString("UserID")';
               if (!userId) {
                 sessionStorage.setItem('returnUrl', window.location.href);
                 window.location.href = '/login';
                 return;
-              }
+              } *@
 
-              // Chuyển trang
-              window.location.href = `/get-ticket/passenger-info`;
+                // Chuyển trang
+                window.location.href = `/get-ticket/passenger-info`;
             }
           }
         }
@@ -958,7 +958,7 @@
       });
 
     
-    }                  
+    }                   
   </script>
 </body>
 

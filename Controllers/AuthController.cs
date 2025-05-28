@@ -55,7 +55,13 @@ namespace BookingSite.Controllers
         else Console.WriteLine($"Đã thêm {rows} user");
         return RedirectToAction("Index", "Admin");
       }
-      return View(registerModelView);
+      var returnUrl = HttpContext.Session.GetString("ReturnUrl");
+      if (!string.IsNullOrEmpty(returnUrl))
+      {
+        HttpContext.Session.Remove("ReturnUrl");
+        return Redirect(returnUrl);
+      }
+      return Redirect("/login");
     }
 
     //GET: /login
@@ -67,7 +73,12 @@ namespace BookingSite.Controllers
 
       if (!string.IsNullOrEmpty(userId))
       {
-        return Redirect("/");
+        var returnUrl = HttpContext.Session.GetString("ReturnUrl");
+        if (!string.IsNullOrEmpty(returnUrl))
+        {
+          HttpContext.Session.Remove("ReturnUrl");
+          return Redirect(returnUrl);
+        }
       }
 
       return View("Login");

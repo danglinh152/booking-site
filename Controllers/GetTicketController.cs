@@ -117,6 +117,7 @@ namespace BookingSite.Controllers
             return View();
         }
 
+        [AuthorizeRole("Client")]
         [HttpGet("passenger-info")]
         public IActionResult PassengerInfo()
         {
