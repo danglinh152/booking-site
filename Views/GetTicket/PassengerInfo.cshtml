@@ -38,11 +38,10 @@
   <!-- Nút điều hướng -->
   <div class="max-w-4xl mx-auto mt-8 flex justify-between">
     <a href="/" class="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
-      <- Chọn lại vé 
-    </a>
-    <button id="btnContinue" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-      Tiếp tục
-    </button>
+      <- Chọn lại vé </a>
+        <button id="btnContinue" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+          Tiếp tục
+        </button>
   </div>
 </div>
 
@@ -225,7 +224,7 @@
         // Lưu thông tin hành khách vào sessionStorage
         sessionStorage.setItem('passengersData', JSON.stringify(passengersData));
         // Chuyển đến trang tiếp theo
-        window.location.href = '/get-ticket/payment';
+        window.location.href = '/get-ticket/itinerary';
       } else {
         alert('Vui lòng điền đầy đủ thông tin cho tất cả hành khách');
       }
