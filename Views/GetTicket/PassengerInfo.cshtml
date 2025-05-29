@@ -61,7 +61,7 @@
       </div>
 
       <div>
-        <label class="block text-sm font-semibold mb-1">Họ và tên*</label>
+        <label class="block text-sm font-semibold mb-1">Họ và tên *</label>
         <input type="text" name="fullName" class="w-full border rounded p-2" required>
       </div>
 
@@ -73,6 +73,12 @@
       <div>
         <label class="block text-sm font-semibold mb-1">Số CCCD *</label>
         <input type="text" name="identityNumber" class="w-full border rounded p-2" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-1">Số điện thoại</label>
+        <input type="tel" name="phoneNumber" class="w-full border rounded p-2" pattern="[0-9]{10}"
+          title="Vui lòng nhập số điện thoại 10 số" placeholder="Nhập số điện thoại">
       </div>
     </div>
   </div>
@@ -98,11 +104,12 @@
       },
       contentType: 'application/json',
       success: function (flight) {
+        sessionStorage.setItem('flightData', JSON.stringify(flight));
         console.log('Flight data:', flight);
         // Render thông tin chuyến bay
         const flightInfo = document.getElementById('flightInfo');
         html = `
-        <h5 class="font-bold text-center text-lg"> Thông tin chuyến bay đã chọn</h5>
+        <h5 class="font-bold text-ce  nter text-lg"> Thông tin chuyến bay đã chọn</h5>
         <p> Số lượng hành khách: <span class="text-green-700 font-bold">${flightData.passengerCount}</span> </p>
         <p> Ngày bay: <span class="text-green-700 font-bold">${formatDate(flight.FlightDate)}</span> </p>
         <p> Hạng vé: <span class="text-green-700 font-bold">${flightClass}</span> </p>
@@ -204,29 +211,35 @@
           title: form.querySelector('[name="title"]').value,
           fullName: form.querySelector('[name="fullName"]').value,
           dob: form.querySelector('[name="dob"]').value,
-          identityNumber: form.querySelector('[name="identityNumber"]').value
+          identityNumber: form.querySelector('[name="identityNumber"]').value,
+          phoneNumber: form.querySelector('[name="phoneNumber"]').value || null
         };
 
-        // Kiểm tra tất cả các trường bắt buộc
+        // Validate required fields
         if (!formData.title || !formData.fullName || !formData.dob || !formData.identityNumber) {
           isValid = false;
-          form.querySelectorAll('input, select').forEach(input => {
+          form.querySelectorAll('input:required, select:required').forEach(input => {
             if (!input.value) {
               input.classList.add('border-red-500');
             }
           });
         } else {
-          passengersData.push(formData);
+          // Validate phone number format if provided
+          const phoneNumber = form.querySelector('[name="phoneNumber"]').value;
+          if (phoneNumber && !/^[0-9]{10}$/.test(phoneNumber)) {
+            isValid = false;
+            form.querySelector('[name="phoneNumber"]').classList.add('border-red-500');
+          } else {
+            passengersData.push(formData);
+          }
         }
       });
 
       if (isValid) {
-        // Lưu thông tin hành khách vào sessionStorage
         sessionStorage.setItem('passengersData', JSON.stringify(passengersData));
-        // Chuyển đến trang tiếp theo
         window.location.href = '/get-ticket/itinerary';
       } else {
-        alert('Vui lòng điền đầy đủ thông tin cho tất cả hành khách');
+        alert('Vui lòng kiểm tra lại thông tin của tất cả hành khách');
       }
     });
   });

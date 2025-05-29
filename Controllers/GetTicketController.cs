@@ -155,29 +155,36 @@ namespace BookingSite.Controllers
             return View();
         }
 
-        [HttpGet("buybaggage")]
-        public IActionResult BuyBaggage()
+        [HttpGet("get-services")]
+        public async Task<JsonResult> GetServices()
         {
-            return View();
+            try
+            {
+                var services = await context.ExtraServices
+                    .Select(s => new
+                    {
+                        s.ServiceID,
+                        s.ServiceName,
+                        s.Description,
+                        s.Price,
+                        s.ServiceType
+                    })
+                    .ToListAsync();
+
+                var options = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.IgnoreCycles,
+                    WriteIndented = true
+                };
+
+                return Json(services, options);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = "No data" });
+            }
         }
 
-        [HttpGet("selectmeal")]
-        public IActionResult SelectMeal()
-        {
-            return View();
-        }
-
-        [HttpGet("selectseat")]
-        public IActionResult SelectSeat()
-        {
-            return View();
-        }
-
-        [HttpGet("loungeservice")]
-        public IActionResult LoungeService()
-        {
-            return View();
-        }
         [HttpGet("payment")]
         public IActionResult Payment()
         {

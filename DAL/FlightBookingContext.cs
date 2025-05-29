@@ -354,7 +354,7 @@ public class FlightBookingContext : DbContext
             {
                 FareClassID = 1,
                 FlightID = 1,
-                ClassName = "Economy",
+                ClassName = "EconomyClass",
                 Price = 1500000,
                 SeatsAvailable = 150
             },
@@ -362,7 +362,7 @@ public class FlightBookingContext : DbContext
             {
                 FareClassID = 2,
                 FlightID = 1,
-                ClassName = "Business",
+                ClassName = "BusinessClass",
                 Price = 3500000,
                 SeatsAvailable = 20
             },
@@ -372,7 +372,7 @@ public class FlightBookingContext : DbContext
             {
                 FareClassID = 3,
                 FlightID = 2,
-                ClassName = "Economy",
+                ClassName = "EconomyClass",
                 Price = 1800000,
                 SeatsAvailable = 180
             },
@@ -380,7 +380,7 @@ public class FlightBookingContext : DbContext
             {
                 FareClassID = 4,
                 FlightID = 2,
-                ClassName = "Business",
+                ClassName = "BusinessClass",
                 Price = 4000000,
                 SeatsAvailable = 28
             },
@@ -390,7 +390,7 @@ public class FlightBookingContext : DbContext
             {
                 FareClassID = 5,
                 FlightID = 3,
-                ClassName = "Economy",
+                ClassName = "EconomyClass",
                 Price = 1600000,
                 SeatsAvailable = 150
             },
@@ -398,7 +398,7 @@ public class FlightBookingContext : DbContext
             {
                 FareClassID = 6,
                 FlightID = 3,
-                ClassName = "Business",
+                ClassName = "BusinessClass",
                 Price = 3800000,
                 SeatsAvailable = 20
             },
@@ -408,7 +408,7 @@ public class FlightBookingContext : DbContext
             {
                 FareClassID = 7,
                 FlightID = 4,
-                ClassName = "Economy",
+                ClassName = "EconomyClass",
                 Price = 1200000,
                 SeatsAvailable = 60
             },
@@ -416,7 +416,7 @@ public class FlightBookingContext : DbContext
             {
                 FareClassID = 8,
                 FlightID = 4,
-                ClassName = "Business",
+                ClassName = "BusinessClass",
                 Price = 2500000,
                 SeatsAvailable = 10
             },
@@ -426,7 +426,7 @@ public class FlightBookingContext : DbContext
             {
                 FareClassID = 9,
                 FlightID = 5,
-                ClassName = "Economy",
+                ClassName = "EconomyClass",
                 Price = 800000,
                 SeatsAvailable = 60
             },
@@ -434,7 +434,7 @@ public class FlightBookingContext : DbContext
             {
                 FareClassID = 10,
                 FlightID = 5,
-                ClassName = "Business",
+                ClassName = "BusinessClass",
                 Price = 1800000,
                 SeatsAvailable = 10
             }
