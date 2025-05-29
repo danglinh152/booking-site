@@ -19,6 +19,8 @@ namespace BookingSite.Models
         [Required]
         public int SeatsAvailable { get; set; }
 
+        // One-to-one relationship
+        public BookingDetail BookingDetail { get; set; }
 
         public Flight Flight { get; set; }
         public ICollection<Booking> Bookings { get; set; }

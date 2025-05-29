@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookingSite.Models
 {
-
-
     public class Payment
     {
         [Key]

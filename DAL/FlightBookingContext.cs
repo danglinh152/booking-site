@@ -11,7 +11,6 @@ public class FlightBookingContext : DbContext
     public DbSet<Booking> Bookings { get; set; }
     public DbSet<Passenger> Passengers { get; set; }
     public DbSet<ExtraService> ExtraServices { get; set; }
-    public DbSet<BookingService> BookingServices { get; set; }
     public DbSet<Payment> Payments { get; set; }
 
 
@@ -22,19 +21,27 @@ public class FlightBookingContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        // Booking → Flight (many-to-one)
-        modelBuilder.Entity<Booking>()
-            .HasOne(b => b.Flight)
-            .WithMany(f => f.Bookings)
-            .HasForeignKey(b => b.FlightID)
+        // BookingDetail → Booking (many-to-one)
+        modelBuilder.Entity<BookingDetail>()
+            .HasOne(b => b.Booking)
+            .WithMany(f => f.BookingDetails)
+            .HasForeignKey(b => b.BookingID)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        //  BookingDetail → Passenger (one-to-one)
+        modelBuilder.Entity<BookingDetail>()
+            .HasOne(bd => bd.Passenger)
+            .WithOne(p => p.BookingDetail)
+            .HasForeignKey<BookingDetail>(bd => bd.PassengerID)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        //  BookingDetail → FareClass (one-to-one)
+        modelBuilder.Entity<BookingDetail>()
+            .HasOne(bd => bd.FareClass)
+            .WithOne(p => p.BookingDetail)
+            .HasForeignKey<BookingDetail>(bd => bd.FareClassID)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Booking → FareClass (many-to-one)
-        modelBuilder.Entity<Booking>()
-            .HasOne(b => b.FareClass)
-            .WithMany(fc => fc.Bookings)
-            .HasForeignKey(b => b.FareClassID)
-            .OnDelete(DeleteBehavior.Restrict);
 
         // Booking → User (optional many-to-one)
         modelBuilder.Entity<Booking>()
@@ -50,19 +57,6 @@ public class FlightBookingContext : DbContext
             .HasForeignKey<Payment>(p => p.BookingID)
             .OnDelete(DeleteBehavior.Cascade); // chỉ cascade 1 nơi duy nhất
 
-        // Booking → Passengers (one-to-many)
-        modelBuilder.Entity<Passenger>()
-            .HasOne(p => p.Booking)
-            .WithMany(b => b.Passengers)
-            .HasForeignKey(p => p.BookingID)
-            .OnDelete(DeleteBehavior.Cascade); // hoặc Restrict nếu cần
-
-        // Booking → BookingServices (one-to-many)
-        modelBuilder.Entity<BookingService>()
-            .HasOne(bs => bs.Booking)
-            .WithMany(b => b.BookingServices)
-            .HasForeignKey(bs => bs.BookingID)
-            .OnDelete(DeleteBehavior.Cascade); // hoặc Restrict
         modelBuilder.Entity<Flight>()
             .HasOne(f => f.DepartureAirport)
             .WithMany(a => a.DepartureFlights)
@@ -73,6 +67,19 @@ public class FlightBookingContext : DbContext
             .HasOne(f => f.ArrivalAirport)
             .WithMany(a => a.ArrivalFlights)
             .HasForeignKey(f => f.ArrivalAirportID)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Configure many-to-many relationship
+        modelBuilder.Entity<BookingService>()
+            .HasOne(bs => bs.BookingDetail)
+            .WithMany(bd => bd.BookingServices)
+            .HasForeignKey(bs => bs.BookingDetailID)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<BookingService>()
+            .HasOne(bs => bs.Service)
+            .WithMany(s => s.BookingServices)
+            .HasForeignKey(bs => bs.ServiceID)
             .OnDelete(DeleteBehavior.Restrict);
     }
 

@@ -10,14 +10,14 @@ namespace BookingSite.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ServiceID { get; set; }
+        public string ServiceType { get; set; }
         [Required]
         public string ServiceName { get; set; } //mua hành lý, chọn chổ ngồi, mua đồ ăn
         public string Description { get; set; }
         [Required]
         [Precision(10, 2)]
         public decimal Price { get; set; }
-        [ValidateNever]
-
         public ICollection<BookingService> BookingServices { get; set; }
+
     }
 }

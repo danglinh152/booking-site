@@ -9,13 +9,13 @@ namespace BookingSite.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BookingServiceID { get; set; }
         [Required]
-        public int BookingID { get; set; }
+        public int BookingDetailID { get; set; }
         [Required]
         public int ServiceID { get; set; }
         [Required]
         public int Quantity { get; set; }
 
-        public Booking Booking { get; set; }
+        public BookingDetail BookingDetail { get; set; }
         public ExtraService Service { get; set; }
     }
 }
