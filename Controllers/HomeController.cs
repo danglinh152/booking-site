@@ -104,6 +104,12 @@ namespace BookingSite.Controllers
             return View();
         }
 
+        [Route("profile")]
+        public IActionResult Profile()
+        {
+            return View();
+        }
+
         [Route("tenpm-club")]
         public IActionResult TenPMClub()
         {
