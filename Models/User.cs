@@ -22,6 +22,7 @@ namespace BookingSite.Models
     [DataType(DataType.Password)]
     public string Password { get; set; }
     public int Point { get; set; } = 0;
+    public string? PhoneNumber { get; set; }
 
     public string Role { get; set; } = "Client";
     [ValidateNever]

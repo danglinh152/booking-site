@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thanh toán vé máy bay</title>
+</head>
+<body>
+    <h2>Thanh toán vé máy bay</h2>
+    <form asp-action="CreateMoMoPayment" asp-controller="Payment" method="post">
+        <input type="hidden" name="amount" value="100000" /> <!-- Số tiền (VNĐ) -->
+        <input type="hidden" name="orderId" value="ORDER_@DateTime.Now.Ticks" /> <!-- Mã đơn hàng duy nhất -->
+        <input type="hidden" name="orderInfo" value="Thanh toán vé máy bay" /> <!-- Mô tả -->
+        <button type="submit">Thanh toán bằng MoMo</button>
+    </form>
+</body>
+</html>

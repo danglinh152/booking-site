@@ -55,7 +55,13 @@ namespace BookingSite.Controllers
         else Console.WriteLine($"Đã thêm {rows} user");
         return RedirectToAction("Index", "Admin");
       }
-      return View(registerModelView);
+      var returnUrl = HttpContext.Session.GetString("ReturnUrl");
+      if (!string.IsNullOrEmpty(returnUrl))
+      {
+        HttpContext.Session.Remove("ReturnUrl");
+        return Redirect(returnUrl);
+      }
+      return Redirect("/login");
     }
 
     //GET: /login
@@ -67,7 +73,12 @@ namespace BookingSite.Controllers
 
       if (!string.IsNullOrEmpty(userId))
       {
-        return Redirect("/");
+        var returnUrl = HttpContext.Session.GetString("ReturnUrl");
+        if (!string.IsNullOrEmpty(returnUrl))
+        {
+          HttpContext.Session.Remove("ReturnUrl");
+          return Redirect(returnUrl);
+        }
       }
 
       return View("Login");
@@ -89,6 +100,14 @@ namespace BookingSite.Controllers
         HttpContext.Session.SetString("UserID", user.UserID.ToString());
         HttpContext.Session.SetString("UserName", user.FullName.ToString());
         HttpContext.Session.SetString("UserRole", user.Role.ToString());
+
+        // Kiểm tra có URL return không
+        var returnUrl = HttpContext.Session.GetString("ReturnUrl");
+        if (!string.IsNullOrEmpty(returnUrl))
+        {
+          HttpContext.Session.Remove("ReturnUrl");
+          return Redirect(returnUrl);
+        }
 
         if (user.Role == "Admin")
           return Redirect("/admin");

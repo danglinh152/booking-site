@@ -1,8 +1,9 @@
+@using BookingSite.ViewModel
 @{
     ViewData["Title"] = "Create Flight";
     Layout = "~/Views/Shared/_Layout-admin.cshtml"; // Adjust layout path if necessary
 }
-@model BookingSite.Models.Flight
+@model CreateFlightViewModel
 
 <div class="pc-container">
     <div class="pc-content">
@@ -18,15 +19,17 @@
                         <form asp-action="CreateFlight" asp-controller="Flights" method="post">
                             <div class="form-group mb-3">
                                 <label class="form-label" for="PlaneId">Plane</label>
-
-                                <select asp-for="PlaneID" id="PlaneID" name="PlaneID" class="form-control" required>
+                                <select asp-for="PlaneID" id="PlaneID" name="PlaneID" onchange="loadCapacity(this.value)" class="form-control" required>
                                     <option value="" disabled selected>--Select Plane--</option>
                                     @foreach (var item in ViewBag.PlaneID as SelectList)
                                     {
                                         <option value="@item.Value">@item.Text</option>
                                     }
                                 </select>
-
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="PlaneCapacity">Plane capacity</label>
+                                <input  asp-for="PlaneCapacity" id="PlaneCapacity" />
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label" for="FlightDate">Flight Date</label>
@@ -76,6 +79,26 @@
                                     <option value="Cancelled">Cancelled</option>
                                 </select>
                             </div>
+
+                            <h4 class="mb-3">Fare Classes</h4>
+                            
+                            <div id="fareClassesContainer">
+                                <div>
+                                    <label class="form-label" for="FareClassName">Thương Gia</label>
+                                    <input name="FareClasses[0].ClassName" placeholder="Tên hạng" value="Thương gia" type="hidden" />
+                                    <input name="FareClasses[0].Price" placeholder="Giá" type="number" required />
+                                    <input name="FareClasses[0].SeatsAvailable" placeholder="Số ghế" type="number" required />
+                                </div>
+                                <div>
+                                    <label class="form-label" for="FareClassName">Phổ thông</label>
+                                    <input name="FareClasses[1].ClassName" placeholder="Tên hạng" value="Phổ thông" type="hidden" />
+                                    <input name="FareClasses[1].Price" placeholder="Giá" type="number" required />
+                                    <input name="FareClasses[1].SeatsAvailable" placeholder="Số ghế" type="number" required />
+                                </div>
+                            </div>                     
+                            <!-- <button type="button" class="btn btn-secondary mb-3" onclick="addFareClass()">Add Fare Class</button> -->
+                
+
                             <div class="d-flex justify-content-between">
                                 <a href="/admin/flights" class="btn btn-secondary">Back to List</a>
                                 <button type="submit" class="btn btn-primary">Create Flight</button>
@@ -89,6 +112,39 @@
     </div>
 </div>
 
-<script>
-    // You can add any additional JavaScript functionality here if needed
-</script>
+
+    <script>
+          // Lấy ngày hiện tại theo định dạng yyyy-mm-dd
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Tháng bắt đầu từ 0
+        const dd = String(today.getDate()).padStart(2, '0');
+
+        const formattedToday = `${yyyy}-${mm}-${dd}`;
+
+        // Gán giá trị cho input
+        document.getElementById('FlightDate').value = formattedToday;
+
+
+        //hàm lấy dung lượng máy bay
+        function loadCapacity(planeId) {
+            fetch('/admin/flights/GetPlaneCapacity/' + planeId)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('PlaneCapacity').value = data.capacity;
+                });
+        }
+
+        // function addFareClass() {
+        //     const container = document.getElementById('fareClassesContainer');
+        //     const index = container.children.length;
+        //     container.innerHTML += `
+        //         <div>
+        //             <input name="FareClasses[${index}].ClassName" placeholder="Tên hạng" required />
+        //             <input name="FareClasses[${index}].Price" placeholder="Giá" type="number" required />
+        //             <input name="FareClasses[${index}].SeatsAvailable" placeholder="Số ghế" type="number" required />
+        //         </div>
+        //     `;
+        // }
+    </script>
+

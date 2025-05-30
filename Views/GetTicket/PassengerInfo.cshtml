@@ -1,313 +1,256 @@
 @{
-    Layout = "_GetTicketLayout";
-    ViewData["Title"] = "Nhập thông tin hành khách";
+  Layout = "_GetTicketLayout";
+  ViewData["Title"] = "Nhập thông tin hành khách";
 }
-<!DOCTYPE html>
-<html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhập thông tin hành khách</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đặt vé máy bay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="bg-gray-100 min-h-screen">
-    <!-- Banner -->
-    <div class="relative w-full h-56 md:h-64 bg-gradient-to-b from-blue-100 to-white flex items-center justify-center">
-        <img src="https://digital.bambooairways.com/statics/applications/booking/dynamicContent/1.0.10/assets/img/background/default-title-background-600.png" alt="Bamboo Airways" class="absolute inset-0 w-full h-full object-cover object-top" style="z-index:1;">
-        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-10">
-            <div class="bg-white rounded-xl shadow-lg px-8 py-4 text-center">
-                <h1 class="text-2xl md:text-3xl font-bold text-green-700">Nhập thông tin hành khách</h1>
-            </div>
-        </div>
-    </div>
-    <!-- Form nhập thông tin -->
-    <div class="max-w-2xl mx-auto mt-10 bg-white rounded-2xl shadow p-8">
-        <div id="errorSummary" class="max-w-2xl mx-auto mt-6"></div>
-        <h2 class="text-xl font-bold text-blue-900 mb-4 text-center">Thông tin cá nhân</h2>
-        <div class="text-xs text-gray-500 mb-4">* = các trường bắt buộc</div>
-        <div class="text-sm text-gray-700 mb-4">
-            Vui lòng điền thông tin cá nhân như trong hộ chiếu.<br>
-            Do hạn chế hệ thống, tên em bé quá dài sẽ tự động bị cắt ngắn khi lưu. Với trường hợp Quý khách đi kèm em bé có tên quá dài, vui lòng viết tắt chữ cái đầu tiên của phần tên đệm em bé (phần Họ và phần Tên vẫn viết đầy đủ).
-        </div>
-        <form class="space-y-4">
-            <div>
-                <label class="block text-sm font-semibold mb-1">Danh xưng *</label>
-                <select class="w-full border rounded p-2" required>
-                    <option value="">Chọn danh xưng</option>
-                    <option value="MR">Ông (MR)</option>
-                    <option value="MRS">Bà (MRS)</option>
-                    <option value="MS">Cô (MS)</option>
-                    <option value="CHILD">Trẻ em (CHILD)</option>
-                    <option value="INFANT">Em bé (INFANT)</option>
-                </select>
-            </div>
-            <div>
-                <label class="block text-sm font-semibold mb-1">Tên đệm và tên *</label>
-                <input type="text" class="w-full border rounded p-2" placeholder="Tên đệm và tên" required />
-            </div>
-            <div>
-                <label class="block text-sm font-semibold mb-1">Họ *</label>
-                <input type="text" class="w-full border rounded p-2" placeholder="Họ" required />
-            </div>
-            <div>
-                <label class="block text-sm font-semibold mb-1">Ngày sinh *</label>
-                <input type="date" class="w-full border rounded p-2" placeholder="dd/mm/yyyy" required />
-                <div class="text-xs text-gray-400 mt-1">Định dạng là Ngày / Tháng / Năm</div>
-            </div>
-        </form>
-    </div>
-    <!-- Chương trình Khách hàng thân thiết -->
-    <div class="max-w-2xl mx-auto mt-10 bg-white rounded-2xl shadow p-8 mb-8">
-        <h2 class="text-lg font-bold text-green-700 mb-4 text-center">Chương trình Khách hàng thân thiết</h2>
-        <div class="space-y-4">
-            <div>
-                <label class="block text-sm font-semibold mb-1">Chương trình Khách hàng thân thiết</label>
-                <select class="w-full border rounded p-2">
-                    <option>Chọn chương trình Khách hàng thân thiết</option>
-                    <option>Bamboo Club</option>
-                    <option>Vietnam Airlines Lotusmiles</option>
-                    <option>Vietjet SkyJoy</option>
-                </select>
-            </div>
-            <div>
-                <label class="block text-sm font-semibold mb-1">Số thẻ hội viên</label>
-                <input type="text" class="w-full border rounded p-2" placeholder="Số thẻ hội viên của Quý khách" />
-            </div>
-        </div>
-    </div>
-    <!-- Thông tin liên lạc -->
-    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow p-8 mb-8">
-        <h2 class="text-lg font-bold text-blue-900 mb-4 text-center">Thông tin liên lạc</h2>
-        <div id="emailSection" class="space-y-4">
-            <div>
-                <label class="block text-sm font-semibold mb-1">E-mail *</label>
-                <input type="email" class="w-full border rounded p-2" placeholder="Địa chỉ email" required />
-                <button id="btnAddEmail" type="button" class="mt-2 px-4 py-1 border border-green-600 text-green-700 rounded hover:bg-green-50 text-sm">Thêm địa chỉ email</button>
-            </div>
-        </div>
-        <div id="phoneSection" class="space-y-4 mt-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="phoneGrid">
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Loại điện thoại *</label>
-                    <select class="w-full border rounded p-2">
-                        <option>Cá nhân</option>
-                        <option>Cơ quan</option>
-                        <option>Khác</option>
-                    </select>
-                </div>
-                <div></div>
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Mã quốc gia *</label>
-                    <input type="text" class="w-full border rounded p-2" placeholder="Mã quốc gia" required />
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Số điện thoại *</label>
-                    <input type="text" class="w-full border rounded p-2" placeholder="Số điện thoại" required />
-                </div>
-            </div>
-            <button id="btnAddPhone" type="button" class="mt-2 px-4 py-1 border border-green-600 text-green-700 rounded hover:bg-green-50 text-sm">Thêm số điện thoại khác</button>
-        </div>
-        <div class="flex items-center mt-2">
-            <input type="checkbox" id="urgentContact" class="accent-green-600 mr-2" />
-            <label for="urgentContact" class="text-sm">Thêm thông tin liên lạc khẩn cấp</label>
-        </div>
-    </div>
-    <!-- Điều khoản và nút xác nhận -->
-    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow p-8 mb-8">
-        <div class="flex items-start gap-2 mb-4">
-            <input type="checkbox" id="agreePolicy" class="accent-green-600 mt-1" required />
-            <label for="agreePolicy" class="text-sm">Tôi đã đọc và đồng ý rằng dữ liệu của tôi sẽ được xử lý theo <a href="#" class="text-green-700 underline">Chính sách bảo mật</a>, <a href="#" class="text-green-700 underline">Điều kiện sử dụng chức năng đặt chỗ trực tuyến</a> và <a href="#" class="text-green-700 underline">Điều khoản sử dụng website</a> của Bamboo Airways.</label>
-        </div>
-        <div class="flex justify-end">
-            <button id="btnFinalSubmit" type="submit" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-8 rounded-lg shadow transition">Xác nhận</button>
-        </div>
-    </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Thêm/xóa email
-      const emailSection = document.getElementById('emailSection');
-      const addEmailBtn = document.getElementById('btnAddEmail');
-      addEmailBtn.addEventListener('click', function() {
-        const newEmail = document.createElement('div');
-        newEmail.className = 'flex items-center mt-2';
-        newEmail.innerHTML = `<input type=\"email\" class=\"w-full border rounded p-2 mr-2\" placeholder=\"Địa chỉ email khác\" required />
-          <button type=\"button\" class=\"remove-email text-red-600 hover:underline text-sm\">Xóa</button>`;
-        emailSection.appendChild(newEmail);
-        newEmail.querySelector('.remove-email').onclick = function() {
-          newEmail.remove();
-        };
-      });
 
-      // Thêm/xóa số điện thoại
-      const phoneGrid = document.getElementById('phoneGrid');
-      const addPhoneBtn = document.getElementById('btnAddPhone');
-      addPhoneBtn.addEventListener('click', function() {
-        // Thêm 2 ô input mới vào grid: mã quốc gia và số điện thoại (có nút xóa)
-        const maQuocGiaDiv = document.createElement('div');
-        maQuocGiaDiv.innerHTML = `<input type="text" class="w-full border rounded p-2" placeholder="Mã quốc gia" required />`;
-        const soDienThoaiDiv = document.createElement('div');
-        soDienThoaiDiv.className = 'flex items-center';
-        soDienThoaiDiv.innerHTML = `<input type="text" class="w-full border rounded p-2 mr-2" placeholder="Số điện thoại" required />
-          <button type="button" class="remove-phone text-red-600 hover:underline text-sm">Xóa</button>`;
-        phoneGrid.appendChild(maQuocGiaDiv);
-        phoneGrid.appendChild(soDienThoaiDiv);
-        soDienThoaiDiv.querySelector('.remove-phone').onclick = function() {
-          maQuocGiaDiv.remove();
-          soDienThoaiDiv.remove();
-        };
-      });
+<div class="bg-gray-100 min-h-screen pb-8">
+  <!-- Banner -->
+  <div class="relative w-full h-56 md:h-64 bg-gradient-to-b from-blue-100 to-white">
+    <div class="absolute top-8 left-1/2 -translate-x-1/2 z-10">
+      <div class="bg-white rounded-xl shadow-lg px-8 py-4">
+        <h1 class="text-2xl md:text-3xl font-bold text-green-700">Nhập thông tin hành khách</h1>
+      </div>
+    </div>
+  </div>
 
-      // Hiện/ẩn thông tin liên lạc khẩn cấp
-      const urgentCheckbox = document.getElementById('urgentContact');
-      if (urgentCheckbox) {
-        urgentCheckbox.addEventListener('change', function() {
-          let urgentDiv = document.getElementById('urgentInfo');
-          if (this.checked) {
-            if (!urgentDiv) {
-              urgentDiv = document.createElement('div');
-              urgentDiv.id = 'urgentInfo';
-              urgentDiv.className = 'mt-4 p-4 border rounded bg-gray-50';
-              urgentDiv.innerHTML = `
-                <div class="font-semibold mb-2 text-green-700">Thông tin liên lạc khẩn cấp</div>
-                <div class="mb-2">
-                  <label class="block text-sm font-semibold mb-1">Tên người liên hệ</label>
-                  <input type="text" class="w-full border rounded p-2" placeholder="Tên người liên hệ" />
-                </div>
-                <div class="mb-2">
-                  <label class="block text-sm font-semibold mb-1">Số điện thoại</label>
-                  <input type="text" class="w-full border rounded p-2" placeholder="Số điện thoại" />
-                </div>
-                <div>
-                  <label class="block text-sm font-semibold mb-1">Mối quan hệ</label>
-                  <input type="text" class="w-full border rounded p-2" placeholder="Mối quan hệ với hành khách" />
-                </div>
-              `;
-              urgentCheckbox.parentNode.parentNode.appendChild(urgentDiv);
-            }
-          } else {
-            if (urgentDiv) urgentDiv.remove();
+  <!-- Thông tin chuyến bay đã chọn -->
+  <div class="max-w-4xl mx-auto mt-8 bg-white rounded-xl shadow p-6" id="flightInfo">
+    <!-- Sẽ được điền bởi JavaScript -->
+
+  </div>
+
+  <!-- Form container -->
+  <div id="passengersContainer" class="max-w-4xl mx-auto mt-8 space-y-8">
+    <!-- Forms sẽ được tạo động bởi JavaScript -->
+  </div>
+
+  <!-- Nút điều hướng -->
+  <div class="max-w-4xl mx-auto mt-8 flex justify-between">
+    <a href="/" class="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
+      <- Chọn lại vé </a>
+        <button id="btnContinue" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+          Tiếp tục
+        </button>
+  </div>
+</div>
+
+<template id="passengerFormTemplate">
+  <div class="bg-white rounded-xl shadow p-6 passenger-form" data-passenger-index="">
+    <h2 class="text-xl font-bold text-blue-900 mb-4">Hành khách <span class="passenger-number"></span></h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block text-sm font-semibold mb-1">Danh xưng *</label>
+        <select name="title" class="w-full border rounded p-2" required>
+          <option value="">Chọn danh xưng</option>
+          <option value="MR">Ông (MR)</option>
+          <option value="MRS">Bà (MRS)</option>
+          <option value="MS">Cô (MS)</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-1">Họ và tên *</label>
+        <input type="text" name="fullName" class="w-full border rounded p-2" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-1">Ngày sinh *</label>
+        <input type="date" name="dob" class="w-full border rounded p-2" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-1">Số CCCD *</label>
+        <input type="text" name="identityNumber" class="w-full border rounded p-2" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-1">Số điện thoại</label>
+        <input type="tel" name="phoneNumber" class="w-full border rounded p-2" pattern="[0-9]{10}"
+          title="Vui lòng nhập số điện thoại 10 số" placeholder="Nhập số điện thoại">
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Lấy thông tin chuyến bay từ sessionStorage
+    const flightData = JSON.parse(sessionStorage.getItem('selectedFlight'));
+    if (!flightData) {
+      window.location.href = '/get-ticket';
+      return;
+    }
+    const flightId = flightData.flightId;
+    const flightClass = flightData.class;
+
+    $.ajax({
+      url: '/get-ticket/selected-flight-info',
+      type: 'GET',
+      data: {
+        flightId: flightId,
+        flightClass: flightClass
+      },
+      contentType: 'application/json',
+      success: function (flight) {
+        sessionStorage.setItem('flightData', JSON.stringify(flight));
+        console.log('Flight data:', flight);
+        // Render thông tin chuyến bay
+        const flightInfo = document.getElementById('flightInfo');
+        html = `
+        <h5 class="font-bold text-ce  nter text-lg"> Thông tin chuyến bay đã chọn</h5>
+        <p> Số lượng hành khách: <span class="text-green-700 font-bold">${flightData.passengerCount}</span> </p>
+        <p> Ngày bay: <span class="text-green-700 font-bold">${formatDate(flight.FlightDate)}</span> </p>
+        <p> Hạng vé: <span class="text-green-700 font-bold">${flightClass}</span> </p>
+        <div class="flight-card" data-flight-id="${flight.FlightID}">
+          <div class="flex flex-col md:flex-row bg-white rounded-xl shadow p-4 items-center justify-between mt-6">
+            <div class="flex-1 flex flex-col md:flex-row items-center gap-6">
+              <div class="text-center md:text-left">
+                <div class="text-lg font-bold text-gray-800">${flight.DepartureTime}</div>
+                <div class="text-xs text-gray-500">${flight.DepartureAirport.AirportCode}</div>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="text-xs text-green-700 font-semibold mb-1">Bay thẳng</div>
+                <div class="w-24 border-t-2 border-dotted border-gray-400 mb-1"></div>
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M2.5 19l19-7-7 7-2-2-7 2z" />
+                </svg>
+              </div>
+              <div class="text-center md:text-left">
+                <div class="text-lg font-bold text-gray-800">${flight.ArrivalTime}</div>
+                <div class="text-xs text-gray-500">${flight.ArrivalAirport.AirportCode}</div>
+              </div>
+              <div class="flex flex-col text-xs text-gray-600 ml-4">
+                <span>✈ ${flight.Plane?.Model || 'Unknown'} được TenPM Airways khai thác.</span>
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-2 mt-4 md:mt-0">`;
+
+        flight.FareClasses.forEach(item => {
+          if (item.ClassName === 'EconomyClass' && flightClass === 'Economy') {
+            html += `
+                    <div class="btnEconomy relative bg-white text-green-700 border-2 border-green-700 rounded-lg px-6 py-3 text-center font-bold focus:outline-none transition shadow">
+                        <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">
+                            ${item.SeatsAvailable} chỗ còn lại
+                        </span>
+                        <div>Economy<br><span class="text-lg">${item.Price.toLocaleString('vi-VN')} VND</span></div>
+                    </div>`;
+          } else if (item.ClassName === 'BusinessClass' && flightClass === 'Business') {
+            html += `
+                    <div class="btnBusiness relative bg-white text-blue-900 border-2 border-blue-900 rounded-lg px-6 py-3 text-center font-bold focus:outline-none transition shadow"
+                            >
+                        <span class="block text-xs absolute -top-4 right-2 bg-blue-900 text-white rounded px-2 py-1 text-[10px]">
+                            ${item.SeatsAvailable} chỗ còn lại
+                        </span>
+                        <div>Business<br><span class="text-lg">${item.Price.toLocaleString('vi-VN')} VND</span></div>
+                    </div>`;
           }
         });
-      }
-
-      // Kiểm tra tất cả trường bắt buộc khi bấm nút Xác nhận
-      const btnFinalSubmit = document.getElementById('btnFinalSubmit');
-      btnFinalSubmit.addEventListener('click', function(e) {
-        const form = document.querySelector('form');
-        let valid = true;
-        let firstInvalid = null;
-        let errors = [];
-
-        // Kiểm tra các trường thông tin cá nhân
-        const selectTitle = form.querySelector('select[required]');
-        if (!selectTitle.value) {
-          valid = false;
-          errors.push('Vui lòng chọn một tiêu đề.');
-          if (!firstInvalid) firstInvalid = selectTitle;
-          selectTitle.classList.add('border-red-500');
-        } else {
-          selectTitle.classList.remove('border-red-500');
-        }
-
-        const hoInput = form.querySelector('input[placeholder="Họ"]');
-        if (!hoInput.value) {
-          valid = false;
-          errors.push('Vui lòng nhập họ.');
-          if (!firstInvalid) firstInvalid = hoInput;
-          hoInput.classList.add('border-red-500');
-        } else {
-          hoInput.classList.remove('border-red-500');
-        }
-
-        const tenInput = form.querySelector('input[placeholder="Tên đệm và tên"]');
-        if (!tenInput.value) {
-          valid = false;
-          errors.push('Vui lòng nhập tên đệm và tên.');
-          if (!firstInvalid) firstInvalid = tenInput;
-          tenInput.classList.add('border-red-500');
-        } else {
-          tenInput.classList.remove('border-red-500');
-        }
-
-        const dobInput = form.querySelector('input[type="date"]');
-        if (!dobInput.value) {
-          valid = false;
-          errors.push('Vui lòng nhập ngày tháng năm sinh.');
-          if (!firstInvalid) firstInvalid = dobInput;
-          dobInput.classList.add('border-red-500');
-        } else {
-          dobInput.classList.remove('border-red-500');
-        }
-
-        // Email
-        const emailInput = document.querySelector('input[type=email][required]');
-        if (!emailInput.value) {
-          valid = false;
-          errors.push('Vui lòng nhập một email.');
-          if (!firstInvalid) firstInvalid = emailInput;
-          emailInput.classList.add('border-red-500');
-        } else {
-          emailInput.classList.remove('border-red-500');
-        }
-
-        // Mã quốc gia
-        const countryCodeInput = document.querySelector('input[placeholder="Mã quốc gia"]');
-        if (!countryCodeInput.value) {
-          valid = false;
-          errors.push('Vui lòng chọn mã quốc gia của điện thoại.');
-          if (!firstInvalid) firstInvalid = countryCodeInput;
-          countryCodeInput.classList.add('border-red-500');
-        } else {
-          countryCodeInput.classList.remove('border-red-500');
-        }
-
-        // Số điện thoại
-        const phoneInput = document.querySelector('input[placeholder="Số điện thoại"]');
-        if (!phoneInput.value) {
-          valid = false;
-          errors.push('Vui lòng nhập số điện thoại.');
-          if (!firstInvalid) firstInvalid = phoneInput;
-          phoneInput.classList.add('border-red-500');
-        } else {
-          phoneInput.classList.remove('border-red-500');
-        }
-
-        // Điều khoản
-        const agreePolicy = document.getElementById('agreePolicy');
-        if (!agreePolicy.checked) {
-          valid = false;
-          errors.push('Vui lòng cho phép lưu trữ dữ liệu của bạn để tiếp tục.');
-          agreePolicy.classList.add('ring-2', 'ring-red-500');
-        } else {
-          agreePolicy.classList.remove('ring-2', 'ring-red-500');
-        }
-
-        // Hiển thị thông báo lỗi
-        const errorSummary = document.getElementById('errorSummary');
-        if (!valid) {
-          e.preventDefault();
-          let html = `
-            <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded mb-6 shadow">
-              <div class="flex items-center mb-2">
-                <span class="text-2xl mr-2">❗</span>
-                <span class="font-bold text-xl">${errors.length} lỗi</span>
-              </div>
-              <div>Vui lòng kiểm tra thông tin bên dưới:</div>
-              <ul class="list-disc pl-6 mt-2">
-                ${errors.map(err => `<li class="text-green-700 hover:underline cursor-pointer">${err}</li>`).join('')}
-              </ul>
+        html += `
             </div>
-          `;
-          errorSummary.innerHTML = html;
-          if (firstInvalid) firstInvalid.focus();
-          return false;
-        } else {
-          errorSummary.innerHTML = '';
+          </div>
+          <div class="ticketOptions hidden mt-8 transition-all duration-300 transform scale-95 opacity-0"
+            data-type="">
+          </div>
+        </div>`;
+
+        flightInfo.innerHTML = html;
+      },
+      error: function () {
+        alert('Không thể lấy thông tin chuyến bay. Vui lòng thử lại sau.');
+        window.location.href = '/get-ticket';
+      }
+    });
+
+    // Render form cho từng hành khách
+    const container = document.getElementById('passengersContainer');
+    const template = document.getElementById('passengerFormTemplate');
+
+    for (let i = 0; i < flightData.passengerCount; i++) {
+      const form = template.content.cloneNode(true);
+      const formDiv = form.querySelector('.passenger-form');
+      formDiv.dataset.passengerIndex = i + 1;
+      form.querySelector('.passenger-number').textContent = `${i + 1}`;
+
+      // Thêm validation cho từng form
+      const inputs = form.querySelectorAll('input, select');
+      inputs.forEach(input => {
+        input.addEventListener('invalid', function (e) {
           e.preventDefault();
-          window.location.href = '/get-ticket/itinerary';
+          this.classList.add('border-red-500');
+        });
+
+        input.addEventListener('input', function () {
+          this.classList.remove('border-red-500');
+        });
+      });
+
+      container.appendChild(form);
+    }
+
+    // Xử lý nút tiếp tục
+    document.getElementById('btnContinue').addEventListener('click', function () {
+      const forms = document.querySelectorAll('.passenger-form');
+      let isValid = true;
+      const passengersData = [];
+
+      forms.forEach((form, index) => {
+        const formData = {
+          passengerNumber: index + 1,
+          title: form.querySelector('[name="title"]').value,
+          fullName: form.querySelector('[name="fullName"]').value,
+          dob: form.querySelector('[name="dob"]').value,
+          identityNumber: form.querySelector('[name="identityNumber"]').value,
+          phoneNumber: form.querySelector('[name="phoneNumber"]').value || null
+        };
+
+        // Validate required fields
+        if (!formData.title || !formData.fullName || !formData.dob || !formData.identityNumber) {
+          isValid = false;
+          form.querySelectorAll('input:required, select:required').forEach(input => {
+            if (!input.value) {
+              input.classList.add('border-red-500');
+            }
+          });
+        } else {
+          // Validate phone number format if provided
+          const phoneNumber = form.querySelector('[name="phoneNumber"]').value;
+          if (phoneNumber && !/^[0-9]{10}$/.test(phoneNumber)) {
+            isValid = false;
+            form.querySelector('[name="phoneNumber"]').classList.add('border-red-500');
+          } else {
+            passengersData.push(formData);
+          }
         }
       });
+
+      if (isValid) {
+        sessionStorage.setItem('passengersData', JSON.stringify(passengersData));
+        window.location.href = '/get-ticket/itinerary';
+      } else {
+        alert('Vui lòng kiểm tra lại thông tin của tất cả hành khách');
+      }
     });
-    </script>
-</body>
-</html> 
+  });
+
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const days = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+    const day = days[date.getDay()];
+    const dd = String(date.getDate()).padStart(2, '0');
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const yyyy = date.getFullYear();
+    return `${day}, ${dd}/${mm}/${yyyy}`;
+  }
+</script>

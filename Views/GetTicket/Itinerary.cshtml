@@ -4,378 +4,405 @@
 }
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hành trình của Quý khách</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen">
-    <!-- Banner hành trình -->
-    <div class="relative w-full h-56 md:h-64 bg-gradient-to-b from-blue-100 to-white flex items-center justify-center mb-8">
-        <img src="https://res.cloudinary.com/dgkrchato/image/upload/v1717570732/bamboo-banner.png" alt="Bamboo Airways" class="absolute inset-0 w-full h-full object-cover object-top" style="z-index:1;">
+
+<body class="bg-gray-100 min-h-screen py-8">
+    <!-- Banner -->
+    <div
+        class="relative w-full h-56 md:h-64 bg-gradient-to-b from-blue-100 to-white flex items-center justify-center mb-8">
+        <img src="https://res.cloudinary.com/dgkrchato/image/upload/v1717570732/bamboo-banner.png" alt="Bamboo Airways"
+            class="absolute inset-0 w-full h-full object-cover object-top" style="z-index:1;">
         <div class="absolute top-8 left-1/2 -translate-x-1/2 z-10">
             <div class="bg-white rounded-xl shadow-lg px-8 py-4 text-center">
                 <h1 class="text-2xl md:text-3xl font-bold text-green-700">Hành trình của Quý khách</h1>
-                <div class="text-lg text-blue-900 mt-2">Hà Nội đến TP. Hồ Chí Minh</div>
+                <div id="routeInfo" class="text-lg text-blue-900 mt-2"></div>
             </div>
         </div>
     </div>
-    <!-- Các chuyến bay -->
-    <div class="max-w-3xl mx-auto mb-8">
-        <h2 class="text-xl font-bold text-blue-900 mb-4 text-center">Các chuyến bay</h2>
-        <div class="bg-white rounded-xl shadow p-6 mb-4">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                    <div class="font-semibold text-gray-800">Hà Nội đến TP. Hồ Chí Minh - Thứ Năm, 8 tháng 5, 2025</div>
-                    <div class="flex items-center gap-4 mt-2">
-                        <div class="text-center">
-                            <div class="text-lg font-bold">06:30</div>
-                            <div class="text-xs text-gray-500">HAN</div>
-                            <div class="text-xs text-gray-500">Nhà ga 1</div>
-                        </div>
-                        <div class="flex-1 border-t-2 border-dotted border-gray-300 mx-2"></div>
-                        <div class="text-center">
-                            <div class="text-lg font-bold">08:40</div>
-                            <div class="text-xs text-gray-500">SGN</div>
-                            <div class="text-xs text-gray-500">Nhà ga 1</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2 mt-2 text-xs text-gray-600">
-                        <span>⏱ Thời gian bay 2h 10min</span>
-                        <span>✈ QH 203 được Bamboo Airways khai thác.</span>
-                    </div>
-                </div>
-                <div class="flex flex-col items-end">
-                    <div class="text-green-700 font-bold text-lg">Economy Smart</div>
-                    <div class="text-blue-900 font-bold text-xl">1.739.000 VND</div>
-                </div>
-            </div>
-        </div>
-        <div class="flex justify-end text-green-700 font-bold text-lg mb-2">Tổng giá cho các chuyến bay: <span class="text-2xl ml-2">1.739.000 VND</span></div>
+
+    <!-- Flight Info -->
+    <div class="max-w-4xl mx-auto mb-8">
+        <div id="flightInfo" class="bg-white rounded-xl shadow p-6"></div>
     </div>
-    <!-- Thông tin hành khách -->
-    <div class="max-w-3xl mx-auto mb-8">
-        <h2 class="text-xl font-bold text-blue-900 mb-4 text-center">Hành khách</h2>
+
+    <!-- Passengers Info -->
+    <div class="max-w-4xl mx-auto mb-8">
+        <h2 class="text-xl font-bold text-blue-900 mb-4">Thông tin hành khách</h2>
+        <div id="passengersContainer"></div>
+    </div>
+
+    <!-- Total Price and Payment -->
+    <div class="max-w-4xl mx-auto mb-8">
         <div class="bg-white rounded-xl shadow p-6">
-            <div class="flex items-center gap-4 mb-4">
-                <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>
-                <div>
-                    <div class="font-bold text-green-700">Ông Van Hoa Nguyen</div>
-                    <div class="text-gray-600 text-sm">Người lớn</div>
+            <div class="space-y-4">
+                <div class="flex justify-between border-b pb-4">
+                    <span class="font-semibold">Giá vé cơ bản:</span>
+                    <span id="basePrice" class="font-bold"></span>
+                </div>
+                <div class="flex justify-between border-b pb-4">
+                    <span class="font-semibold">Phụ thu dịch vụ:</span>
+                    <span id="serviceTotal" class="font-bold"></span>
+                </div>
+                <div class="flex justify-between text-lg pt-2">
+                    <span class="font-bold">Tổng cộng:</span>
+                    <span id="grandTotal" class="font-bold text-green-700"></span>
                 </div>
             </div>
-            <div class="border-t my-2"></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <div>
-                    <div class="font-bold text-blue-900 mb-1">Thông tin cá nhân</div>
-                    <div>Ông Van Hoa Nguyen</div>
-                    <div>01/01/2004</div>
-                    <div class="mt-2 font-bold text-blue-900 mb-1">Chương trình Khách hàng thân thiết</div>
-                    <div>Chưa có thông tin</div>
-                </div>
-                <div>
-                    <div class="font-bold text-blue-900 mb-1">Thông tin liên hệ</div>
-                    <div><span class="font-semibold">E-mail:</span> nguyenvanhoa@gmail.com</div>
-                    <div><span class="font-semibold">Số điện thoại:</span> Cá nhân: +84 0123456789</div>
-                </div>
+            <div class="mt-6 flex justify-end gap-4">
+                <button onclick="history.back()" class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                    Quay lại
+                </button>
+                <button id="btnContinue" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                    Tiếp tục
+                </button>
             </div>
         </div>
     </div>
-    <!-- Dịch vụ bổ sung -->
-    <div class="max-w-3xl mx-auto mb-8">
-        <h2 class="text-xl font-bold text-blue-900 mb-4 text-center">Các dịch vụ bổ sung</h2>
-        <div class="bg-white rounded-xl shadow p-6 mb-4">
-            <div class="flex flex-col md:flex-row gap-4">
-                <div class="flex-1 flex flex-col items-center justify-center">
-                    <img src="https://res.cloudinary.com/dgkrchato/image/upload/v1717570732/bamboo-insurance.png" alt="BambooCARE" class="w-full max-w-xs rounded-lg mb-2" />
-                    <div class="text-lg font-bold text-blue-900">Bảo hiểm du lịch TenPMCARE</div>
-                    <div class="text-xs text-gray-600 mb-2">TenPM được cung cấp bởi Tổng công ty Bảo hiểm PVI và tái bảo hiểm bởi Bảo hiểm Chubb Việt Nam</div>
-                </div>
-                <div class="flex-1 flex flex-col gap-2">
-                    <div class="flex items-center gap-2">
-                        <input type="radio" name="insurance" id="noInsurance" checked class="accent-green-600" />
-                        <label for="noInsurance" class="font-bold text-blue-900">Không có bảo hiểm</label>
-                    </div>
-                    <div class="text-xs text-gray-600 mb-4">Tôi không muốn bảo hiểm chuyến đi của mình và tôi sẽ chịu trách nhiệm thanh toán mọi chi phí trong trường hợp có cấp cứu y tế và các chi phí không được hoàn lại.</div>
-                    <div class="flex items-center gap-2">
-                        <input type="radio" name="insurance" id="hasInsurance" class="accent-green-600" />
-                        <label for="hasInsurance" class="font-bold text-blue-900">TenPMCARE 60.000 VND (Được đề xuất)</label>
-                    </div>
-                    <ul class="list-disc ml-6 text-xs text-green-700">
-                        <li>Quyền lợi bảo hiểm tai nạn cá nhân lên đến 1 tỷ đồng</li>
-                        <li>Chi trả phí vé máy bay không được hoàn lại trong trường hợp khẩn cấp</li>
-                        <li>Quyền lợi bảo hiểm cho chuyến bay/hành lý chậm trễ hoặc thất lạc/hư hỏng hành lý</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Các dịch vụ khác -->
-        <div class="bg-white rounded-xl shadow p-6 mb-6 border">
-            <div class="flex justify-between items-start">
-                <div>
-                    <div class="font-bold text-blue-900 text-lg mb-1">Mua thêm hành lý</div>
-                    <div class="text-sm text-gray-700 mb-1">
-                        Quý khách cần thêm hành lý ký gửi cho chuyến bay? Mua ngay để được hưởng giá tốt nhất.<br>
-                        <span class="font-semibold text-green-700">Từ 130,000 VND</span>
-                    </div>
-                </div>
-                <div>
-                    <div class="bg-blue-100 text-blue-900 text-xs px-4 py-1 rounded shadow font-semibold">
-                        Lưu ý: hạng vé của bạn chỉ có 7kg hành lý xách tay
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4 border-t pt-4">
-                <div class="text-sm mb-2">
-                    <span class="font-semibold">1 hành lý xách tay,</span>
-                    <span class="text-red-600 font-semibold">Không bao gồm hành lý ký gửi</span>
-                </div>
-                <div class="flex items-center gap-2 mb-1">
-                    <span class="text-green-700 font-bold">Ông Van Hoa Nguyen</span>
-                    <span class="text-gray-700">1 hành lý xách tay (15lbs 7kg/41in. 105cm tối đa)</span>
-                </div>
-                <div class="text-red-600 text-sm mb-2">Không bao gồm hành lý ký gửi trong giá vé</div>
-                <div id="baggageSummary" class="mb-2"></div>
-                <div class="flex justify-between items-center mt-4">
-                    <a href="/get-ticket/buybaggage" id="btnChangeBaggage" class="border border-green-700 text-green-700 px-4 py-2 rounded hover:bg-green-50 font-semibold">Thay đổi</a>
-                    <div class="font-bold text-blue-900 text-lg">Tổng giá hành lý: <span id="baggageTotal">0 VND</span></div>
-                </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-xl shadow p-6 mb-4">
-            <div class="flex justify-between items-center">
-                <div>
-                    <div class="font-bold text-blue-900 mb-2">Chọn suất ăn - đồ uống</div>
-                    <div class="text-xs text-gray-600 mb-2">Thưởng thức các món ăn, thức uống mới trên tàu bay. Từ 50,000 VND</div>
-                </div>
-                <img src="/images/meal.png" class="h-16" />
-            </div>
-            <div id="mealList" class="mt-4"></div>
-            <div class="flex justify-between items-center mt-4">
-                <button id="btnChangeMeal" class="border border-green-700 text-green-700 px-4 py-2 rounded hover:bg-green-50 font-semibold">Thay đổi</button>
-                <div class="font-bold text-blue-900 text-lg">Tổng giá cho suất ăn: <span id="mealTotal">0 VND</span></div>
-            </div>
-        </div>
-        <div class="bg-white rounded-xl shadow p-6 mb-4">
-            <div class="font-bold text-blue-900 mb-2">Chọn chỗ ngồi</div>
-            <div class="text-xs text-gray-600 mb-2">Chỉ từ 55K - dễ dàng lựa chọn ghế ngồi ưa thích của quý khách trên chuyến bay</div>
-            <div id="seatInfoSummary" class="mb-2"></div>
-            <button id="btnChangeSeat" class="border border-green-600 text-green-700 px-4 py-2 rounded hover:bg-green-50 font-semibold">Thay đổi</button>
-        </div>
-        <div class="bg-white rounded-xl shadow p-6 mb-4">
-            <div class="font-bold text-blue-900 mb-2">Phòng chờ khách Hạng Thương gia</div>
-            <div class="text-xs text-gray-600 mb-2">Tận hưởng không gian sang trọng, thoải mái và đầy đủ tiện nghi trước chuyến bay. Từ 315,000 VND</div>
-            <div id="loungeSummary" class="mb-2"></div>
-            <button id="btnLoungeService" class="border border-green-600 text-green-700 px-4 py-2 rounded hover:bg-green-50 font-semibold">Thêm dịch vụ</button>
-        </div>
-    </div>
-    <!-- Tổng giá và thanh toán -->
-    <div class="max-w-3xl mx-auto mb-8">
-        <div class="flex justify-end text-green-700 font-bold text-lg mb-2">Tổng giá: <span class="text-2xl ml-2" id="grandTotal">0 VND</span></div>
-        <div class="text-xs text-gray-600 mb-2">Giá một chiều cho tất cả các hành khách (đã bao gồm thuế, phí và chiết khấu).</div>
-        <div class="flex justify-end">
-            <button id="btnGoToPayment" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg shadow transition">Thanh toán</button>
-        </div>
-    </div>
-    <!-- Popup mua thêm hành lý -->
-    <div id="buyBaggagePopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30 hidden">
-      <div class="bg-white rounded-2xl shadow-xl max-w-3xl w-full p-8 relative">
-        <button id="closeBuyBaggage" class="absolute top-3 right-3 text-gray-400 hover:text-green-700 text-2xl font-bold">&times;</button>
-        <div class="flex flex-col md:flex-row gap-8">
-          <div class="flex-1">
-            <div class="font-bold text-2xl text-green-700 mb-2">Mua thêm hành lý</div>
-            <div class="text-sm text-gray-700 mb-2">Mua thêm hành lý ký gửi tại đây để có giá tốt nhất <a href="#" class="text-green-700 underline">Xem chi tiết</a></div>
-            <div class="bg-white rounded-xl shadow p-6 border mt-4">
-              <div class="font-bold text-center text-lg mb-4">Bags<br><span class="text-base font-normal text-gray-700">Hà Nội đến TP. Hồ Chí Minh</span></div>
-              <div class="mb-2 flex items-center gap-2">
-                <svg class="w-5 h-5 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 17a4 4 0 01-8 0V5a4 4 0 018 0v12z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span class="font-semibold">Hành lý xách tay</span>
-              </div>
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-green-700 font-bold">Ông Van Hoa Nguyen</span>
-                <span class="text-gray-700">1 hành lý xách tay (15lbs 7kg/41in. 105cm tối đa)</span>
-              </div>
-              <div class="mb-2 flex items-center gap-2">
-                <svg class="w-5 h-5 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 6h18M9 6V4a3 3 0 016 0v2m-9 0v14a2 2 0 002 2h6a2 2 0 002-2V6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span class="font-semibold">Hành lý ký gửi</span>
-              </div>
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-green-700 font-bold">Ông Van Hoa Nguyen</span>
-                <span class="text-red-600">Không bao gồm hành lý ký gửi trong giá vé</span>
-              </div>
-              <div class="border rounded-xl p-4 mt-4">
-                <div class="font-semibold mb-2 flex items-center gap-2">
-                  <svg class="w-5 h-5 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 6h18M9 6V4a3 3 0 016 0v2m-9 0v14a2 2 0 002 2h6a2 2 0 002-2V6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  Mua thêm hành lý
-                </div>
-                <div class="text-green-700 font-bold mb-2">Ông Van Hoa Nguyen</div>
-                <div class="mb-2">
-                  <label class="block text-sm font-semibold mb-1">Hành lý mua trước</label>
-                  <select class="w-full border rounded p-2">
-                    <option>Chọn gói hành lý mua thêm</option>
-                    <option>15kg - 180.000 VND</option>
-                    <option>20kg - 230.000 VND</option>
-                    <option>25kg - 280.000 VND</option>
-                    <option>30kg - 350.000 VND</option>
-                    <option>35kg - 400.000 VND</option>
-                  </select>
-                </div>
-              </div>
-              <div class="flex items-center gap-4 border rounded-xl p-4 mt-4 bg-yellow-50">
-                <img src="https://res.cloudinary.com/dgkrchato/image/upload/v1717570732/bamboo-insurance.png" alt="Ưu đãi" class="w-16 h-16">
-                <div class="text-lg font-bold text-green-700">Tiết kiệm đến <span class="text-2xl">60%</span> khi mua thêm hành lý ký gửi trước giờ khởi hành</div>
-              </div>
-            </div>
-            <div class="mt-6 flex justify-between items-center">
-              <div class="text-xs text-green-700 bg-green-50 rounded px-4 py-2">
-                <div class="font-semibold">Lựa chọn của bạn</div>
-                1 hành lý xách tay, Không bao gồm hành lý ký gửi<br>
-                <a href="#" class="text-green-700 underline">Xem chính sách hành lý chi tiết</a>
-              </div>
-              <div class="flex gap-2">
-                <button id="btnBackBuyBaggage" class="border border-gray-400 text-gray-700 px-6 py-2 rounded hover:bg-gray-100 font-semibold transition">Quay lại</button>
-                <button class="bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-2 rounded transition">Xác nhận</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const btnShowBuy = document.getElementById('btnShowBuyBaggage');
-      const popupBuy = document.getElementById('buyBaggagePopup');
-      const closeBuy = document.getElementById('closeBuyBaggage');
-      const btnBackBuy = document.getElementById('btnBackBuyBaggage');
-      if (btnShowBuy && popupBuy && closeBuy && btnBackBuy) {
-        btnShowBuy.addEventListener('click', function(e) {
-          e.preventDefault();
-          popupBuy.classList.remove('hidden');
-        });
-        closeBuy.addEventListener('click', function() {
-          popupBuy.classList.add('hidden');
-        });
-        btnBackBuy.addEventListener('click', function() {
-          popupBuy.classList.add('hidden');
-        });
-        // Đóng popup khi bấm nền mờ
-        popupBuy.addEventListener('click', function(e) {
-          if (e.target === popupBuy) popupBuy.classList.add('hidden');
-        });
-      }
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-        const mealListDiv = document.getElementById('mealList');
-        const mealTotalSpan = document.getElementById('mealTotal');
-        let total = 0;
-        let html = '';
-        const meals = JSON.parse(localStorage.getItem('selectedMeals') || '[]');
-        meals.forEach(m => {
-            html += `<div>${m.quantity} ${m.name}</div>`;
-            total += m.quantity * m.price;
-        });
-        mealListDiv.innerHTML = html || '<div class="text-gray-500">Chưa chọn món nào</div>';
-        mealTotalSpan.textContent = total.toLocaleString('vi-VN') + ' VND';
-        document.getElementById('btnChangeMeal').onclick = function() {
-            window.location.href = '/get-ticket/selectmeal';
-        }
-        // Baggage summary
-        const baggageDiv = document.getElementById('baggageSummary');
-        const baggageTotal = document.getElementById('baggageTotal');
-        let baggage = JSON.parse(localStorage.getItem('selectedBaggage') || 'null');
-        if (baggage && baggage.text) {
-            baggageDiv.innerHTML = `<div>${baggage.text}</div>`;
-            // Lấy số tiền từ text (vd: "15kg - 180.000 VND")
-            let match = baggage.text.match(/([0-9.]+)\s*VND/);
-            let price = match ? parseInt(match[1].replace(/\./g, '')) : 0;
-            baggageTotal.textContent = price.toLocaleString('vi-VN') + ' VND';
-        } else {
-            baggageDiv.innerHTML = '<div class="text-gray-500">Chưa chọn hành lý ký gửi</div>';
-            baggageTotal.textContent = '0 VND';
-        }
-        document.getElementById('btnChangeBaggage').onclick = function() {
-            window.location.href = '/get-ticket/buybaggage';
-        }
-        // Hiển thị ghế đã chọn
-        const seatInfoDiv = document.getElementById('seatInfoSummary');
-        let seatInfo = JSON.parse(localStorage.getItem('selectedSeatInfo') || 'null');
-        if (seatInfo && seatInfo.seat) {
-            seatInfoDiv.innerHTML = `<span class="font-bold text-green-700">Đã chọn ghế: ${seatInfo.seat}</span> <span class="ml-2 text-blue-900 font-bold">${seatInfo.price.toLocaleString('vi-VN')} VND</span>`;
-        } else {
-            seatInfoDiv.innerHTML = '<span class="text-gray-500">Chưa chọn chỗ ngồi</span>';
-        }
-        document.getElementById('btnChangeSeat').onclick = function() {
-            window.location.href = '/get-ticket/selectseat';
-        }
-        // Hiển thị phòng chờ thương gia
-        const loungeDiv = document.getElementById('loungeSummary');
-        const btnLounge = document.getElementById('btnLoungeService');
-        let lounge = JSON.parse(localStorage.getItem('selectedLounge') || 'null');
-        function renderLounge() {
-            if (lounge && lounge.checked) {
-                loungeDiv.innerHTML = `<div class="text-green-700 font-bold">${lounge.text}</div><div class="text-blue-900 font-bold">Tổng giá: ${lounge.price.toLocaleString('vi-VN')} VND</div>`;
-                btnLounge.textContent = 'Thay đổi';
-            } else {
-                loungeDiv.innerHTML = '<div class="text-gray-500">Chưa chọn phòng chờ</div>';
-                btnLounge.textContent = 'Thêm dịch vụ';
+        document.addEventListener("DOMContentLoaded", function () {
+            const flightInfo = document.getElementById('flightInfo');
+            const flight = JSON.parse(sessionStorage.getItem('flightData') || 'null');
+            const selectedFlight = JSON.parse(sessionStorage.getItem('selectedFlight') || 'null');
+
+            if (flight && selectedFlight) {
+                let html = `
+                    <h5 class="font-bold text-center text-2xl mb-6 text-blue-900">Thông tin chuyến bay đã chọn</h5>
+                    <div class="flight-card" data-flight-id="${flight.FlightID}">
+                        <div class="flex flex-col md:flex-row bg-white rounded-xl p-6 items-center justify-between">
+                            <div class="flex-1 flex flex-col md:flex-row items-center gap-8">
+                                <!-- Departure -->
+                                <div class="text-center md:text-left">
+                                    <div class="text-2xl font-bold text-gray-800">${flight.DepartureTime}</div>
+                                    <div class="text-base font-semibold text-gray-600">${flight.DepartureAirport.AirportCode}</div>
+                                    <div class="text-sm text-gray-500">${flight.DepartureAirport.City}</div>
+                                </div>
+
+                                <!-- Flight Path -->
+                                <div class="flex flex-col items-center">
+                                    <div class="text-sm text-green-700 font-semibold mb-2">Bay thẳng</div>
+                                    <div class="w-32 border-t-2 border-dotted border-gray-400 mb-2"></div>
+                                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M2.5 19l19-7-7 7-2-2-7 2z" />
+                                    </svg>
+                                </div>
+
+                                <!-- Arrival -->
+                                <div class="text-center md:text-left">
+                                    <div class="text-2xl font-bold text-gray-800">${flight.ArrivalTime}</div>
+                                    <div class="text-base font-semibold text-gray-600">${flight.ArrivalAirport.AirportCode}</div>
+                                    <div class="text-sm text-gray-500">${flight.ArrivalAirport.City}</div>
+                                </div>
+
+                                <!-- Flight Info -->
+                                <div class="flex flex-col text-sm text-gray-600 ml-4">
+                                    <span class="font-semibold">✈ ${flight.Plane?.Model || 'Unknown'}</span>
+                                    <span>Operated by TenPM Airways</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price Info -->
+                        <div class="mt-6 border-t pt-6">
+                            <div class="flex justify-between items-center">
+                                <div class="flex flex-col">
+                                    <span class="text-lg font-semibold text-gray-600">Hạng vé</span>
+                                    <span class="text-2xl font-bold ${selectedFlight.class === 'Economy' ? 'text-green-700' : 'text-blue-900'}">
+                                        ${selectedFlight.class === 'Economy' ? 'Economy' : 'Business'}
+                                    </span>
+                                </div>
+                                <div class="flex flex-col text-right">
+                                    <span class="text-lg font-semibold text-gray-600">Giá vé cơ bản</span>
+                                    <span class="text-2xl font-bold text-blue-900">
+                                        ${flight.FareClasses.find(fc =>
+                    (fc.ClassName === 'EconomyClass' && selectedFlight.class === 'Economy') ||
+                    (fc.ClassName === 'BusinessClass' && selectedFlight.class === 'Business')
+                ).Price.toLocaleString('vi-VN')} VND
+                                    </span>
+                                    <span class="text-sm text-gray-500">
+                                        ${selectedFlight.passengerCount} hành khách x ${flight.FareClasses.find(fc =>
+                    (fc.ClassName === 'EconomyClass' && selectedFlight.class === 'Economy') ||
+                    (fc.ClassName === 'BusinessClass' && selectedFlight.class === 'Business')
+                ).Price.toLocaleString('vi-VN')} VND
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex justify-end mt-4">
+                                <div class="text-right">
+                                    <span class="text-lg font-semibold text-gray-600">Tổng tiền vé</span>
+                                    <div class="text-3xl font-bold text-green-700">
+                                        ${(flight.FareClasses.find(fc =>
+                    (fc.ClassName === 'EconomyClass' && selectedFlight.class === 'Economy') ||
+                    (fc.ClassName === 'BusinessClass' && selectedFlight.class === 'Business')
+                ).Price * selectedFlight.passengerCount).toLocaleString('vi-VN')} VND
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+
+                flightInfo.innerHTML = html;
             }
-        }
-        renderLounge();
-        btnLounge.onclick = function() {
-            window.location.href = '/get-ticket/loungeservice';
-        }
-        // Tính tổng tiền động (tối ưu)
-        function getFlightPrice() {
-            let selectedFlight = JSON.parse(localStorage.getItem('selectedFlight') || 'null');
-            if (selectedFlight && selectedFlight.price) {
-                return selectedFlight.price;
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const passengersData = JSON.parse(sessionStorage.getItem('passengersData'));
+
+            if (!passengersData) {
+                window.location.href = '/get-ticket/passenger-info';
+                return;
             }
-            return 1739000; // fallback mặc định
+
+            // Load services from API
+            $.ajax({
+                url: '/get-ticket/get-services',
+                method: 'GET',
+                success: function (services) {
+                    // Render passenger info
+                    let html = '';
+                    for (let i = 0; i < passengersData.length; i++) {
+                        const passenger = passengersData[i];
+                        html += `
+    <div class="passenger-card bg-white rounded-xl shadow p-6 mb-4">
+        <!-- Passenger Info -->
+        <div class="flex items-center gap-4 mb-6">
+            <div class="bg-green-100 rounded-full p-3">
+                <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z" />
+                </svg>
+            </div>
+            <div>
+                <div class="text-xl font-bold text-blue-900">
+                    ${passenger.title} ${passenger.fullName}
+                </div>
+                <div class="text-gray-600">
+                    CCCD/Hộ chiếu: ${passenger.identityNumber} | 
+                    Ngày sinh: ${formatDate(passenger.dob)}
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Selection -->
+        <div class="border-t pt-4">
+            <h3 class="font-bold text-lg text-blue-900 mb-4">Dịch vụ bổ sung</h3>
+            
+            <!-- Baggage Selection -->
+            <div class="mb-6">
+                <label class="block text-sm font-medium mb-2">
+                    Hành lý ký gửi
+                    <span class="text-xs text-gray-500">(Đã bao gồm 7kg hành lý xách tay)</span>
+                </label>
+                <select class="service-select w-full border rounded-lg p-2.5" 
+                        data-passenger-index="${i}"
+                        data-service-type="baggage">
+                    <option value="">Không mua thêm</option>
+                    ${services
+                .filter(s => s.ServiceType === 'Luggage')
+                .map(s => `
+                            <option value="${s.ServiceID}" data-price="${s.Price}">
+                                ${s.ServiceName} - ${formatPrice(s.Price)}
+                            </option>
+                        `).join('')}
+                </select>
+            </div>
+
+            <!-- Meal Selection -->
+            <div class="mb-6">
+                <label class="block text-sm font-medium mb-2">
+                    Suất ăn
+                    <span class="text-xs text-gray-500">(Tùy chọn)</span>
+                </label>
+                <select class="service-select w-full border rounded-lg p-2.5"
+                        data-passenger-index="${i}"
+                        data-service-type="meal">
+                    <option value="">Không chọn suất ăn</option>
+                    ${services
+                .filter(s => s.ServiceType === 'Meal')
+                .map(s => `
+                            <option value="${s.ServiceID}" data-price="${s.Price}">
+                                ${s.ServiceName} - ${formatPrice(s.Price)}
+                            </option>
+                        `).join('')}
+                </select>
+            </div>
+
+            <!-- Service Total -->
+            <div class="flex justify-end border-t pt-4">
+                <div class="text-right">
+                    <span class="text-lg font-semibold text-gray-600">Tổng phụ thu dịch vụ</span>
+                    <div class="passenger-total font-bold text-2xl text-green-700">0 ₫</div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+                    }
+
+                    document.getElementById('passengersContainer').innerHTML = html;
+
+                    // Add event listeners
+                    document.querySelectorAll('.service-select').forEach(select => {
+                        select.addEventListener('change', calculateTotal);
+                    });
+                },
+                error: function (err) {
+                    console.error('Error loading services:', err);
+                    alert('Không thể tải thông tin dịch vụ. Vui lòng thử lại sau.');
+                }
+            });
+        });
+
+        function calculateTotal() {
+            let totalServices = 0;
+
+            // Calculate each passenger's services
+            document.querySelectorAll('.bg-white.rounded-xl').forEach(card => {
+                let passengerTotal = 0;
+                card.querySelectorAll('.service-select').forEach(select => {
+                    const selectedOption = select.options[select.selectedIndex];
+                    if (selectedOption && selectedOption.dataset.price) {
+                        passengerTotal += parseInt(selectedOption.dataset.price);
+                    }
+                });
+
+                // Update passenger total
+                const totalElement = card.querySelector('.passenger-total');
+                if (totalElement) {
+                    totalElement.textContent = formatPrice(passengerTotal);
+                    totalServices += passengerTotal;
+                }
+            });
+
+            // Update the service total and grand total
+            const serviceTotalElement = document.getElementById('serviceTotal');
+            const grandTotalElement = document.getElementById('grandTotal');
+            const basePrice = parsePrice(document.getElementById('basePrice').textContent);
+
+            if (serviceTotalElement) serviceTotalElement.textContent = formatPrice(totalServices);
+            if (grandTotalElement) grandTotalElement.textContent = formatPrice(basePrice + totalServices);
         }
-        function getBaggagePrice() {
-            let baggage = JSON.parse(localStorage.getItem('selectedBaggage') || 'null');
-            if (baggage && baggage.text) {
-                let match = baggage.text.match(/([0-9.]+)\s*VND/);
-                return match ? parseInt(match[1].replace(/\./g, '')) : 0;
+
+        function formatPrice(price) {
+            return new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            }).format(price);
+        }
+
+        function parsePrice(priceString) {
+            return parseInt(priceString.replace(/[^\d]/g, '')) || 0;
+        }
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('vi-VN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const passengersData = JSON.parse(sessionStorage.getItem('passengersData'));
+            const flightData = JSON.parse(sessionStorage.getItem('flightData'));
+            const selectedFlight = JSON.parse(sessionStorage.getItem('selectedFlight'));
+
+            if (!passengersData || !flightData || !selectedFlight) {
+                window.location.href = '/get-ticket/passenger-info';
+                return;
             }
-            return 0;
-        }
-        function getMealPrice() {
-            const meals = JSON.parse(localStorage.getItem('selectedMeals') || '[]');
-            let mealTotal = 0;
-            meals.forEach(m => mealTotal += m.quantity * m.price);
-            return mealTotal;
-        }
-        function getSeatPrice() {
-            let seatInfo = JSON.parse(localStorage.getItem('selectedSeatInfo') || 'null');
-            return (seatInfo && seatInfo.price) ? seatInfo.price : 0;
-        }
-        function getLoungePrice() {
-            let lounge = JSON.parse(localStorage.getItem('selectedLounge') || 'null');
-            return (lounge && lounge.checked && lounge.price) ? lounge.price : 0;
-        }
-        function updateGrandTotal() {
-            let total = 0;
-            total += getFlightPrice();
-            total += getBaggagePrice();
-            total += getMealPrice();
-            total += getSeatPrice();
-            total += getLoungePrice();
-            document.getElementById('grandTotal').textContent = total.toLocaleString('vi-VN') + ' VND';
-        }
-        // Gọi khi load trang
-        updateGrandTotal();
-        // Nếu muốn tự động cập nhật khi quay lại từ các dịch vụ bổ sung mà không cần reload, có thể dùng thêm:
-        window.addEventListener('focus', updateGrandTotal);
-        // Sự kiện chuyển sang trang thanh toán
-        var btnGoToPayment = document.getElementById('btnGoToPayment');
-        if (btnGoToPayment) {
-            btnGoToPayment.onclick = function() {
-                window.location.href = '/get-ticket/payment';
+
+            // Hiển thị giá vé cơ bản
+            const basePrice = calculateBasePrice();
+            document.getElementById('basePrice').textContent = formatPrice(basePrice);
+
+
+            function calculateBasePrice() {
+                const fareClass = flightData.FareClasses.find(fc =>
+                    (fc.ClassName === 'EconomyClass' && selectedFlight.class === 'Economy') ||
+                    (fc.ClassName === 'BusinessClass' && selectedFlight.class === 'Business')
+                );
+
+                return fareClass ? fareClass.Price * passengersData.length : 0;
             }
+        });
+
+        // Utility functions
+        function formatPrice(price) {
+            return new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            }).format(price);
         }
-    });
+
+        function parsePrice(priceString) {
+            return parseInt(priceString.replace(/[^\d]/g, '')) || 0;
+        }
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('vi-VN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+        }
+    </script>
+    <script>
+        document.getElementById('btnContinue').addEventListener('click', function () {
+            const flightData = JSON.parse(sessionStorage.getItem('flightData'));
+            const selectedFlight = JSON.parse(sessionStorage.getItem('selectedFlight'));
+            const passengersData = JSON.parse(sessionStorage.getItem('passengersData'));
+
+            const fareClass = flightData.FareClasses.find(fc =>
+                (fc.ClassName === 'EconomyClass' && selectedFlight.class === 'Economy') ||
+                (fc.ClassName === 'BusinessClass' && selectedFlight.class === 'Business')
+            );
+
+            // Lấy lại tất cả passenger-card đang hiển thị
+            const cards = document.querySelectorAll('.passenger-card');
+            const passengers = passengersData.map((passenger, index) => {
+                const card = cards[index];
+                const services = [];
+                if (card) {
+                    card.querySelectorAll('.service-select').forEach(select => {
+                        const selectedOption = select.options[select.selectedIndex];
+                        if (selectedOption && selectedOption.value && selectedOption.dataset.price && selectedOption.value !== "") {
+                            services.push({
+                                serviceId: parseInt(selectedOption.value),
+                                serviceType: select.dataset.serviceType,
+                                price: parseInt(selectedOption.dataset.price)
+                            });
+                        }
+                    });
+                }
+                return {
+                    ...passenger,
+                    selectedServices: services
+                };
+            });
+
+            sessionStorage.setItem('bookingDetails', JSON.stringify({
+                fareClassId: fareClass.FareClassID,
+                fareClassName: fareClass.ClassName,
+                passengerCount: passengers.length,
+                passengers: passengers
+            }));
+
+            window.location.href = '/get-ticket/payment';
+        });
     </script>
 </body>
-</html> 
+
+</html>

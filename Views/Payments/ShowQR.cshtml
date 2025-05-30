@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quét mã QR để thanh toán</title>
+</head>
+<body>
+    <h2>Quét mã QR để thanh toán</h2>
+    <p>Mã đơn hàng: @ViewBag.OrderId</p>
+    <img src="@ViewBag.QRCodeImage" alt="Mã QR Thanh toán MoMo" />
+    <p>Sử dụng ứng dụng MoMo để quét mã QR và hoàn tất thanh toán.</p>
+    <a href="@Url.Action("Index", "Home")">Quay về trang chủ</a>
+</body>
+</html>
