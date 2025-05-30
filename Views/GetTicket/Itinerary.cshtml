@@ -158,167 +158,6 @@
     </script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const btnShowBuy = document.getElementById('btnShowBuyBaggage');
-            const popupBuy = document.getElementById('buyBaggagePopup');
-            const closeBuy = document.getElementById('closeBuyBaggage');
-            const btnBackBuy = document.getElementById('btnBackBuyBaggage');
-
-            if (btnShowBuy && popupBuy && closeBuy && btnBackBuy) {
-                btnShowBuy.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    popupBuy.classList.remove('hidden');
-                });
-
-                closeBuy.addEventListener('click', function () {
-                    popupBuy.classList.add('hidden');
-                });
-
-                btnBackBuy.addEventListener('click', function () {
-                    popupBuy.classList.add('hidden');
-                });
-
-                // Đóng popup khi bấm nền mờ
-                popupBuy.addEventListener('click', function (e) {
-                    if (e.target === popupBuy) popupBuy.classList.add('hidden');
-                });
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const mealListDiv = document.getElementById('mealList');
-            const mealTotalSpan = document.getElementById('mealTotal');
-            let total = 0;
-            let html = '';
-            const meals = JSON.parse(localStorage.getItem('selectedMeals') || '[]');
-
-            meals.forEach(m => {
-                html += `<div>${m.quantity} ${m.name}</div>`;
-                total += m.quantity * m.price;
-            });
-
-            mealListDiv.innerHTML = html || '<div class="text-gray-500">Chưa chọn món nào</div>';
-            mealTotalSpan.textContent = total.toLocaleString('vi-VN') + ' VND';
-
-            document.getElementById('btnChangeMeal').onclick = function () {
-                window.location.href = '/get-ticket/selectmeal';
-            }
-
-            // Baggage summary
-            const baggageDiv = document.getElementById('baggageSummary');
-            const baggageTotal = document.getElementById('baggageTotal');
-            let baggage = JSON.parse(localStorage.getItem('selectedBaggage') || 'null');
-
-            if (baggage && baggage.text) {
-                baggageDiv.innerHTML = `<div>${baggage.text}</div>`;
-                // Lấy số tiền từ text (vd: "15kg - 180.000 VND")
-                let match = baggage.text.match(/([0-9.]+)\s*VND/);
-                let price = match ? parseInt(match[1].replace(/\./g, '')) : 0;
-                baggageTotal.textContent = price.toLocaleString('vi-VN') + ' VND';
-            } else {
-                baggageDiv.innerHTML = '<div class="text-gray-500">Chưa chọn hành lý ký gửi</div>';
-                baggageTotal.textContent = '0 VND';
-            }
-
-            document.getElementById('btnChangeBaggage').onclick = function () {
-                window.location.href = '/get-ticket/buybaggage';
-            }
-
-            // Hiển thị ghế đã chọn
-            const seatInfoDiv = document.getElementById('seatInfoSummary');
-            let seatInfo = JSON.parse(localStorage.getItem('selectedSeatInfo') || 'null');
-
-            if (seatInfo && seatInfo.seat) {
-                seatInfoDiv.innerHTML = `<span class="font-bold text-green-700">Đã chọn ghế: ${seatInfo.seat}</span> <span class="ml-2 text-blue-900 font-bold">${seatInfo.price.toLocaleString('vi-VN')} VND</span>`;
-            } else {
-                seatInfoDiv.innerHTML = '<span class="text-gray-500">Chưa chọn chỗ ngồi</span>';
-            }
-
-            document.getElementById('btnChangeSeat').onclick = function () {
-                window.location.href = '/get-ticket/selectseat';
-            }
-
-            // Hiển thị phòng chờ thương gia
-            const loungeDiv = document.getElementById('loungeSummary');
-            const btnLounge = document.getElementById('btnLoungeService');
-            let lounge = JSON.parse(localStorage.getItem('selectedLounge') || 'null');
-
-            function renderLounge() {
-                if (lounge && lounge.checked) {
-                    loungeDiv.innerHTML = `<div class="text-green-700 font-bold">${lounge.text}</div><div class="text-blue-900 font-bold">Tổng giá: ${lounge.price.toLocaleString('vi-VN')} VND</div>`;
-                    btnLounge.textContent = 'Thay đổi';
-                } else {
-                    loungeDiv.innerHTML = '<div class="text-gray-500">Chưa chọn phòng chờ</div>';
-                    btnLounge.textContent = 'Thêm dịch vụ';
-                }
-            }
-
-            renderLounge();
-
-            btnLounge.onclick = function () {
-                window.location.href = '/get-ticket/loungeservice';
-            }
-
-            // Tính tổng tiền động (tối ưu)
-            function getFlightPrice() {
-                let selectedFlight = JSON.parse(localStorage.getItem('selectedFlight') || 'null');
-                if (selectedFlight && selectedFlight.price) {
-                    return selectedFlight.price;
-                }
-                return 1739000; // fallback mặc định
-            }
-
-            function getBaggagePrice() {
-                let baggage = JSON.parse(localStorage.getItem('selectedBaggage') || 'null');
-                if (baggage && baggage.text) {
-                    let match = baggage.text.match(/([0-9.]+)\s*VND/);
-                    return match ? parseInt(match[1].replace(/\./g, '')) : 0;
-                }
-                return 0;
-            }
-
-            function getMealPrice() {
-                const meals = JSON.parse(localStorage.getItem('selectedMeals') || '[]');
-                let mealTotal = 0;
-                meals.forEach(m => mealTotal += m.quantity * m.price);
-                return mealTotal;
-            }
-
-            function getSeatPrice() {
-                let seatInfo = JSON.parse(localStorage.getItem('selectedSeatInfo') || 'null');
-                return (seatInfo && seatInfo.price) ? seatInfo.price : 0;
-            }
-
-            function getLoungePrice() {
-                let lounge = JSON.parse(localStorage.getItem('selectedLounge') || 'null');
-                return (lounge && lounge.checked && lounge.price) ? lounge.price : 0;
-            }
-
-            function updateGrandTotal() {
-                let total = 0;
-                total += getFlightPrice();
-                total += getBaggagePrice();
-                total += getMealPrice();
-                total += getSeatPrice();
-                total += getLoungePrice();
-                document.getElementById('grandTotal').textContent = total.toLocaleString('vi-VN') + ' VND';
-            }
-
-            // Gọi khi load trang
-            updateGrandTotal();
-
-            // Nếu muốn tự động cập nhật khi quay lại từ các dịch vụ bổ sung mà không cần reload, có thể dùng thêm:
-            window.addEventListener('focus', updateGrandTotal);
-
-            // Sự kiện chuyển sang trang thanh toán
-            var btnGoToPayment = document.getElementById('btnGoToPayment');
-            if (btnGoToPayment) {
-                btnGoToPayment.onclick = function () {
-                    window.location.href = '/get-ticket/payment';
-                }
-            }
-        });
-
         document.addEventListener('DOMContentLoaded', function () {
             const passengersData = JSON.parse(sessionStorage.getItem('passengersData'));
 
@@ -337,79 +176,79 @@
                     for (let i = 0; i < passengersData.length; i++) {
                         const passenger = passengersData[i];
                         html += `
-                    <div class="bg-white rounded-xl shadow p-6 mb-4">
-                        <!-- Passenger Info -->
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="bg-green-100 rounded-full p-3">
-                                <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="text-xl font-bold text-blue-900">
-                                    ${passenger.title} ${passenger.fullName}
-                                </div>
-                                <div class="text-gray-600">
-                                    CCCD/Hộ chiếu: ${passenger.identityNumber} | 
-                                    Ngày sinh: ${formatDate(passenger.dob)}
-                                </div>
-                            </div>
-                        </div>
+    <div class="passenger-card bg-white rounded-xl shadow p-6 mb-4">
+        <!-- Passenger Info -->
+        <div class="flex items-center gap-4 mb-6">
+            <div class="bg-green-100 rounded-full p-3">
+                <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z" />
+                </svg>
+            </div>
+            <div>
+                <div class="text-xl font-bold text-blue-900">
+                    ${passenger.title} ${passenger.fullName}
+                </div>
+                <div class="text-gray-600">
+                    CCCD/Hộ chiếu: ${passenger.identityNumber} | 
+                    Ngày sinh: ${formatDate(passenger.dob)}
+                </div>
+            </div>
+        </div>
 
-                        <!-- Services Selection -->
-                        <div class="border-t pt-4">
-                            <h3 class="font-bold text-lg text-blue-900 mb-4">Dịch vụ bổ sung</h3>
-                            
-                            <!-- Baggage Selection -->
-                            <div class="mb-6">
-                                <label class="block text-sm font-medium mb-2">
-                                    Hành lý ký gửi
-                                    <span class="text-xs text-gray-500">(Đã bao gồm 7kg hành lý xách tay)</span>
-                                </label>
-                                <select class="service-select w-full border rounded-lg p-2.5" 
-                                        data-passenger-index="${i}"
-                                        data-service-type="baggage">
-                                    <option value="">Không mua thêm</option>
-                                    ${services
-                                .filter(s => s.ServiceType === 'Luggage')
-                                .map(s => `
-                                            <option value="${s.ServiceID}" data-price="${s.Price}">
-                                                ${s.ServiceName} - ${formatPrice(s.Price)}
-                                            </option>
-                                        `).join('')}
-                                </select>
-                            </div>
+        <!-- Services Selection -->
+        <div class="border-t pt-4">
+            <h3 class="font-bold text-lg text-blue-900 mb-4">Dịch vụ bổ sung</h3>
+            
+            <!-- Baggage Selection -->
+            <div class="mb-6">
+                <label class="block text-sm font-medium mb-2">
+                    Hành lý ký gửi
+                    <span class="text-xs text-gray-500">(Đã bao gồm 7kg hành lý xách tay)</span>
+                </label>
+                <select class="service-select w-full border rounded-lg p-2.5" 
+                        data-passenger-index="${i}"
+                        data-service-type="baggage">
+                    <option value="">Không mua thêm</option>
+                    ${services
+                .filter(s => s.ServiceType === 'Luggage')
+                .map(s => `
+                            <option value="${s.ServiceID}" data-price="${s.Price}">
+                                ${s.ServiceName} - ${formatPrice(s.Price)}
+                            </option>
+                        `).join('')}
+                </select>
+            </div>
 
-                            <!-- Meal Selection -->
-                            <div class="mb-6">
-                                <label class="block text-sm font-medium mb-2">
-                                    Suất ăn
-                                    <span class="text-xs text-gray-500">(Tùy chọn)</span>
-                                </label>
-                                <select class="service-select w-full border rounded-lg p-2.5"
-                                        data-passenger-index="${i}"
-                                        data-service-type="meal">
-                                    <option value="">Không chọn suất ăn</option>
-                                    ${services
-                                .filter(s => s.ServiceType === 'Meal')
-                                .map(s => `
-                                            <option value="${s.ServiceID}" data-price="${s.Price}">
-                                                ${s.ServiceName} - ${formatPrice(s.Price)}
-                                            </option>
-                                        `).join('')}
-                                </select>
-                            </div>
+            <!-- Meal Selection -->
+            <div class="mb-6">
+                <label class="block text-sm font-medium mb-2">
+                    Suất ăn
+                    <span class="text-xs text-gray-500">(Tùy chọn)</span>
+                </label>
+                <select class="service-select w-full border rounded-lg p-2.5"
+                        data-passenger-index="${i}"
+                        data-service-type="meal">
+                    <option value="">Không chọn suất ăn</option>
+                    ${services
+                .filter(s => s.ServiceType === 'Meal')
+                .map(s => `
+                            <option value="${s.ServiceID}" data-price="${s.Price}">
+                                ${s.ServiceName} - ${formatPrice(s.Price)}
+                            </option>
+                        `).join('')}
+                </select>
+            </div>
 
-                            <!-- Service Total -->
-                            <div class="flex justify-end border-t pt-4">
-                                <div class="text-right">
-                                    <span class="text-lg font-semibold text-gray-600">Tổng phụ thu dịch vụ</span>
-                                    <div class="passenger-total font-bold text-2xl text-green-700">0 ₫</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
+            <!-- Service Total -->
+            <div class="flex justify-end border-t pt-4">
+                <div class="text-right">
+                    <span class="text-lg font-semibold text-gray-600">Tổng phụ thu dịch vụ</span>
+                    <div class="passenger-total font-bold text-2xl text-green-700">0 ₫</div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
                     }
 
                     document.getElementById('passengersContainer').innerHTML = html;
@@ -451,7 +290,7 @@
             const serviceTotalElement = document.getElementById('serviceTotal');
             const grandTotalElement = document.getElementById('grandTotal');
             const basePrice = parsePrice(document.getElementById('basePrice').textContent);
-            
+
             if (serviceTotalElement) serviceTotalElement.textContent = formatPrice(totalServices);
             if (grandTotalElement) grandTotalElement.textContent = formatPrice(basePrice + totalServices);
         }
@@ -475,183 +314,95 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-    const passengersData = JSON.parse(sessionStorage.getItem('passengersData'));
-    const flightData = JSON.parse(sessionStorage.getItem('flightData'));
-    const selectedFlight = JSON.parse(sessionStorage.getItem('selectedFlight'));
+        document.addEventListener('DOMContentLoaded', function () {
+            const passengersData = JSON.parse(sessionStorage.getItem('passengersData'));
+            const flightData = JSON.parse(sessionStorage.getItem('flightData'));
+            const selectedFlight = JSON.parse(sessionStorage.getItem('selectedFlight'));
 
-    if (!passengersData || !flightData || !selectedFlight) {
-        window.location.href = '/get-ticket/passenger-info';
-        return;
-    }
+            if (!passengersData || !flightData || !selectedFlight) {
+                window.location.href = '/get-ticket/passenger-info';
+                return;
+            }
 
-    // Hiển thị giá vé cơ bản
-    const basePrice = calculateBasePrice();
-    document.getElementById('basePrice').textContent = formatPrice(basePrice);
+            // Hiển thị giá vé cơ bản
+            const basePrice = calculateBasePrice();
+            document.getElementById('basePrice').textContent = formatPrice(basePrice);
 
-    // Load services from API
-    $.ajax({
-        url: '/api/services',
-        method: 'GET',
-        success: function(services) {
-            renderPassengers(passengersData, services);
-            // Add event listeners for all service selections
-            document.querySelectorAll('.service-select').forEach(select => {
-                select.addEventListener('change', function() {
-                    updateTotals();
-                });
-            });
-        },
-        error: function(err) {
-            console.error('Error loading services:', err);
-            alert('Không thể tải thông tin dịch vụ. Vui lòng thử lại sau.');
+
+            function calculateBasePrice() {
+                const fareClass = flightData.FareClasses.find(fc =>
+                    (fc.ClassName === 'EconomyClass' && selectedFlight.class === 'Economy') ||
+                    (fc.ClassName === 'BusinessClass' && selectedFlight.class === 'Business')
+                );
+
+                return fareClass ? fareClass.Price * passengersData.length : 0;
+            }
+        });
+
+        // Utility functions
+        function formatPrice(price) {
+            return new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            }).format(price);
         }
-    });
 
-    function renderPassengers(passengers, services) {
-        const container = document.getElementById('passengersContainer');
-        let html = '';
+        function parsePrice(priceString) {
+            return parseInt(priceString.replace(/[^\d]/g, '')) || 0;
+        }
 
-        passengers.forEach((passenger, index) => {
-            html += `
-                <div class="bg-white rounded-xl shadow p-6 mb-4 passenger-card">
-                    <!-- Passenger Info -->
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="bg-green-100 rounded-full p-3">
-                            <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z" />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="text-xl font-bold text-blue-900">
-                                ${passenger.title} ${passenger.fullName}
-                            </div>
-                            <div class="text-gray-600">
-                                CCCD/Hộ chiếu: ${passenger.identityNumber} | 
-                                Ngày sinh: ${formatDate(passenger.dob)}
-                            </div>
-                        </div>
-                    </div>
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('vi-VN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+        }
+    </script>
+    <script>
+        document.getElementById('btnContinue').addEventListener('click', function () {
+            const flightData = JSON.parse(sessionStorage.getItem('flightData'));
+            const selectedFlight = JSON.parse(sessionStorage.getItem('selectedFlight'));
+            const passengersData = JSON.parse(sessionStorage.getItem('passengersData'));
 
-                    <!-- Services Selection -->
-                    <div class="border-t pt-4">
-                        <h3 class="font-bold text-lg text-blue-900 mb-4">Dịch vụ bổ sung</h3>
-                        
-                        <!-- Baggage Selection -->
-                        <div class="mb-6">
-                            <label class="block text-sm font-medium mb-2">
-                                Hành lý ký gửi
-                                <span class="text-xs text-gray-500">(Đã bao gồm 7kg hành lý xách tay)</span>
-                            </label>
-                            <select class="service-select w-full border rounded-lg p-2.5" 
-                                    data-passenger-index="${index}"
-                                    data-service-type="baggage">
-                                <option value="" data-price="0">Không mua thêm</option>
-                                ${services
-                                    .filter(s => s.ServiceType === 'Luggage')
-                                    .map(s => `
-                                        <option value="${s.ServiceID}" data-price="${s.Price}">
-                                            ${s.ServiceName} - ${formatPrice(s.Price)}
-                                        </option>
-                                    `).join('')}
-                            </select>
-                        </div>
+            const fareClass = flightData.FareClasses.find(fc =>
+                (fc.ClassName === 'EconomyClass' && selectedFlight.class === 'Economy') ||
+                (fc.ClassName === 'BusinessClass' && selectedFlight.class === 'Business')
+            );
 
-                        <!-- Meal Selection -->
-                        <div class="mb-6">
-                            <label class="block text-sm font-medium mb-2">
-                                Suất ăn
-                                <span class="text-xs text-gray-500">(Tùy chọn)</span>
-                            </label>
-                            <select class="service-select w-full border rounded-lg p-2.5"
-                                    data-passenger-index="${index}"
-                                    data-service-type="meal">
-                                <option value="" data-price="0">Không chọn suất ăn</option>
-                                ${services
-                                    .filter(s => s.ServiceType === 'Meal')
-                                    .map(s => `
-                                        <option value="${s.ServiceID}" data-price="${s.Price}">
-                                            ${s.ServiceName} - ${formatPrice(s.Price)}
-                                        </option>
-                                    `).join('')}
-                            </select>
-                        </div>
-
-                        <!-- Passenger Service Total -->
-                        <div class="flex justify-end border-t pt-4">
-                            <div class="text-right">
-                                <div class="text-sm text-gray-600">Tổng phụ thu dịch vụ:</div>
-                                <div class="passenger-total font-bold text-xl text-green-700">0 ₫</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        });
-
-        container.innerHTML = html;
-    }
-
-    function updateTotals() {
-        let totalServices = 0;
-
-        // Tính tổng cho từng hành khách
-        document.querySelectorAll('.passenger-card').forEach(card => {
-            let passengerTotal = 0;
-            
-            // Tính tổng các dịch vụ của hành khách
-            card.querySelectorAll('.service-select').forEach(select => {
-                const selectedOption = select.options[select.selectedIndex];
-                const price = parseInt(selectedOption.dataset.price) || 0;
-                passengerTotal += price;
+            // Lấy lại tất cả passenger-card đang hiển thị
+            const cards = document.querySelectorAll('.passenger-card');
+            const passengers = passengersData.map((passenger, index) => {
+                const card = cards[index];
+                const services = [];
+                if (card) {
+                    card.querySelectorAll('.service-select').forEach(select => {
+                        const selectedOption = select.options[select.selectedIndex];
+                        if (selectedOption && selectedOption.value && selectedOption.dataset.price && selectedOption.value !== "") {
+                            services.push({
+                                serviceId: parseInt(selectedOption.value),
+                                serviceType: select.dataset.serviceType,
+                                price: parseInt(selectedOption.dataset.price)
+                            });
+                        }
+                    });
+                }
+                return {
+                    ...passenger,
+                    selectedServices: services
+                };
             });
 
-            // Cập nhật tổng tiền dịch vụ cho hành khách
-            const passengerTotalElement = card.querySelector('.passenger-total');
-            passengerTotalElement.textContent = formatPrice(passengerTotal);
-            
-            // Cộng vào tổng tiền dịch vụ
-            totalServices += passengerTotal;
+            sessionStorage.setItem('bookingDetails', JSON.stringify({
+                fareClassId: fareClass.FareClassID,
+                fareClassName: fareClass.ClassName,
+                passengerCount: passengers.length,
+                passengers: passengers
+            }));
+
+            window.location.href = '/get-ticket/payment';
         });
-
-        // Cập nhật tổng phụ thu dịch vụ
-        document.getElementById('serviceTotal').textContent = formatPrice(totalServices);
-
-        // Cập nhật tổng cộng
-        const basePrice = parsePrice(document.getElementById('basePrice').textContent);
-        document.getElementById('grandTotal').textContent = formatPrice(basePrice + totalServices);
-    }
-
-    function calculateBasePrice() {
-        const fareClass = flightData.FareClasses.find(fc => 
-            (fc.ClassName === 'EconomyClass' && selectedFlight.class === 'Economy') ||
-            (fc.ClassName === 'BusinessClass' && selectedFlight.class === 'Business')
-        );
-
-        return fareClass ? fareClass.Price * passengersData.length : 0;
-    }
-});
-
-// Utility functions
-function formatPrice(price) {
-    return new Intl.NumberFormat('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    }).format(price);
-}
-
-function parsePrice(priceString) {
-    return parseInt(priceString.replace(/[^\d]/g, '')) || 0;
-}
-
-function formatDate(dateString) {
-    return new Date(dateString).toLocaleDateString('vi-VN', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit'
-    });
-}
-</script>
+    </script>
 </body>
 
 </html>
