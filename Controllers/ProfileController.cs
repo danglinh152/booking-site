@@ -168,5 +168,59 @@ namespace BookingSite.Controllers
             return RedirectToAction("CheckIn");
         }
 
+        [Route("profile/history-booking/{bookingCode}")]
+        [HttpGet]
+        public IActionResult HistoryBookingDetail(string bookingCode)
+        {
+            var booking = new Booking
+            {
+                BookingID = 1,
+                BookingCode = bookingCode,
+                BookingDate = DateTime.Parse("2025-06-01"),
+                Status = "Đã xác nhận"
+            };
+
+            var bookingDetails = new List<BookingDetail>
+            {
+                new BookingDetail
+                {
+                    BookingDetailID = 1,
+                    BookingID = booking.BookingID,
+                    FareClassID = 0, // Không có dữ liệu
+                    PassengerID = 1,
+                    Booking = booking,
+                    FareClass = null, // Bỏ trống
+                    Passenger = new Passenger
+                    {
+                        PassengerID = 1,
+                        FullName = "Nguyễn Văn A",
+                        SeatNumber = "12A"
+                    },
+                    BookingServices = null // Bỏ trống
+                },
+                new BookingDetail
+                {
+                    BookingDetailID = 2,
+                    BookingID = booking.BookingID,
+                    FareClassID = 0,
+                    PassengerID = 2,
+                    Booking = booking,
+                    FareClass = null,
+                    Passenger = new Passenger
+                    {
+                        PassengerID = 2,
+                        FullName = "Trần Thị B",
+                        SeatNumber = "12B"
+                    },
+                    BookingServices = null
+                }
+            };
+
+            return View("HistoryBookingDetail", bookingDetails);
+        }
+
+
     }
+
+    
 }

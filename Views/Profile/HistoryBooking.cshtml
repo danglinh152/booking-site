@@ -49,6 +49,28 @@
         color: #4a4a4a;
     }
 
+    .btn-detail {
+        padding: 0.4rem 1rem;
+        font-size: 0.875rem;
+        border-radius: 6px;
+        font-weight: 600;
+    }
+
+    .btn-confirmed {
+        background-color: #d1e7dd;
+        color: #0f5132;
+    }
+
+    .btn-cancelled {
+        background-color: #f8d7da;
+        color: #842029;
+    }
+
+    .btn-pending {
+        background-color: #fff3cd;
+        color: #664d03;
+    }
+
     .btn-outline-secondary {
         color: #555;
         border-radius: 8px;
@@ -63,21 +85,6 @@
         border-color: #1a39c7;
         background-color: #e7e9ff;
     }
-
-    .status-confirmed {
-        color: #198754;
-        font-weight: 600;
-    }
-
-    .status-cancelled {
-        color: #dc3545;
-        font-weight: 600;
-    }
-
-    .status-pending {
-        color: #ffc107;
-        font-weight: 600;
-    }
 </style>
 
 <body>
@@ -89,37 +96,35 @@
                 <tr>
                     <th>Mã đặt vé</th>
                     <th>Hành trình</th>
-                    <th>Ngày bay</th>
-                    <th>Số ghế</th>
-                    <th>Giá vé</th>
+                    <th>Ngày đặt vé</th>
                     <th>Trạng thái</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Hardcoded sample data -->
+                <!-- Sample Data -->
                 <tr>
                     <td>BK123456</td>
                     <td>Hà Nội → TP. Hồ Chí Minh</td>
-                    <td>2025-06-15</td>
-                    <td>12A, 12B</td>
-                    <td>2,500,000 VND</td>
-                    <td><span class="status-confirmed">Đã xác nhận</span></td>
+                    <td>2025-06-01</td>
+                    <td>
+                        <a href="/profile/history-booking/BK123456" class="btn btn-detail btn-confirmed">Xem chi tiết</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>BK123457</td>
                     <td>Đà Nẵng → Hà Nội</td>
-                    <td>2025-07-01</td>
-                    <td>8C</td>
-                    <td>1,200,000 VND</td>
-                    <td><span class="status-pending">Chờ xử lý</span></td>
+                    <td>2025-06-10</td>
+                    <td>
+                        <a href="/profile/history-booking/BK123457" class="btn btn-detail btn-pending">Xem chi tiết</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>BK123458</td>
                     <td>TP. Hồ Chí Minh → Nha Trang</td>
-                    <td>2025-05-20</td>
-                    <td>3D, 3E</td>
-                    <td>1,800,000 VND</td>
-                    <td><span class="status-cancelled">Đã hủy</span></td>
+                    <td>2025-05-15</td>
+                    <td>
+                        <a href="/profile/history-booking/BK123458" class="btn btn-detail btn-cancelled">Xem chi tiết</a>
+                    </td>
                 </tr>
             </tbody>
         </table>

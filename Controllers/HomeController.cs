@@ -74,6 +74,12 @@ namespace BookingSite.Controllers
             return View();
         }
 
+        [Route("booking/success")]
+        public IActionResult Success()
+        {
+            return View();
+        }
+
         [Route("booking/food")]
         public IActionResult Food()
         {
