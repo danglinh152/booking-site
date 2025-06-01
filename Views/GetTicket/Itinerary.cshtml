@@ -56,6 +56,7 @@
                 <div class="flex justify-between text-lg pt-2">
                     <span class="font-bold">Tổng cộng:</span>
                     <span id="grandTotal" class="font-bold text-green-700"></span>
+                    <input type="text" id="totalPrice" class="font-bold text-green-700" hidden></input>
                 </div>
             </div>
             <div class="mt-6 flex justify-end gap-4">
@@ -210,8 +211,8 @@
                         data-service-type="baggage">
                     <option value="">Không mua thêm</option>
                     ${services
-                .filter(s => s.ServiceType === 'Luggage')
-                .map(s => `
+                                .filter(s => s.ServiceType === 'Luggage')
+                                .map(s => `
                             <option value="${s.ServiceID}" data-price="${s.Price}">
                                 ${s.ServiceName} - ${formatPrice(s.Price)}
                             </option>
@@ -230,8 +231,8 @@
                         data-service-type="meal">
                     <option value="">Không chọn suất ăn</option>
                     ${services
-                .filter(s => s.ServiceType === 'Meal')
-                .map(s => `
+                                .filter(s => s.ServiceType === 'Meal')
+                                .map(s => `
                             <option value="${s.ServiceID}" data-price="${s.Price}">
                                 ${s.ServiceName} - ${formatPrice(s.Price)}
                             </option>
@@ -289,10 +290,14 @@
             // Update the service total and grand total
             const serviceTotalElement = document.getElementById('serviceTotal');
             const grandTotalElement = document.getElementById('grandTotal');
+            const totalPriceElement = document.getElementById('totalPrice');
             const basePrice = parsePrice(document.getElementById('basePrice').textContent);
 
             if (serviceTotalElement) serviceTotalElement.textContent = formatPrice(totalServices);
-            if (grandTotalElement) grandTotalElement.textContent = formatPrice(basePrice + totalServices);
+            if (grandTotalElement) {
+                totalPriceElement.value = basePrice + totalServices;
+                grandTotalElement.textContent = formatPrice(basePrice + totalServices);
+            }
         }
 
         function formatPrice(price) {
@@ -364,6 +369,7 @@
             const flightData = JSON.parse(sessionStorage.getItem('flightData'));
             const selectedFlight = JSON.parse(sessionStorage.getItem('selectedFlight'));
             const passengersData = JSON.parse(sessionStorage.getItem('passengersData'));
+            const totalPrice = document.getElementById('totalPrice').value;
 
             const fareClass = flightData.FareClasses.find(fc =>
                 (fc.ClassName === 'EconomyClass' && selectedFlight.class === 'Economy') ||
@@ -396,6 +402,7 @@
             sessionStorage.setItem('bookingDetails', JSON.stringify({
                 fareClassId: fareClass.FareClassID,
                 fareClassName: fareClass.ClassName,
+                totalPrice: totalPrice,
                 passengerCount: passengers.length,
                 passengers: passengers
             }));
