@@ -74,6 +74,12 @@ namespace BookingSite.Controllers
             return View();
         }
 
+        [Route("booking/success")]
+        public IActionResult Success()
+        {
+            return View();
+        }
+
         [Route("booking/food")]
         public IActionResult Food()
         {
@@ -100,6 +106,12 @@ namespace BookingSite.Controllers
 
         [Route("Explore")]
         public IActionResult Explore()
+        {
+            return View();
+        }
+
+        [Route("profile")]
+        public IActionResult Profile()
         {
             return View();
         }

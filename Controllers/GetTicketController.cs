@@ -136,12 +136,6 @@ namespace BookingSite.Controllers
             return View();
         }
 
-        [HttpGet("shopping-cart")]
-        public IActionResult ShoppingCart()
-        {
-            return View();
-        }
-
         [AuthorizeRole("Client")]
         [HttpGet("passenger-info")]
         public IActionResult PassengerInfo()
