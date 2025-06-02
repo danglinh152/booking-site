@@ -189,5 +189,82 @@ namespace BookingSite.Controllers
         {
             return View(new ErrorViewModel { RequestID = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost("save-booking")]
+        public async Task<IActionResult> SaveBooking([FromBody] BookingRequestViewModel model)
+        {
+            if (model == null || model.Passengers == null || model.Passengers.Count == 0)
+                return Json(new { success = false, message = "Dữ liệu không hợp lệ" });
+
+            using var transaction = await context.Database.BeginTransactionAsync();
+            try
+            {
+                string bookingCode = $"BK{DateTime.Now:yyyyMMddHHmmss}{new Random().Next(100, 999)}";
+                var booking = new Booking
+                {
+                    BookingCode = bookingCode,
+                    TotalPrice = decimal.TryParse(model.TotalPrice, out var total) ? total : 0,
+                    BookingDate = DateTime.Now,
+                    Status = "Paid",
+                    UserID = int.TryParse(HttpContext.Session.GetString("UserID"), out var userId) ? userId : (int?)null,
+                };
+                context.Bookings.Add(booking);
+                await context.SaveChangesAsync();
+
+                foreach (var p in model.Passengers)
+                {
+
+                    var passenger = new Passenger
+                    {
+                        FullName = p.FullName,
+                        DateOfBirth = DateTime.TryParse(p.Dob, out var dob) ? dob : DateTime.Now,
+                        Gender = p.Title,
+                        PhoneNumber = p.PhoneNumber,
+                        IdentityNumber = p.IdentityNumber
+                    };
+                    context.Passengers.Add(passenger);
+                    await context.SaveChangesAsync();
+
+                    var bookingDetail = new BookingDetail
+                    {
+                        BookingID = booking.BookingID,
+                        FareClassID = model.FareClassId,
+                        PassengerID = passenger.PassengerID
+                    };
+                    context.Add(bookingDetail);
+                    await context.SaveChangesAsync();
+
+                    var fareClass = await context.FareClasses.FirstOrDefaultAsync(fc => fc.FareClassID == model.FareClassId);
+                    if (fareClass != null && fareClass.SeatsAvailable > 0)
+                    {
+                        fareClass.SeatsAvailable -= 1;
+                        context.FareClasses.Update(fareClass);
+                        await context.SaveChangesAsync();
+                    }
+
+                    if (p.SelectedServices != null)
+                    {
+                        foreach (var s in p.SelectedServices)
+                        {
+                            var service = new BookingService
+                            {
+                                BookingDetailID = bookingDetail.BookingDetailID,
+                                ServiceID = s.ServiceId,
+                                Quantity = 1
+                            };
+                            context.Add(service);
+                        }
+                    }
+                }
+                await context.SaveChangesAsync();
+                await transaction.CommitAsync();
+                return Json(new { success = true, bookingCode });
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
     }
 }

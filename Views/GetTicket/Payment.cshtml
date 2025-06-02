@@ -70,33 +70,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex-1 space-y-4">
-                                <input type="text" class="w-full border rounded px-4 py-2"
-                                    placeholder="Số thẻ tín dụng *" maxlength="19" />
-                                <div class="flex gap-2">
-                                    <input type="text" class="w-1/2 border rounded px-4 py-2" placeholder="Tháng"
-                                        maxlength="2" />
-                                    <input type="text" class="w-1/2 border rounded px-4 py-2" placeholder="Năm"
-                                        maxlength="2" />
-                                    <input type="text" class="w-1/2 border rounded px-4 py-2" placeholder="Nhập CVV *"
-                                        maxlength="4" />
-                                </div>
-                                <input type="text" class="w-full border rounded px-4 py-2"
-                                    placeholder="Tên đầy đủ của chủ thẻ *" />
-                                <div id="cardError" class="text-red-600 text-sm mb-2"></div>
-                                <div class="flex items-center gap-2">
-                                    <input type="checkbox" id="cardAgree" class="accent-green-600" />
-                                    <label for="cardAgree" class="text-xs">Tôi hiểu và đồng ý với <a href="#"
-                                            class="text-green-700 underline">Điều lệ vận chuyển</a>, <a href="#"
-                                            class="text-green-700 underline">Điều kiện sử dụng chức năng đặt chỗ trực
-                                            tuyến</a>, <a href="#" class="text-green-700 underline">Chính sách bảo
-                                            mật</a> và <a href="#" class="text-green-700 underline">Điều kiện giá vé</a>
-                                        của Bamboo Airways.</label>
-                                </div>
-                                <button
-                                    class="bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-3 rounded-lg shadow transition w-full mt-2"
-                                    id="btnCardPay">Thanh toán <span id="cardPayTotal">0 VND</span></button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -117,7 +90,7 @@
                         <div class="text-gray-700">Hướng dẫn hoặc mã QR sẽ hiển thị ở đây.</div>
                     </div>
                 </div>
-                <!-- Momo -->
+
                 <div class="border rounded-xl">
                     <div class="flex items-center justify-between p-4 cursor-pointer group" data-method="momo">
                         <div class="flex items-center gap-4">
@@ -149,9 +122,6 @@
                                     class="text-green-700 underline">Điều kiện giá vé</a> của Bamboo Airways. <a
                                     href="#" class="text-green-700 underline">Xem điều kiện</a></label>
                         </div>
-                        <button
-                            class="bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-3 rounded-lg shadow transition w-full"
-                            id="btnMomoPay">Trả tiền <span id="momoPayTotal">0 VND</span></button>
                     </div>
                 </div>
                 <!-- ATM -->
@@ -188,6 +158,7 @@
             </div>
             <div class="flex justify-end mt-8">
                 <button
+                    id="btnConfirmPay"
                     class="bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-3 rounded-lg shadow transition">Xác
                     nhận thanh toán</button>
             </div>
@@ -232,72 +203,90 @@
             if (headers.length) headers[0].click();
 
             // Kiểm tra thông tin thẻ khi bấm nút Thanh toán
-            document.getElementById('btnCardPay').addEventListener('click', function (e) {
-                let valid = true;
-                let errors = [];
-                const cardSection = document.getElementById('content-card');
-                const cardError = document.getElementById('cardError');
-                // Lấy các trường
-                const cardNumber = cardSection.querySelector('input[placeholder="Số thẻ tín dụng *"]');
-                const month = cardSection.querySelector('input[placeholder="Tháng"]');
-                const year = cardSection.querySelector('input[placeholder="Năm"]');
-                const cvc = cardSection.querySelector('input[placeholder="Nhập CVV *"]');
-                const cardName = cardSection.querySelector('input[placeholder="Tên đầy đủ của chủ thẻ *"]');
-                const agree = document.getElementById('cardAgree');
+            var btnCardPay = document.getElementById('btnCardPay');
+            if (btnCardPay) {
+                btnCardPay.addEventListener('click', function (e) {
+                    let valid = true;
+                    let errors = [];
+                    const cardSection = document.getElementById('content-card');
+                    const cardError = document.getElementById('cardError');
+                    // Lấy các trường
+                    const cardNumber = cardSection.querySelector('input[placeholder="Số thẻ tín dụng *"]');
+                    const month = cardSection.querySelector('input[placeholder="Tháng"]');
+                    const year = cardSection.querySelector('input[placeholder="Năm"]');
+                    const cvc = cardSection.querySelector('input[placeholder="Nhập CVV *"]');
+                    const cardName = cardSection.querySelector('input[placeholder="Tên đầy đủ của chủ thẻ *"]');
+                    const agree = document.getElementById('cardAgree');
 
-                // Kiểm tra từng trường
-                if (!cardNumber.value.trim()) {
-                    valid = false;
-                    errors.push("Vui lòng nhập số thẻ tín dụng.");
-                    cardNumber.classList.add('border-red-500');
-                } else {
-                    cardNumber.classList.remove('border-red-500');
+                    // Kiểm tra từng trường
+                    if (!cardNumber.value.trim()) {
+                        valid = false;
+                        errors.push("Vui lòng nhập số thẻ tín dụng.");
+                        cardNumber.classList.add('border-red-500');
+                    } else {
+                        cardNumber.classList.remove('border-red-500');
+                    }
+                    if (!month.value.trim()) {
+                        valid = false;
+                        errors.push("Vui lòng nhập tháng hết hạn.");
+                        month.classList.add('border-red-500');
+                    } else {
+                        month.classList.remove('border-red-500');
+                    }
+                    if (!year.value.trim()) {
+                        valid = false;
+                        errors.push("Vui lòng nhập năm hết hạn.");
+                        year.classList.add('border-red-500');
+                    } else {
+                        year.classList.remove('border-red-500');
+                    }
+                    if (!cvc.value.trim()) {
+                        valid = false;
+                        errors.push("Vui lòng nhập mã bảo mật.");
+                        cvc.classList.add('border-red-500');
+                    } else {
+                        cvc.classList.remove('border-red-500');
+                    }
+                    if (!cardName.value.trim()) {
+                        valid = false;
+                        errors.push("Vui lòng nhập tên chủ thẻ.");
+                        cardName.classList.add('border-red-500');
+                    } else {
+                        cardName.classList.remove('border-red-500');
+                    }
+                    if (!agree.checked) {
+                        valid = false;
+                        errors.push("Bạn phải đồng ý với các điều khoản.");
+                        agree.classList.add('ring-2', 'ring-red-500');
+                    } else {
+                        agree.classList.remove('ring-2', 'ring-red-500');
+                    }
+                });
+            }
+            // Nút xác nhận thanh toán (dưới cùng)
+            document.getElementById('btnConfirmPay').addEventListener('click', function (e) {
+                e.preventDefault();
+                const bookingDetails = JSON.parse(sessionStorage.getItem('bookingDetails') || 'null');
+                if (!bookingDetails) {
+                    alert('Không tìm thấy thông tin đặt vé!');
+                    return;
                 }
-                if (!month.value.trim()) {
-                    valid = false;
-                    errors.push("Vui lòng nhập tháng hết hạn.");
-                    month.classList.add('border-red-500');
-                } else {
-                    month.classList.remove('border-red-500');
-                }
-                if (!year.value.trim()) {
-                    valid = false;
-                    errors.push("Vui lòng nhập năm hết hạn.");
-                    year.classList.add('border-red-500');
-                } else {
-                    year.classList.remove('border-red-500');
-                }
-                if (!cvc.value.trim()) {
-                    valid = false;
-                    errors.push("Vui lòng nhập mã bảo mật.");
-                    cvc.classList.add('border-red-500');
-                } else {
-                    cvc.classList.remove('border-red-500');
-                }
-                if (!cardName.value.trim()) {
-                    valid = false;
-                    errors.push("Vui lòng nhập tên chủ thẻ.");
-                    cardName.classList.add('border-red-500');
-                } else {
-                    cardName.classList.remove('border-red-500');
-                }
-                if (!agree.checked) {
-                    valid = false;
-                    errors.push("Bạn phải đồng ý với các điều khoản.");
-                    agree.classList.add('ring-2', 'ring-red-500');
-                } else {
-                    agree.classList.remove('ring-2', 'ring-red-500');
-                }
-
-                if (!valid) {
-                    e.preventDefault();
-                    cardError.innerHTML = errors.map(err => `<div>• ${err}</div>`).join('');
-                    return false;
-                } else {
-                    cardError.innerHTML = '';
-                    // Thực hiện thanh toán thật sự ở đây
-                    // window.location.href = '/thanh-toan-thanh-cong';
-                }
+                fetch('/get-ticket/save-booking', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(bookingDetails)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = '/booking/success';
+                    } else {
+                        alert('Có lỗi xảy ra khi lưu thông tin đặt vé!');
+                    }
+                })
+                .catch(() => alert('Có lỗi xảy ra khi gửi dữ liệu!'));
             });
         });
     </script>
