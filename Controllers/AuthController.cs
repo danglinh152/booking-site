@@ -116,7 +116,7 @@ namespace BookingSite.Controllers
       }
       return View("Login", loginViewModel);
     }
-
+    [HttpGet("/logout")]
     public IActionResult Logout()
     {
       HttpContext.Session.Clear();
