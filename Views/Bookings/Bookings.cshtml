@@ -19,10 +19,10 @@
                             <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
-                                        <th>Booking Id</th>
-                                        <th>Passenger Id</th>
-                                        <th>Flight Id</th>
-                                        <th>Seat Id</th>
+                                        <th>Booking ID</th>
+                                        <th>User ID</th>
+                                        <th>Booking Code</th>
+                                        <th>Total Price</th>
                                         <th>Booking Date</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -32,23 +32,23 @@
                                     <tr>
                                         <td>1</td>
                                         <td>101</td>
-                                        <td>2023</td>
-                                        <td>12A</td>
-                                        <td>2023-03-01</td>
-                                        <td>Confirmed</td>
+                                        <td>BK123456</td>
+                                        <td>2,500,000 VNĐ</td>
+                                        <td>2025-06-01</td>
+                                        <td>Đã thanh toán</td>
                                         <td>
                                             <button class="btn btn-secondary" onclick="showDetails(1)">
                                                 <i class="fa-solid fa-eye"></i>
                                             </button>
                                             <a href="/admin/bookings/edit/1" class="btn btn-warning">Edit</a>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteBookingModal" data-id="1" data-passenger-id="101"
-                                                data-flight-id="2023">
+                                                data-bs-target="#deleteBookingModal"
+                                                data-id="1" data-user-id="101" data-code="BK123456">
                                                 Delete
                                             </button>
                                         </td>
                                     </tr>
-                                    <!-- Add more rows with similar structure -->
+                                    <!-- Thêm dòng khác nếu cần -->
                                 </tbody>
                             </table>
                         </div>
@@ -69,8 +69,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete booking <strong>ID: <span id="deleteBookingId"></span></strong>?<br>
-                (Passenger ID: <span id="deletePassengerId"></span>, Flight ID: <span id="deleteFlightId"></span>)
+                Are you sure you want to delete booking 
+                <strong>ID: <span id="deleteBookingId"></span></strong> 
+                (Code: <span id="deleteBookingCode"></span>, User ID: <span id="deleteUserId"></span>)?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -105,15 +106,13 @@
     deleteBookingModal.addEventListener('show.bs.modal', function (event) {
         const button = event.relatedTarget;
         const bookingId = button.getAttribute('data-id');
-        const passengerId = button.getAttribute('data-passenger-id');
-        const flightId = button.getAttribute('data-flight-id');
+        const userId = button.getAttribute('data-user-id');
+        const code = button.getAttribute('data-code');
 
-        // Update modal content
         document.getElementById('deleteBookingId').textContent = bookingId;
-        document.getElementById('deletePassengerId').textContent = passengerId;
-        document.getElementById('deleteFlightId').textContent = flightId;
+        document.getElementById('deleteUserId').textContent = userId;
+        document.getElementById('deleteBookingCode').textContent = code;
 
-        // Set delete action
         document.getElementById('confirmBookingDelete').onclick = function () {
             window.location.href = `/admin/bookings/delete/${bookingId}`;
         };
@@ -121,20 +120,21 @@
 
     // Show Booking Details Logic
     function showDetails(bookingId) {
-        // Sample data for demonstration; replace with actual data retrieval logic
+        // Sample data for demonstration
         const bookings = {
-            1: "Booking ID: 1<br>Passenger ID: 101<br>Flight ID: 2023<br>Seat ID: 12A<br>Booking Date: 2023-03-01<br>Status: Confirmed",
-            2: "Booking ID: 2<br>Passenger ID: 102<br>Flight ID: 2024<br>Seat ID: 15B<br>Booking Date: 2023-03-02<br>Status: Pending",
-            3: "Booking ID: 3<br>Passenger ID: 103<br>Flight ID: 2025<br>Seat ID: 10C<br>Booking Date: 2023-03-03<br>Status: Cancelled",
-            4: "Booking ID: 4<br>Passenger ID: 104<br>Flight ID: 2026<br>Seat ID: 14D<br>Booking Date: 2023-03-04<br>Status: Confirmed",
-            5: "Booking ID: 5<br>Passenger ID: 105<br>Flight ID: 2027<br>Seat ID: 18E<br>Booking Date: 2023-03-05<br>Status: Pending"
+            1: `
+                <strong>Booking ID:</strong> 1<br>
+                <strong>User ID:</strong> 101<br>
+                <strong>Booking Code:</strong> BK123456<br>
+                <strong>Total Price:</strong> 2,500,000 VNĐ<br>
+                <strong>Booking Date:</strong> 2025-06-01<br>
+                <strong>Status:</strong> Đã thanh toán
+            `
         };
 
-        // Set the content of the modal
         document.getElementById('bookingDetailsContent').innerHTML = bookings[bookingId];
 
-        // Show the modal
-        var modal = new bootstrap.Modal(document.getElementById('bookingDetailsModal'));
+        const modal = new bootstrap.Modal(document.getElementById('bookingDetailsModal'));
         modal.show();
     }
 </script>

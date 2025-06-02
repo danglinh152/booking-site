@@ -92,7 +92,7 @@
                 <input id="BookingCode" name="BookingCode" type="text" class="form-control" placeholder="Nhập mã đặt vé" required autocomplete="off" />
             </div>
 
-            <button type="submit" class="btn btn-primary" disabled id="btnCheckin">Xác nhận check-in</button>
+            <button type="submit" class="btn btn-primary" disabled id="btnCheckin" style="margin-left: 150px;">Xác nhận check-in</button>
         </form>
 
         <table class="table table-bordered" id="bookingInfoTable" style="display:none;">
@@ -103,7 +103,6 @@
                     <th>Số CMND / Passport</th>
                     <th>Chuyến bay</th>
                     <th>Ngày bay</th>
-                    <th>Số ghế</th>
                 </tr>
             </thead>
             <tbody>
@@ -134,7 +133,6 @@
                             IdNumber: '123456789',
                             Flight: 'Hà Nội → TP. Hồ Chí Minh',
                             FlightDate: '2025-06-15',
-                            SeatNumbers: '12A, 12B'
                         };
                     } else if (code.toUpperCase() === 'BK123457') {
                         bookingData = {
@@ -143,7 +141,6 @@
                             IdNumber: '987654321',
                             Flight: 'Đà Nẵng → Hà Nội',
                             FlightDate: '2025-07-01',
-                            SeatNumbers: '8C'
                         };
                     }
 
@@ -155,7 +152,6 @@
                                 <td>${bookingData.IdNumber}</td>
                                 <td>${bookingData.Flight}</td>
                                 <td>${bookingData.FlightDate}</td>
-                                <td>${bookingData.SeatNumbers}</td>
                             </tr>
                         `);
                         $('#bookingInfoTable').show();
