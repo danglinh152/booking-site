@@ -1,12 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using BookingSite.Models; // Ensure this points to the correct location of your Checkin model
-using BookingSite.Data; 
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using BookingSite.ViewModels; /
 namespace BookingSite.Controllers
 {
-    [Route("admin/[controller]")]
+    [Route("profile/checkins")]
     public class CheckinsController : Controller
     {
         private FlightBookingContext context;
@@ -24,62 +22,91 @@ namespace BookingSite.Controllers
 
         // // Step 1: Nhập mã booking
         // public IActionResult Index() => View();
-
-        [HttpPost]
-        public IActionResult FindBooking(string bookingCode)
+        [HttpPost("CheckIn")]
+        public async Task<IActionResult> CheckIn(string bookingCode)
         {
-            var booking = context.Bookings.FirstOrDefault(b => b.BookingCode == bookingCode);
+            var booking = await context.Bookings
+                .Include(b => b.BookingDetails)
+                .ThenInclude(bd => bd.Passenger)
+                .FirstOrDefaultAsync(b => b.BookingCode == bookingCode);
+
             if (booking == null)
             {
-                TempData["Error"] = "Mã đặt chỗ không tồn tại.";
-                return RedirectToAction("Index");
+                return Json(new { success = false, message = "Booking code not found." });
             }
 
-            var bookingDetails = context.BookingDetails
-                .Include(bd => bd.Passenger)
-                .Where(bd => bd.BookingID == booking.BookingID)
-                .Select(bd => new PassengerInfo
-                {
-                    PassengerID = bd.PassengerID,
-                    FullName = bd.Passenger.FullName,
-                    SeatNumber = bd.Passenger.SeatNumber
-                }).ToList();
-
-            var flightID = booking.FlightID ?? 0;
-
-            var takenSeats = context.Passengers
-                .Where(p => context.BookingDetails.Any(bd => bd.PassengerID == p.PassengerID &&
-                                                            context.FareClasses.Any(f => f.FareClassID == bd.FareClassID &&
-                                                                                            f.FlightID == flightID)) &&
-                            p.SeatNumber != null)
-                .Select(p => p.SeatNumber)
-                .ToList();
-
-            var model = new CheckInViewModel
+            if (booking.BookingDetails.All(bd => !string.IsNullOrEmpty(bd.Passenger.SeatNumber)))
             {
-                BookingCode = bookingCode,
-                Passengers = bookingDetails,
-                FlightID = flightID,
-                TakenSeats = takenSeats
-            };
+                return Json(new { success = false, message = "All passengers have already checked in." });
+            }
 
-            return View("SeatSelection", model);
+            if (booking.Status != "Paid")
+            {
+                return Json(new { success = false, message = "Booking must be paid to check in" });
+            }
+            // Lấy danh sách ghế đã sử dụng một lần để tối ưu
+            var usedSeats = await context.Passengers
+                .Where(p => p.SeatNumber != null)
+                .Select(p => p.SeatNumber)
+                .ToListAsync();
+
+            foreach (var detail in booking.BookingDetails)
+            {
+                if (string.IsNullOrEmpty(detail.Passenger.SeatNumber))
+                {
+                    // Lấy danh sách ghế từ FareClass của BookingDetail, chỉ lấy ghế còn trống
+                    var seats = await context.Seats
+                        .Where(s => s.FareClassID == detail.FareClassID && s.IsAvailable)
+                        .ToListAsync();
+
+                    // Kiểm tra ghế chưa được sử dụng (kết hợp với IsAvailable)
+                    var availableSeat = seats.FirstOrDefault(s => !usedSeats.Contains(s.SeatNumber));
+                    if (availableSeat != null)
+                    {
+                        detail.Passenger.SeatNumber = availableSeat.SeatNumber;
+                        availableSeat.IsAvailable = false; // Cập nhật trạng thái ghế thành không khả dụng
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = "No available seats for this fare class." });
+                    }
+                }
+            }
+            
+
+            booking.Status = "CheckedIn";
+            await context.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = "Check-in successful.";
+            return RedirectToAction("CheckinSuccess");
         }
 
-        // Step 2: Cập nhật ghế cho hành khách
-        [HttpPost]
-        public IActionResult CheckInPassenger(int passengerID, string seatNumber)
+        [HttpGet("get-passengers")]
+        public async Task<IActionResult> GetPassengers(string bookingCode)
         {
-            var passenger = context.Passengers.Find(passengerID);
-            if (passenger == null) return NotFound();
+            var booking = await context.Bookings
+                .Include(b => b.BookingDetails)
+                .ThenInclude(bd => bd.Passenger)
+                .FirstOrDefaultAsync(b => b.BookingCode == bookingCode);
 
-            passenger.SeatNumber = seatNumber;
-            context.SaveChanges();
+            if (booking == null)
+            {
+                return Json(new { error = "Booking code not found." });
+            }
 
-            TempData["Success"] = "Check-in thành công!";
-            return RedirectToAction("Index");
+            var passengers = booking.BookingDetails.Select(bd => new 
+            { 
+                fullName = bd.Passenger.FullName, 
+                identityNumber = bd.Passenger.IdentityNumber,
+            }).ToList();
+
+            return Json(new { passengers});
         }
-    
+        // Trang thành công
+        public IActionResult CheckinSuccess()
+        {
+            return View("CheckinSuccess");
+        }
 
     }
 }

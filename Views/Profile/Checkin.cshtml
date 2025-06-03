@@ -86,7 +86,7 @@
             <div class="alert alert-success">@TempData["SuccessMessage"]</div>
         }
 
-        <form asp-action="CheckIn" method="post" novalidate>
+        <form asp-action="CheckIn" asp-controller="Checkins" asp-area="profile" method="post" novalidate>
             <div class="mb-4 d-flex flex-column">
                 <label for="BookingCode" class="form-label">Mã đặt vé (Booking code)</label>
                 <input id="BookingCode" name="BookingCode" type="text" class="form-control" placeholder="Nhập mã đặt vé" required autocomplete="off" />
@@ -101,9 +101,6 @@
                     <th>Mã đặt vé</th>
                     <th>Hành khách</th>
                     <th>Số CMND / Passport</th>
-                    <th>Chuyến bay</th>
-                    <th>Ngày bay</th>
-                    <th>Số ghế</th>
                 </tr>
             </thead>
             <tbody>
@@ -112,6 +109,9 @@
         </table>
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#BookingCode').on('keypress', function (e) {
@@ -123,55 +123,42 @@
                         return;
                     }
 
-                    // Hardcoded giả lập dữ liệu booking dựa trên mã đặt vé
-                    let bookingData = null;
-
-                    // Ví dụ dữ liệu cứng
-                    if (code.toUpperCase() === 'BK123456') {
-                        bookingData = {
-                            BookingCode: 'BK123456',
-                            PassengerName: 'Nguyễn Văn A',
-                            IdNumber: '123456789',
-                            Flight: 'Hà Nội → TP. Hồ Chí Minh',
-                            FlightDate: '2025-06-15',
-                            SeatNumbers: '12A, 12B'
-                        };
-                    } else if (code.toUpperCase() === 'BK123457') {
-                        bookingData = {
-                            BookingCode: 'BK123457',
-                            PassengerName: 'Trần Thị B',
-                            IdNumber: '987654321',
-                            Flight: 'Đà Nẵng → Hà Nội',
-                            FlightDate: '2025-07-01',
-                            SeatNumbers: '8C'
-                        };
-                    }
-
-                    if (bookingData) {
-                        $('#bookingInfoTable tbody').html(`
-                            <tr>
-                                <td>${bookingData.BookingCode}</td>
-                                <td>${bookingData.PassengerName}</td>
-                                <td>${bookingData.IdNumber}</td>
-                                <td>${bookingData.Flight}</td>
-                                <td>${bookingData.FlightDate}</td>
-                                <td>${bookingData.SeatNumbers}</td>
-                            </tr>
-                        `);
-                        $('#bookingInfoTable').show();
-                        $('#btnCheckin').prop('disabled', false);
-                    } else {
-                        alert('Không tìm thấy thông tin đặt vé với mã này.');
-                        $('#bookingInfoTable tbody').empty();
-                        $('#bookingInfoTable').hide();
-                        $('#btnCheckin').prop('disabled', true);
-                    }
+                    $.ajax({
+                        url: '/profile/checkins/get-passengers',
+                        type: 'GET',
+                        data: { bookingCode: code },
+                        success: function (data) {
+                            if (data.error) {
+                                alert(data.error);
+                                $('#bookingInfoTable tbody').empty();
+                                $('#bookingInfoTable').hide();
+                                $('#btnCheckin').prop('disabled', true);
+                            } else if (data.passengers) {
+                                let html = '';
+                                data.passengers.forEach(function (passenger) {
+                                    html += `<tr>
+                                        <td>${code}</td>
+                                        <td>${passenger.fullName}</td>
+                                        <td>${passenger.identityNumber || ''}</td>
+                                    </tr>`;
+                                });
+                                $('#bookingInfoTable tbody').html(html);
+                                $('#bookingInfoTable').show();
+                                // Kích hoạt nút Check-in (cần canCheckIn để chính xác hơn)
+                                $('#btnCheckin').prop('disabled', false);
+                            }
+                        },
+                        error: function () {
+                            alert('Có lỗi xảy ra khi tải thông tin.');
+                            $('#bookingInfoTable tbody').empty();
+                            $('#bookingInfoTable').hide();
+                            $('#btnCheckin').prop('disabled', true);
+                        }
+                    });
                 }
             });
         });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
