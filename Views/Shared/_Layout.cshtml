@@ -1,4 +1,7 @@
-﻿    <!DOCTYPE html>
+﻿@{
+    var isLoggedIn = Context.Session.GetString("UserName") != null;
+}
+<!DOCTYPE html>
 <html lang="en">
 <!-- [Head] start -->
 
@@ -74,7 +77,7 @@
                     <li class="nav-item dropdown-mega" style="position: relative;">
                         <a class="nav-link" href="/Explore" id="exploreBtn">Khám phá</a>
                         <div class="mega-menu">
-                            <div class="row" >
+                            <div class="row">
                                 <div class="col" style="min-width: 200px;">
                                     <a href="#" class="mega-menu-title">Điểm Đến</a>
                                     <a href="#">Bangkok</a>
@@ -100,7 +103,8 @@
                                     <a href="#">Vé Máy Bay Từ Hà Nội</a>
                                 </div>
                                 <div class="col" style="min-width: 20px;">
-                                    <img src="https://bambooairways.com/documents/d/global/bkk2-2" style="width: 100%; border-radius: 8px;">
+                                    <img src="https://bambooairways.com/documents/d/global/bkk2-2"
+                                        style="width: 100%; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
@@ -112,7 +116,8 @@
                                 <div class="col" style="min-width: 180px;">
                                     <a href="/Booking" class="mega-menu-title">Đặt Vé Trực Tuyến</a>
                                     <a href="/Booking" class="btn btn-primary mb-2" style="width: 100%;">ĐẶT VÉ NGAY</a>
-                                    <img src="https://bambooairways.com/documents/d/global/menu-booking" style="width: 100%; border-radius: 8px;">
+                                    <img src="https://bambooairways.com/documents/d/global/menu-booking"
+                                        style="width: 100%; border-radius: 8px;">
                                 </div>
                                 <div class="col" style="min-width: 180px;">
                                     <a href="/" class="mega-menu-title">Thông Tin Đặt Vé</a>
@@ -230,25 +235,25 @@
                     </li>
 
                     @* @if (User.Identity.IsAuthenticated) *@
-                    @if (true)
+                    @if (isLoggedIn)
                     {
                         <li class="nav-item dropdown" style="position: relative;">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 style="cursor: pointer; color: #007bff;" onmouseover="this.style.color='#0056b3';"
                                 onmouseout="this.style.color='#007bff';">
-                                Xin chào, Linhdq
+                                Xin chào, @Context.Session.GetString("UserName")
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="userDropdown"
                                 style="display: none; position: absolute; z-index: 1000; background-color: white; border: 1px solid #ccc;">
                                 <li><a class="dropdown-item" href="/profile">Thông tin cá nhân</a></li>
-                                <li><a class="dropdown-item" href="/Account/Logout">Đăng xuất</a></li>
+                                <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
                             </ul>
                         </li>
                     }
                     else
                     {
-                        <li class="nav-item"><a class="btn btn-primary" href="/Account/Login">Đăng nhập</a></li>
-                        <li class="nav-item"><a class="btn btn-register" href="/Account/Register">Đăng ký</a></li>
+                        <li class="nav-item"><a class="btn btn-primary" href="/login">Đăng nhập</a></li>
+                        <li class="nav-item"><a class="btn btn-register" href="/register">Đăng ký</a></li>
                     }
                 </ul>
             </div>
@@ -265,19 +270,22 @@
             <div class="modal-content" style="border-radius: 18px; min-width: 700px; max-width: 98vw;">
                 <div class="modal-header" style="border-bottom: none;">
                     <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+                </div>
                 <div class="modal-body">
                     <ul class="nav nav-tabs mb-3" style="border-bottom: none;">
                         <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="#tab-datve-modal"><i class="fas fa-plane"></i> Đặt Vé</a>
+                            <a class="nav-link active" data-bs-toggle="tab" href="#tab-datve-modal"><i
+                                    class="fas fa-plane"></i> Đặt Vé</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#tab-lamthutuc-modal"><i class="fas fa-suitcase-rolling"></i> Làm Thủ Tục</a>
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-lamthutuc-modal"><i
+                                    class="fas fa-suitcase-rolling"></i> Làm Thủ Tục</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#tab-datcho-modal"><i class="fas fa-calendar-alt"></i> Đặt Vé Của Tôi</a>
-                    </li>
-                </ul>
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-datcho-modal"><i
+                                    class="fas fa-calendar-alt"></i> Đặt Vé Của Tôi</a>
+                        </li>
+                    </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-datve-modal">
                             <div class="mb-3" style="border-bottom: 2px solid #1987c6; padding-bottom: 8px;">
@@ -285,15 +293,18 @@
                             </div>
                             <div class="mb-3 d-flex gap-4 align-items-center flex-wrap">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="tripTypeModal" id="oneWayModal" checked>
+                                    <input class="form-check-input" type="radio" name="tripTypeModal" id="oneWayModal"
+                                        checked>
                                     <label class="form-check-label" for="oneWayModal">Một chiều</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="tripTypeModal" id="roundTripModal">
+                                    <input class="form-check-input" type="radio" name="tripTypeModal"
+                                        id="roundTripModal">
                                     <label class="form-check-label" for="roundTripModal">Khứ hồi</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="tripTypeModal" id="multicityModal">
+                                    <input class="form-check-input" type="radio" name="tripTypeModal"
+                                        id="multicityModal">
                                     <label class="form-check-label" for="multicityModal">Đa chặng</label>
                                 </div>
                             </div>
@@ -302,33 +313,73 @@
                                     <div class="col-md-5 col-12">
                                         <label class="form-label fw-bold">TỪ</label>
                                         <div class="position-relative">
-                                            <input type="text" class="form-control" id="fromInputModal" placeholder="Chọn điểm đi" autocomplete="off" readonly style="background: #fff; cursor: pointer;">
-                                            <div id="fromDropdownModal" class="dropdown-menu w-100" style="max-height: 300px; overflow-y: auto; display: none;">
+                                            <input type="text" class="form-control" id="fromInputModal"
+                                                placeholder="Chọn điểm đi" autocomplete="off" readonly
+                                                style="background: #fff; cursor: pointer;">
+                                            <div id="fromDropdownModal" class="dropdown-menu w-100"
+                                                style="max-height: 300px; overflow-y: auto; display: none;">
                                                 <div class="px-3 py-2 fw-bold" style="color: #1987c6;">Việt Nam</div>
-                                                <button class="dropdown-item" data-city="Hà Nội" data-code="HAN">Hà Nội <span class="text-secondary small">Sân Bay Quốc Tế Nội Bài</span> <span class="badge bg-primary ms-2">HAN</span></button>
-                                                <button class="dropdown-item" data-city="TP. Hồ Chí Minh" data-code="SGN">TP. Hồ Chí Minh <span class="text-secondary small">Sân bay Quốc tế Tân Sơn Nhất</span> <span class="badge bg-primary ms-2">SGN</span></button>
-                                                <button class="dropdown-item" data-city="Đà Nẵng" data-code="DAD">Đà Nẵng <span class="text-secondary small">Sân bay Quốc tế Đà Nẵng</span> <span class="badge bg-primary ms-2">DAD</span></button>
-                                                <button class="dropdown-item" data-city="Hải Phòng" data-code="HPH">Hải Phòng <span class="text-secondary small">Sân bay Quốc tế Cát Bi</span> <span class="badge bg-primary ms-2">HPH</span></button>
-                                                <button class="dropdown-item" data-city="Thanh Hóa" data-code="THD">Thanh Hóa <span class="text-secondary small">Sân bay Thọ Xuân</span> <span class="badge bg-primary ms-2">THD</span></button>
-                                                <button class="dropdown-item" data-city="Vinh" data-code="VII">Vinh <span class="text-secondary small">Sân bay Vinh</span> <span class="badge bg-primary ms-2">VII</span></button>
+                                                <button class="dropdown-item" data-city="Hà Nội" data-code="HAN">Hà Nội
+                                                    <span class="text-secondary small">Sân Bay Quốc Tế Nội Bài</span>
+                                                    <span class="badge bg-primary ms-2">HAN</span></button>
+                                                <button class="dropdown-item" data-city="TP. Hồ Chí Minh"
+                                                    data-code="SGN">TP. Hồ Chí Minh <span
+                                                        class="text-secondary small">Sân bay Quốc tế Tân Sơn Nhất</span>
+                                                    <span class="badge bg-primary ms-2">SGN</span></button>
+                                                <button class="dropdown-item" data-city="Đà Nẵng" data-code="DAD">Đà
+                                                    Nẵng <span class="text-secondary small">Sân bay Quốc tế Đà
+                                                        Nẵng</span> <span
+                                                        class="badge bg-primary ms-2">DAD</span></button>
+                                                <button class="dropdown-item" data-city="Hải Phòng" data-code="HPH">Hải
+                                                    Phòng <span class="text-secondary small">Sân bay Quốc tế Cát
+                                                        Bi</span> <span
+                                                        class="badge bg-primary ms-2">HPH</span></button>
+                                                <button class="dropdown-item" data-city="Thanh Hóa"
+                                                    data-code="THD">Thanh Hóa <span class="text-secondary small">Sân bay
+                                                        Thọ Xuân</span> <span
+                                                        class="badge bg-primary ms-2">THD</span></button>
+                                                <button class="dropdown-item" data-city="Vinh" data-code="VII">Vinh
+                                                    <span class="text-secondary small">Sân bay Vinh</span> <span
+                                                        class="badge bg-primary ms-2">VII</span></button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 col-12 text-center" id="swap-col-modal" style="display: none; min-width: 60px;">
-                                        <button type="button" class="btn btn-outline-success" id="swapBtnModal" style="border-radius: 50%;"><i class="fas fa-exchange-alt"></i></button>
+                                    <div class="col-md-2 col-12 text-center" id="swap-col-modal"
+                                        style="display: none; min-width: 60px;">
+                                        <button type="button" class="btn btn-outline-success" id="swapBtnModal"
+                                            style="border-radius: 50%;"><i class="fas fa-exchange-alt"></i></button>
                                     </div>
                                     <div class="col-md-5 col-12" id="to-col-modal" style="display: none;">
                                         <label class="form-label fw-bold">TỚI</label>
                                         <div class="position-relative">
-                                            <input type="text" class="form-control" id="toInputModal" placeholder="Chọn điểm đến" autocomplete="off" readonly style="background: #fff; cursor: pointer;">
-                                            <div id="toDropdownModal" class="dropdown-menu w-100" style="max-height: 300px; overflow-y: auto; display: none;">
+                                            <input type="text" class="form-control" id="toInputModal"
+                                                placeholder="Chọn điểm đến" autocomplete="off" readonly
+                                                style="background: #fff; cursor: pointer;">
+                                            <div id="toDropdownModal" class="dropdown-menu w-100"
+                                                style="max-height: 300px; overflow-y: auto; display: none;">
                                                 <div class="px-3 py-2 fw-bold" style="color: #1987c6;">Việt Nam</div>
-                                                <button class="dropdown-item" data-city="Hà Nội" data-code="HAN">Hà Nội <span class="text-secondary small">Sân Bay Quốc Tế Nội Bài</span> <span class="badge bg-primary ms-2">HAN</span></button>
-                                                <button class="dropdown-item" data-city="TP. Hồ Chí Minh" data-code="SGN">TP. Hồ Chí Minh <span class="text-secondary small">Sân bay Quốc tế Tân Sơn Nhất</span> <span class="badge bg-primary ms-2">SGN</span></button>
-                                                <button class="dropdown-item" data-city="Đà Nẵng" data-code="DAD">Đà Nẵng <span class="text-secondary small">Sân bay Quốc tế Đà Nẵng</span> <span class="badge bg-primary ms-2">DAD</span></button>
-                                                <button class="dropdown-item" data-city="Hải Phòng" data-code="HPH">Hải Phòng <span class="text-secondary small">Sân bay Quốc tế Cát Bi</span> <span class="badge bg-primary ms-2">HPH</span></button>
-                                                <button class="dropdown-item" data-city="Thanh Hóa" data-code="THD">Thanh Hóa <span class="text-secondary small">Sân bay Thọ Xuân</span> <span class="badge bg-primary ms-2">THD</span></button>
-                                                <button class="dropdown-item" data-city="Vinh" data-code="VII">Vinh <span class="text-secondary small">Sân bay Vinh</span> <span class="badge bg-primary ms-2">VII</span></button>
+                                                <button class="dropdown-item" data-city="Hà Nội" data-code="HAN">Hà Nội
+                                                    <span class="text-secondary small">Sân Bay Quốc Tế Nội Bài</span>
+                                                    <span class="badge bg-primary ms-2">HAN</span></button>
+                                                <button class="dropdown-item" data-city="TP. Hồ Chí Minh"
+                                                    data-code="SGN">TP. Hồ Chí Minh <span
+                                                        class="text-secondary small">Sân bay Quốc tế Tân Sơn Nhất</span>
+                                                    <span class="badge bg-primary ms-2">SGN</span></button>
+                                                <button class="dropdown-item" data-city="Đà Nẵng" data-code="DAD">Đà
+                                                    Nẵng <span class="text-secondary small">Sân bay Quốc tế Đà
+                                                        Nẵng</span> <span
+                                                        class="badge bg-primary ms-2">DAD</span></button>
+                                                <button class="dropdown-item" data-city="Hải Phòng" data-code="HPH">Hải
+                                                    Phòng <span class="text-secondary small">Sân bay Quốc tế Cát
+                                                        Bi</span> <span
+                                                        class="badge bg-primary ms-2">HPH</span></button>
+                                                <button class="dropdown-item" data-city="Thanh Hóa"
+                                                    data-code="THD">Thanh Hóa <span class="text-secondary small">Sân bay
+                                                        Thọ Xuân</span> <span
+                                                        class="badge bg-primary ms-2">THD</span></button>
+                                                <button class="dropdown-item" data-city="Vinh" data-code="VII">Vinh
+                                                    <span class="text-secondary small">Sân bay Vinh</span> <span
+                                                        class="badge bg-primary ms-2">VII</span></button>
                                             </div>
                                         </div>
                                     </div>
@@ -348,9 +399,12 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
-                                    <button type="submit" class="btn w-100" style="background: #2d8c2d; color: #fff; font-weight: bold; font-size: 1.2rem; border-radius: 10px; height: 48px;">Tìm Chuyến Bay</button>
+                                    <button type="submit" class="btn w-100"
+                                        style="background: #2d8c2d; color: #fff; font-weight: bold; font-size: 1.2rem; border-radius: 10px; height: 48px;">Tìm
+                                        Chuyến Bay</button>
                                 </div>
-                                <div class="d-flex align-items-center mt-2" id="discount-row-modal" style="cursor: pointer;">
+                                <div class="d-flex align-items-center mt-2" id="discount-row-modal"
+                                    style="cursor: pointer;">
                                     <i class="fas fa-plus me-2" id="discount-plus-modal"></i>
                                     <span style="color: #6c757d; font-weight: 500;">NHẬP MÃ GIẢM</span>
                                 </div>
@@ -385,7 +439,7 @@
                                 <button type="submit" class="btn btn-success w-100">Tìm Kiếm</button>
                             </form>
                         </div>
-            </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -450,9 +504,9 @@
         });
 
         // Gắn sự kiện cho nút ĐẶT VÉ NGAY trong mega menu
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             var btn = document.querySelector('.mega-menu .btn.btn-primary');
-            if(btn) {
+            if (btn) {
                 btn.setAttribute('data-bs-toggle', 'modal');
                 btn.setAttribute('data-bs-target', '#bookingModal');
             }
@@ -463,17 +517,17 @@
             const toCol = document.getElementById('to-col-modal');
             const swapCol = document.getElementById('swap-col-modal');
             function updateTripTypeModal() {
-                if(oneWay.checked) {
-                    if(returnDate) returnDate.style.display = 'none';
-                    if(toCol) toCol.style.display = 'none';
-                    if(swapCol) swapCol.style.display = 'none';
-                } else if(roundTrip.checked) {
-                    if(returnDate) returnDate.style.display = 'block';
-                    if(toCol) toCol.style.display = 'block';
-                    if(swapCol) swapCol.style.display = 'block';
+                if (oneWay.checked) {
+                    if (returnDate) returnDate.style.display = 'none';
+                    if (toCol) toCol.style.display = 'none';
+                    if (swapCol) swapCol.style.display = 'none';
+                } else if (roundTrip.checked) {
+                    if (returnDate) returnDate.style.display = 'block';
+                    if (toCol) toCol.style.display = 'block';
+                    if (swapCol) swapCol.style.display = 'block';
                 }
             }
-            if(oneWay && roundTrip) {
+            if (oneWay && roundTrip) {
                 oneWay.addEventListener('change', updateTripTypeModal);
                 roundTrip.addEventListener('change', updateTripTypeModal);
                 updateTripTypeModal();
@@ -481,47 +535,47 @@
         });
 
         // Dropdown chọn điểm đi Việt Nam cho modal
-        (function() {
+        (function () {
             const fromInput = document.getElementById('fromInputModal');
             const fromDropdown = document.getElementById('fromDropdownModal');
             const toInput = document.getElementById('toInputModal');
             const toDropdown = document.getElementById('toDropdownModal');
-            if(fromInput && fromDropdown) {
-                fromInput.addEventListener('click', function(e) {
+            if (fromInput && fromDropdown) {
+                fromInput.addEventListener('click', function (e) {
                     fromDropdown.style.display = 'block';
                 });
-                fromDropdown.querySelectorAll('.dropdown-item').forEach(function(item) {
-                    item.addEventListener('click', function() {
+                fromDropdown.querySelectorAll('.dropdown-item').forEach(function (item) {
+                    item.addEventListener('click', function () {
                         fromInput.value = this.getAttribute('data-city') + ' (' + this.getAttribute('data-code') + ')';
                         fromDropdown.style.display = 'none';
                     });
                 });
-                document.addEventListener('click', function(e) {
-                    if(!fromInput.contains(e.target) && !fromDropdown.contains(e.target)) {
+                document.addEventListener('click', function (e) {
+                    if (!fromInput.contains(e.target) && !fromDropdown.contains(e.target)) {
                         fromDropdown.style.display = 'none';
                     }
                 });
             }
-            if(toInput && toDropdown) {
-                toInput.addEventListener('click', function(e) {
+            if (toInput && toDropdown) {
+                toInput.addEventListener('click', function (e) {
                     toDropdown.style.display = 'block';
                 });
-                toDropdown.querySelectorAll('.dropdown-item').forEach(function(item) {
-                    item.addEventListener('click', function() {
+                toDropdown.querySelectorAll('.dropdown-item').forEach(function (item) {
+                    item.addEventListener('click', function () {
                         toInput.value = this.getAttribute('data-city') + ' (' + this.getAttribute('data-code') + ')';
                         toDropdown.style.display = 'none';
                     });
                 });
-                document.addEventListener('click', function(e) {
-                    if(!toInput.contains(e.target) && !toDropdown.contains(e.target)) {
+                document.addEventListener('click', function (e) {
+                    if (!toInput.contains(e.target) && !toDropdown.contains(e.target)) {
                         toDropdown.style.display = 'none';
                     }
                 });
             }
             // Swap chức năng
             const swapBtn = document.getElementById('swapBtnModal');
-            if(swapBtn && fromInput && toInput) {
-                swapBtn.addEventListener('click', function(e) {
+            if (swapBtn && fromInput && toInput) {
+                swapBtn.addEventListener('click', function (e) {
                     e.preventDefault();
                     const tmp = fromInput.value;
                     fromInput.value = toInput.value;
@@ -531,13 +585,13 @@
         })();
 
         // Toggle input mã giảm giá khi bấm dấu cộng
-        (function() {
+        (function () {
             const plus = document.getElementById('discount-plus-modal');
             const input = document.getElementById('discount-input-modal');
             const row = document.getElementById('discount-row-modal');
-            if(plus && input && row) {
-                row.addEventListener('click', function() {
-                    if(input.style.display === 'none') {
+            if (plus && input && row) {
+                row.addEventListener('click', function () {
+                    if (input.style.display === 'none') {
                         input.style.display = 'block';
                         plus.classList.remove('fa-plus');
                         plus.classList.add('fa-minus');
@@ -551,11 +605,11 @@
         })();
 
         // Sự kiện chuyển trang khi chọn Đa chặng
-        (function() {
+        (function () {
             const multicityRadio = document.getElementById('multicityModal');
-            if(multicityRadio) {
-                multicityRadio.addEventListener('change', function() {
-                    if(this.checked) {
+            if (multicityRadio) {
+                multicityRadio.addEventListener('change', function () {
+                    if (this.checked) {
                         window.location.href = '/Multicity';
                     }
                 });
