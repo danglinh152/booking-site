@@ -111,9 +111,35 @@ namespace BookingSite.Controllers
         }
 
         [Route("profile")]
+        [HttpGet("profile")]
         public IActionResult Profile()
         {
-            return View();
+            var userID = HttpContext.Session.GetString("UserID");
+            if (userID == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+            User user = context.Users.Find(int.Parse(userID));
+            return View(user);
+        }
+        [HttpPost("profile")]
+        public IActionResult ProfileEdit(User user)
+        {
+            var userID = HttpContext.Session.GetString("UserID");
+            if (userID == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+            User existingUser = context.Users.Find(int.Parse(userID));
+            if (existingUser != null)
+            {
+                existingUser.FullName = user.FullName;
+                existingUser.Email = user.Email;
+                existingUser.PhoneNumber = user.PhoneNumber;
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("Profile");
         }
 
         [Route("tenpm-club")]

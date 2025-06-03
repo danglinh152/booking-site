@@ -386,9 +386,7 @@
                         const selectedOption = select.options[select.selectedIndex];
                         if (selectedOption && selectedOption.value && selectedOption.dataset.price && selectedOption.value !== "") {
                             services.push({
-                                serviceId: parseInt(selectedOption.value),
-                                serviceType: select.dataset.serviceType,
-                                price: parseInt(selectedOption.dataset.price)
+                                serviceId: parseInt(selectedOption.value)
                             });
                         }
                     });
@@ -401,7 +399,7 @@
 
             sessionStorage.setItem('bookingDetails', JSON.stringify({
                 fareClassId: fareClass.FareClassID,
-                fareClassName: fareClass.ClassName,
+                flightId: flightData.FlightID,
                 totalPrice: totalPrice,
                 passengerCount: passengers.length,
                 passengers: passengers

@@ -3,48 +3,50 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using BookingSite.Models;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.EntityFrameworkCore;
+using BookingSite.ViewModel;
 
 
 namespace BookingSite.Controllers
 {
     public class ProfileController : Controller
     {
+        private readonly FlightBookingContext context;
+
+        // Thêm constructor để inject context
+        public ProfileController(FlightBookingContext context)
+        {
+            this.context = context;
+        }
+
         // ViewModel dùng để binding form đổi mật khẩu
         public class ChangePasswordViewModel
         {
             [Required(ErrorMessage = "Mật khẩu hiện tại là bắt buộc")]
             [DataType(DataType.Password)]
-            public string CurrentPassword { get; set; }
+            public string? CurrentPassword { get; set; }
 
             [Required(ErrorMessage = "Mật khẩu mới là bắt buộc")]
             [MinLength(6, ErrorMessage = "Mật khẩu mới phải từ 6 ký tự trở lên")]
             [DataType(DataType.Password)]
-            public string NewPassword { get; set; }
+            public string? NewPassword { get; set; }
 
             [Required(ErrorMessage = "Xác nhận mật khẩu là bắt buộc")]
             [Compare("NewPassword", ErrorMessage = "Mật khẩu xác nhận không khớp")]
             [DataType(DataType.Password)]
-            public string ConfirmPassword { get; set; }
+            public string? ConfirmPassword { get; set; }
         }
 
-        // DTO cho 1 booking hiển thị lịch sử
-        public class BookingHistoryItem
-        {
-            public string BookingCode { get; set; }
-            public string Route { get; set; }
-            public string FlightDate { get; set; }
-            public string SeatNumbers { get; set; }
-            public string Price { get; set; }
-            public string Status { get; set; }
-        }
 
         // DTO cho checkin
         public class CheckinItem
         {
             public int CheckinID { get; set; }
             public int BookingID { get; set; }
-            public string CheckinTime { get; set; }
-            public string Status { get; set; }
+            public string? CheckinTime { get; set; }
+            public string? Status { get; set; }
         }
 
         // Hardcoded danh sách checkin
@@ -74,18 +76,42 @@ namespace BookingSite.Controllers
             {
                 return View(model);
             }
+            var userID = HttpContext.Session.GetString("UserID");
+            if (userID == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+            User user = context.Users.Find(int.Parse(userID));
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Người dùng không tồn tại");
+                return View(model);
+            }
 
-            // Giả định mật khẩu hiện tại là "abc123"
-            string hardcodedCurrentPassword = "abc123";
+            if (string.IsNullOrEmpty(model.CurrentPassword) || string.IsNullOrEmpty(model.NewPassword))
+            {
+                ModelState.AddModelError("", "Vui lòng nhập đầy đủ mật khẩu hiện tại và mật khẩu mới.");
+                return View(model);
+            }
 
-            if (model.CurrentPassword != hardcodedCurrentPassword)
+            if (HashPassword(model.CurrentPassword) != user.Password)
             {
                 ModelState.AddModelError("CurrentPassword", "Mật khẩu hiện tại không đúng");
                 return View(model);
             }
+            user.Password = HashPassword(model.NewPassword);
+            context.SaveChanges();
 
             TempData["SuccessMessage"] = "Đổi mật khẩu thành công!";
             return RedirectToAction("ChangePasswd");
+        }
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(bytes);
+            }
         }
 
 
@@ -96,33 +122,35 @@ namespace BookingSite.Controllers
         [HttpGet]
         public IActionResult HistoryBooking()
         {
-            var history = new List<BookingHistoryItem>
+            var userIdStr = HttpContext.Session.GetString("UserID");
+            if (string.IsNullOrEmpty(userIdStr))
             {
-                new BookingHistoryItem {
-                    BookingCode = "BK123456",
-                    Route = "Hà Nội → TP. Hồ Chí Minh",
-                    FlightDate = "2025-06-15",
-                    SeatNumbers = "12A, 12B",
-                    Price = "2,500,000 VND",
-                    Status = "Đã xác nhận"
-                },
-                new BookingHistoryItem {
-                    BookingCode = "BK123457",
-                    Route = "Đà Nẵng → Hà Nội",
-                    FlightDate = "2025-07-01",
-                    SeatNumbers = "8C",
-                    Price = "1,200,000 VND",
-                    Status = "Chờ xử lý"
-                },
-                new BookingHistoryItem {
-                    BookingCode = "BK123458",
-                    Route = "TP. Hồ Chí Minh → Nha Trang",
-                    FlightDate = "2025-05-20",
-                    SeatNumbers = "3D, 3E",
-                    Price = "1,800,000 VND",
-                    Status = "Đã hủy"
-                }
-            };
+                return RedirectToAction("Login", "User");
+            }
+            int userId = int.Parse(userIdStr);
+            var bookingList = context.Bookings
+                .Where(b => b.UserID == userId)
+                .OrderByDescending(b => b.BookingDate)
+                .Include(b => b.Flight)
+                    .ThenInclude(f => f.DepartureAirport)
+                .Include(b => b.Flight)
+                    .ThenInclude(f => f.ArrivalAirport)
+                .Include(b => b.Flight)
+                    .ThenInclude(f => f.Plane)
+                .ToList();
+
+            var history = bookingList.Select(b => new BookingHistory
+            {
+                BookingID = b.BookingID,
+                BookingCode = b.BookingCode ?? string.Empty,
+                TotalPrice = b.TotalPrice,
+                BookingDate = b.BookingDate,
+                Status = b.Status ?? string.Empty,
+                FlightCode = b.Flight != null ? b.Flight.FlightID.ToString() : string.Empty,
+                DepartureAirport = (b.Flight != null && b.Flight.DepartureAirport != null) ? b.Flight.DepartureAirport.City : "",
+                ArrivalAirport = (b.Flight != null && b.Flight.ArrivalAirport != null) ? b.Flight.ArrivalAirport.City : "",
+                PlaneModel = (b.Flight != null && b.Flight.Plane != null) ? b.Flight.Plane.Model : ""
+            }).ToList();
 
             return View(history);
         }
@@ -222,5 +250,5 @@ namespace BookingSite.Controllers
 
     }
 
-    
+
 }
