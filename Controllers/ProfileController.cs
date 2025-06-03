@@ -3,39 +3,49 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using BookingSite.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 
 namespace BookingSite.Controllers
 {
     public class ProfileController : Controller
     {
+        private readonly FlightBookingContext context;
+
+        // Thêm constructor để inject context
+        public ProfileController(FlightBookingContext context)
+        {
+            this.context = context;
+        }
+
         // ViewModel dùng để binding form đổi mật khẩu
         public class ChangePasswordViewModel
         {
             [Required(ErrorMessage = "Mật khẩu hiện tại là bắt buộc")]
             [DataType(DataType.Password)]
-            public string CurrentPassword { get; set; }
+            public string? CurrentPassword { get; set; }
 
             [Required(ErrorMessage = "Mật khẩu mới là bắt buộc")]
             [MinLength(6, ErrorMessage = "Mật khẩu mới phải từ 6 ký tự trở lên")]
             [DataType(DataType.Password)]
-            public string NewPassword { get; set; }
+            public string? NewPassword { get; set; }
 
             [Required(ErrorMessage = "Xác nhận mật khẩu là bắt buộc")]
             [Compare("NewPassword", ErrorMessage = "Mật khẩu xác nhận không khớp")]
             [DataType(DataType.Password)]
-            public string ConfirmPassword { get; set; }
+            public string? ConfirmPassword { get; set; }
         }
 
         // DTO cho 1 booking hiển thị lịch sử
         public class BookingHistoryItem
         {
-            public string BookingCode { get; set; }
-            public string Route { get; set; }
-            public string FlightDate { get; set; }
-            public string SeatNumbers { get; set; }
-            public string Price { get; set; }
-            public string Status { get; set; }
+            public string? BookingCode { get; set; }
+            public string? Route { get; set; }
+            public string? FlightDate { get; set; }
+            public string? SeatNumbers { get; set; }
+            public string? Price { get; set; }
+            public string? Status { get; set; }
         }
 
         // DTO cho checkin
@@ -43,8 +53,8 @@ namespace BookingSite.Controllers
         {
             public int CheckinID { get; set; }
             public int BookingID { get; set; }
-            public string CheckinTime { get; set; }
-            public string Status { get; set; }
+            public string? CheckinTime { get; set; }
+            public string? Status { get; set; }
         }
 
         // Hardcoded danh sách checkin
@@ -74,18 +84,42 @@ namespace BookingSite.Controllers
             {
                 return View(model);
             }
+            var userID = HttpContext.Session.GetString("UserID");
+            if (userID == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+            User user = context.Users.Find(int.Parse(userID));
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Người dùng không tồn tại");
+                return View(model);
+            }
 
-            // Giả định mật khẩu hiện tại là "abc123"
-            string hardcodedCurrentPassword = "abc123";
+            if (string.IsNullOrEmpty(model.CurrentPassword) || string.IsNullOrEmpty(model.NewPassword))
+            {
+                ModelState.AddModelError("", "Vui lòng nhập đầy đủ mật khẩu hiện tại và mật khẩu mới.");
+                return View(model);
+            }
 
-            if (model.CurrentPassword != hardcodedCurrentPassword)
+            if (HashPassword(model.CurrentPassword) != user.Password)
             {
                 ModelState.AddModelError("CurrentPassword", "Mật khẩu hiện tại không đúng");
                 return View(model);
             }
+            user.Password = HashPassword(model.NewPassword);
+            context.SaveChanges();
 
             TempData["SuccessMessage"] = "Đổi mật khẩu thành công!";
             return RedirectToAction("ChangePasswd");
+        }
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(bytes);
+            }
         }
 
 
@@ -222,5 +256,5 @@ namespace BookingSite.Controllers
 
     }
 
-    
+
 }
