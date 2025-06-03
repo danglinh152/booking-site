@@ -49,31 +49,13 @@
                     <li class="nav-item">
                         <a class="nav-link" onclick="switchTab('tab-lamthutuc', this)">🛄 Làm Thủ Tục</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="switchTab('tab-datcho', this)">📅 Đặt Chỗ Của Tôi</a>
-                    </li>
                 </ul>
 
                 <!-- Nội dung form -->
                 <div class="tab-content booking-box">
                     <!-- Nội dung form Đặt Vé -->
                     <div class="tab-pane fade show active" id="tab-datve">
-                        <a class="btn btn-primary m-2" onclick="handleNotLogin()">Bằng Tiền</a>
-                        <a class="btn btn-secondary m-2" onclick="handleLogin()">Bằng Tiền & Điểm</a>
                         <div class="booking-box p-4 mt-3" id="bookingBox">
-                            <div class="radio-group mb-3">
-                                <div class="d-flex justify-content-center gap-4">
-                                    <label class="radio-label">
-                                        <input type="radio" name="tripType" id="oneWay" checked> Một chiều
-                                    </label>
-                                    <label class="radio-label">
-                                        <input type="radio" name="tripType" id="roundTrip"> Khứ hồi
-                                    </label>
-                                    <label class="radio-label">
-                                        <input type="radio" name="tripType" id="multicity"> Đa chặng
-                                    </label>
-                                </div>
-                            </div>
                             <form method="post" asp-action="Search" asp-controller="Home">
                             <div class="row g-3">
                                 <input type="text" id="searchType" asp-for="SearchType" hidden>
@@ -160,11 +142,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
-                                    <label class="form-label">Mã giảm giá</label>
-                                    <input type="text" class="form-control same-size"
-                                        placeholder="Nhập mã giảm giá của bạn">
-                                </div>
                                 <!-- Nút tìm chuyến bay -->
                                 <div class="col-md-4 align-self-end">
                                     <!-- Các input -->
@@ -175,12 +152,6 @@
                                 </form>
                             </div>
 
-                            <div class="form-check form-switch mt-3">
-                                <input class="form-check-input" type="checkbox" id="bambooClub">
-                                <label class="form-check-label" for="bambooClub">
-                                    Dùng tài khoản TenPM Club để đặt vé
-                                </label>
-                            </div>
                         </div>
                     </div>
 
@@ -190,38 +161,15 @@
                             bay
                             khởi
                             hành</h5>
-                        <p class="text-info">Vui lòng nhập đúng họ như trên vé của bạn</p>
-
-                        <p class="text-secondary">
-                            Làm thủ tục trực tuyến chỉ áp dụng cho (i) Các chuyến bay nội địa khởi hành từ Hà Nội (HAN),
-                            Đà
-                            Nẵng
-                            (DAD), TP Hồ Chí Minh (SGN),
-                            Nha Trang (CXR), Quy Nhơn (UIH); (ii) Các chuyến bay quốc tế TP. Hồ Chí Minh (SGN) - Bangkok
-                            (DMK).
-                        </p>
-
-                        <a href="#" class="text-success">Xem chi tiết các trường hợp không áp dụng</a>
 
                         <div id="checkin-form">
-                            <form class="mt-3">
+                            <div class="mt-3">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <label id="label-input" for="checkin-input" class="form-label">MÃ ĐẶT
-                                            CHỖ</label>
-                                        <input type="text" class="form-control" id="checkin-input"
-                                            placeholder="Nhập thông tin" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="last-name" class="form-label">HỌ</label>
-                                        <input type="text" class="form-control" id="last-name" placeholder="NGUYEN"
-                                            required>
-                                    </div>
                                     <div class="col-md-4 align-self-end">
-                                        <button type="submit" class="btn-cuatao w-100">Làm Thủ Tục</button>
+                                        <a href="profile/checkins" type="submit" class="btn-cuatao w-100">Làm Thủ Tục</a>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
 
