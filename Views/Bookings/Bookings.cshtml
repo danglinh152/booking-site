@@ -9,10 +9,6 @@
                 <div class="card">
                     <div class="card-header table-card-header d-flex justify-content-between" style="height: 100px;">
                         <h2>Bookings Management</h2>
-                        <a class="btn btn-primary btn-lg d-flex align-items-center" style="font-size: 16px;"
-                            href="/admin/bookings/create">
-                            <i class="bi bi-plus-circle me-2"></i> Create New Booking
-                        </a>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
@@ -25,30 +21,20 @@
                                         <th>Total Price</th>
                                         <th>Booking Date</th>
                                         <th>Status</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>101</td>
-                                        <td>BK123456</td>
-                                        <td>2,500,000 VNĐ</td>
-                                        <td>2025-06-01</td>
-                                        <td>Đã thanh toán</td>
-                                        <td>
-                                            <button class="btn btn-secondary" onclick="showDetails(1)">
-                                                <i class="fa-solid fa-eye"></i>
-                                            </button>
-                                            <a href="/admin/bookings/edit/1" class="btn btn-warning">Edit</a>
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#deleteBookingModal"
-                                                data-id="1" data-user-id="101" data-code="BK123456">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <!-- Thêm dòng khác nếu cần -->
+                                    @foreach (var booking in Model)
+                                    {
+                                        <tr>
+                                            <td>@booking.BookingID</td>
+                                            <td>@booking.UserID</td>
+                                            <td>@booking.BookingCode</td>
+                                            <td>@booking.TotalPrice</td>
+                                            <td>@booking.BookingDate.ToString("dd/MM/yyyy")</td>
+                                            <td>@booking.Status</td>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>
@@ -59,82 +45,12 @@
     </div>
 </div>
 
-<!-- Delete Confirmation Modal -->
-<div class="modal fade" id="deleteBookingModal" tabindex="-1" aria-labelledby="deleteBookingModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteBookingModalLabel">Confirm Booking Deletion</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete booking 
-                <strong>ID: <span id="deleteBookingId"></span></strong> 
-                (Code: <span id="deleteBookingCode"></span>, User ID: <span id="deleteUserId"></span>)?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger" id="confirmBookingDelete">Confirm Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Booking Details Modal -->
-<div class="modal fade" id="bookingDetailsModal" tabindex="-1" aria-labelledby="bookingDetailsModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="bookingDetailsModalLabel">Booking Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div id="bookingDetailsContent"></div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
 
 <script>
-    // Delete Booking Modal Logic
-    const deleteBookingModal = document.getElementById('deleteBookingModal');
-    deleteBookingModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        const bookingId = button.getAttribute('data-id');
-        const userId = button.getAttribute('data-user-id');
-        const code = button.getAttribute('data-code');
-
-        document.getElementById('deleteBookingId').textContent = bookingId;
-        document.getElementById('deleteUserId').textContent = userId;
-        document.getElementById('deleteBookingCode').textContent = code;
-
-        document.getElementById('confirmBookingDelete').onclick = function () {
-            window.location.href = `/admin/bookings/delete/${bookingId}`;
-        };
+    $(document).ready(function () {
+        $('#basic-btn').DataTable();
     });
-
-    // Show Booking Details Logic
-    function showDetails(bookingId) {
-        // Sample data for demonstration
-        const bookings = {
-            1: `
-                <strong>Booking ID:</strong> 1<br>
-                <strong>User ID:</strong> 101<br>
-                <strong>Booking Code:</strong> BK123456<br>
-                <strong>Total Price:</strong> 2,500,000 VNĐ<br>
-                <strong>Booking Date:</strong> 2025-06-01<br>
-                <strong>Status:</strong> Đã thanh toán
-            `
-        };
-
-        document.getElementById('bookingDetailsContent').innerHTML = bookings[bookingId];
-
-        const modal = new bootstrap.Modal(document.getElementById('bookingDetailsModal'));
-        modal.show();
-    }
 </script>

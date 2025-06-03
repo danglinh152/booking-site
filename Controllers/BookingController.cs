@@ -1,52 +1,47 @@
 using Microsoft.AspNetCore.Mvc;
-using BookingSite.Models; // Ensure this points to the correct location of your Booking model
-
+using BookingSite.Models; // Ensure this points to the correct location of your Checkin model
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 namespace BookingSite.Controllers
 {
-    [Route("admin/[controller]")]
+    [AuthorizeRole("Admin")]
+    [Route("admin/bookings")]
     public class BookingsController : Controller
     {
+    
+        private readonly FlightBookingContext context;
+
+        public BookingsController(FlightBookingContext context)
+        {
+            this.context = context;
+        }
+
         // GET: admin/bookings
         [HttpGet]
-        public IActionResult Bookings()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var bookings = await context.Bookings
+                .Include(b => b.BookingDetails) // Bao gồm chi tiết booking nếu cần
+                .Select(b => new
+                {
+                    BookingID = b.BookingID,
+                    UserID = b.UserID,
+                    BookingCode = b.BookingCode,
+                    TotalPrice = b.TotalPrice,
+                    BookingDate = b.BookingDate,
+                    Status = b.Status
+                })
+                .ToListAsync();
+
+            return View("Bookings", bookings);
         }
 
-        /* ==============================================================================================*/
         // GET: admin/bookings/create
         [HttpGet("create")]
-        public IActionResult CreateBooking()
+        public IActionResult Create()
         {
             return View();
         }
 
-        /* ==============================================================================================*/
-
-
-        /* ==============================================================================================*/
-        // GET: admin/bookings/edit/1
-        [HttpGet("edit/{id}")]
-        public IActionResult EditBooking(int id)
-        {
-            // Logic to get booking details by id
-            var booking = GetBookingById(id); // Replace with your actual data retrieval logic
-
-            if (booking == null)
-            {
-                return NotFound(); // Return a 404 if not found
-            }
-            return View(booking);
-        }
-
-        private Booking GetBookingById(int id)
-        {
-            // Replace with your actual data source
-            return new Booking
-            {
-
-            };
-        }
-        /* ==============================================================================================*/
     }
 }
