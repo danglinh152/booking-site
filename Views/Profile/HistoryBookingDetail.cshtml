@@ -1,10 +1,9 @@
-@model IEnumerable<BookingSite.Models.BookingDetail>
-
+@using BookingSite.Models;
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Chi tiết đặt vé";
-    var first = Model.FirstOrDefault();
 }
+@model Booking
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -12,65 +11,132 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TenPM - Check-in vé máy bay</title>
+    <title>TenPM - Chi tiết đặt vé máy bay</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 </head>
-<div class="container mt-5">
-    <div class="card shadow p-4">
-        <h2 class="text-center mb-4 text-primary">Chi tiết đặt vé</h2>
 
-        @if (first != null)
-        {
+<body>
+    <div class="container mt-5">
+        <div class="card shadow p-4">
+            <h2 class="text-center mb-4 text-primary">Chi tiết đặt vé</h2>
             <table class="table table-bordered mb-4">
-                <tr><th>Mã đặt vé</th><td>@first.Booking.BookingCode</td></tr>
-                <tr><th>Ngày đặt</th><td>@first.Booking.BookingDate.ToString("dd/MM/yyyy")</td></tr>
-                <tr><th>Trạng thái</th><td>@first.Booking.Status</td></tr>
-            </table>
-        }
-
-        <h5>Thông tin hành khách:</h5>
-        <table class="table table-striped">
-            <thead>
                 <tr>
-                    <th>Họ tên</th>
-                    <th>Số ghế</th>
-                    <th>Hành trình</th>
-                    <th>Ngày bay</th>
-                    <th>Giá vé</th>
-                    <th>Dịch vụ</th>
+                    <th>Mã đặt vé</th>
+                    <td>@Model.BookingCode</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var detail in Model)
-                {
+                <tr>
+                    <th>Ngày đặt</th>
+                    <td>@Model.BookingDate.ToString("dd/MM/yyyy")</td>
+                </tr>
+                <tr>
+                    <th>Trạng thái</th>
+                    <td>@(Model.Status == "Paid" ? "Đã thanh toán (Chưa check in)" : "Đã checkin")</td>
+                </tr>
+                <tr>
+                    <th>Hành trình</th>
+                    <td>
+                        @Model.Flight?.DepartureAirport?.City
+                        →
+                        @Model.Flight?.ArrivalAirport?.City
+                    </td>
+                </tr>
+                <tr>
+                    <th>Ngày bay</th>
+                    <td>@Model.Flight?.FlightDate.ToString("dd/MM/yyyy")</td>
+                </tr>
+                <tr>
+                    <th>Giờ bay</th>
+                    <td>
+                        @Model.Flight?.DepartureTime.ToString(@"hh\:mm")
+                        -
+                        @Model.Flight?.ArrivalTime.ToString(@"hh\:mm")
+                    </td>
+                </tr>
+                <tr>
+                    <th>Máy bay</th>
+                    <td>@Model.Flight?.Plane?.Model</td>
+                </tr>
+            </table>
+            <h5 class="mb-3">Thông tin hành khách:</h5>
+            <table class="table table-striped">
+                <thead class="table-light">
                     <tr>
-                        <td>@detail.Passenger.FullName</td>
-                        <td>@detail.Passenger.SeatNumber</td>
-                        <td>@(detail.FareClass != null ? "Saigon - Hanoi" : "-")</td>
-                        <td>@(detail.FareClass != null ? ("15-02-2004") : "-")</td>
-                        <td>@(detail.FareClass != null ? string.Format("{0:N0} VND", detail.FareClass.Price) : "-")</td>
-                        <td>
-                            @if (detail.BookingServices != null && detail.BookingServices.Any())
-                            {
-                                <ul class="mb-0">
-                                    @foreach (var service in detail.BookingServices)
-                                    {
-                                        <li>"Dich vu"</li>
-                                    }
-                                </ul>
-                            }
-                            else
-                            {
-                                <span>Không có</span>
-                            }
-                        </td>
+                        <th>Họ tên</th>
+                        <th>Số CCCD</th>
+                        <th>Ngày sinh</th>
+                        <th>Số điện thoại</th>
+                        <th>Số ghế</th>
+                        <th>Hạng ghế</th>
+                        <th>Giá vé</th>
+                        <th>Dịch vụ</th>
                     </tr>
-                }
-            </tbody>
-        </table>
-
-        <div class="text-center mt-3">
-            <a href="/profile/history-booking" class="btn btn-outline-secondary">← Quay lại</a>
+                </thead>
+                <tbody>
+                    @if (Model.BookingDetails != null && Model.BookingDetails.Any())
+                    {
+                        foreach (var detail in Model.BookingDetails)
+                        {
+                            <tr>
+                                <td>@detail.Passenger?.FullName</td>
+                                <td>@detail.Passenger?.IdentityNumber</td>
+                                <td>
+                                    @if (detail.Passenger?.DateOfBirth != null)
+                                    {
+                                        @(detail.Passenger.DateOfBirth.ToString("dd/MM/yyyy"))
+                                    }
+                                    else
+                                    {
+                                        <span>-</span>
+                                    }
+                                </td>
+                                <td>@detail.Passenger?.PhoneNumber</td>
+                                <td>@detail.Passenger?.SeatNumber</td>
+                                <td>@detail.FareClass?.ClassName</td>
+                                <td>
+                                    @(detail.FareClass != null ? string.Format("{0:N0} VND", detail.FareClass.Price) : "-")
+                                </td>
+                                <td>
+                                    @if (detail.BookingServices != null && detail.BookingServices.Any())
+                                    {
+                                        <ul class="mb-0 ps-3">
+                                            @foreach (var service in detail.BookingServices)
+                                            {
+                                                <li>@service.Service?.ServiceName</li>
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <span>Không có</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="8" class="text-center">Không có dữ liệu hành khách.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="text-center mt-3">
+                <a href="/profile/history-booking" class="btn btn-outline-secondary">← Quay lại</a>
+            </div>
         </div>
     </div>
-</div>
+</body>
+
+</html>
+
+
+
+
+ 
+
+    </td>
+}
+
+            
+                                            

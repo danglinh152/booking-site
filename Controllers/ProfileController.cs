@@ -200,51 +200,27 @@ namespace BookingSite.Controllers
         [HttpGet]
         public IActionResult HistoryBookingDetail(string bookingCode)
         {
-            var booking = new Booking
+            if (string.IsNullOrEmpty(bookingCode))
             {
-                BookingID = 1,
-                BookingCode = bookingCode,
-                BookingDate = DateTime.Parse("2025-06-01"),
-                Status = "Đã xác nhận"
-            };
+                return NotFound("Booking code không hợp lệ.");
+            }
+            Booking booking = context.Bookings
+                .Include(b => b.Flight)
+                    .ThenInclude(f => f.DepartureAirport)
+                .Include(b => b.Flight)
+                    .ThenInclude(f => f.ArrivalAirport)
+                .Include(b => b.Flight)
+                    .ThenInclude(f => f.Plane)
+                .Include(b => b.BookingDetails)
+                    .ThenInclude(bd => bd.Passenger)
+                .Include(b => b.BookingDetails)
+                    .ThenInclude(bd => bd.FareClass)
+                .Include(b => b.BookingDetails)
+                    .ThenInclude(bd => bd.BookingServices)
+                        .ThenInclude(bs => bs.Service)
+                .FirstOrDefault(b => b.BookingCode == bookingCode);
 
-            var bookingDetails = new List<BookingDetail>
-            {
-                new BookingDetail
-                {
-                    BookingDetailID = 1,
-                    BookingID = booking.BookingID,
-                    FareClassID = 0, // Không có dữ liệu
-                    PassengerID = 1,
-                    Booking = booking,
-                    FareClass = null, // Bỏ trống
-                    Passenger = new Passenger
-                    {
-                        PassengerID = 1,
-                        FullName = "Nguyễn Văn A",
-                        SeatNumber = "12A"
-                    },
-                    BookingServices = null // Bỏ trống
-                },
-                new BookingDetail
-                {
-                    BookingDetailID = 2,
-                    BookingID = booking.BookingID,
-                    FareClassID = 0,
-                    PassengerID = 2,
-                    Booking = booking,
-                    FareClass = null,
-                    Passenger = new Passenger
-                    {
-                        PassengerID = 2,
-                        FullName = "Trần Thị B",
-                        SeatNumber = "12B"
-                    },
-                    BookingServices = null
-                }
-            };
-
-            return View("HistoryBookingDetail", bookingDetails);
+            return View("HistoryBookingDetail", booking);
         }
 
 
