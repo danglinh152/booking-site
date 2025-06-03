@@ -41,7 +41,8 @@ namespace BookingSite.Controllers
             .Where(f => f.FlightDate >= minDate
             && f.FlightDate <= maxDate
             && f.ArrivalAirportID == model.ArrivalID
-            && f.DepartureAirportID == model.DepartureID)
+            && f.DepartureAirportID == model.DepartureID
+            && f.Status == "Scheduled")
             .Include(f => f.FareClasses)
             .Include(f => f.DepartureAirport)
             .Include(f => f.ArrivalAirport)
