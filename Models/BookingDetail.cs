@@ -20,8 +20,8 @@ namespace BookingSite.Models
 
     // Navigation properties
     public Booking Booking { get; set; }
-    public FareClass FareClass { get; set; }
+    public FareClass? FareClass { get; set; }
     public Passenger Passenger { get; set; }
-    public ICollection<BookingService> BookingServices { get; set; }
+    public ICollection<BookingService>? BookingServices { get; set; }
   }
 }

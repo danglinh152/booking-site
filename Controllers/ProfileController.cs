@@ -5,6 +5,8 @@ using System.Linq;
 using BookingSite.Models;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
+using BookingSite.ViewModel;
 
 
 namespace BookingSite.Controllers
@@ -37,16 +39,6 @@ namespace BookingSite.Controllers
             public string? ConfirmPassword { get; set; }
         }
 
-        // DTO cho 1 booking hiển thị lịch sử
-        public class BookingHistoryItem
-        {
-            public string? BookingCode { get; set; }
-            public string? Route { get; set; }
-            public string? FlightDate { get; set; }
-            public string? SeatNumbers { get; set; }
-            public string? Price { get; set; }
-            public string? Status { get; set; }
-        }
 
         // DTO cho checkin
         public class CheckinItem
@@ -130,33 +122,35 @@ namespace BookingSite.Controllers
         [HttpGet]
         public IActionResult HistoryBooking()
         {
-            var history = new List<BookingHistoryItem>
+            var userIdStr = HttpContext.Session.GetString("UserID");
+            if (string.IsNullOrEmpty(userIdStr))
             {
-                new BookingHistoryItem {
-                    BookingCode = "BK123456",
-                    Route = "Hà Nội → TP. Hồ Chí Minh",
-                    FlightDate = "2025-06-15",
-                    SeatNumbers = "12A, 12B",
-                    Price = "2,500,000 VND",
-                    Status = "Đã xác nhận"
-                },
-                new BookingHistoryItem {
-                    BookingCode = "BK123457",
-                    Route = "Đà Nẵng → Hà Nội",
-                    FlightDate = "2025-07-01",
-                    SeatNumbers = "8C",
-                    Price = "1,200,000 VND",
-                    Status = "Chờ xử lý"
-                },
-                new BookingHistoryItem {
-                    BookingCode = "BK123458",
-                    Route = "TP. Hồ Chí Minh → Nha Trang",
-                    FlightDate = "2025-05-20",
-                    SeatNumbers = "3D, 3E",
-                    Price = "1,800,000 VND",
-                    Status = "Đã hủy"
-                }
-            };
+                return RedirectToAction("Login", "User");
+            }
+            int userId = int.Parse(userIdStr);
+            var bookingList = context.Bookings
+                .Where(b => b.UserID == userId)
+                .OrderByDescending(b => b.BookingDate)
+                .Include(b => b.Flight)
+                    .ThenInclude(f => f.DepartureAirport)
+                .Include(b => b.Flight)
+                    .ThenInclude(f => f.ArrivalAirport)
+                .Include(b => b.Flight)
+                    .ThenInclude(f => f.Plane)
+                .ToList();
+
+            var history = bookingList.Select(b => new BookingHistory
+            {
+                BookingID = b.BookingID,
+                BookingCode = b.BookingCode ?? string.Empty,
+                TotalPrice = b.TotalPrice,
+                BookingDate = b.BookingDate,
+                Status = b.Status ?? string.Empty,
+                FlightCode = b.Flight != null ? b.Flight.FlightID.ToString() : string.Empty,
+                DepartureAirport = (b.Flight != null && b.Flight.DepartureAirport != null) ? b.Flight.DepartureAirport.City : "",
+                ArrivalAirport = (b.Flight != null && b.Flight.ArrivalAirport != null) ? b.Flight.ArrivalAirport.City : "",
+                PlaneModel = (b.Flight != null && b.Flight.Plane != null) ? b.Flight.Plane.Model : ""
+            }).ToList();
 
             return View(history);
         }

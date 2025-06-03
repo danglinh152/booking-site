@@ -203,6 +203,7 @@ namespace BookingSite.Controllers
                 var booking = new Booking
                 {
                     BookingCode = bookingCode,
+                    FlightID = model.FlightId,
                     TotalPrice = decimal.TryParse(model.TotalPrice, out var total) ? total : 0,
                     BookingDate = DateTime.Now,
                     Status = "Paid",

@@ -31,9 +31,7 @@ namespace BookingSite.Models
         [ForeignKey("PlaneID")]
         [ValidateNever]
         public Plane Plane { get; set; }
-        [ValidateNever]
-        public ICollection<Booking> Bookings { get; set; }
-        [ValidateNever]
         public ICollection<FareClass> FareClasses { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
     }
 }

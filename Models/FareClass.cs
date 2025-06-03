@@ -19,8 +19,8 @@ namespace BookingSite.Models
         [Required]
         public int SeatsAvailable { get; set; }
 
-        // One-to-one relationship
-        public BookingDetail BookingDetail { get; set; }
+        // Một FareClass có nhiều BookingDetail
+        public ICollection<BookingDetail>? BookingDetails { get; set; }
 
         public Flight Flight { get; set; }
         public ICollection<Booking> Bookings { get; set; }

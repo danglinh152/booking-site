@@ -21,6 +21,12 @@ public class FlightBookingContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.Entity<Booking>()
+         .HasOne(b => b.Flight)
+         .WithMany(f => f.Bookings)
+         .HasForeignKey(b => b.FlightID)
+         .OnDelete(DeleteBehavior.Restrict);
+
         // BookingDetail → Booking (many-to-one)
         modelBuilder.Entity<BookingDetail>()
             .HasOne(b => b.Booking)
@@ -35,11 +41,11 @@ public class FlightBookingContext : DbContext
             .HasForeignKey<BookingDetail>(bd => bd.PassengerID)
             .OnDelete(DeleteBehavior.Cascade);
 
-        //  BookingDetail → FareClass (one-to-one)
+        //  BookingDetail → FareClass (many-to-one)
         modelBuilder.Entity<BookingDetail>()
             .HasOne(bd => bd.FareClass)
-            .WithOne(p => p.BookingDetail)
-            .HasForeignKey<BookingDetail>(bd => bd.FareClassID)
+            .WithMany(fc => fc.BookingDetails)
+            .HasForeignKey(bd => bd.FareClassID)
             .OnDelete(DeleteBehavior.Restrict);
 
 
