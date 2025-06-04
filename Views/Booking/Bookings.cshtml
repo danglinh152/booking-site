@@ -21,7 +21,6 @@
                                         <th>Total Price</th>
                                         <th>Booking Date</th>
                                         <th>Status</th>
-                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -32,7 +31,8 @@
                                             <td>@booking.UserID</td>
                                             <td>@booking.BookingCode</td>
                                             <td>@booking.TotalPrice</td>
-                                            <td>@booking.BookingDate.ToString("dd/MM/yyyy")</td>                                            <td class="status-cell" data-booking-id="@booking.BookingID">
+                                            <td>@booking.BookingDate.ToString("dd/MM/yyyy")</td>
+                                            <td class="status-cell" data-booking-id="@booking.BookingID">
                                                 <span class="current-status">@booking.Status</span>
                                                 <select class="form-select status-select d-none">
                                                     <option value="Pending">Pending</option>
@@ -41,10 +41,6 @@
                                                     <option value="Cancelled">Cancelled</option>
                                                     <option value="Refunded">Refunded</option>
                                                 </select>
-                                            </td>
-                                            <td>
-                                                <a href="/admin/bookings/edit/@booking.BookingID"
-                                                    class="btn btn-warning">Edit</a>
                                             </td>
                                         </tr>
                                     }
@@ -67,13 +63,13 @@
         $('#basic-btn').DataTable();
 
         // Handle click on status cell
-        $('.status-cell').on('click', function() {
+        $('.status-cell').on('click', function () {
             const currentStatus = $(this).find('.current-status').text();
             const select = $(this).find('.status-select');
-            
+
             // Set current value in dropdown
             select.val(currentStatus);
-            
+
             // Show dropdown, hide text
             $(this).find('.current-status').addClass('d-none');
             select.removeClass('d-none');
@@ -81,7 +77,7 @@
         });
 
         // Handle status change
-        $('.status-select').on('change', function() {
+        $('.status-select').on('change', function () {
             const cell = $(this).closest('.status-cell');
             const bookingId = cell.data('booking-id');
             const newStatus = $(this).val();
@@ -92,11 +88,11 @@
             $.ajax({
                 url: '/admin/bookings/update-status',
                 type: 'POST',
-                contentType: 'application/json',                data: JSON.stringify({
+                contentType: 'application/json', data: JSON.stringify({
                     bookingID: bookingId,
                     status: newStatus
                 }),
-                success: function(response) {
+                success: function (response) {
                     if (response.success) {
                         // Update UI
                         currentStatusSpan.text(newStatus);
@@ -105,10 +101,10 @@
                         toastr.error(response.message || 'Failed to update status');
                     }
                 },
-                error: function() {
+                error: function () {
                     toastr.error('Failed to update status');
                 },
-                complete: function() {
+                complete: function () {
                     // Hide dropdown, show text
                     select.addClass('d-none');
                     currentStatusSpan.removeClass('d-none');
@@ -117,7 +113,7 @@
         });
 
         // Handle click outside
-        $(document).on('click', function(e) {
+        $(document).on('click', function (e) {
             if (!$(e.target).closest('.status-cell').length) {
                 $('.status-select').addClass('d-none');
                 $('.current-status').removeClass('d-none');
@@ -130,6 +126,7 @@
     .status-cell {
         cursor: pointer;
     }
+
     .status-select {
         width: 100%;
     }
