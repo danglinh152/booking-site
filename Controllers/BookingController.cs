@@ -1,17 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
-using BookingSite.Models; // Ensure this points to the correct location of your Checkin model
+using BookingSite.Models;
+using BookingSite.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System;
 namespace BookingSite.Controllers
 {
     [AuthorizeRole("Admin")]
     [Route("admin/bookings")]
-    public class BookingsController : Controller
+    public class BookingController : Controller
     {
-    
+
         private readonly FlightBookingContext context;
 
-        public BookingsController(FlightBookingContext context)
+        public BookingController(FlightBookingContext context)
         {
             this.context = context;
         }
@@ -43,5 +45,27 @@ namespace BookingSite.Controllers
             return View();
         }
 
+        // POST: admin/bookings/update-status
+        [HttpPost("update-status")]
+        public async Task<IActionResult> UpdateStatus([FromBody] BookingUpdateViewModel model)
+        {
+            try
+            {
+                var booking = await context.Bookings.FindAsync(model.BookingID);
+                if (booking == null)
+                {
+                    return NotFound(new { success = false, message = "Booking not found" });
+                }
+
+                booking.Status = model.Status;
+                await context.SaveChangesAsync();
+
+                return Json(new { success = true, message = "Status updated successfully" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+        }
     }
 }
